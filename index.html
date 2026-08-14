@@ -1,11 +1,490 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <title>我的个人主页</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>时间 · 流逝</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <style>
+        /* ===== 全局重置 ===== */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* ===== 页面主体 ===== */
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            background: radial-gradient(ellipse at 50% 40%, #14141f 0%, #08080e 100%);
+            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            position: relative;
+        }
+
+        /* ===== Canvas ===== */
+        #riverCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ===== 文字层 ===== */
+        .content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 2rem;
+            text-align: center;
+            /* 让文字与canvas河流错开，视觉上更舒适 */
+            margin-bottom: 3vh;
+        }
+
+        /* ===== 时间显示 ===== */
+        .time-display {
+            font-family: 'Space Mono', 'Cormorant Garamond', monospace;
+            font-weight: 700;
+            font-size: clamp(4rem, 16vw, 10rem);
+            letter-spacing: 0.06em;
+            color: #f2ede4;
+            text-shadow:
+                0 0 30px rgba(210, 180, 150, 0.15),
+                0 0 80px rgba(210, 180, 150, 0.06);
+            line-height: 1.1;
+            transition: color 0.8s ease;
+            position: relative;
+        }
+
+        /* 冒号闪烁 */
+        .time-display .colon {
+            display: inline-block;
+            animation: blink 1.2s steps(1) infinite;
+            font-weight: 300;
+            opacity: 0.7;
+            margin: 0 0.02em;
+        }
+        .time-display .colon-off {
+            opacity: 0.2;
+        }
+        @keyframes blink {
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+            50% {
+                opacity: 0.15;
+            }
+        }
+
+        /* 秒数微妙的弱化 */
+        .time-display .seconds {
+            font-weight: 400;
+            opacity: 0.7;
+            font-size: 0.7em;
+            letter-spacing: 0.02em;
+        }
+
+        /* ===== 日期 ===== */
+        .date-display {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-size: clamp(1rem, 2.2vw, 1.6rem);
+            letter-spacing: 0.3em;
+            color: rgba(210, 195, 175, 0.55);
+            margin-top: 0.4rem;
+            text-transform: uppercase;
+            font-style: italic;
+            text-shadow: 0 0 20px rgba(180, 160, 140, 0.08);
+        }
+
+        /* ===== 格言 ===== */
+        .motto {
+            position: fixed;
+            bottom: 2.8rem;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 300;
+            font-style: italic;
+            font-size: clamp(0.9rem, 1.6vw, 1.3rem);
+            letter-spacing: 0.25em;
+            color: rgba(180, 165, 150, 0.25);
+            text-shadow: 0 0 30px rgba(140, 120, 100, 0.05);
+            padding: 0 1.5rem;
+            pointer-events: none;
+            transition: opacity 2s ease;
+        }
+
+        /* ===== 响应式调整 ===== */
+        @media (max-width: 600px) {
+            .content {
+                margin-bottom: 2vh;
+            }
+            .time-display {
+                font-size: clamp(3.2rem, 18vw, 5.5rem);
+                letter-spacing: 0.04em;
+            }
+            .date-display {
+                font-size: clamp(0.8rem, 2.5vw, 1.1rem);
+                letter-spacing: 0.2em;
+                margin-top: 0.2rem;
+            }
+            .motto {
+                bottom: 1.8rem;
+                font-size: clamp(0.7rem, 2vw, 0.95rem);
+                letter-spacing: 0.2em;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .time-display {
+                font-size: clamp(2.6rem, 15vw, 4rem);
+            }
+            .motto {
+                bottom: 1.2rem;
+                font-size: 0.65rem;
+            }
+        }
+
+        /* ===== 加载淡入 ===== */
+        body {
+            opacity: 0;
+            animation: fadeIn 1.8s ease forwards;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ===== 小屏设备减少粒子性能开销 ===== */
+        @media (max-width: 480px) {
+            #riverCanvas {
+                opacity: 0.8;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>你好，世界！</h1>
-    <p>这是我用 GitHub Pages 搭建的个人主页。</p>
+
+    <!-- ===== Canvas 粒子河流 ===== -->
+    <canvas id="riverCanvas"></canvas>
+
+    <!-- ===== 文字内容 ===== -->
+    <div class="content">
+        <div class="time-display" id="timeDisplay">
+            <span id="hours">00</span>
+            <span class="colon" id="colon1">:</span>
+            <span id="minutes">00</span>
+            <span class="colon" id="colon2">:</span>
+            <span class="seconds" id="seconds">00</span>
+        </div>
+        <div class="date-display" id="dateDisplay">—— —— ——</div>
+    </div>
+
+    <div class="motto">· 逝 者 如 斯 夫 ·</div>
+
+    <!-- ============================================================ -->
+    <script>
+        (function() {
+            'use strict';
+
+            // -------- 获取元素 --------
+            const canvas = document.getElementById('riverCanvas');
+            const ctx = canvas.getContext('2d');
+
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('seconds');
+            const dateEl = document.getElementById('dateDisplay');
+            const colon1 = document.getElementById('colon1');
+            const colon2 = document.getElementById('colon2');
+
+            // -------- Canvas 尺寸 --------
+            let W, H;
+
+            function resizeCanvas() {
+                W = canvas.width = window.innerWidth;
+                H = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', () => {
+                resizeCanvas();
+                // 重新分配粒子位置
+                initParticles();
+            });
+            resizeCanvas();
+
+            // -------- 粒子参数 --------
+            const PARTICLE_COUNT = 180;
+            // 河流垂直范围：从 45% 到 75% 高度 (中心在 60%)
+            const RIVER_TOP = 0.45;
+            const RIVER_BOTTOM = 0.78;
+            // 波浪参数
+            const WAVE_AMPLITUDE = 18;
+            const WAVE_FREQ = 0.018;
+
+            let particles = [];
+
+            // -------- 工具函数 --------
+            function random(min, max) {
+                return Math.random() * (max - min) + min;
+            }
+
+            // -------- 初始化粒子 --------
+            function initParticles() {
+                const count = Math.min(PARTICLE_COUNT, Math.floor(W * 0.25));
+                particles = [];
+                for (let i = 0; i < count; i++) {
+                    particles.push({
+                        x: random(0, W),
+                        // y 在河流范围内随机，但稍后会在 update 中根据波浪调整
+                        baseY: random(H * RIVER_TOP, H * RIVER_BOTTOM),
+                        size: random(1.8, 5.2),
+                        speed: random(0.25, 0.95),
+                        phase: random(0, Math.PI * 2),
+                        opacity: random(0.35, 0.85),
+                        // 每个粒子色相微偏移
+                        hueOffset: random(-12, 12),
+                    });
+                }
+            }
+            initParticles();
+
+            // -------- 获取当前时间信息 --------
+            function getTimeInfo() {
+                const now = new Date();
+                const h = now.getHours();
+                const m = now.getMinutes();
+                const s = now.getSeconds();
+                // 一天中的比例 (0~1)
+                const dayRatio = (h * 3600 + m * 60 + s) / 86400;
+                return { h, m, s, dayRatio };
+            }
+
+            // -------- 根据时间计算基础色相 --------
+            // 色相循环：6:00 暖金 (35) → 12:00 暖白 (45) → 18:00 冷银 (200) → 0:00 深蓝 (240) → 6:00 暖金 (35)
+            function getBaseHue(dayRatio) {
+                // 将 dayRatio 映射到 0~2PI
+                const angle = dayRatio * 2 * Math.PI;
+                // 使用正弦波在 35 到 240 之间变化，并加入偏移使峰值在 12:00 和 0:00
+                // 想让 6:00 为暖色，12:00 为中性，18:00 为冷色，0:00 为深蓝
+                // 使用两个正弦波叠加
+                const hue = 35 + 80 * Math.sin(angle - 0.3) + 50 * Math.sin(2 * angle + 0.8);
+                // 约束在 20~260 之间
+                return Math.max(20, Math.min(260, hue));
+            }
+
+            // -------- 更新粒子 (流动 + 波浪) --------
+            function updateParticles(dayRatio, time) {
+                const baseHue = getBaseHue(dayRatio);
+                const speedFactor = 0.6 + 0.4 * Math.sin(dayRatio * 2 * Math.PI * 0.5 + 1.2);
+
+                for (const p of particles) {
+                    // 水平移动 (从右向左)
+                    p.x -= p.speed * speedFactor * 0.9;
+                    // 如果超出左边界，从右侧重新出现
+                    if (p.x < -20) {
+                        p.x = W + 20;
+                        p.baseY = random(H * RIVER_TOP, H * RIVER_BOTTOM);
+                        p.size = random(1.8, 5.2);
+                        p.speed = random(0.25, 0.95);
+                        p.phase = random(0, Math.PI * 2);
+                        p.opacity = random(0.35, 0.85);
+                        p.hueOffset = random(-12, 12);
+                    }
+
+                    // 波浪效果：y 在 baseY 附近正弦波动
+                    const waveOffset = Math.sin(p.x * WAVE_FREQ + p.phase + time * 0.003) * WAVE_AMPLITUDE;
+                    const y = p.baseY + waveOffset;
+
+                    // 存储计算后的 y 供绘制使用
+                    p._y = y;
+                    p._waveOffset = waveOffset;
+
+                    // 粒子颜色：基础色相 + 偏移 + 微小的动态变化
+                    const hue = (baseHue + p.hueOffset + 8 * Math.sin(time * 0.001 + p.phase)) % 360;
+                    // 饱和度：随时间微变
+                    const sat = 60 + 20 * Math.sin(time * 0.0005 + p.phase * 0.5);
+                    // 明度：中心更亮，边缘稍暗 (基于 y 位置)
+                    const centerY = H * 0.6;
+                    const distFromCenter = Math.abs(y - centerY) / (H * 0.25);
+                    const lightFactor = 1 - Math.min(1, distFromCenter) * 0.3;
+                    const light = 70 + 20 * lightFactor;
+                    p._hue = hue;
+                    p._sat = sat;
+                    p._light = light;
+                    p._opacity = p.opacity * (0.8 + 0.2 * lightFactor);
+                }
+            }
+
+            // -------- 绘制 --------
+            function draw(dayRatio, time) {
+                ctx.clearRect(0, 0, W, H);
+
+                // ---- 1. 背景星光 ----
+                const starCount = Math.min(60, Math.floor(W * 0.06));
+                // 用伪随机固定星星位置
+                for (let i = 0; i < starCount; i++) {
+                    const seed = i * 137.508;
+                    const sx = (seed * 1.7 + 100) % W;
+                    const sy = (seed * 3.1 + 50) % (H * 0.7);
+                    const starSize = 0.6 + (seed % 3) * 0.5;
+                    const twinkle = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(time * 0.0012 + i * 2.1 + seed));
+                    const alpha = 0.08 + 0.25 * twinkle;
+                    ctx.beginPath();
+                    ctx.arc(sx, sy, starSize, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(220, 210, 195, ${alpha})`;
+                    ctx.fill();
+                }
+
+                // ---- 2. 时间之河 (粒子) ----
+                for (const p of particles) {
+                    const y = p._y;
+                    // 根据 y 位置微调大小 (透视感)
+                    const sizeFactor = 0.8 + 0.4 * (1 - Math.abs(y - H * 0.6) / (H * 0.25));
+                    const size = p.size * sizeFactor;
+
+                    // 颜色
+                    const hue = p._hue;
+                    const sat = p._sat;
+                    const light = p._light;
+                    const alpha = p._opacity * 0.85;
+
+                    // 发光光晕 (使用径向渐变)
+                    const gradient = ctx.createRadialGradient(p.x, y, 0, p.x, y, size * 2.8);
+                    const color1 = `hsla(${hue}, ${sat}%, ${light + 15}%, ${alpha * 0.9})`;
+                    const color2 = `hsla(${hue + 10}, ${sat - 10}%, ${light - 10}%, ${alpha * 0.3})`;
+                    const color3 = `hsla(${hue + 20}, ${sat - 20}%, ${light - 25}%, 0)`;
+                    gradient.addColorStop(0, color1);
+                    gradient.addColorStop(0.35, color2);
+                    gradient.addColorStop(1, color3);
+
+                    ctx.beginPath();
+                    ctx.arc(p.x, y, size * 2.8, 0, Math.PI * 2);
+                    ctx.fillStyle = gradient;
+                    ctx.fill();
+
+                    // 核心亮点 (小光点)
+                    ctx.beginPath();
+                    ctx.arc(p.x, y, size * 0.5, 0, Math.PI * 2);
+                    ctx.fillStyle = `hsla(${hue + 5}, ${sat + 10}%, ${light + 25}%, ${alpha * 0.9})`;
+                    ctx.fill();
+
+                    // 极小的核心白点
+                    if (size > 2.5) {
+                        ctx.beginPath();
+                        ctx.arc(p.x, y, size * 0.15, 0, Math.PI * 2);
+                        ctx.fillStyle = `rgba(255, 248, 240, ${alpha * 0.5})`;
+                        ctx.fill();
+                    }
+                }
+
+                // ---- 3. 河流的微弱底光 (一条极淡的光带) ----
+                const grad = ctx.createLinearGradient(0, H * 0.45, 0, H * 0.78);
+                const baseHue = getBaseHue(dayRatio);
+                grad.addColorStop(0, `hsla(${baseHue + 10}, 50%, 30%, 0.02)`);
+                grad.addColorStop(0.5, `hsla(${baseHue + 20}, 60%, 45%, 0.05)`);
+                grad.addColorStop(1, `hsla(${baseHue + 10}, 50%, 30%, 0.02)`);
+                ctx.fillStyle = grad;
+                ctx.fillRect(0, H * 0.45, W, H * 0.33);
+
+                // ---- 4. 顶部微光 (从时间文字方向洒落) ----
+                const topGrad = ctx.createRadialGradient(W * 0.5, H * 0.2, 0, W * 0.5, H * 0.2, H * 0.6);
+                topGrad.addColorStop(0, `hsla(${baseHue + 15}, 30%, 60%, 0.04)`);
+                topGrad.addColorStop(1, `hsla(${baseHue + 15}, 30%, 40%, 0)`);
+                ctx.fillStyle = topGrad;
+                ctx.fillRect(0, 0, W, H * 0.5);
+            }
+
+            // -------- 更新 DOM 时间 --------
+            function updateDOM() {
+                const now = new Date();
+                const h = String(now.getHours()).padStart(2, '0');
+                const m = String(now.getMinutes()).padStart(2, '0');
+                const s = String(now.getSeconds()).padStart(2, '0');
+
+                hoursEl.textContent = h;
+                minutesEl.textContent = m;
+                secondsEl.textContent = s;
+
+                // 日期
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
+                const wd = weekdays[now.getDay()];
+                dateEl.textContent = `${year} · ${month} · ${day}  星 期 ${wd}`;
+
+                // 冒号闪烁 (由 CSS 控制，不需要额外操作)
+                // 但我们可以让秒数颜色微变，增强流逝感
+                const secVal = parseInt(s, 10);
+                const brightness = 0.65 + 0.35 * (secVal / 60);
+                secondsEl.style.opacity = brightness;
+            }
+
+            // -------- 主循环 --------
+            let startTime = performance.now();
+
+            function loop(timestamp) {
+                const elapsed = (timestamp - startTime) / 1000;
+                const timeInfo = getTimeInfo();
+                const { dayRatio } = timeInfo;
+
+                // 更新粒子
+                updateParticles(dayRatio, elapsed);
+
+                // 绘制
+                draw(dayRatio, elapsed);
+
+                // 更新 DOM (每秒更新一次)
+                if (Math.floor(elapsed) % 1 === 0) {
+                    updateDOM();
+                }
+
+                requestAnimationFrame(loop);
+            }
+
+            // -------- 启动 --------
+            // 立即更新一次 DOM
+            updateDOM();
+            // 开始动画循环
+            requestAnimationFrame(loop);
+
+            // 窗口尺寸变化时重新初始化粒子
+            let resizeTimer;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    resizeCanvas();
+                    initParticles();
+                }, 150);
+            });
+
+            // 页面可见性变化时，保持时间更新 (不需要额外操作)
+
+            console.log('⏳ 时间之河 · 流逝不息');
+        })();
+    </script>
+
 </body>
 </html>
