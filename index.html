@@ -1,490 +1,685 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>时间 · 流逝</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>时间 · 银河</title>
     <style>
-        /* ===== 全局重置 ===== */
-        *,
-        *::before,
-        *::after {
+        :root {
+            --bg: #050510;
+            --text-primary: rgba(255, 255, 255, 0.92);
+            --text-secondary: rgba(255, 255, 255, 0.45);
+            --text-faint: rgba(255, 255, 255, 0.22);
+            --accent: rgba(180, 200, 255, 0.6);
+            --hairline: rgba(255, 255, 255, 0.08);
+            --font-serif: 'Georgia', 'Times New Roman', 'Songti SC', 'SimSun', serif;
+            --font-sans: 'Helvetica Neue', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+        }
+
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* ===== 页面主体 ===== */
+        html,
         body {
-            width: 100vw;
-            height: 100vh;
+            height: 100%;
             overflow: hidden;
-            background: radial-gradient(ellipse at 50% 40%, #14141f 0%, #08080e 100%);
-            font-family: 'Cormorant Garamond', 'Times New Roman', serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: var(--bg);
+            font-family: var(--font-sans);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
             user-select: none;
-            position: relative;
+            -webkit-user-select: none;
+            cursor: default;
         }
 
-        /* ===== Canvas ===== */
-        #riverCanvas {
+        /* ========== Canvas 银河背景 ========== */
+        #galaxy {
             position: fixed;
             top: 0;
             left: 0;
-            width: 100vw;
-            height: 100vh;
+            width: 100%;
+            height: 100%;
             z-index: 0;
             pointer-events: none;
         }
 
-        /* ===== 文字层 ===== */
-        .content {
-            position: relative;
+        /* ========== 暗角遮罩 ========== */
+        .vignette {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             z-index: 1;
+            pointer-events: none;
+            background: radial-gradient(
+                ellipse at center,
+                transparent 35%,
+                rgba(0, 0, 0, 0.35) 70%,
+                rgba(0, 0, 0, 0.7) 100%
+            );
+        }
+
+        /* ========== 主内容层 ========== */
+        .container {
+            position: relative;
+            z-index: 2;
+            height: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            width: 100%;
-            height: 100%;
             padding: 2rem;
-            text-align: center;
-            /* 让文字与canvas河流错开，视觉上更舒适 */
-            margin-bottom: 3vh;
         }
 
-        /* ===== 时间显示 ===== */
-        .time-display {
-            font-family: 'Space Mono', 'Cormorant Garamond', monospace;
-            font-weight: 700;
-            font-size: clamp(4rem, 16vw, 10rem);
-            letter-spacing: 0.06em;
-            color: #f2ede4;
-            text-shadow:
-                0 0 30px rgba(210, 180, 150, 0.15),
-                0 0 80px rgba(210, 180, 150, 0.06);
-            line-height: 1.1;
-            transition: color 0.8s ease;
-            position: relative;
-        }
-
-        /* 冒号闪烁 */
-        .time-display .colon {
-            display: inline-block;
-            animation: blink 1.2s steps(1) infinite;
+        /* ========== 顶部极简标识 ========== */
+        .top-label {
+            position: fixed;
+            top: 2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            font-size: 0.65rem;
+            letter-spacing: 0.6em;
+            text-transform: uppercase;
+            color: var(--text-faint);
             font-weight: 300;
-            opacity: 0.7;
-            margin: 0 0.02em;
+            transition: color 0.8s ease;
+            text-align: center;
         }
-        .time-display .colon-off {
-            opacity: 0.2;
+
+        /* ========== 时钟区域 ========== */
+        .clock-wrap {
+            text-align: center;
+            margin-bottom: 0.5rem;
         }
-        @keyframes blink {
+
+        .clock-time {
+            font-family: var(--font-serif);
+            font-size: clamp(3.5rem, 12vw, 7.5rem);
+            font-weight: 300;
+            color: var(--text-primary);
+            letter-spacing: 0.04em;
+            line-height: 1;
+            text-shadow: 0 0 80px rgba(180, 200, 255, 0.25),
+                0 0 30px rgba(180, 200, 255, 0.1);
+            transition: all 0.5s ease;
+            font-variant-numeric: tabular-nums;
+        }
+
+        .clock-time .separator {
+            opacity: 0.5;
+            font-weight: 200;
+            margin: 0 0.05em;
+            animation: breathe 2s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
             0%,
             100% {
-                opacity: 0.7;
+                opacity: 0.3;
             }
             50% {
-                opacity: 0.15;
+                opacity: 0.85;
             }
         }
 
-        /* 秒数微妙的弱化 */
-        .time-display .seconds {
-            font-weight: 400;
-            opacity: 0.7;
-            font-size: 0.7em;
-            letter-spacing: 0.02em;
-        }
-
-        /* ===== 日期 ===== */
-        .date-display {
-            font-family: 'Cormorant Garamond', serif;
+        .clock-seconds {
+            font-family: var(--font-serif);
+            font-size: clamp(1.2rem, 3vw, 2rem);
             font-weight: 300;
-            font-size: clamp(1rem, 2.2vw, 1.6rem);
-            letter-spacing: 0.3em;
-            color: rgba(210, 195, 175, 0.55);
-            margin-top: 0.4rem;
-            text-transform: uppercase;
-            font-style: italic;
-            text-shadow: 0 0 20px rgba(180, 160, 140, 0.08);
+            color: var(--text-secondary);
+            letter-spacing: 0.15em;
+            margin-top: 0.6rem;
+            font-variant-numeric: tabular-nums;
+            transition: color 0.8s ease;
         }
 
-        /* ===== 格言 ===== */
-        .motto {
+        .clock-date {
+            font-family: var(--font-sans);
+            font-size: 0.78rem;
+            letter-spacing: 0.35em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            margin-top: 1.2rem;
+            font-weight: 300;
+            transition: color 0.8s ease;
+        }
+
+        /* ========== 时间流逝指示条 ========== */
+        .time-flow {
             position: fixed;
-            bottom: 2.8rem;
+            bottom: 0;
             left: 0;
             width: 100%;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.05);
+            z-index: 3;
+        }
+        .time-flow-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(
+                90deg,
+                rgba(180, 200, 255, 0.0),
+                rgba(180, 200, 255, 0.5),
+                rgba(180, 200, 255, 0.0)
+            );
+            transition: width 1s linear;
+        }
+
+        /* ========== 中心铭文 ========== */
+        .motto {
+            margin-top: 2.5rem;
             text-align: center;
-            z-index: 1;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 300;
-            font-style: italic;
-            font-size: clamp(0.9rem, 1.6vw, 1.3rem);
-            letter-spacing: 0.25em;
-            color: rgba(180, 165, 150, 0.25);
-            text-shadow: 0 0 30px rgba(140, 120, 100, 0.05);
+            max-width: 32rem;
             padding: 0 1.5rem;
-            pointer-events: none;
+        }
+        .motto-text {
+            font-family: var(--font-serif);
+            font-size: 0.95rem;
+            line-height: 2.2;
+            color: var(--text-secondary);
+            letter-spacing: 0.18em;
+            font-weight: 300;
+            opacity: 0.7;
             transition: opacity 2s ease;
         }
-
-        /* ===== 响应式调整 ===== */
-        @media (max-width: 600px) {
-            .content {
-                margin-bottom: 2vh;
-            }
-            .time-display {
-                font-size: clamp(3.2rem, 18vw, 5.5rem);
-                letter-spacing: 0.04em;
-            }
-            .date-display {
-                font-size: clamp(0.8rem, 2.5vw, 1.1rem);
-                letter-spacing: 0.2em;
-                margin-top: 0.2rem;
-            }
-            .motto {
-                bottom: 1.8rem;
-                font-size: clamp(0.7rem, 2vw, 0.95rem);
-                letter-spacing: 0.2em;
-            }
+        .motto-text .highlight {
+            color: rgba(200, 215, 255, 0.8);
+            font-style: italic;
         }
 
-        @media (max-width: 400px) {
-            .time-display {
-                font-size: clamp(2.6rem, 15vw, 4rem);
+        /* ========== 底部信息 ========== */
+        .bottom-info {
+            position: fixed;
+            bottom: 2.2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 3;
+            font-size: 0.58rem;
+            letter-spacing: 0.5em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            font-weight: 300;
+            text-align: center;
+            white-space: nowrap;
+            transition: color 0.8s ease;
+        }
+
+        /* ========== 响应式 ========== */
+        @media (max-width: 768px) {
+            .top-label {
+                font-size: 0.55rem;
+                letter-spacing: 0.4em;
+                top: 2rem;
             }
-            .motto {
-                bottom: 1.2rem;
+            .motto-text {
+                font-size: 0.8rem;
+                letter-spacing: 0.12em;
+                line-height: 2;
+            }
+            .bottom-info {
+                bottom: 1.5rem;
+                font-size: 0.5rem;
+                letter-spacing: 0.3em;
+            }
+        }
+        @media (max-width: 480px) {
+            .clock-time {
+                letter-spacing: 0.02em;
+            }
+            .clock-date {
+                letter-spacing: 0.2em;
                 font-size: 0.65rem;
             }
-        }
-
-        /* ===== 加载淡入 ===== */
-        body {
-            opacity: 0;
-            animation: fadeIn 1.8s ease forwards;
-        }
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* ===== 小屏设备减少粒子性能开销 ===== */
-        @media (max-width: 480px) {
-            #riverCanvas {
-                opacity: 0.8;
+            .motto {
+                margin-top: 1.8rem;
             }
         }
     </style>
 </head>
 <body>
 
-    <!-- ===== Canvas 粒子河流 ===== -->
-    <canvas id="riverCanvas"></canvas>
+    <!-- 银河系 Canvas -->
+    <canvas id="galaxy"></canvas>
 
-    <!-- ===== 文字内容 ===== -->
-    <div class="content">
-        <div class="time-display" id="timeDisplay">
-            <span id="hours">00</span>
-            <span class="colon" id="colon1">:</span>
-            <span id="minutes">00</span>
-            <span class="colon" id="colon2">:</span>
-            <span class="seconds" id="seconds">00</span>
+    <!-- 暗角遮罩 -->
+    <div class="vignette"></div>
+
+    <!-- 顶部标识 -->
+    <div class="top-label">Tempus Fugit</div>
+
+    <!-- 主内容 -->
+    <div class="container">
+        <div class="clock-wrap">
+            <div class="clock-time" id="clockTime">
+                <span id="hours">00</span><span class="separator">:</span><span id="minutes">00</span>
+            </div>
+            <div class="clock-seconds" id="clockSeconds">00</div>
+            <div class="clock-date" id="clockDate"></div>
         </div>
-        <div class="date-display" id="dateDisplay">—— —— ——</div>
+        <div class="motto">
+            <p class="motto-text" id="motto">
+                时间是一条<span class="highlight">银河</span>，<br>
+                我们都是其中<span class="highlight">漂流的星尘</span>。
+            </p>
+        </div>
     </div>
 
-    <div class="motto">· 逝 者 如 斯 夫 ·</div>
+    <!-- 底部时间流逝指示条 -->
+    <div class="time-flow">
+        <div class="time-flow-bar" id="timeFlowBar"></div>
+    </div>
 
-    <!-- ============================================================ -->
+    <!-- 底部信息 -->
+    <div class="bottom-info" id="bottomInfo">∞ 流逝 · 永恒 ∞</div>
+
     <script>
         (function() {
             'use strict';
 
-            // -------- 获取元素 --------
-            const canvas = document.getElementById('riverCanvas');
+            /* ==========================================
+               1. 银河系背景 Canvas 渲染
+               ========================================== */
+            const canvas = document.getElementById('galaxy');
             const ctx = canvas.getContext('2d');
 
-            const hoursEl = document.getElementById('hours');
-            const minutesEl = document.getElementById('minutes');
-            const secondsEl = document.getElementById('seconds');
-            const dateEl = document.getElementById('dateDisplay');
-            const colon1 = document.getElementById('colon1');
-            const colon2 = document.getElementById('colon2');
+            let W, H, centerX, centerY, dpr;
 
-            // -------- Canvas 尺寸 --------
-            let W, H;
+            // 星系参数
+            const GALAXY = {
+                arms: 4, // 旋臂数量
+                particlesPerArm: 650, // 每条旋臂粒子数
+                coreParticles: 280, // 核心粒子数
+                haloParticles: 350, // 晕粒子数
+                rotationSpeed: 0.00012, // 旋转速度 (rad/frame)
+                spiralTightness: 4.8, // 螺旋紧密程度
+                armSpread: 0.38, // 旋臂散射
+                coreRadius: 0.16, // 核心相对半径
+                galaxyRadius: 0.62, // 星系相对半径 (取 min(W,H)/2 的比例)
+                dustOpacity: 0.22, // 尘埃带不透明度
+                starColorCore: [255, 235, 210], // 核心恒星颜色
+                starColorArm: [190, 205, 255], // 旋臂恒星颜色
+                starColorHalo: [220, 225, 245], // 晕恒星颜色
+                nebulaHue: 225, // 星云色相
+            };
 
-            function resizeCanvas() {
-                W = canvas.width = window.innerWidth;
-                H = canvas.height = window.innerHeight;
+            let stars = []; // 所有恒星粒子
+            let meteors = []; // 流星
+            let rotationAngle = 0;
+            let lastMeteorTime = 0;
+            let meteorInterval = 5200; // 毫秒
+
+            // 随机工具
+            const rand = (min, max) => Math.random() * (max - min) + min;
+            const randInt = (min, max) => Math.floor(rand(min, max));
+
+            function resize() {
+                dpr = Math.min(window.devicePixelRatio || 1, 2);
+                W = window.innerWidth;
+                H = window.innerHeight;
+                canvas.width = W * dpr;
+                canvas.height = H * dpr;
+                canvas.style.width = W + 'px';
+                canvas.style.height = H + 'px';
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+                centerX = W / 2;
+                centerY = H / 2;
+                generateGalaxy();
             }
-            window.addEventListener('resize', () => {
-                resizeCanvas();
-                // 重新分配粒子位置
-                initParticles();
-            });
-            resizeCanvas();
 
-            // -------- 粒子参数 --------
-            const PARTICLE_COUNT = 180;
-            // 河流垂直范围：从 45% 到 75% 高度 (中心在 60%)
-            const RIVER_TOP = 0.45;
-            const RIVER_BOTTOM = 0.78;
-            // 波浪参数
-            const WAVE_AMPLITUDE = 18;
-            const WAVE_FREQ = 0.018;
+            function generateGalaxy() {
+                stars = [];
+                const baseR = Math.min(W, H) * GALAXY.galaxyRadius;
 
-            let particles = [];
-
-            // -------- 工具函数 --------
-            function random(min, max) {
-                return Math.random() * (max - min) + min;
-            }
-
-            // -------- 初始化粒子 --------
-            function initParticles() {
-                const count = Math.min(PARTICLE_COUNT, Math.floor(W * 0.25));
-                particles = [];
-                for (let i = 0; i < count; i++) {
-                    particles.push({
-                        x: random(0, W),
-                        // y 在河流范围内随机，但稍后会在 update 中根据波浪调整
-                        baseY: random(H * RIVER_TOP, H * RIVER_BOTTOM),
-                        size: random(1.8, 5.2),
-                        speed: random(0.25, 0.95),
-                        phase: random(0, Math.PI * 2),
-                        opacity: random(0.35, 0.85),
-                        // 每个粒子色相微偏移
-                        hueOffset: random(-12, 12),
+                // --- 核心恒星 ---
+                for (let i = 0; i < GALAXY.coreParticles; i++) {
+                    const r = Math.pow(Math.random(), 1.8) * baseR * GALAXY.coreRadius;
+                    const angle = rand(0, Math.PI * 2);
+                    const x = centerX + Math.cos(angle) * r;
+                    const y = centerY + Math.sin(angle) * r * 0.85; // 轻微扁平
+                    const size = rand(0.5, 2.4);
+                    const brightness = rand(0.55, 1);
+                    const color = mixColor(GALAXY.starColorCore, [255, 250, 240], Math.random() * 0.4);
+                    stars.push({
+                        x,
+                        y,
+                        baseX: x,
+                        baseY: y,
+                        size,
+                        brightness,
+                        color,
+                        layer: 'core',
+                        twinkleSpeed: rand(0.004, 0.02),
+                        twinkleOffset: rand(0, Math.PI * 2),
                     });
                 }
-            }
-            initParticles();
 
-            // -------- 获取当前时间信息 --------
-            function getTimeInfo() {
-                const now = new Date();
-                const h = now.getHours();
-                const m = now.getMinutes();
-                const s = now.getSeconds();
-                // 一天中的比例 (0~1)
-                const dayRatio = (h * 3600 + m * 60 + s) / 86400;
-                return { h, m, s, dayRatio };
-            }
-
-            // -------- 根据时间计算基础色相 --------
-            // 色相循环：6:00 暖金 (35) → 12:00 暖白 (45) → 18:00 冷银 (200) → 0:00 深蓝 (240) → 6:00 暖金 (35)
-            function getBaseHue(dayRatio) {
-                // 将 dayRatio 映射到 0~2PI
-                const angle = dayRatio * 2 * Math.PI;
-                // 使用正弦波在 35 到 240 之间变化，并加入偏移使峰值在 12:00 和 0:00
-                // 想让 6:00 为暖色，12:00 为中性，18:00 为冷色，0:00 为深蓝
-                // 使用两个正弦波叠加
-                const hue = 35 + 80 * Math.sin(angle - 0.3) + 50 * Math.sin(2 * angle + 0.8);
-                // 约束在 20~260 之间
-                return Math.max(20, Math.min(260, hue));
-            }
-
-            // -------- 更新粒子 (流动 + 波浪) --------
-            function updateParticles(dayRatio, time) {
-                const baseHue = getBaseHue(dayRatio);
-                const speedFactor = 0.6 + 0.4 * Math.sin(dayRatio * 2 * Math.PI * 0.5 + 1.2);
-
-                for (const p of particles) {
-                    // 水平移动 (从右向左)
-                    p.x -= p.speed * speedFactor * 0.9;
-                    // 如果超出左边界，从右侧重新出现
-                    if (p.x < -20) {
-                        p.x = W + 20;
-                        p.baseY = random(H * RIVER_TOP, H * RIVER_BOTTOM);
-                        p.size = random(1.8, 5.2);
-                        p.speed = random(0.25, 0.95);
-                        p.phase = random(0, Math.PI * 2);
-                        p.opacity = random(0.35, 0.85);
-                        p.hueOffset = random(-12, 12);
+                // --- 旋臂恒星 ---
+                for (let arm = 0; arm < GALAXY.arms; arm++) {
+                    const armAngle = (arm / GALAXY.arms) * Math.PI * 2;
+                    for (let i = 0; i < GALAXY.particlesPerArm; i++) {
+                        const t = Math.random(); // 0~1 沿旋臂向外
+                        const r = t * baseR + rand(-6, 6);
+                        const spiralAngle = armAngle + t * GALAXY.spiralTightness;
+                        const scatter = rand(-GALAXY.armSpread, GALAXY.armSpread) *
+                            (1 - t * 0.55) * baseR * 0.22;
+                        const finalAngle = spiralAngle + scatter / (r + 5);
+                        const x = centerX + Math.cos(finalAngle) * r;
+                        const y = centerY + Math.sin(finalAngle) * r * 0.82;
+                        const size = rand(0.4, 1.8) * (1 - t * 0.5);
+                        const brightness = rand(0.3, 0.95) * (1 - t * 0.4);
+                        const blueShift = 1 - t * 0.5;
+                        const color = mixColor(
+                            GALAXY.starColorArm,
+                            [150, 170, 220],
+                            blueShift
+                        );
+                        stars.push({
+                            x,
+                            y,
+                            baseX: x,
+                            baseY: y,
+                            size,
+                            brightness,
+                            color,
+                            layer: 'arm',
+                            twinkleSpeed: rand(0.006, 0.028),
+                            twinkleOffset: rand(0, Math.PI * 2),
+                        });
                     }
-
-                    // 波浪效果：y 在 baseY 附近正弦波动
-                    const waveOffset = Math.sin(p.x * WAVE_FREQ + p.phase + time * 0.003) * WAVE_AMPLITUDE;
-                    const y = p.baseY + waveOffset;
-
-                    // 存储计算后的 y 供绘制使用
-                    p._y = y;
-                    p._waveOffset = waveOffset;
-
-                    // 粒子颜色：基础色相 + 偏移 + 微小的动态变化
-                    const hue = (baseHue + p.hueOffset + 8 * Math.sin(time * 0.001 + p.phase)) % 360;
-                    // 饱和度：随时间微变
-                    const sat = 60 + 20 * Math.sin(time * 0.0005 + p.phase * 0.5);
-                    // 明度：中心更亮，边缘稍暗 (基于 y 位置)
-                    const centerY = H * 0.6;
-                    const distFromCenter = Math.abs(y - centerY) / (H * 0.25);
-                    const lightFactor = 1 - Math.min(1, distFromCenter) * 0.3;
-                    const light = 70 + 20 * lightFactor;
-                    p._hue = hue;
-                    p._sat = sat;
-                    p._light = light;
-                    p._opacity = p.opacity * (0.8 + 0.2 * lightFactor);
                 }
+
+                // --- 晕恒星（散落四周，更暗） ---
+                for (let i = 0; i < GALAXY.haloParticles; i++) {
+                    const r = rand(baseR * 0.2, baseR * 1.5);
+                    const angle = rand(0, Math.PI * 2);
+                    const x = centerX + Math.cos(angle) * r;
+                    const y = centerY + Math.sin(angle) * r * 0.75;
+                    const size = rand(0.3, 0.9);
+                    const brightness = rand(0.15, 0.45);
+                    const color = mixColor(GALAXY.starColorHalo, [200, 210, 230], Math.random() * 0.3);
+                    stars.push({
+                        x,
+                        y,
+                        baseX: x,
+                        baseY: y,
+                        size,
+                        brightness,
+                        color,
+                        layer: 'halo',
+                        twinkleSpeed: rand(0.003, 0.015),
+                        twinkleOffset: rand(0, Math.PI * 2),
+                    });
+                }
+
+                // 按层排序便于渲染（核心在前）
+                stars.sort((a, b) => {
+                    const order = { core: 2, arm: 1, halo: 0 };
+                    return order[b.layer] - order[a.layer];
+                });
             }
 
-            // -------- 绘制 --------
-            function draw(dayRatio, time) {
+            function mixColor(c1, c2, t) {
+                return [
+                    Math.round(c1[0] + (c2[0] - c1[0]) * t),
+                    Math.round(c1[1] + (c2[1] - c1[1]) * t),
+                    Math.round(c1[2] + (c2[2] - c1[2]) * t),
+                ];
+            }
+
+            function drawGalaxy(now) {
                 ctx.clearRect(0, 0, W, H);
 
-                // ---- 1. 背景星光 ----
-                const starCount = Math.min(60, Math.floor(W * 0.06));
-                // 用伪随机固定星星位置
-                for (let i = 0; i < starCount; i++) {
-                    const seed = i * 137.508;
-                    const sx = (seed * 1.7 + 100) % W;
-                    const sy = (seed * 3.1 + 50) % (H * 0.7);
-                    const starSize = 0.6 + (seed % 3) * 0.5;
-                    const twinkle = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(time * 0.0012 + i * 2.1 + seed));
-                    const alpha = 0.08 + 0.25 * twinkle;
-                    ctx.beginPath();
-                    ctx.arc(sx, sy, starSize, 0, Math.PI * 2);
-                    ctx.fillStyle = `rgba(220, 210, 195, ${alpha})`;
-                    ctx.fill();
-                }
+                // 深空背景渐变
+                const bgGrad = ctx.createRadialGradient(
+                    centerX, centerY, 0,
+                    centerX, centerY, Math.max(W, H) * 0.8
+                );
+                bgGrad.addColorStop(0, '#08081a');
+                bgGrad.addColorStop(0.45, '#060615');
+                bgGrad.addColorStop(1, '#030308');
+                ctx.fillStyle = bgGrad;
+                ctx.fillRect(0, 0, W, H);
 
-                // ---- 2. 时间之河 (粒子) ----
-                for (const p of particles) {
-                    const y = p._y;
-                    // 根据 y 位置微调大小 (透视感)
-                    const sizeFactor = 0.8 + 0.4 * (1 - Math.abs(y - H * 0.6) / (H * 0.25));
-                    const size = p.size * sizeFactor;
+                // 更新旋转角度
+                rotationAngle += GALAXY.rotationSpeed;
 
-                    // 颜色
-                    const hue = p._hue;
-                    const sat = p._sat;
-                    const light = p._light;
-                    const alpha = p._opacity * 0.85;
+                const cosA = Math.cos(rotationAngle);
+                const sinA = Math.sin(rotationAngle);
 
-                    // 发光光晕 (使用径向渐变)
-                    const gradient = ctx.createRadialGradient(p.x, y, 0, p.x, y, size * 2.8);
-                    const color1 = `hsla(${hue}, ${sat}%, ${light + 15}%, ${alpha * 0.9})`;
-                    const color2 = `hsla(${hue + 10}, ${sat - 10}%, ${light - 10}%, ${alpha * 0.3})`;
-                    const color3 = `hsla(${hue + 20}, ${sat - 20}%, ${light - 25}%, 0)`;
-                    gradient.addColorStop(0, color1);
-                    gradient.addColorStop(0.35, color2);
-                    gradient.addColorStop(1, color3);
-
-                    ctx.beginPath();
-                    ctx.arc(p.x, y, size * 2.8, 0, Math.PI * 2);
-                    ctx.fillStyle = gradient;
-                    ctx.fill();
-
-                    // 核心亮点 (小光点)
-                    ctx.beginPath();
-                    ctx.arc(p.x, y, size * 0.5, 0, Math.PI * 2);
-                    ctx.fillStyle = `hsla(${hue + 5}, ${sat + 10}%, ${light + 25}%, ${alpha * 0.9})`;
-                    ctx.fill();
-
-                    // 极小的核心白点
-                    if (size > 2.5) {
+                // 绘制星云光晕（旋臂上的柔和光斑）
+                ctx.globalCompositeOperation = 'lighter';
+                for (let arm = 0; arm < GALAXY.arms; arm++) {
+                    const armAngle = (arm / GALAXY.arms) * Math.PI * 2;
+                    for (let k = 0; k < 18; k++) {
+                        const t = k / 18;
+                        const r = t * Math.min(W, H) * GALAXY.galaxyRadius;
+                        const spiralAngle = armAngle + t * GALAXY.spiralTightness;
+                        const cx = centerX + Math.cos(spiralAngle) * r;
+                        const cy = centerY + Math.sin(spiralAngle) * r * 0.82;
+                        const nebR = rand(20, 60) * (1 - t * 0.5);
+                        const alpha = rand(0.04, 0.12) * (1 - t * 0.5);
+                        const hue = GALAXY.nebulaHue + rand(-20, 20);
+                        const nebGrad = ctx.createRadialGradient(cx, cy, 0, cx, cy, nebR);
+                        nebGrad.addColorStop(0, `hsla(${hue}, 60%, 60%, ${alpha})`);
+                        nebGrad.addColorStop(1, `hsla(${hue}, 60%, 60%, 0)`);
+                        ctx.fillStyle = nebGrad;
                         ctx.beginPath();
-                        ctx.arc(p.x, y, size * 0.15, 0, Math.PI * 2);
-                        ctx.fillStyle = `rgba(255, 248, 240, ${alpha * 0.5})`;
+                        ctx.arc(cx, cy, nebR, 0, Math.PI * 2);
                         ctx.fill();
                     }
                 }
 
-                // ---- 3. 河流的微弱底光 (一条极淡的光带) ----
-                const grad = ctx.createLinearGradient(0, H * 0.45, 0, H * 0.78);
-                const baseHue = getBaseHue(dayRatio);
-                grad.addColorStop(0, `hsla(${baseHue + 10}, 50%, 30%, 0.02)`);
-                grad.addColorStop(0.5, `hsla(${baseHue + 20}, 60%, 45%, 0.05)`);
-                grad.addColorStop(1, `hsla(${baseHue + 10}, 50%, 30%, 0.02)`);
-                ctx.fillStyle = grad;
-                ctx.fillRect(0, H * 0.45, W, H * 0.33);
+                // 核心光晕
+                const coreGlow = ctx.createRadialGradient(
+                    centerX, centerY, 0,
+                    centerX, centerY, Math.min(W, H) * 0.22
+                );
+                coreGlow.addColorStop(0, 'rgba(255, 240, 220, 0.20)');
+                coreGlow.addColorStop(0.35, 'rgba(230, 215, 200, 0.08)');
+                coreGlow.addColorStop(1, 'rgba(200, 190, 180, 0)');
+                ctx.fillStyle = coreGlow;
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, Math.min(W, H) * 0.22, 0, Math.PI * 2);
+                ctx.fill();
 
-                // ---- 4. 顶部微光 (从时间文字方向洒落) ----
-                const topGrad = ctx.createRadialGradient(W * 0.5, H * 0.2, 0, W * 0.5, H * 0.2, H * 0.6);
-                topGrad.addColorStop(0, `hsla(${baseHue + 15}, 30%, 60%, 0.04)`);
-                topGrad.addColorStop(1, `hsla(${baseHue + 15}, 30%, 40%, 0)`);
-                ctx.fillStyle = topGrad;
-                ctx.fillRect(0, 0, W, H * 0.5);
-            }
+                // 绘制恒星
+                for (const star of stars) {
+                    // 绕中心旋转
+                    const dx = star.baseX - centerX;
+                    const dy = star.baseY - centerY;
+                    const rx = dx * cosA - dy * sinA;
+                    const ry = dx * sinA + dy * cosA;
+                    const sx = centerX + rx;
+                    const sy = centerY + ry;
 
-            // -------- 更新 DOM 时间 --------
-            function updateDOM() {
-                const now = new Date();
-                const h = String(now.getHours()).padStart(2, '0');
-                const m = String(now.getMinutes()).padStart(2, '0');
-                const s = String(now.getSeconds()).padStart(2, '0');
+                    // 闪烁
+                    const twinkle = 0.75 + 0.25 * Math.sin(now * star.twinkleSpeed + star.twinkleOffset);
+                    const alpha = star.brightness * twinkle;
 
-                hoursEl.textContent = h;
-                minutesEl.textContent = m;
-                secondsEl.textContent = s;
+                    const [r, g, b] = star.color;
+                    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+                    ctx.beginPath();
+                    ctx.arc(sx, sy, star.size, 0, Math.PI * 2);
+                    ctx.fill();
 
-                // 日期
-                const year = now.getFullYear();
-                const month = String(now.getMonth() + 1).padStart(2, '0');
-                const day = String(now.getDate()).padStart(2, '0');
-                const weekdays = ['日', '一', '二', '三', '四', '五', '六'];
-                const wd = weekdays[now.getDay()];
-                dateEl.textContent = `${year} · ${month} · ${day}  星 期 ${wd}`;
-
-                // 冒号闪烁 (由 CSS 控制，不需要额外操作)
-                // 但我们可以让秒数颜色微变，增强流逝感
-                const secVal = parseInt(s, 10);
-                const brightness = 0.65 + 0.35 * (secVal / 60);
-                secondsEl.style.opacity = brightness;
-            }
-
-            // -------- 主循环 --------
-            let startTime = performance.now();
-
-            function loop(timestamp) {
-                const elapsed = (timestamp - startTime) / 1000;
-                const timeInfo = getTimeInfo();
-                const { dayRatio } = timeInfo;
-
-                // 更新粒子
-                updateParticles(dayRatio, elapsed);
-
-                // 绘制
-                draw(dayRatio, elapsed);
-
-                // 更新 DOM (每秒更新一次)
-                if (Math.floor(elapsed) % 1 === 0) {
-                    updateDOM();
+                    // 亮星加一点光晕
+                    if (star.size > 1.5 && star.brightness > 0.6) {
+                        const glowR = star.size * 3.5;
+                        const glow = ctx.createRadialGradient(sx, sy, 0, sx, sy, glowR);
+                        glow.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${alpha * 0.3})`);
+                        glow.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
+                        ctx.fillStyle = glow;
+                        ctx.beginPath();
+                        ctx.arc(sx, sy, glowR, 0, Math.PI * 2);
+                        ctx.fill();
+                    }
                 }
 
-                requestAnimationFrame(loop);
+                ctx.globalCompositeOperation = 'source-over';
             }
 
-            // -------- 启动 --------
-            // 立即更新一次 DOM
-            updateDOM();
-            // 开始动画循环
-            requestAnimationFrame(loop);
+            /* ==========================================
+               2. 流星系统
+               ========================================== */
+            function spawnMeteor() {
+                const fromLeft = Math.random() > 0.5;
+                const startX = fromLeft ? rand(-W * 0.1, W * 0.3) : rand(W * 0.7, W * 1.1);
+                const startY = rand(-H * 0.05, H * 0.3);
+                const speed = rand(6, 14);
+                const angle = rand(-0.35, -0.15);
+                const life = rand(40, 90);
+                meteors.push({
+                    x: startX,
+                    y: startY,
+                    vx: Math.cos(angle) * speed * (fromLeft ? 1 : -1),
+                    vy: Math.sin(angle) * speed,
+                    life,
+                    maxLife: life,
+                    size: rand(1.5, 3.2),
+                });
+            }
 
-            // 窗口尺寸变化时重新初始化粒子
-            let resizeTimer;
-            window.addEventListener('resize', () => {
-                clearTimeout(resizeTimer);
-                resizeTimer = setTimeout(() => {
-                    resizeCanvas();
-                    initParticles();
-                }, 150);
-            });
+            function updateAndDrawMeteors() {
+                for (let i = meteors.length - 1; i >= 0; i--) {
+                    const m = meteors[i];
+                    m.x += m.vx;
+                    m.y += m.vy;
+                    m.life--;
+                    if (m.life <= 0) {
+                        meteors.splice(i, 1);
+                        continue;
+                    }
+                    const progress = 1 - m.life / m.maxLife;
+                    const alpha = Math.sin(progress * Math.PI) * 0.9;
+                    const tailLen = rand(20, 50);
+                    const tailX = m.x - m.vx * tailLen;
+                    const tailY = m.y - m.vy * tailLen;
 
-            // 页面可见性变化时，保持时间更新 (不需要额外操作)
+                    const grad = ctx.createLinearGradient(m.x, m.y, tailX, tailY);
+                    grad.addColorStop(0, `rgba(255, 255, 255, ${alpha})`);
+                    grad.addColorStop(0.3, `rgba(200, 220, 255, ${alpha * 0.5})`);
+                    grad.addColorStop(1, 'rgba(180, 200, 255, 0)');
+                    ctx.strokeStyle = grad;
+                    ctx.lineWidth = m.size;
+                    ctx.lineCap = 'round';
+                    ctx.beginPath();
+                    ctx.moveTo(m.x, m.y);
+                    ctx.lineTo(tailX, tailY);
+                    ctx.stroke();
 
-            console.log('⏳ 时间之河 · 流逝不息');
+                    // 流星头部亮点
+                    ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+                    ctx.beginPath();
+                    ctx.arc(m.x, m.y, m.size * 0.8, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            /* ==========================================
+               3. 动画循环
+               ========================================== */
+            function animate(now) {
+                drawGalaxy(now);
+                updateAndDrawMeteors();
+
+                // 随机生成流星
+                if (now - lastMeteorTime > meteorInterval + rand(-1500, 2000)) {
+                    if (meteors.length < 4) spawnMeteor();
+                    lastMeteorTime = now;
+                    meteorInterval = rand(3500, 9000);
+                }
+
+                requestAnimationFrame(animate);
+            }
+
+            /* ==========================================
+               4. 时钟更新
+               ========================================== */
+            const hoursEl = document.getElementById('hours');
+            const minutesEl = document.getElementById('minutes');
+            const secondsEl = document.getElementById('clockSeconds');
+            const dateEl = document.getElementById('clockDate');
+            const flowBar = document.getElementById('timeFlowBar');
+
+            const weekdays = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+            const months = ['一月', '二月', '三月', '四月', '五月', '六月',
+                '七月', '八月', '九月', '十月', '十一月', '十二月'
+            ];
+
+            function pad(n) {
+                return n.toString().padStart(2, '0');
+            }
+
+            function updateClock() {
+                const now = new Date();
+                const h = now.getHours();
+                const m = now.getMinutes();
+                const s = now.getSeconds();
+                const ms = now.getMilliseconds();
+
+                hoursEl.textContent = pad(h);
+                minutesEl.textContent = pad(m);
+                secondsEl.textContent = pad(s);
+
+                const wd = weekdays[now.getDay()];
+                const mon = months[now.getMonth()];
+                const day = now.getDate();
+                const yr = now.getFullYear();
+                dateEl.textContent = `${wd} · ${mon} ${day}日 · ${yr}`;
+
+                // 时间流逝指示条：一天中的进度
+                const totalMs = h * 3600000 + m * 60000 + s * 1000 + ms;
+                const dayMs = 24 * 3600000;
+                const progress = (totalMs / dayMs) * 100;
+                flowBar.style.width = progress + '%';
+            }
+
+            // 每秒更新时钟，但用 requestAnimationFrame 做更平滑的秒更新
+            let lastSecond = -1;
+            function clockLoop(now) {
+                const sec = Math.floor(now / 1000);
+                if (sec !== lastSecond) {
+                    lastSecond = sec;
+                    updateClock();
+                }
+                requestAnimationFrame(clockLoop);
+            }
+
+            /* ==========================================
+               5. 初始化
+               ========================================== */
+            function init() {
+                resize();
+                updateClock();
+
+                // 初始生成一些流星
+                lastMeteorTime = performance.now();
+                meteorInterval = 2000;
+                for (let i = 0; i < 2; i++) spawnMeteor();
+
+                requestAnimationFrame(animate);
+                requestAnimationFrame(clockLoop);
+
+                window.addEventListener('resize', () => {
+                    resize();
+                });
+
+                // 页面可见性变化时重置流星计时
+                document.addEventListener('visibilitychange', () => {
+                    if (!document.hidden) {
+                        lastMeteorTime = performance.now();
+                    }
+                });
+            }
+
+            init();
         })();
     </script>
-
 </body>
 </html>
