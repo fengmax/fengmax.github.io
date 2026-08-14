@@ -69,7 +69,7 @@
             border-radius: 16px;
             padding: 1rem 1.2rem;
             color: var(--text-secondary);
-            font-size: 0.72rem;
+            font-size: 1.02rem;
             letter-spacing: 0.05em;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
             pointer-events: auto;
@@ -77,7 +77,7 @@
         }
         .panel h3 {
             font-family: var(--font-serif);
-            font-size: 0.65rem;
+            font-size: 0.95rem;
             font-weight: 400;
             letter-spacing: 0.3em;
             text-transform: uppercase;
@@ -89,28 +89,38 @@
         #info-panel {
             left: 1.5rem;
             bottom: 2rem;
-            width: 280px;
+            width: 320px;
             min-height: 120px;
             cursor: default;
         }
         #info-panel .body-name {
             font-family: var(--font-serif);
-            font-size: 1rem;
+            font-size: 1.3rem;
             color: var(--text-primary);
             letter-spacing: 0.1em;
             margin-bottom: 0.3rem;
         }
         #info-panel .body-detail {
-            font-size: 0.65rem;
+            font-size: 0.95rem;
             color: var(--text-faint);
             line-height: 1.6;
             letter-spacing: 0.08em;
             margin-bottom: 0.6rem;
         }
+        #info-panel .body-intro {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            letter-spacing: 0.03em;
+            border-top: 1px solid var(--hairline);
+            border-bottom: 1px solid var(--hairline);
+            padding: 0.5rem 0;
+            margin-bottom: 0.55rem;
+        }
         #info-panel .body-stats {
             border-top: 1px solid var(--hairline);
             padding-top: 0.6rem;
-            font-size: 0.62rem;
+            font-size: 0.92rem;
             color: var(--text-secondary);
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -123,22 +133,97 @@
         }
         #info-panel .body-stats .stat-label {
             color: var(--text-faint);
-            font-size: 0.55rem;
+            font-size: 0.85rem;
             letter-spacing: 0.1em;
             text-transform: uppercase;
         }
         #info-panel .body-stats .stat-value {
             font-family: var(--font-serif);
             color: rgba(200, 220, 255, 0.9);
-            font-size: 0.75rem;
+            font-size: 1.05rem;
             font-variant-numeric: tabular-nums;
         }
         #info-panel .hint-click {
-            font-size: 0.55rem;
+            font-size: 0.85rem;
             color: var(--text-faint);
             letter-spacing: 0.2em;
             opacity: 0.6;
             margin-top: 0.5rem;
+        }
+
+        /* ---------- 右侧天体列表菜单 ---------- */
+        #body-menu {
+            right: 1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 176px;
+            padding: 0.6rem 0.8rem;
+        }
+        #body-menu-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            background: transparent;
+            border: 1px solid var(--hairline);
+            color: var(--text-secondary);
+            font-family: var(--font-serif);
+            font-size: 0.92rem;
+            letter-spacing: 0.25em;
+            padding: 0.5rem 0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+        #body-menu-toggle:hover {
+            color: var(--text-primary);
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(140, 180, 255, 0.08);
+        }
+        #body-menu-list {
+            margin-top: 0.55rem;
+            max-height: 58vh;
+            overflow-y: auto;
+            scrollbar-width: thin;
+        }
+        #body-menu-list.hidden {
+            display: none;
+        }
+        .menu-item {
+            padding: 0.32rem 0.6rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            letter-spacing: 0.06em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transition: all 0.18s ease;
+        }
+        .menu-item:hover {
+            background: rgba(140, 180, 255, 0.15);
+            color: var(--text-primary);
+        }
+        .menu-item.active {
+            background: rgba(140, 180, 255, 0.22);
+            color: rgba(220, 235, 255, 1);
+        }
+        .menu-item.star {
+            color: rgba(255, 214, 140, 0.9);
+        }
+        .menu-item.planet {
+            font-weight: 500;
+            color: rgba(220, 230, 255, 0.85);
+        }
+        .menu-item.moon {
+            font-size: 0.8rem;
+            padding-left: 1.35rem;
+            color: var(--text-faint);
+        }
+        .menu-item.moon::before {
+            content: '· ';
         }
 
         .hint-bar {
@@ -147,7 +232,7 @@
             left: 50%;
             transform: translateX(-50%);
             z-index: 6;
-            font-size: 0.58rem;
+            font-size: 0.88rem;
             letter-spacing: 0.4em;
             text-transform: uppercase;
             color: var(--text-faint);
@@ -175,13 +260,13 @@
         }
         #time-panel .time-date {
             font-family: var(--font-serif);
-            font-size: 0.72rem;
+            font-size: 1.02rem;
             color: rgba(200, 220, 255, 0.9);
             font-variant-numeric: tabular-nums;
             letter-spacing: 0.08em;
         }
         #time-panel .time-label {
-            font-size: 0.55rem;
+            font-size: 0.85rem;
             letter-spacing: 0.15em;
             color: var(--text-faint);
             text-transform: uppercase;
@@ -195,7 +280,7 @@
             background: transparent;
             border: 1px solid var(--hairline);
             color: var(--text-secondary);
-            font-size: 0.58rem;
+            font-size: 0.88rem;
             letter-spacing: 0.08em;
             padding: 0.3rem 0.6rem;
             border-radius: 14px;
@@ -216,19 +301,24 @@
 
         @media (max-width: 768px) {
             .panel {
-                font-size: 0.62rem;
+                font-size: 0.92rem;
                 padding: 0.7rem;
             }
             #info-panel {
                 left: 0.6rem;
                 bottom: 1.2rem;
-                width: 200px;
+                width: 220px;
+            }
+            #body-menu {
+                right: 0.6rem;
+                width: 148px;
+                padding: 0.5rem 0.6rem;
             }
             #info-panel .body-stats {
                 grid-template-columns: 1fr;
             }
             .hint-bar {
-                font-size: 0.5rem;
+                font-size: 0.8rem;
                 letter-spacing: 0.25em;
             }
             #time-panel {
@@ -239,11 +329,11 @@
                 max-width: 94vw;
             }
             #time-panel .time-date {
-                font-size: 0.6rem;
+                font-size: 0.9rem;
             }
             .speed-btn {
                 padding: 0.25rem 0.45rem;
-                font-size: 0.52rem;
+                font-size: 0.82rem;
             }
         }
         @media (max-width: 480px) {
@@ -251,7 +341,7 @@
                 display: none;
             }
             .hint-bar {
-                font-size: 0.45rem;
+                font-size: 0.75rem;
                 letter-spacing: 0.2em;
                 top: 0.6rem;
             }
@@ -261,7 +351,7 @@
                 gap: 0.3rem;
             }
             #time-panel .time-date {
-                font-size: 0.55rem;
+                font-size: 0.85rem;
             }
             #time-panel .time-label {
                 display: none;
@@ -291,8 +381,14 @@
     <div class="panel" id="info-panel">
         <div class="body-name" id="body-name">太阳系</div>
         <div class="body-detail" id="body-detail">点击任意行星查看详细信息</div>
+        <div class="body-intro" id="body-intro"></div>
         <div class="body-stats" id="body-stats"></div>
         <div class="hint-click">✦ 点击天体交互 ✦</div>
+    </div>
+
+    <div class="panel" id="body-menu">
+        <button id="body-menu-toggle" type="button">☉ 天体列表</button>
+        <div id="body-menu-list" class="menu-list hidden"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/astronomy-engine@2.1.19/astronomy.browser.min.js"></script>
@@ -319,10 +415,41 @@
         // 但信息面板仍显示真实数据。
         const MOON_ORBIT_SCENE = 1.6;     // 月球轨道"可见半径"（场景单位）
 
+        // 黄赤交角：黄道坐标(EclipticGeoMoon) → 赤道坐标(HelioVector 所在的 J2000 赤道系)
+        // 的旋转角。八大行星位置直接使用 HelioVector（赤道系），所以月球必须旋转到同一
+        // 坐标系，否则月球轨道面会与行星轨道面错开约 23.44°。
+        const OBLIQUITY_DEG = 23.4393;
+
+        // 黄道 → 赤道(J2000) 坐标旋转（绕 X 轴旋转 +ε）
+        function eclToEqj(x, y, z) {
+            const e = THREE.MathUtils.degToRad(OBLIQUITY_DEG);
+            const ce = Math.cos(e), se = Math.sin(e);
+            return new THREE.Vector3(x, ce * y - se * z, se * y + ce * z);
+        }
+
+        // 行星自转轴倾斜：以“黄道北极”(=行星轨道面法线，即黄道面法线)为基准，
+        // 把自转轴按真实轴倾角 obliquityDeg 倾斜，而不是相对场景 +Y(赤道系Y)倾斜。
+        // 原因：行星轨道面是黄道面，黄道北极在 EQJ 场景里方向为 (0,-sinε,cosε)，
+        // 与场景 +Y 差 90°。若直接 rotation.x=轴倾角，轴会被渲染到黄道面内（地球躺平、土星环竖起来），
+        // 与真实相差约 90°。本函数返回让自转轴正确指向的 rotation.x 角。
+        // 旋转顺序 XZY 且 rotation.z=0 时，自转轴(本地+Y)方向 = Rx(tiltX)·(0,1,0) = (0,cos t,sin t)。
+        // 取“黄道北极绕 X 轴旋转真实轴倾角”得到的期望轴方向 s=(0,sy,sz)，则 t=atan2(sz,sy)。
+        function spinAxisTilt(obliquityDeg) {
+            const eps = THREE.MathUtils.degToRad(OBLIQUITY_DEG);
+            const del = THREE.MathUtils.degToRad(obliquityDeg || 0);
+            const ny = -Math.sin(eps), nz = Math.cos(eps);   // 黄道北极(EQJ)
+            const sy = Math.cos(del) * ny - Math.sin(del) * nz;
+            const sz = Math.sin(del) * ny + Math.cos(del) * nz;
+            return Math.atan2(sz, sy);
+        }
+
         // ---------- 视角焦点状态 ----------
         let selectedObject = null;           // 当前选中的天体（视角围绕它旋转/平移）
         const tmpTarget = new THREE.Vector3(); // 临时向量
         let focusAnim = null;                // 平滑聚焦动画状态
+        let earthCloud = null;               // 地球半透明云层球（独立自转，营造相对漂移）
+        let lastFollowPos = new THREE.Vector3(); // 跟随模式中天体上一帧的世界位置
+        let followInitialized = false;       // 跟随平移是否已初始化（避免首次大跳）
 
         // ---------- 初始化场景 ----------
         const container = document.getElementById('canvas-container');
@@ -352,7 +479,11 @@
 
         const controls = new OrbitControls(camera, renderer.domElement);
         controls.enableDamping = true;
-        controls.dampingFactor = 0.08;
+        controls.dampingFactor = 0.15;
+        // 降低鼠标灵敏度：视角转动/缩放更细腻，避免轻轻一动就大幅晃眼
+        controls.rotateSpeed = 0.5;
+        controls.zoomSpeed = 0.8;
+        controls.panSpeed = 0.6;
         controls.minDistance = 5;
         controls.maxDistance = 500;
         controls.maxPolarAngle = Math.PI;
@@ -463,7 +594,7 @@
         }
 
         function createGlowTexture() {
-            const size = 256;
+            const size = 128;
             const canvas = document.createElement('canvas');
             canvas.width = size; canvas.height = size;
             const ctx = canvas.getContext('2d');
@@ -555,37 +686,36 @@
             return tex;
         }
 
-        // 太阳表面：亮黄白 + 米粒组织（高频噪声）+ 黑子
+        // 太阳表面：明亮的米粒组织（对流胞）——只有亮暗起伏，绝无黑色斑点
         function createSunTexture() {
-            const W = 512, H = 256;
+            const W = 384, H = 192;
             const n = makeNoise2D(7);
-            const spots = [];
-            const rng = mulberry32(701);
-            for (let i = 0; i < 24; i++) {
-                spots.push({ x: rng() * W, y: rng() * H, r: rng() * W * 0.03 + 3, k: rng() * 0.35 + 0.3 });
-            }
+            const nFine = makeNoise2D(8);
             return proceduralTexture(W, H, (d, w, h) => {
                 for (let y = 0; y < h; y++) {
                     for (let x = 0; x < w; x++) {
                         const i = (y * w + x) * 4;
-                        const g = n.fbm(x / w * 26, y / h * 13, 5);
-                        const t = g * 0.5 + 0.5;
-                        let r = 255, gg = 205 + t * 50, b = 130 + t * 110;
-                        for (const s of spots) {
-                            const dx = x - s.x, dy = y - s.y, rr = s.r * s.r;
-                            if (dx * dx + dy * dy < rr) {
-                                const m = 1 - s.k * 0.3;
-                                r *= m; gg *= m; b *= m;
-                            }
-                        }
-                        d[i] = r; d[i + 1] = gg; d[i + 2] = b; d[i + 3] = 255;
+                        // 大尺度亮度起伏：从亮黄到橙黄的柔和渐变
+                        const g = n.fbm(x / w * 14, y / h * 7, 3);
+                        const t = Math.max(0, Math.min(1, (g + 0.6) / 1.2));
+                        let r = 255;
+                        let gg = 214 + t * 41;
+                        let b = 148 + t * 107;
+                        // 高频米粒组织：对流胞中心略亮、边缘略暗（仅 ±7% 起伏）
+                        const fine = nFine.fbm(x / w * 60, y / h * 30, 2);
+                        const gran = Math.max(0, Math.min(1, (fine + 0.4) * 1.4));
+                        const brighten = (gran - 0.5) * 0.14;
+                        r = Math.min(255, r + r * brighten);
+                        gg = Math.min(255, gg + gg * brighten);
+                        b = Math.min(255, b + b * brighten);
+                        d[i] = Math.round(r); d[i + 1] = Math.round(gg); d[i + 2] = Math.round(b); d[i + 3] = 255;
                     }
                 }
             });
         }
 
         function createPlanetTexture(name) {
-            const W = 640, H = 320;
+            const W = 512, H = 256;
             switch (name) {
                 case '水星': return mercuryTexture(W, H);
                 case '金星': return venusTexture(W, H);
@@ -605,199 +735,303 @@
             }
         }
 
-        // 水星：灰褐 + 密布陨石坑
+        // 水星：灰褐地表 + 密布陨石坑（暗坑底 + 亮边缘）+ 少数亮射线坑
         function mercuryTexture(W, H) {
             const n = makeNoise2D(21);
             const craters = [];
             const rng = mulberry32(221);
-            for (let i = 0; i < 150; i++) {
-                craters.push({ x: rng() * W, y: rng() * H, r: rng() * W * 0.014 + 1.5 });
+            for (let i = 0; i < 120; i++) {
+                const r = Math.pow(rng(), 1.7) * W * 0.018 + 1.2;
+                craters.push({ x: rng() * W, y: rng() * H, r });
+            }
+            // 少量大型亮射线坑（如哥白尼/第谷那样的辐射纹）
+            const rays = [];
+            for (let i = 0; i < 2; i++) {
+                const spokes = [];
+                for (let s = 0; s < 6; s++) spokes.push(rng() * Math.PI * 2);
+                rays.push({ x: rng() * W, y: rng() * H, r: rng() * W * 0.05 + 0.03, spokes });
             }
             return proceduralTexture(W, H, (d, w, h) => {
                 for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
                     const i = (y * w + x) * 4;
-                    const v = n.fbm(x / w * 8, y / h * 4, 4);
-                    let base = 96 + v * 44;
+                    const v = n.fbm(x / w * 9, y / h * 4.5, 3);
+                    let base = 108 + v * 52;
                     for (const c of craters) {
-                        const dx = x - c.x, dy = y - c.y, dd = dx * dx + dy * dy, rr = c.r * c.r;
-                        if (dd < rr) base *= 0.6;
+                        const dx = x - c.x, dy = y - c.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < c.r * 0.85) base *= 0.5;
+                        else if (dist < c.r * 1.18) base *= 1.14;
                     }
-                    d[i] = base; d[i + 1] = base * 0.97; d[i + 2] = base * 1.03; d[i + 3] = 255;
+                    for (const r of rays) {
+                        const dx = x - r.x, dy = y - r.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < r.r) {
+                            const ang = Math.atan2(dy, dx);
+                            for (const sp of r.spokes) {
+                                const diff = Math.abs(((ang - sp + Math.PI * 3) % (Math.PI * 2)) - Math.PI);
+                                if (diff < 0.07) {
+                                    base += 55 * (1 - dist / r.r);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    base = Math.min(255, base);
+                    d[i] = base; d[i + 1] = base * 0.96; d[i + 2] = base * 1.05; d[i + 3] = 255;
                 }
             });
         }
 
-        // 金星：奶油黄 + 模糊云带
+        // 金星：奶油黄浓厚云层 + 湍流涡旋云带（云带随纬度呈波浪走向）
         function venusTexture(W, H) {
             const n = makeNoise2D(31);
-            const base = [226, 192, 124];
-            const bright = [255, 226, 162];
+            const base = [214, 178, 114];
+            const bright = [252, 226, 170];
+            const dark = [168, 132, 88];
             return proceduralTexture(W, H, (d, w, h) => {
                 for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
                     const i = (y * w + x) * 4;
-                    const v = n.fbm(x / w * 5 + y / h * 2, y / h * 3, 3);
-                    const band = Math.sin(y / h * Math.PI * 5) * 0.06;
-                    const c = mix3(base, bright, v * 0.5 + 0.25 + band);
+                    const u = x / w * 2, v = y / h;
+                    // 云带随纬度起伏 + 湍流扭曲
+                    const band = Math.sin(v * Math.PI * 6) * 0.5 + 0.5;
+                    const turb = n.fbm(u * 4 + Math.sin(v * 10) * 0.2, v * 6, 3) * 0.5 + 0.5;
+                    let c = mix3(dark, base, band * 0.6 + turb * 0.4);
+                    // 柔和的大尺度亮暗（硫酸云反射差异）
+                    const soft = n.fbm(u * 2.2, v * 1.8, 2) * 0.5 + 0.5;
+                    c = mix3(c, bright, soft * 0.35);
                     d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = 255;
                 }
             });
         }
 
-        // 地球：海洋/大陆 + 极地冰盖 + 云层
+        // 地球：海洋深浅 + 大陆地貌（沙漠/草原/森林/山地）+ 海岸浅滩 + 极地冰盖
         function earthTexture(W, H) {
             const nLand = makeNoise2D(41);
             const nTer = makeNoise2D(42);
-            const nCl = makeNoise2D(43);
-            const ocean = [24, 60, 128];
-            const shallow = [34, 100, 180];
-            const landDark = [34, 96, 50];
-            const landLight = [150, 130, 80];
-            const snow = [240, 244, 248];
-            const cloud = [255, 255, 255];
+            const nDeep = makeNoise2D(44);
+            const nBio = makeNoise2D(45);
+            const ocean = [14, 38, 96];
+            const oceanLight = [36, 116, 188];
+            const shore = [48, 132, 176];
+            const sand = [198, 176, 118];
+            const grass = [76, 118, 56];
+            const forest = [42, 90, 42];
+            const rock = [128, 118, 104];
+            const snow = [246, 249, 252];
             return proceduralTexture(W, H, (d, w, h) => {
                 for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
                     const i = (y * w + x) * 4;
                     const lat = (y / h - 0.5) * Math.PI;
                     const u = x / w * 2, v = y / h;
-                    const land = nLand.fbm(u * 2.2 + 1.3, v * 1.15, 5);
-                    const terr = nTer.fbm(u * 3.0, v * 1.5, 3);
+                    const land = nLand.fbm(u * 2.0 + 0.4, v * 1.0 + 0.2, 4);
+                    // fbm 输出约 ±0.6，映射为“陆地度”，约 1/3 面积为陆地
+                    const landT = Math.max(0, Math.min(1, (land + 0.05) * 3.0));
                     let c;
-                    if (land > 0.5) {
-                        const t = Math.max(0, Math.min(1, (land - 0.5) * 3.2 + (terr - 0.5) * 0.8));
-                        c = mix3(landDark, landLight, t);
+                    if (landT > 0.30) {
+                        const ele = nTer.fbm(u * 4.0, v * 2.0, 2);
+                        const t = Math.max(0, Math.min(1, landT + (ele - 0.5) * 0.35));
+                        // 植被分布：低地沙漠/草原，丘陵森林，高山岩石+雪
+                        const bio = nBio.fbm(u * 3 + 9, v * 1.5, 2) * 0.5 + 0.5;
+                        if (t < 0.55) {
+                            c = mix3(sand, grass, bio);
+                            c = mix3(c, forest, Math.max(0, t - 0.35) * 2.5);
+                        } else {
+                            c = mix3(forest, rock, Math.min(1, (t - 0.55) * 2.5));
+                        }
+                        if (t > 0.75) c = mix3(c, snow, Math.min(1, (t - 0.75) * 4));
                     } else {
-                        const dep = (0.5 - land) * 3;
-                        c = mix3(ocean, shallow, Math.min(1, dep));
+                        const dep = Math.max(0, 1 - landT / 0.30);
+                        const depthVar = 0.75 + nDeep.noise(u * 3, v * 1.5) * 0.45;
+                        c = mix3(ocean, oceanLight, Math.min(1, dep * depthVar));
                     }
-                    const pole = Math.max(0, Math.abs(lat) - 1.05);
-                    if (pole > 0) c = mix3(c, snow, Math.min(1, pole * 6));
-                    const cl = nCl.fbm(u * 3.5, v * 1.8, 4);
-                    if (cl > 0.62) c = mix3(c, cloud, Math.min(0.85, (cl - 0.62) * 2.5));
+                    // 海岸线浅滩：紧贴陆地边缘提亮
+                    if (landT > 0.20 && landT < 0.42) {
+                        c = mix3(c, shore, (0.42 - landT) * 1.5);
+                    }
+                    const pole = Math.max(0, Math.abs(lat) - 1.18);
+                    if (pole > 0) c = mix3(c, snow, Math.min(1, pole * 8));
                     d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = 255;
                 }
             });
         }
 
-        // 火星：红色表面 + 暗斑 + 极冠
+        // 地球半透明云层（白色 + 云密度 alpha，作为独立球体叠加在陆地上方）
+        function createCloudTexture(W, H) {
+            const n = makeNoise2D(87);
+            return proceduralTexture(W, H, (d, w, h) => {
+                for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+                    const i = (y * w + x) * 4;
+                    const u = x / w * 2, v = y / h;
+                    const a = n.fbm(u * 4.0 + 3.0, v * 2.0, 3);
+                    // fbm 实际输出约 ±0.5：a<-0.12 无云，a>0.15 全云，覆盖约 50-60%
+                    const t = Math.max(0, Math.min(1, (a + 0.12) / 0.27));
+                    const s = t * t * (3 - 2 * t);
+                    const alpha = s * 0.95;
+                    d[i] = 255; d[i + 1] = 255; d[i + 2] = 255; d[i + 3] = Math.floor(alpha * 255);
+                }
+            });
+        }
+
+        // 火星：红色沙漠 + 暗色玄武岩区 + 亮色尘暴带 + 极冠（带暗色边缘）
         function marsTexture(W, H) {
             const n = makeNoise2D(51);
             const n2 = makeNoise2D(52);
-            const red = [194, 90, 40];
-            const dark = [120, 55, 30];
-            const light = [226, 152, 98];
-            const cap = [246, 240, 236];
+            const n3 = makeNoise2D(53);
+            const red = [205, 100, 48];
+            const dark = [116, 52, 30];
+            const light = [232, 162, 106];
+            const cap = [248, 243, 238];
+            const capDark = [180, 130, 96];
             return proceduralTexture(W, H, (d, w, h) => {
                 for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
                     const i = (y * w + x) * 4;
                     const lat = (y / h - 0.5) * Math.PI;
                     const u = x / w * 2, v = y / h;
-                    const vv = n.fbm(u * 2.6, v * 1.3, 4);
-                    const dd = n2.fbm(u * 4 + 5, v * 2, 3);
-                    let c = mix3(dark, red, vv * 0.6 + 0.3);
-                    if (dd > 0.55) c = mix3(c, light, Math.min(0.6, (dd - 0.55) * 2));
-                    const pole = Math.max(0, Math.abs(lat) - 1.15);
+                    const vv = n.fbm(u * 2.6, v * 1.3, 3);
+                    const dd = n2.fbm(u * 4 + 5, v * 2, 2);
+                    // fbm 约 ±0.6，映射到 0..1 拉开明暗
+                    const t = Math.max(0, Math.min(1, (vv + 0.6) * 0.9));
+                    let c = mix3(dark, red, t);
+                    if (dd > 0.05) c = mix3(c, light, Math.min(0.75, (dd - 0.05) * 3.0));
+                    // 细碎陨石坑 / 岩层斑点
+                    const speck = n3.fbm(u * 12, v * 6, 2);
+                    c = mix3(c, dark, Math.max(0, (speck - 0.55) * 0.3));
+                    // 极冠：白色冰盖 + 边缘暗色圈（火星极冠特有的季节性边缘）
+                    const pole = Math.max(0, Math.abs(lat) - 1.18);
                     if (pole > 0) c = mix3(c, cap, Math.min(1, pole * 8));
+                    const fringe = Math.max(0, 1 - Math.abs(Math.abs(lat) - 1.16) * 30);
+                    c = mix3(c, capDark, fringe * 0.5);
                     d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = 255;
                 }
             });
         }
 
-        // 木星：横向云带 + 湍流 + 大红斑
+        // 木星：多条云带（亮区/暗带交替）+ 带内湍流 + 大红斑（椭圆涡旋 + 外缘亮环）
         function jupiterTexture(W, H) {
             const n = makeNoise2D(61);
+            const nS = makeNoise2D(62);
             const bandCols = [
-                [216, 172, 124], [196, 144, 100], [232, 198, 152],
-                [176, 122, 84], [240, 210, 168], [188, 138, 92],
+                [202, 160, 118], [168, 118, 80], [228, 196, 150],
+                [148, 98, 64], [238, 208, 164], [184, 132, 90],
+                [212, 172, 132], [158, 110, 74],
             ];
             return proceduralTexture(W, H, (d, w, h) => {
                 for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
                     const i = (y * w + x) * 4;
                     const u = x / w * 2, v = y / h;
-                    const bandPos = v * 12;
-                    const bandIdx = Math.floor(bandPos) % bandCols.length;
-                    const turb = n.fbm(u * 3 + Math.sin(bandPos) * 0.5, v * 6, 3);
-                    let c = mix3(bandCols[bandIdx], bandCols[(bandIdx + 2) % bandCols.length], turb * 0.5 + 0.2);
-                    const gx = (x - W * 0.72) / (W * 0.09);
-                    const gy = (y - H * 0.62) / (H * 0.05);
-                    if (gx * gx + gy * gy < 1) {
-                        const e = 1 - (gx * gx + gy * gy);
-                        c = mix3(c, [198, 76, 50], e * 0.9);
+                    const bands = bandCols.length;
+                    const bandPos = v * bands;
+                    const bi = Math.floor(bandPos) % bands;
+                    const fr = bandPos - Math.floor(bandPos);
+                    const smooth = Math.sin(Math.PI * fr);
+                    let c = mix3(bandCols[bi], bandCols[(bi + 1) % bands], smooth * 0.5);
+                    // 带内湍流：水平拉长的卷云
+                    const turb = nS.fbm(u * 5 + Math.sin(v * 30) * 0.5, v * 12, 2) * 0.5 + 0.5;
+                    c = mix3(c, bandCols[(bi + 3) % bands], (turb - 0.5) * 0.4);
+                    // 大红斑：扁平椭圆，内部旋涡 + 外缘亮环
+                    const gx = (x - W * 0.72) / (W * 0.10);
+                    const gy = (y - H * 0.66) / (H * 0.045);
+                    const gd = gx * gx + gy * gy;
+                    if (gd < 1.4) {
+                        const ring = 1 - Math.min(1, gd);
+                        c = mix3(c, [210, 84, 50], ring * 0.95);
+                        if (gd < 0.5) {
+                            const swirl = 0.5 + 0.5 * Math.sin((gx * 6 + gy * 8) * Math.PI);
+                            c = mix3(c, [232, 130, 92], swirl * 0.4);
+                        }
+                        if (gd > 1.15 && gd < 1.4) c = mix3(c, [240, 214, 170], 0.5);
                     }
                     d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = 255;
                 }
             });
         }
 
-        // 土星：柔和云带
+        // 土星：柔和的浅金色云带（奶油色系）+ 极区渐暗
         function saturnTexture(W, H) {
             const n = makeNoise2D(71);
-            const a = [228, 208, 168];
-            const b = [196, 168, 128];
+            const a = [234, 214, 172];
+            const b = [202, 172, 132];
+            const dark = [176, 148, 110];
             return proceduralTexture(W, H, (d, w, h) => {
                 for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
                     const i = (y * w + x) * 4;
                     const u = x / w * 2, v = y / h;
-                    const band = Math.sin(v * Math.PI * 8) * 0.5 + 0.5;
-                    const turb = n.fbm(u * 2.5, v * 5, 3) * 0.5 + 0.5;
-                    const c = mix3(b, a, band * 0.6 + turb * 0.3);
+                    const band = Math.sin(v * Math.PI * 12) * 0.5 + 0.5;
+                    const band2 = Math.sin(v * Math.PI * 5 + 1.3) * 0.5 + 0.5;
+                    const turb = n.fbm(u * 3 + Math.sin(v * 20) * 0.3, v * 8, 2) * 0.5 + 0.5;
+                    let c = mix3(b, a, band * 0.45 + turb * 0.25);
+                    c = mix3(c, dark, band2 * 0.22);
+                    const lat = (y / h - 0.5) * 2;
+                    c = mix3(c, dark, Math.abs(lat) * 0.18);
                     d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = 255;
                 }
             });
         }
 
-        // 天王星：淡青 + 微弱带
+        // 天王星：淡青色 + 极淡的云带
         function uranusTexture(W, H) {
             const n = makeNoise2D(81);
             return proceduralTexture(W, H, (d, w, h) => {
                 for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
                     const i = (y * w + x) * 4;
                     const u = x / w * 2, v = y / h;
-                    const band = Math.sin(v * Math.PI * 4) * 0.5 + 0.5;
-                    const t = n.fbm(u * 2, v * 3, 3) * 0.5 + 0.5;
-                    const c = mix3([112, 192, 200], [150, 224, 226], band * 0.4 + t * 0.3);
+                    const band = Math.sin(v * Math.PI * 5) * 0.5 + 0.5;
+                    const t = n.fbm(u * 2, v * 3, 2) * 0.5 + 0.5;
+                    const c = mix3([106, 186, 198], [152, 224, 228], band * 0.35 + t * 0.25);
                     d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = 255;
                 }
             });
         }
 
-        // 海王星：深蓝 + 亮云带 + 大暗斑
+        // 海王星：深蓝 + 亮甲烷云带 + 大暗斑
         function neptuneTexture(W, H) {
             const n = makeNoise2D(91);
             return proceduralTexture(W, H, (d, w, h) => {
                 for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
                     const i = (y * w + x) * 4;
                     const u = x / w * 2, v = y / h;
-                    const band = Math.sin(v * Math.PI * 7) * 0.5 + 0.5;
-                    const t = n.fbm(u * 2.5, v * 4, 3) * 0.5 + 0.5;
-                    let c = mix3([34, 58, 150], [66, 110, 222], band * 0.5 + t * 0.25);
+                    const band = Math.sin(v * Math.PI * 8) * 0.5 + 0.5;
+                    const t = n.fbm(u * 3, v * 5, 2) * 0.5 + 0.5;
+                    let c = mix3([32, 56, 148], [70, 116, 226], band * 0.55 + t * 0.25);
+                    // 高纬亮甲烷云
+                    if (t > 0.72) c = mix3(c, [210, 226, 255], (t - 0.72) * 1.8);
+                    // 大暗斑
                     const gx = (x - W * 0.55) / (W * 0.1);
-                    const gy = (y - H * 0.6) / (H * 0.06);
-                    if (gx * gx + gy * gy < 1) {
-                        const e = 1 - (gx * gx + gy * gy);
-                        c = mix3(c, [20, 30, 90], e * 0.8);
-                    }
+                    const gy = (y - H * 0.62) / (H * 0.06);
+                    const gd = gx * gx + gy * gy;
+                    if (gd < 1) c = mix3(c, [18, 28, 88], (1 - gd) * 0.85);
                     d[i] = c[0]; d[i + 1] = c[1]; d[i + 2] = c[2]; d[i + 3] = 255;
                 }
             });
         }
 
-        // 月球：灰 + 陨石坑
+        // 月球：灰色月海（暗色低洼）+ 亮色高地 + 密布陨石坑
         function moonTexture(W, H) {
             const n = makeNoise2D(101);
+            const nM = makeNoise2D(102);
             const craters = [];
             const rng = mulberry32(333);
-            for (let i = 0; i < 140; i++) {
-                craters.push({ x: rng() * W, y: rng() * H, r: rng() * W * 0.02 + 1.5 });
+            for (let i = 0; i < 90; i++) {
+                const r = Math.pow(rng(), 1.6) * W * 0.02 + 1.2;
+                craters.push({ x: rng() * W, y: rng() * H, r });
             }
             return proceduralTexture(W, H, (d, w, h) => {
                 for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
                     const i = (y * w + x) * 4;
-                    const v = n.fbm(x / w * 6, y / h * 3, 4);
-                    let base = 150 + v * 34;
+                    const u = x / w * 2, v = y / h;
+                    // 月海（暗）vs 高地（亮）
+                    const m = nM.fbm(u * 2.5, v * 1.3, 3) * 0.5 + 0.5;
+                    const mT = Math.max(0, Math.min(1, m * 1.6 - 0.3));
+                    let base = 116 + mT * 54;
+                    const v2 = n.fbm(x / w * 7, y / h * 3.5, 3);
+                    base += v2 * 14;
                     for (const c of craters) {
-                        const dx = x - c.x, dy = y - c.y, dd = dx * dx + dy * dy, rr = c.r * c.r;
-                        if (dd < rr) base *= 0.55;
+                        const dx = x - c.x, dy = y - c.y;
+                        const dist = Math.sqrt(dx * dx + dy * dy);
+                        if (dist < c.r * 0.85) base *= 0.55;
+                        else if (dist < c.r * 1.18) base *= 1.12;
                     }
+                    base = Math.min(255, base);
                     d[i] = base; d[i + 1] = base; d[i + 2] = base * 1.01; d[i + 3] = 255;
                 }
             });
@@ -805,14 +1039,35 @@
 
         // ---------- 行星配置（含公转周期）----------
         const planetConfigs = [
-            { name: '水星', body: Astronomy.Body.Mercury, color: 0x8c8c8c, radius: 0.35, orbitAU: 0.39, detail: '最小的行星 · 表面布满陨石坑', periodDays: 87.97, texture: () => createPlanetTexture('水星') },
-            { name: '金星', body: Astronomy.Body.Venus, color: 0xe6c87a, radius: 0.55, orbitAU: 0.72, detail: '最亮的行星 · 浓厚二氧化碳大气', periodDays: 224.7, texture: () => createPlanetTexture('金星') },
-            { name: '地球', body: Astronomy.Body.Earth, color: 0x4a7eb5, radius: 0.58, orbitAU: 1.0, detail: '我们的家园 · 唯一已知存在生命的星球', periodDays: 365.25, texture: () => createPlanetTexture('地球') },
-            { name: '火星', body: Astronomy.Body.Mars, color: 0xc1440e, radius: 0.42, orbitAU: 1.52, detail: '红色星球 · 拥有太阳系最高的火山', periodDays: 686.98, texture: () => createPlanetTexture('火星') },
-            { name: '木星', body: Astronomy.Body.Jupiter, color: 0xd8a27a, radius: 1.4, orbitAU: 5.2, detail: '气态巨行星 · 太阳系最大的行星', periodDays: 4332.59, texture: () => createPlanetTexture('木星') },
-            { name: '土星', body: Astronomy.Body.Saturn, color: 0xead6a6, radius: 1.15, orbitAU: 9.58, detail: '壮丽的光环 · 密度低于水', periodDays: 10759.22, texture: () => createPlanetTexture('土星') },
-            { name: '天王星', body: Astronomy.Body.Uranus, color: 0x6fd4d4, radius: 0.8, orbitAU: 19.2, detail: '冰巨星 · 自转轴倾斜97.77°', periodDays: 30688.5, texture: () => createPlanetTexture('天王星') },
-            { name: '海王星', body: Astronomy.Body.Neptune, color: 0x4166f5, radius: 0.8, orbitAU: 30.1, detail: '最远的行星 · 风速可达2100km/h', periodDays: 60182.0, texture: () => createPlanetTexture('海王星') },
+            { name: '水星', body: Astronomy.Body.Mercury, color: 0x8c8c8c, radius: 0.35, orbitAU: 0.39, detail: '最小的行星 · 表面布满陨石坑', periodDays: 87.97, spinPeriodHours: 1407.6, axialTiltDeg: 0.03, texture: () => createPlanetTexture('水星') },
+            { name: '金星', body: Astronomy.Body.Venus, color: 0xe6c87a, radius: 0.55, orbitAU: 0.72, detail: '最亮的行星 · 浓厚二氧化碳大气', periodDays: 224.7, spinPeriodHours: 5832.5, axialTiltDeg: 177.4, texture: () => createPlanetTexture('金星') },
+            { name: '地球', body: Astronomy.Body.Earth, color: 0x4a7eb5, radius: 0.58, orbitAU: 1.0, detail: '我们的家园 · 唯一已知存在生命的星球', periodDays: 365.25, spinPeriodHours: 23.93, axialTiltDeg: 23.44, texture: () => createPlanetTexture('地球') },
+            { name: '火星', body: Astronomy.Body.Mars, color: 0xc1440e, radius: 0.42, orbitAU: 1.52, detail: '红色星球 · 拥有太阳系最高的火山', periodDays: 686.98, spinPeriodHours: 24.62, axialTiltDeg: 25.19, texture: () => createPlanetTexture('火星') },
+            { name: '木星', body: Astronomy.Body.Jupiter, color: 0xd8a27a, radius: 1.4, orbitAU: 5.2, detail: '气态巨行星 · 太阳系最大的行星', periodDays: 4332.59, spinPeriodHours: 9.93, axialTiltDeg: 3.13, texture: () => createPlanetTexture('木星') },
+            { name: '土星', body: Astronomy.Body.Saturn, color: 0xead6a6, radius: 1.15, orbitAU: 9.58, detail: '壮丽的光环 · 密度低于水', periodDays: 10759.22, spinPeriodHours: 10.55, axialTiltDeg: 26.73, texture: () => createPlanetTexture('土星') },
+            { name: '天王星', body: Astronomy.Body.Uranus, color: 0x6fd4d4, radius: 0.8, orbitAU: 19.2, detail: '冰巨星 · 自转轴倾斜97.77°', periodDays: 30688.5, spinPeriodHours: 17.24, axialTiltDeg: 97.77, texture: () => createPlanetTexture('天王星') },
+            { name: '海王星', body: Astronomy.Body.Neptune, color: 0x4166f5, radius: 0.8, orbitAU: 30.1, detail: '最远的行星 · 风速可达2100km/h', periodDays: 60182.0, spinPeriodHours: 16.11, axialTiltDeg: 28.32, texture: () => createPlanetTexture('海王星') },
+        ];
+
+        // ---------- 卫星配置（真实数据；每颗行星最多 3 颗）----------
+        // body: astronomy-engine 支持的卫星枚举；null = 引擎不支持（火星火卫），用黄道面圆轨道近似。
+        // visualOrbit: 轨道"可见半径"（场景单位）；periodDays/semiMajorKm 为真实数据（信息面板展示）。
+        // 卫星不画轨道环（保持视觉简洁，避免与行星轨道线混淆）。
+        const MOON_CONFIGS = [
+            { name: '月球', parent: '地球', body: Astronomy.Body.Moon, radius: 0.18, texture: () => createPlanetTexture('月球'), visualOrbit: 1.6, periodDays: 27.32, semiMajorKm: 384400, detail: '地球唯一的天然卫星' },
+            { name: '火卫一', parent: '火星', body: null, radius: 0.05, color: 0x9a8a7e, visualOrbit: 0.8, periodDays: 0.3189, semiMajorKm: 9376, detail: '火星最大的卫星 · 形状不规则', phase0: 1.2 },
+            { name: '火卫二', parent: '火星', body: null, radius: 0.045, color: 0xb0a89a, visualOrbit: 1.1, periodDays: 1.263, semiMajorKm: 23463, detail: '火星较小的卫星', phase0: 3.1 },
+            { name: '木卫一', parent: '木星', body: Astronomy.Body.JupiterIo, radius: 0.09, color: 0xd8b04a, visualOrbit: 2.2, periodDays: 1.769, semiMajorKm: 421700, detail: '太阳系火山活动最剧烈的天体' },
+            { name: '木卫二', parent: '木星', body: Astronomy.Body.JupiterEuropa, radius: 0.085, color: 0xcfd8dc, visualOrbit: 2.8, periodDays: 3.551, semiMajorKm: 671034, detail: '冰壳下可能藏有海洋' },
+            { name: '木卫三', parent: '木星', body: Astronomy.Body.JupiterGanymede, radius: 0.12, color: 0x8a8276, visualOrbit: 3.4, periodDays: 7.155, semiMajorKm: 1070412, detail: '太阳系最大的卫星' },
+            { name: '土卫一', parent: '土星', body: Astronomy.Body.SaturnMimas, radius: 0.05, color: 0xb0b0b0, visualOrbit: 1.8, periodDays: 0.942, semiMajorKm: 185539, detail: '形似"死星"的小卫星' },
+            { name: '土卫二', parent: '土星', body: Astronomy.Body.SaturnEnceladus, radius: 0.05, color: 0xe8f0f4, visualOrbit: 2.2, periodDays: 1.370, semiMajorKm: 238042, detail: '南极喷出水冰羽流' },
+            { name: '土卫六', parent: '土星', body: Astronomy.Body.SaturnTitan, radius: 0.13, color: 0xc4903f, visualOrbit: 3.0, periodDays: 15.945, semiMajorKm: 1221870, detail: '拥有浓厚大气与甲烷湖泊' },
+            { name: '天卫五', parent: '天王星', body: Astronomy.Body.UranusMiranda, radius: 0.045, color: 0x9a9a9a, visualOrbit: 1.3, periodDays: 1.413, semiMajorKm: 129390, detail: '拥有太阳系最高悬崖' },
+            { name: '天卫三', parent: '天王星', body: Astronomy.Body.UranusTitania, radius: 0.08, color: 0xa8a8a8, visualOrbit: 1.8, periodDays: 8.706, semiMajorKm: 435910, detail: '天王星最大的卫星' },
+            { name: '天卫四', parent: '天王星', body: Astronomy.Body.UranusOberon, radius: 0.08, color: 0x808080, visualOrbit: 2.2, periodDays: 13.463, semiMajorKm: 583520, detail: '天王星第二大的卫星' },
+            { name: '海卫一', parent: '海王星', body: Astronomy.Body.NeptuneTriton, radius: 0.1, color: 0xd0c0b0, visualOrbit: 1.6, periodDays: 5.877, semiMajorKm: 354759, detail: '唯一逆行的大卫星' },
+            { name: '海卫二', parent: '海王星', body: Astronomy.Body.NeptuneNereid, radius: 0.045, color: 0x8a8a8a, visualOrbit: 2.2, periodDays: 360.13, semiMajorKm: 5513400, detail: '轨道极扁 · 远日点极远' },
         ];
 
         const planetMeshes = [];
@@ -846,16 +1101,15 @@
                 depthWrite: false,
             });
             const line = new THREE.LineLoop(geometry, material);
+            line.userData = { name: config.name };
             scene.add(line);
             orbitLines.push(line);
             return line;
         }
 
         function createPlanet(config) {
-            // 不绘制地球自身的轨道环（月球轨道环已随地球显示）
-            if (config.name !== '地球') {
-                createOrbitLine(config);
-            }
+            // 每颗行星都绘制真实椭圆轨道线（含地球）
+            createOrbitLine(config);
 
             const geo = new THREE.SphereGeometry(config.radius, 64, 64);
             const texture = config.texture();
@@ -875,11 +1129,22 @@
                 body: config.body,
                 orbitAU: config.orbitAU,
                 periodDays: config.periodDays,
+                radius: config.radius,
+                spinPeriodHours: config.spinPeriodHours,
+                axialTiltDeg: config.axialTiltDeg,
             };
+            // 真实自转轴倾角：以黄道北极(轨道面法线)为基准倾斜，使自转轴方向与真实一致。
+            // order='XZY' 且 rotation.z 恒为 0 时，旋转矩阵 = Rx(倾斜) * Ry(自转)，
+            // 即先绕本地 Y 自转、再整体绕 X 倾斜，自转轴被真实地倾斜。
+            // 轴倾角 >90°（金星 177.4°、天王星 97.77°）自然表现为逆行。
+            mesh.rotation.order = 'XZY';
+            mesh.rotation.x = spinAxisTilt(config.axialTiltDeg);
             scene.add(mesh);
             planetMeshes.push(mesh);
 
             if (config.name === '土星') {
+                // 光环平面垂直于自转轴（真实土星环在赤道平面内）。
+                // rotation.x = -π/2 使环的法线指向本地 +Y（自转轴），随轴倾角一起倾斜。
                 const ringGeo = new THREE.TorusGeometry(config.radius * 1.6, 0.12, 16, 200);
                 const ringMat = new THREE.MeshStandardMaterial({
                     color: 0xd4c09a,
@@ -890,16 +1155,34 @@
                     side: THREE.DoubleSide,
                 });
                 const ring = new THREE.Mesh(ringGeo, ringMat);
-                ring.rotation.x = Math.PI / 2.5;
+                ring.rotation.x = -Math.PI / 2;
                 ring.userData = { isRing: true };
                 mesh.add(ring);
 
                 const ring2Geo = new THREE.TorusGeometry(config.radius * 1.9, 0.06, 16, 200);
                 const ring2 = new THREE.Mesh(ring2Geo, ringMat.clone());
                 ring2.material.opacity = 0.4;
-                ring2.rotation.x = Math.PI / 2.5;
+                ring2.rotation.x = -Math.PI / 2;
                 ring2.userData = { isRing: true };
                 mesh.add(ring2);
+            }
+
+            // 地球：半透明云层球，叠加在陆地上方（云层独立缓慢自转，营造相对漂移）
+            if (config.name === '地球') {
+                const cloudGeo = new THREE.SphereGeometry(config.radius * 1.035, 64, 64);
+                const cloudMat = new THREE.MeshStandardMaterial({
+                    map: createCloudTexture(256, 128),
+                    transparent: true,
+                    opacity: 0.9,
+                    depthWrite: false,
+                    roughness: 0.95,
+                    metalness: 0.0,
+                });
+                const cloud = new THREE.Mesh(cloudGeo, cloudMat);
+                cloud.castShadow = false;
+                cloud.userData = { name: '云层', type: 'glow' };
+                earthCloud = cloud;
+                mesh.add(cloud);
             }
 
             const labelDiv = document.createElement('div');
@@ -912,7 +1195,10 @@
             labelDiv.style.pointerEvents = 'none';
             const label = new CSS2DObject(labelDiv);
             label.position.set(0, config.radius + 0.6, 0);
-            mesh.add(label);
+            // 标注放入场景而非行星子级：行星有自转轴倾角，若作为子级会跟着倾斜，
+            // 放在场景中由 updatePlanetPositions 每帧跟随，可始终保持竖立在行星上方。
+            scene.add(label);
+            mesh.userData.labelRef = label;
             planetLabels.push(label);
 
             return mesh;
@@ -920,64 +1206,59 @@
 
         planetConfigs.forEach(config => createPlanet(config));
 
-        // ---------- 月球 ----------
-        function createMoon() {
-            const geo = new THREE.SphereGeometry(0.18, 32, 32);
-            const texture = createPlanetTexture('月球');
-            const mat = new THREE.MeshStandardMaterial({
-                map: texture,
-                roughness: 0.9,
-                metalness: 0.0,
+        // ---------- 卫星（每颗行星最多 3 颗, 真实数据）----------
+        // 卫星作为场景子对象（非行星子级），避免跟着行星自转轴倾斜；
+        // 位置在 updatePlanetPositions 里每帧跟随母星。卫星不画轨道环。
+        const moonMeshes = [];
+        function createMoons() {
+            MOON_CONFIGS.forEach(cfg => {
+                const parent = planetMeshes.find(m => m.userData.name === cfg.parent);
+                if (!parent) return;
+                const geo = new THREE.SphereGeometry(cfg.radius, 24, 24);
+                const mat = cfg.texture
+                    ? new THREE.MeshStandardMaterial({ map: cfg.texture(), roughness: 0.9, metalness: 0.0 })
+                    : new THREE.MeshStandardMaterial({ color: cfg.color, roughness: 0.9, metalness: 0.0 });
+                const moonMesh = new THREE.Mesh(geo, mat);
+                moonMesh.castShadow = true;
+                moonMesh.receiveShadow = true;
+                // 透明"命中球"：比可见球大一圈，让卫星更容易被点击选中
+                const hitSphere = new THREE.Mesh(
+                    new THREE.SphereGeometry(Math.max(0.3, cfg.radius * 3), 8, 8),
+                    new THREE.MeshBasicMaterial({ transparent: true, opacity: 0, depthWrite: false })
+                );
+                hitSphere.userData = {};
+                moonMesh.add(hitSphere);
+                moonMesh.userData = {
+                    name: cfg.name,
+                    detail: cfg.detail,
+                    type: 'moon',
+                    body: cfg.body,             // astronomy-engine body（null=手动轨道）
+                    parentBody: parent.userData.body,
+                    parentName: cfg.parent,
+                    radius: cfg.radius,
+                    periodDays: cfg.periodDays,
+                    semiMajorKm: cfg.semiMajorKm,
+                    visualOrbit: cfg.visualOrbit,
+                    phase0: cfg.phase0 || 0,
+                };
+                // 卫星文字标注（放场景中, 每帧跟随卫星位置）
+                const labelDiv = document.createElement('div');
+                labelDiv.textContent = cfg.name;
+                labelDiv.style.color = 'rgba(255,255,255,0.95)';
+                labelDiv.style.fontSize = '11px';
+                labelDiv.style.letterSpacing = '0.08em';
+                labelDiv.style.fontFamily = "'Georgia', serif";
+                labelDiv.style.textShadow = '0 0 6px rgba(0,0,0,0.9), 0 0 14px rgba(140,180,255,0.4)';
+                labelDiv.style.pointerEvents = 'none';
+                const label = new CSS2DObject(labelDiv);
+                label.position.set(0, cfg.radius + 0.4, 0);
+                scene.add(label);
+                moonMesh.userData.labelRef = label;
+                scene.add(moonMesh);
+                moonMeshes.push(moonMesh);
             });
-            const moon = new THREE.Mesh(geo, mat);
-            moon.castShadow = true;
-            moon.receiveShadow = true;
-            moon.userData = {
-                name: '月球',
-                detail: '地球唯一的天然卫星',
-                type: 'moon',
-                periodDays: 27.32,
-            };
-
-            // 月球文字标注（原版本遗漏）
-            const moonLabelDiv = document.createElement('div');
-            moonLabelDiv.textContent = '月球';
-            moonLabelDiv.style.color = 'rgba(255,255,255,0.7)';
-            moonLabelDiv.style.fontSize = '11px';
-            moonLabelDiv.style.letterSpacing = '0.1em';
-            moonLabelDiv.style.fontFamily = "'Georgia', serif";
-            moonLabelDiv.style.textShadow = '0 0 10px rgba(0,0,0,0.8)';
-            moonLabelDiv.style.pointerEvents = 'none';
-            const moonLabel = new CSS2DObject(moonLabelDiv);
-            moonLabel.position.set(0, 0.4, 0);
-            moon.add(moonLabel);
-
-            scene.add(moon);
-            return moon;
         }
-        const moon = createMoon();
-        let moonParent = planetMeshes.find(m => m.userData.name === '地球');
-
-        // 月球轨道环（视觉放大半径，跟随地球）
-        function createMoonOrbitRing() {
-            const segments = 128;
-            const points = [];
-            for (let i = 0; i < segments; i++) {
-                const a = (i / segments) * Math.PI * 2;
-                points.push(new THREE.Vector3(Math.cos(a) * MOON_ORBIT_SCENE, 0, Math.sin(a) * MOON_ORBIT_SCENE));
-            }
-            const geometry = new THREE.BufferGeometry().setFromPoints(points);
-            const material = new THREE.LineBasicMaterial({
-                color: 0xaaaaaa,
-                transparent: true,
-                opacity: 0.2,
-                depthWrite: false,
-            });
-            return new THREE.LineLoop(geometry, material);
-        }
-        if (moonParent) {
-            moonParent.add(createMoonOrbitRing());
-        }
+        createMoons();
 
         // ---------- 点击交互 & 信息计算 ----------
         const raycaster = new THREE.Raycaster();
@@ -988,7 +1269,7 @@
             mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
             mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
             raycaster.setFromCamera(mouse, camera);
-            const targets = [...planetMeshes, moon];
+            const targets = [...planetMeshes, sun, ...moonMeshes];
             return raycaster.intersectObjects(targets, true);
         }
 
@@ -1011,35 +1292,186 @@
             return dist / deltaSeconds; // km/s
         }
 
+        // 天体科普数据（点击信息面板展示）
+        const BODY_FACTS = {
+            '太阳': {
+                intro: '太阳系的中心恒星，一颗 G2V 型黄矮星，质量占太阳系总质量的 99.86%。核心的氢聚变每秒钟释放的能量可供全人类使用数十万年，光需要约 8 分 20 秒才能到达地球。',
+                spectrum: 'G2V 黄矮星',
+                temp: '表面 5,500°C', tempSub: '核心 1,500 万°C',
+                diameter: '1,392,700 km', mass: '1.989 × 10<sup>30</sup> kg',
+                spin: '赤道约 25.05 天（两极约 35 天）',
+                moons: '8 大行星',
+                orbit: '约 2.3 亿年（绕银河系中心）',
+                orbitSpeed: '约 230 km/s',
+            },
+            '水星': {
+                intro: '离太阳最近、也是最小的行星。几乎没有大气层保温，昼夜温差可达 600°C。表面布满陨石坑，外貌酷似月球。',
+                temp: '平均 167°C', tempSub: '昼 430°C / 夜 -180°C',
+                diameter: '4,879 km', mass: '3.30 × 10<sup>23</sup> kg',
+                spin: '58.6 天', moons: '0',
+            },
+            '金星': {
+                intro: '太阳系最热的行星。浓厚的二氧化碳大气产生失控温室效应，表面温度足以熔化铅。自转方向与公转相反（逆行），且是自转最慢的行星——一天比一年还长。',
+                temp: '平均 465°C', tempSub: '表面',
+                diameter: '12,104 km', mass: '4.87 × 10<sup>24</sup> kg',
+                spin: '243 天（逆行）', moons: '0',
+            },
+            '地球': {
+                intro: '我们的家园，目前已知唯一存在生命的星球。表面 71% 被液态水覆盖，拥有磁场和臭氧层保护的大气，平均温度恰好适合液态水稳定存在。',
+                temp: '平均 15°C', tempSub: '范围 -89 ~ 57°C',
+                diameter: '12,742 km', mass: '5.97 × 10<sup>24</sup> kg',
+                spin: '23 时 56 分', moons: '1（月球）',
+            },
+            '火星': {
+                intro: '被称为"红色星球"，表面富含氧化铁而呈红色。拥有太阳系最高的火山奥林帕斯山（约 21 km）和最大的峡谷水手号峡谷，是未来人类殖民最热门的候选。',
+                temp: '平均 -63°C', tempSub: '范围 -140 ~ 20°C',
+                diameter: '6,779 km', mass: '6.42 × 10<sup>23</sup> kg',
+                spin: '24 时 37 分', moons: '2',
+            },
+            '木星': {
+                intro: '太阳系最大的行星，一颗气态巨行星，体积是地球的 1,300 多倍。大红斑是持续了至少数百年的巨型风暴，足以吞下整个地球。拥有太阳系最强的磁场和 90 多颗卫星。',
+                temp: '云顶 -108°C', tempSub: '大气层',
+                diameter: '139,820 km', mass: '1.90 × 10<sup>27</sup> kg',
+                spin: '9 时 56 分', moons: '95',
+            },
+            '土星': {
+                intro: '以壮丽的光环闻名，光环由无数冰粒与岩石碎片构成，宽达数十万公里却只有几十米厚。平均密度比水还低，是太阳系最"轻"的行星。',
+                temp: '云顶 -139°C', tempSub: '大气层',
+                diameter: '116,460 km', mass: '5.68 × 10<sup>26</sup> kg',
+                spin: '10 时 33 分', moons: '146',
+            },
+            '天王星': {
+                intro: '一颗冰巨星，最奇特之处在于自转轴倾斜约 98°，几乎是"躺着"绕太阳公转，因此它的四季每季长达约 21 年。大气中的甲烷使它呈现蓝绿色。',
+                temp: '云顶 -197°C', tempSub: '大气层',
+                diameter: '50,724 km', mass: '8.68 × 10<sup>25</sup> kg',
+                spin: '17 时 14 分（逆行）', moons: '28',
+            },
+            '海王星': {
+                intro: '太阳系最远的行星，深蓝色的冰巨星。拥有太阳系最猛烈的风暴，风速可达每小时 2,100 公里。它是第一颗通过数学计算而非观测发现的行星。',
+                temp: '云顶 -201°C', tempSub: '大气层',
+                diameter: '49,244 km', mass: '1.02 × 10<sup>26</sup> kg',
+                spin: '16 时 6 分', moons: '16',
+            },
+            '月球': {
+                intro: '地球唯一的天然卫星，因潮汐锁定始终以同一面朝向地球。表面分布着大片阴暗的"月海"和密集的陨石坑，是除地球外人类唯一踏足过的天体。',
+                temp: '昼 127°C / 夜 -173°C', tempSub: '表面',
+                diameter: '3,474 km', mass: '7.35 × 10<sup>22</sup> kg',
+                spin: '27.3 天（潮汐锁定）', moons: '—',
+            },
+            '火卫一': {
+                intro: '火星最大的卫星，形状不规则，表面布满陨石坑与沟壑。正以每世纪约 1.8 米的速率螺旋靠近火星，预计数千万年后将碎裂成环或坠入火星表面。',
+                temp: '平均 -40°C', tempSub: '昼 -4°C / 夜 -112°C',
+                diameter: '22.5 km', mass: '1.07 × 10<sup>16</sup> kg',
+                spin: '0.32 天（潮汐锁定）', moons: '—',
+            },
+            '火卫二': {
+                intro: '火星最小的卫星，形状也相当不规则，但表面相对光滑。正缓慢远离火星，是火星两颗卫星中轨道距离较远的一颗。',
+                temp: '平均 -40°C', tempSub: '表面',
+                diameter: '12.4 km', mass: '1.5 × 10<sup>15</sup> kg',
+                spin: '1.26 天（潮汐锁定）', moons: '—',
+            },
+            '木卫一': {
+                intro: '太阳系火山活动最剧烈的天体，拥有 400 多座活火山。木星的强大潮汐力不断挤压其内部并加热，把岩石融成岩浆喷涌而出。',
+                temp: '平均 -130°C', tempSub: '表面',
+                diameter: '3,643 km', mass: '8.93 × 10<sup>22</sup> kg',
+                spin: '1.77 天（潮汐锁定）', moons: '—',
+            },
+            '木卫二': {
+                intro: '表面覆盖着布满裂缝的冰壳，冰层之下据信存在一片比地球所有海水加起来还多的液态海洋，是搜寻地外生命最热门的天体之一。',
+                temp: '平均 -160°C', tempSub: '表面',
+                diameter: '3,122 km', mass: '4.80 × 10<sup>22</sup> kg',
+                spin: '3.55 天（潮汐锁定）', moons: '—',
+            },
+            '木卫三': {
+                intro: '太阳系最大的卫星，比水星还要大，也是唯一拥有自身磁场的卫星。表面混合着古老的暗区与年轻明亮的沟壑地形。',
+                temp: '平均 -160°C', tempSub: '表面',
+                diameter: '5,268 km', mass: '1.48 × 10<sup>23</sup> kg',
+                spin: '7.15 天（潮汐锁定）', moons: '—',
+            },
+            '土卫一': {
+                intro: '巨大的赫谢尔陨石坑几乎占去表面三分之一，使其形似科幻电影中的"死星"。它同时是太阳系中形状最接近完美球体的天体之一。',
+                temp: '平均 -200°C', tempSub: '表面',
+                diameter: '396 km', mass: '3.7 × 10<sup>19</sup> kg',
+                spin: '0.94 天（潮汐锁定）', moons: '—',
+            },
+            '土卫二': {
+                intro: '南极冰壳裂缝持续喷出水冰羽流，这些喷射物正是土星 E 环的物质来源。冰层之下同样被认为隐藏着全球性的液态海洋。',
+                temp: '平均 -200°C', tempSub: '表面',
+                diameter: '504 km', mass: '1.08 × 10<sup>20</sup> kg',
+                spin: '1.37 天（潮汐锁定）', moons: '—',
+            },
+            '土卫六': {
+                intro: '太阳系唯一拥有浓厚大气的卫星，大气以氮气为主。地表有由液态甲烷与乙烷组成的湖泊、河流与降雨，被称为"最像地球的天体"。',
+                temp: '平均 -179°C', tempSub: '表面',
+                diameter: '5,150 km', mass: '1.35 × 10<sup>23</sup> kg',
+                spin: '15.9 天（潮汐锁定）', moons: '—',
+            },
+            '天卫五': {
+                intro: '表面地形诡异复杂，拥有太阳系已知最高的悬崖之一——维罗纳断崖，落差可达 20 公里。其混乱的地貌暗示它可能曾被撞碎后重新聚拢。',
+                temp: '平均 -200°C', tempSub: '表面',
+                diameter: '471 km', mass: '6.4 × 10<sup>19</sup> kg',
+                spin: '1.41 天（潮汐锁定）', moons: '—',
+            },
+            '天卫三': {
+                intro: '天王星最大的卫星，表面遍布峡谷与陨石坑，曾经历过剧烈的内热活动，冰壳之下可能仍有残余的液态层。',
+                temp: '平均 -200°C', tempSub: '表面',
+                diameter: '1,578 km', mass: '3.4 × 10<sup>21</sup> kg',
+                spin: '8.71 天（潮汐锁定）', moons: '—',
+            },
+            '天卫四': {
+                intro: '天王星第二大的卫星，表面布满古老陨石坑，是天王星系统中陨石坑密度最高的天体之一，记录了太阳系早期的猛烈撞击史。',
+                temp: '平均 -200°C', tempSub: '表面',
+                diameter: '1,523 km', mass: '3.0 × 10<sup>21</sup> kg',
+                spin: '13.5 天（潮汐锁定）', moons: '—',
+            },
+            '海卫一': {
+                intro: '太阳系唯一逆行的大卫星，几乎可以确定是被海王星引力捕获的柯伊伯带天体。表面有氮冰间歇泉喷发，是太阳系最寒冷的已知天体之一。',
+                temp: '平均 -235°C', tempSub: '表面',
+                diameter: '2,707 km', mass: '2.14 × 10<sup>22</sup> kg',
+                spin: '5.88 天（潮汐锁定·逆行）', moons: '—',
+            },
+            '海卫二': {
+                intro: '轨道极其扁长，近日点与远日点距离相差 7 倍以上，公转周期长达一年。很可能同样是海王星捕获的柯伊伯带天体。',
+                temp: '平均 -220°C', tempSub: '表面',
+                diameter: '340 km', mass: '3.1 × 10<sup>19</sup> kg',
+                spin: '约 0.48 天', moons: '—',
+            },
+        };
+
         function updateInfoPanel(hitObject) {
             const nameEl = document.getElementById('body-name');
             const detailEl = document.getElementById('body-detail');
+            const introEl = document.getElementById('body-intro');
             const statsEl = document.getElementById('body-stats');
 
             if (!hitObject || !hitObject.userData || !hitObject.userData.name) {
                 nameEl.textContent = '太阳系';
                 detailEl.textContent = '点击任意行星查看详细信息';
+                introEl.textContent = '';
                 statsEl.innerHTML = '';
                 return;
             }
 
             const ud = hitObject.userData;
+            const fact = BODY_FACTS[ud.name] || {};
             nameEl.textContent = ud.name;
             detailEl.textContent = ud.detail || '';
+            introEl.textContent = fact.intro || '';
 
             const now = simTime; // 用模拟时间，跟随时间加速/暂停
             const earthVec = Astronomy.HelioVector(Astronomy.Body.Earth, now);
 
             let distanceToSunAU = 0;
             let distanceToEarthAU = 0;
-            let speedKmS = 0;
-            let periodDisplay = '--';
+            let parentDistKM = null;      // 卫星距母星的半长轴距离（km）
+            let speedKmS = null;
+            let periodDisplay = '—';
 
             if (ud.type === 'star') {
                 distanceToSunAU = 0;
                 distanceToEarthAU = Math.sqrt(earthVec.x*earthVec.x + earthVec.y*earthVec.y + earthVec.z*earthVec.z);
-                periodDisplay = '--';
-                speedKmS = 0;
+                periodDisplay = fact.orbit || '—';
+                speedKmS = null;
             } else if (ud.type === 'planet') {
                 const vec = Astronomy.HelioVector(ud.body, now);
                 distanceToSunAU = Math.sqrt(vec.x*vec.x + vec.y*vec.y + vec.z*vec.z);
@@ -1052,39 +1484,51 @@
                     periodDisplay = ud.periodDays >= 365 ? `${(ud.periodDays/365.25).toFixed(1)} 年` : `${ud.periodDays.toFixed(1)} 天`;
                 }
             } else if (ud.type === 'moon') {
-                const vec = Astronomy.HelioVector(Astronomy.Body.Moon, now);
+                // 卫星：天文引擎支持该卫星 body 则直接用其日心位置，
+                // 否则（火卫一/火卫二）用母行星位置近似
+                const vec = ud.body
+                    ? Astronomy.HelioVector(ud.body, now)
+                    : Astronomy.HelioVector(ud.parentBody, now);
                 distanceToSunAU = Math.sqrt(vec.x*vec.x + vec.y*vec.y + vec.z*vec.z);
                 const dx = vec.x - earthVec.x;
                 const dy = vec.y - earthVec.y;
                 const dz = vec.z - earthVec.z;
                 distanceToEarthAU = Math.sqrt(dx*dx + dy*dy + dz*dz);
-                speedKmS = computeHelioSpeed(Astronomy.Body.Moon, now);
+                speedKmS = computeHelioSpeed(ud.body || ud.parentBody, now);
                 if (ud.periodDays) periodDisplay = `${ud.periodDays.toFixed(1)} 天`;
+                if (ud.semiMajorKm) parentDistKM = ud.semiMajorKm;
             }
 
             const distSunKM = distanceToSunAU * AU_KM;
             const distEarthKM = distanceToEarthAU * AU_KM;
 
-            statsEl.innerHTML = `
+            // 统一样式生成一条统计项
+            const stat = (label, value, sub) => `
                 <div class="stat-item">
-                    <span class="stat-label">距太阳</span>
-                    <span class="stat-value">${formatDistanceAU(distanceToSunAU)}</span>
-                    <span class="stat-value" style="font-size:0.55rem;color:var(--text-faint)">${formatDistanceKM(distSunKM)}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">距地球</span>
-                    <span class="stat-value">${formatDistanceAU(distanceToEarthAU)}</span>
-                    <span class="stat-value" style="font-size:0.55rem;color:var(--text-faint)">${formatDistanceKM(distEarthKM)}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">公转周期</span>
-                    <span class="stat-value">${periodDisplay}</span>
-                </div>
-                <div class="stat-item">
-                    <span class="stat-label">速度</span>
-                    <span class="stat-value">${speedKmS.toFixed(2)} km/s</span>
-                </div>
-            `;
+                    <span class="stat-label">${label}</span>
+                    <span class="stat-value">${value}</span>
+                    ${sub ? `<span class="stat-value" style="font-size:0.85rem;color:var(--text-faint)">${sub}</span>` : ''}
+                </div>`;
+
+            // 太阳没有"距太阳"的概念，用光谱类型替代
+            const distSunItem = ud.type === 'star'
+                ? stat('光谱类型', fact.spectrum || 'G2V 黄矮星')
+                : stat('距太阳', formatDistanceAU(distanceToSunAU), formatDistanceKM(distSunKM));
+
+            statsEl.innerHTML = [
+                distSunItem,
+                stat('距地球', formatDistanceAU(distanceToEarthAU), formatDistanceKM(distEarthKM)),
+                ...(parentDistKM ? [stat('距母星', formatDistanceKM(parentDistKM))] : []),
+                stat('温度', fact.temp || '—', fact.tempSub || ''),
+                stat('直径', fact.diameter || '—'),
+                stat('质量', fact.mass || '—'),
+                stat('自转一周', fact.spin || '—'),
+                stat('公转周期', periodDisplay),
+                stat('卫星', fact.moons || '—'),
+                stat('轨道速度', speedKmS === null
+                    ? (ud.type === 'star' ? (fact.orbitSpeed || '—') : '—')
+                    : `${speedKmS.toFixed(2)} km/s`),
+            ].join('');
         }
 
         // 平滑地把视角中心移到指定天体，保持当前缩放距离
@@ -1104,6 +1548,15 @@
             };
         }
 
+        // 统一"选中并聚焦"逻辑：鼠标点击 / 右侧菜单共用
+        function selectAndFocus(obj) {
+            if (!obj) return;
+            updateInfoPanel(obj);
+            selectedObject = obj;
+            followInitialized = false;   // 重新聚焦新天体，重置跟随基准
+            focusOn(obj);
+        }
+
         renderer.domElement.addEventListener('click', (event) => {
             const intersects = getIntersects(event);
             if (intersects.length > 0) {
@@ -1119,19 +1572,81 @@
                     }
                     if (hitObject) break;
                 }
-                updateInfoPanel(hitObject);
-                selectedObject = hitObject;
-                focusOn(hitObject);
+                if (hitObject) {
+                    selectAndFocus(hitObject);
+                    setMenuActive(hitObject.userData.name);
+                }
             } else {
                 updateInfoPanel(null);
                 selectedObject = null;
                 focusAnim = null;
+                followInitialized = false;
+                setMenuActive(null);
             }
         });
 
         renderer.domElement.addEventListener('mousemove', (event) => {
             const intersects = getIntersects(event);
             renderer.domElement.style.cursor = intersects.length > 0 ? 'pointer' : 'default';
+        });
+
+        // ---------- 右侧天体列表菜单 ----------
+        const bodyMenu = document.getElementById('body-menu');
+        const bodyMenuList = document.getElementById('body-menu-list');
+        const bodyMenuToggle = document.getElementById('body-menu-toggle');
+
+        function setMenuActive(name) {
+            if (!bodyMenuList) return;
+            bodyMenuList.querySelectorAll('.menu-item').forEach(el => {
+                el.classList.toggle('active', el.dataset.body === name);
+            });
+        }
+
+        function closeBodyMenu() {
+            if (bodyMenuList) bodyMenuList.classList.add('hidden');
+        }
+
+        bodyMenuToggle.addEventListener('click', () => {
+            bodyMenuList.classList.toggle('hidden');
+        });
+
+        // 构建列表：太阳 + 八大行星，每颗行星下嵌套它的卫星
+        function buildBodyMenu() {
+            const items = [];
+            items.push('<div class="menu-item star" data-body="太阳">☀ 太阳</div>');
+            planetMeshes.forEach(p => {
+                const pname = p.userData.name;
+                items.push(`<div class="menu-item planet" data-body="${pname}">${pname}</div>`);
+                moonMeshes.forEach(m => {
+                    if (m.userData.parentName === pname) {
+                        items.push(`<div class="menu-item moon" data-body="${m.userData.name}">${m.userData.name}</div>`);
+                    }
+                });
+            });
+            bodyMenuList.innerHTML = items.join('');
+            // 点击行星 / 卫星 → 与鼠标点击完全相同的聚焦逻辑
+            bodyMenuList.querySelectorAll('.menu-item').forEach(el => {
+                el.addEventListener('click', () => {
+                    const name = el.dataset.body;
+                    let target = null;
+                    if (name === '太阳') target = sun;
+                    else {
+                        target = planetMeshes.find(x => x.userData.name === name)
+                              || moonMeshes.find(x => x.userData.name === name);
+                    }
+                    if (target) {
+                        selectAndFocus(target);
+                        setMenuActive(name);
+                        closeBodyMenu();
+                    }
+                });
+            });
+        }
+        buildBodyMenu();
+
+        // 点击菜单以外的空白处时收起菜单
+        document.addEventListener('click', (event) => {
+            if (bodyMenu && !bodyMenu.contains(event.target)) closeBodyMenu();
         });
 
         // ---------- 时间控制 ----------
@@ -1173,8 +1688,12 @@
             if (!window.Astronomy) return;
             const now = simTime;
 
-            // 自转速度：加速档位越高，自转也越快
-            const spinFactor = timeMode === 'speed' ? Math.max(speedDaysPerSec, 1) : 1;
+            // 自转视觉倍率：各行星按“真实自转周期”转动，统一放大到肉眼可辨但平缓的节奏。
+            // 500 倍下：地球约 3 分钟一圈、木星约 1 分 12 秒一圈（快 2.4 倍）、
+            // 水星/金星因真实周期极长而几乎静止，符合真实对比。
+            const SPIN_VISUAL = 500;
+            // 暂停时自转同步冻结
+            const spinDt = timeMode === 'pause' ? 0 : dtSec;
 
             for (const mesh of planetMeshes) {
                 const body = mesh.userData.body;
@@ -1182,30 +1701,101 @@
                 try {
                     const vec = Astronomy.HelioVector(body, now);
                     mesh.position.set(vec.x * AU_SCALE, vec.y * AU_SCALE, vec.z * AU_SCALE);
-                    if (mesh.userData.name === '地球') {
-                        moonParent = mesh;
+                    // 文字标注保持竖立在行星正上方（世界坐标，不受自转轴倾斜影响）
+                    const labelRef = mesh.userData.labelRef;
+                    if (labelRef) {
+                        labelRef.position.set(
+                            vec.x * AU_SCALE,
+                            vec.y * AU_SCALE + mesh.userData.radius + 0.6,
+                            vec.z * AU_SCALE
+                        );
                     }
-                    mesh.rotation.y += dtSec * 0.2 * spinFactor;
+                    // 真实自转：角速度 = 2π / 真实自转周期（小时），方向由轴倾角表达
+                    const spinHours = mesh.userData.spinPeriodHours;
+                    if (spinHours && spinDt > 0) {
+                        const dTheta = spinDt * (2 * Math.PI) / (spinHours * 3600) * SPIN_VISUAL;
+                        // 选中的天体冻结自转：视角保持稳定，不会感觉被天体表面带着转
+                        if (selectedObject && selectedObject === mesh) {
+                            // 冻结自转
+                        } else {
+                            mesh.rotation.y += dTheta;
+                            // 云层比地表略快一点，形成云层相对地面漂移的效果
+                            if (mesh.userData.name === '地球' && earthCloud) {
+                                earthCloud.rotation.y += dTheta * 0.12;
+                            }
+                        }
+                    }
                 } catch (e) {
                     console.warn('计算行星位置失败', mesh.userData.name, e);
                 }
             }
 
-            // 月球位置（轨道距离用视觉放大值，黄道经纬度来自天文引擎）
-            if (moonParent) {
-                try {
-                    const moonVec = Astronomy.EclipticGeoMoon(now);
-                    const lat = moonVec.lat;
-                    const lon = moonVec.lon;
-                    const x = MOON_ORBIT_SCENE * Math.cos(lat) * Math.cos(lon);
-                    const y = MOON_ORBIT_SCENE * Math.sin(lat);
-                    const z = MOON_ORBIT_SCENE * Math.cos(lat) * Math.sin(lon);
-                    moon.position.copy(moonParent.position).add(new THREE.Vector3(x, y, z));
-                    moon.rotation.y += dtSec * 0.5 * spinFactor;
-                } catch (e) {
-                    console.warn('计算月球位置失败', e);
-                }
+            // 太阳自转：赤道自转周期约 25.05 天（此处忽略纬度差动自转）
+            if (sun && spinDt > 0 && !(selectedObject && selectedObject === sun)) {
+                const sunHours = 25.05 * 24;
+                sun.rotation.y += spinDt * (2 * Math.PI) / (sunHours * 3600) * SPIN_VISUAL;
             }
+
+            // 卫星位置：真实方向来自天文引擎，视觉距离按 visualOrbit 放大
+            moonMeshes.forEach(moonMesh => {
+                const ud = moonMesh.userData;
+                const parent = planetMeshes.find(p => p.userData.name === ud.parentName);
+                if (!parent) return;
+                try {
+                    let offset = null;
+                    if (ud.name === '月球') {
+                        // 月球：地心黄道经纬度 + 真实距离变化（近地点/远地点 ±11%）
+                        const mvec = Astronomy.EclipticGeoMoon(now);
+                        const lat = mvec.lat;
+                        const lon = mvec.lon;
+                        // 真实地月距离（EclipticGeoMoon 的 dist 单位是 AU，随近地点/远地点变化 ~±11%），
+                        // 缩放到场景尺度：平均距离保持在 MOON_ORBIT_SCENE 附近，但还原真实远近变化。
+                        const MEAN_MOON_DIST_AU = 0.0025696; // 平均地月距离 384400 km
+                        const sceneDist = mvec.dist / MEAN_MOON_DIST_AU * MOON_ORBIT_SCENE;
+                        // 先算黄道面内的地心偏移，再旋转到与行星一致的赤道坐标系（eclToEqj）
+                        const xe = sceneDist * Math.cos(lat) * Math.cos(lon);
+                        const ye = sceneDist * Math.sin(lat);
+                        const ze = sceneDist * Math.cos(lat) * Math.sin(lon);
+                        offset = eclToEqj(xe, ye, ze);
+                        // 潮汐锁定：自转周期 = 公转周期，始终以同一面朝向母星
+                        // 选中月球时冻结自转，便于观察
+                        if (!(selectedObject && selectedObject === moonMesh)) {
+                            moonMesh.rotation.y = -lon;
+                        }
+                    } else if (ud.body && ud.parentBody) {
+                        // 其它卫星：HelioVector 相对位置确定方向（AU），缩放到视觉轨道半径
+                        const sv = Astronomy.HelioVector(ud.body, now);
+                        const pv = Astronomy.HelioVector(ud.parentBody, now);
+                        const dx = sv.x - pv.x;
+                        const dy = sv.y - pv.y;
+                        const dz = sv.z - pv.z;
+                        const len = Math.sqrt(dx * dx + dy * dy + dz * dz);
+                        if (len > 1e-12) {
+                            offset = new THREE.Vector3(
+                                dx / len * ud.visualOrbit,
+                                dy / len * ud.visualOrbit,
+                                dz / len * ud.visualOrbit
+                            );
+                        }
+                    } else {
+                        // 手动圆形轨道（火卫一 / 火卫二）：真实公转周期
+                        const t = now.getTime() / 86400000;
+                        const angle = ud.phase0 + 2 * Math.PI * t / ud.periodDays;
+                        const r = ud.visualOrbit;
+                        offset = eclToEqj(r * Math.cos(angle), 0, r * Math.sin(angle));
+                    }
+                    if (offset) {
+                        moonMesh.position.copy(parent.position).add(offset);
+                        const labelRef = moonMesh.userData.labelRef;
+                        if (labelRef) {
+                            labelRef.position.copy(moonMesh.position);
+                            labelRef.position.y += ud.radius + 0.4;
+                        }
+                    }
+                } catch (e) {
+                    console.warn('计算卫星位置失败', ud.name, e);
+                }
+            });
         }
 
         // ---------- 动画循环 ----------
@@ -1231,24 +1821,41 @@
             // 视角中心：选中天体则围绕它旋转/平移，否则围绕太阳（原点）
             if (selectedObject && typeof selectedObject.getWorldPosition === 'function') {
                 if (focusAnim) {
-                    // 平滑聚焦过渡（缓动）
+                    // 平滑聚焦过渡（缓动）；动画期间持续记录天体位置，
+                    // 结束后无缝切换为跟随模式，避免相机跳变。
+                    selectedObject.getWorldPosition(lastFollowPos);
                     const t = Math.min((performance.now() - focusAnim.start) / focusAnim.dur, 1);
                     const e = t * t * (3 - 2 * t);
                     camera.position.lerpVectors(focusAnim.fromCam, focusAnim.toCam, e);
                     controls.target.lerpVectors(focusAnim.fromTgt, focusAnim.toTgt, e);
                     if (t >= 1) focusAnim = null;
+                    followInitialized = true;
                 } else {
-                    // 天体在动（尤其加速模式），每帧跟随它，确保始终围绕该天体
-                    selectedObject.getWorldPosition(controls.target);
+                    // 跟随天体：相机与视角中心一起平移（保持相对视角不变）。
+                    // 这样天体公转/加速时，背景星空与太阳在画面中相对静止，
+                    // 不会出现相机被“拽着甩”的剧烈晃动，大幅减轻眩晕。
+                    selectedObject.getWorldPosition(tmpTarget);
+                    if (followInitialized) {
+                        camera.position.x += tmpTarget.x - lastFollowPos.x;
+                        camera.position.y += tmpTarget.y - lastFollowPos.y;
+                        camera.position.z += tmpTarget.z - lastFollowPos.z;
+                    }
+                    lastFollowPos.copy(tmpTarget);
+                    controls.target.copy(tmpTarget);
+                    followInitialized = true;
                 }
             } else {
                 // 未选中任何天体：保持自由视角。不再强制把旋转/平移中心
                 // 拉回太阳（否则右键平移会被立刻重置，感觉“默认锁定太阳”）。
                 focusAnim = null;
+                followInitialized = false;
             }
 
-            starField.rotation.y += 0.0001;
-            starField.rotation.x += 0.00003;
+            // 未选中天体时星空才缓慢旋转；跟随天体时暂停，避免背景转动加剧眩晕
+            if (!selectedObject) {
+                starField.rotation.y += 0.0001;
+                starField.rotation.x += 0.00003;
+            }
 
             sun.children.forEach(child => {
                 if (child.isSprite && child.userData.isGlow) {
