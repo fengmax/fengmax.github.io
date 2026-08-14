@@ -330,7 +330,7 @@
         scene.background = new THREE.Color(0x020210);
 
         const camera = new THREE.PerspectiveCamera(55, container.clientWidth / container.clientHeight, 0.1, 2000);
-        camera.position.set(20, 12, 30);
+        camera.position.set(70, 45, 95);
         camera.lookAt(0, 0, 0);
 
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -1242,7 +1242,8 @@
                     selectedObject.getWorldPosition(controls.target);
                 }
             } else {
-                controls.target.set(0, 0, 0);
+                // 未选中任何天体：保持自由视角。不再强制把旋转/平移中心
+                // 拉回太阳（否则右键平移会被立刻重置，感觉“默认锁定太阳”）。
                 focusAnim = null;
             }
 
