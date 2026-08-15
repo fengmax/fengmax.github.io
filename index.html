@@ -270,12 +270,36 @@
           step();
         }
 
+        // 行星场景半径(用于缩放防穿模: minDistance)
+        function planetRadius(key){
+          var DIAM={mercury:4879,venus:12104,earth:12742,moon:3475,mars:6779,jupiter:139820,saturn:116460,uranus:50724,neptune:49244};
+          if (key==='sun') return 60;
+          return Math.max(60*( (DIAM[key]||10000)/1392000 )*3, 0.6);
+        }
+        // 设置缩放下限: 拉近到行星表面即停, 不穿模
+        function setMinDistFor(key){
+          try {
+            var controls = viz.getViewer().get3jsCameraControls();
+            var r = planetRadius(key);
+            controls.minDistance = r*1.18 + 1.5; // 半径*1.18 + 余量(相机到中心距离)
+            controls.update();
+          } catch(e){}
+        }
+        function resetMinDist(){
+          try {
+            var controls = viz.getViewer().get3jsCameraControls();
+            controls.minDistance = 2; // 全景时可贴近小行星, 放开限制
+            controls.update();
+          } catch(e){}
+        }
+
         // 聚焦到某行星: 进入跟随模式, 每帧保持相机在行星旁跟随其移动
         function focusPlanet(key){
           var obj = objects[key]; if (!obj) return;
           stopMotion();
           currentFocus = key;
           var dist = Math.max(20, (PlanetDist[key]||40));
+          setMinDistFor(key);
           showInfo(key);
           try {
             var cam = viz.getViewer().get3jsCamera();
@@ -318,6 +342,7 @@
         // 回到全景: 退出跟随, 平滑飞回初始视角
         function goHome(){
           stopMotion();
+          resetMinDist();
           try {
             // 返回初始位置 [150,110,220], 并重新启用相机漂移
             var home = new THREE.Vector3(150, 110, 220);
@@ -361,13 +386,30 @@
         //    createSphere用光源时是自定义ShaderMaterial, 纹理在uniforms.sphereTexture.value,
         //    而非material.map, 所以两种都要设。
         var texLoaded = {};
-        function setTexture(key, url){
+        // 预加载缓存: 所有高清+低清纹理提前下载, 切换时立即生效
+        var texCache = {};
+        var _loaders = {};
+        function preloadTextures(){
+          try {
+            var loader = new THREE.TextureLoader();
+            PLANETS.forEach(function(p){
+              if (p.key==='sun') return;
+              ['', '-hi'].forEach(function(sfx){
+                var url = './assets/textures/'+p.key+sfx+'.jpg';
+                if (texCache[url]) return;
+                loader.load(url, function(tex){ tex.anisotropy=4; texCache[url]=tex; });
+              });
+            });
+          } catch(e){}
+        }
+        preloadTextures();
+        function setTexture(key, url, onDone){
           var obj = objects[key]; if (!obj) return;
           var roots = [];
           try { roots.push(obj.get3jsObjects()[0]); } catch(e){}
           roots.push(obj);
-          var loader = new THREE.TextureLoader();
-          loader.load(url, function(tex){
+          if (roots.length===0) return;
+          var applyTex = function(tex){
             tex.anisotropy = 4;
             roots.forEach(function(root){
               if (!root) return;
@@ -378,9 +420,7 @@
                   mm.forEach(function(mi){
                     if (!mi) return;
                     try {
-                      // 标准材质: map
                       if (typeof mi.map !== 'undefined') { mi.map = tex; }
-                      // 自定义ShaderMaterial: uniforms.sphereTexture
                       if (mi.uniforms && mi.uniforms.sphereTexture) { mi.uniforms.sphereTexture.value = tex; }
                       mi.needsUpdate = true;
                     } catch(e){}
@@ -388,7 +428,11 @@
                 });
               } catch(e){}
             });
-          });
+            if (onDone) onDone();
+          };
+          // 优先用缓存
+          if (texCache[url]) { applyTex(texCache[url]); return; }
+          try { new THREE.TextureLoader().load(url, applyTex); } catch(e){}
         }
         function checkTextures(){
           if (!viz || !viz.getViewer) return;
@@ -400,9 +444,9 @@
             var d = camPos.distanceTo(pos);
             var HI = './assets/textures/'+p.key+'-hi.jpg';
             var LO = './assets/textures/'+p.key+'.jpg';
-            // 阈值: 聚焦时相机距行星为PlanetDist(20~120), 设为 150 确保聚焦即高清。
-            if (d < 150 && texLoaded[p.key]!==HI){ setTexture(p.key, HI); texLoaded[p.key]=HI; }
-            else if (d >= 150 && texLoaded[p.key]!==LO){ setTexture(p.key, LO); texLoaded[p.key]=LO; }
+            // 聚焦即高清(阈值=行星直径量级, 拉近到行星附近就切换); 全景拉远回低清
+            if (d < 150 && texLoaded[p.key]!==HI){ setTexture(p.key, HI, function(){ texLoaded[p.key]=HI; }); }
+            else if (d >= 150 && texLoaded[p.key]!==LO){ setTexture(p.key, LO, function(){ texLoaded[p.key]=LO; }); }
           });
         }
         setInterval(checkTextures, 500);
