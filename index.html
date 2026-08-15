@@ -1,1 +1,71 @@
 
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>宇宙沙盒 · 3D Solar System</title>
+  <style>
+    html, body { margin: 0; overflow: hidden; font-family: "Helvetica Neue", Arial, sans-serif; background: #000; }
+    #main-container { width: 100vw; height: 100vh; }
+    #loading {
+      position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+      background: #000; color: #9aa4b5; font-size: 18px; z-index: 999; letter-spacing: 2px;
+    }
+    #title {
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      color: #fff; font-size: 18px; font-weight: 300; letter-spacing: 4px; z-index: 10;
+      text-shadow: 0 0 14px rgba(120,180,255,.55); pointer-events: none; white-space: nowrap;
+    }
+    #hint {
+      position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%);
+      color: #667; font-size: 12px; letter-spacing: 1px; z-index: 10; pointer-events: none;
+    }
+    @media (max-width: 600px) { #title { font-size: 14px; letter-spacing: 2px; } }
+  </style>
+</head>
+<body>
+  <div id="loading">🌌 宇宙沙盒加载中…</div>
+  <div id="title">SOLAR SYSTEM · 3D 宇宙沙盒</div>
+  <div id="hint">拖动旋转 · 滚轮缩放</div>
+  <div id="main-container"></div>
+
+  <script src="./build/spacekit.js"></script>
+  <script>
+    // 宇宙沙盒 - 基于 SpaceKit (typpo/spacekit)
+    const viz = new Spacekit.Simulation(document.getElementById('main-container'), {
+      basePath: './',
+      unitsPerAu: 100.0,
+      camera: {
+        initialPosition: [0, 28, 60],
+        enableDrift: true,
+      },
+    });
+
+    // 星空背景
+    viz.createStars();
+
+    // 太阳 + 光照
+    viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
+    viz.createAmbientLight();
+    viz.createLight([0, 0, 0]);
+
+    // 八大行星
+    viz.createObject('mercury', Spacekit.SpaceObjectPresets.MERCURY);
+    viz.createObject('venus', Spacekit.SpaceObjectPresets.VENUS);
+    viz.createObject('earth', Spacekit.SpaceObjectPresets.EARTH);
+    viz.createObject('mars', Spacekit.SpaceObjectPresets.MARS);
+    viz.createObject('jupiter', Spacekit.SpaceObjectPresets.JUPITER);
+    viz.createObject('saturn', Spacekit.SpaceObjectPresets.SATURN);
+    viz.createObject('uranus', Spacekit.SpaceObjectPresets.URANUS);
+    viz.createObject('neptune', Spacekit.SpaceObjectPresets.NEPTUNE);
+
+    // 加载完成后隐藏 loading
+    setTimeout(() => {
+      const l = document.getElementById('loading');
+      if (l) l.style.display = 'none';
+      window.THREE = Spacekit.THREE;
+    }, 400);
+  </script>
+</body>
+</html>
