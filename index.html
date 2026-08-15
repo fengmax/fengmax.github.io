@@ -159,17 +159,45 @@
         if (!preset) return;
         var finalRadius = Math.max(SUN_RADIUS * (p.diameter / SUN_DIAMETER_KM) * BOOST, 0.6);
         var radiusToPass = finalRadius / 100;
-        try {
-          objects[p.key] = viz.createSphere(p.key, {
-            textureUrl: './assets/textures/'+p.key+'.jpg',
-            radius: radiusToPass,
-            ephem: preset.ephem,
-            levelsOfDetail: [{radii:0,segments:48},{radii:40,segments:24},{radii:80,segments:12}],
-            labelText: p.label,
-          });
-        } catch(e) {
-          try { objects[p.key] = viz.createObject(p.key, Object.assign({},preset,{labelText:p.label})); } catch(e2){}
+        // 月球: 不用预设(其particleSize字段会走粒子分支引发兼容问题),
+        //        手动用 createSphere + 真实地月轨道参数, 并 orbitAround 地球。
+        var obj = null;
+        if (p.key==='moon') {
+          try {
+            obj = viz.createSphere(p.key, {
+              textureUrl: './assets/textures/moon.jpg',
+              radius: radiusToPass,
+              // 真实地月轨道: 半长轴0.00257AU, 离心率0.0549, 轨道倾角5.14°
+              ephem: new Spacekit.Ephem({
+                GM: 3986e11,
+                epoch: 2458426.5,
+                a: 0.00257,
+                e: 0.0549,
+                i: 5.145,
+                om: 125.08,
+                w: 318.15,
+                ma: 135.27,
+              }, 'deg', true),
+              labelText: p.label,
+            });
+          } catch(e) {
+            try { obj = viz.createObject(p.key, Object.assign({},preset,{labelText:p.label})); } catch(e2){ obj=null; }
+          }
+          if (obj && objects.earth && obj.orbitAround) { try { obj.orbitAround(objects.earth); } catch(e){} }
+        } else {
+          try {
+            obj = viz.createSphere(p.key, {
+              textureUrl: './assets/textures/'+p.key+'.jpg',
+              radius: radiusToPass,
+              ephem: preset.ephem,
+              levelsOfDetail: [{radii:0,segments:48},{radii:40,segments:24},{radii:80,segments:12}],
+              labelText: p.label,
+            });
+          } catch(e) {
+            try { obj = viz.createObject(p.key, Object.assign({},preset,{labelText:p.label})); } catch(e2){ obj=null; }
+          }
         }
+        if (obj) objects[p.key] = obj;
       });
       try { viz.setJdPerSecond(3); } catch(e){}
       window.THREE = Spacekit.THREE;
