@@ -1073,7 +1073,7 @@
                     var earthRadiusRendered = computeRenderedRadius(earthMesh, 'earth');
                     var moonRadiusRendered = computeRenderedRadius(moonMesh, 'moon');
 
-                    var minDist = earthRadiusRendered + moonRadiusRendered + 0.05; // small epsilon
+                    var minDist = earthRadiusRendered + moonRadiusRendered + 0.5; // increased visual gap
                     var actualDist = desiredWorld.distanceTo(earthWorld);
                     if (actualDist < minDist) {
                       // push moon outward along ephemeris relative direction to enforce visibility
