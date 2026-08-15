@@ -995,8 +995,28 @@
             if (moonObj && typeof moonObj.getPosition === 'function') {
               try {
                 var mp = moonObj.getPosition(simJd);
+                // Also get earth position at same JD so we can position the moon relative to earth
+                var ep = null;
+                try { if (earthObj && typeof earthObj.getPosition === 'function') ep = earthObj.getPosition(simJd); } catch (e) {}
+                // If we have both positions, compute relative vector and make moon a child of earthMesh
                 if (mp && mp.length >= 3 && moonMesh) {
-                  moonMesh.position.set(mp[0], mp[1], mp[2]);
+                  if (ep && ep.length >= 3) {
+                    var relX = mp[0] - ep[0];
+                    var relY = mp[1] - ep[1];
+                    var relZ = mp[2] - ep[2];
+                    // attempt to parent moon mesh under earth mesh so local position is relative
+                    try {
+                      var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
+                      if (earthMesh && moonMesh && moonMesh.parent !== earthMesh) {
+                        try { earthMesh.add(moonMesh); } catch (e) {}
+                      }
+                    } catch (e) {}
+                    // set local position relative to earth
+                    try { moonMesh.position.set(relX, relY, relZ); } catch (e) {}
+                  } else {
+                    // no earth ephem available — fallback to world placement
+                    try { moonMesh.position.set(mp[0], mp[1], mp[2]); } catch (e) {}
+                  }
                 }
               } catch (e) {}
             } else {
@@ -1011,7 +1031,13 @@
               var x = Math.cos(moonAngle) * orbitRadius;
               var y = Math.sin(moonAngle * 2.0) * 0.28;
               var z = Math.sin(moonAngle) * orbitRadius;
-              moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z);
+              try {
+                // parent under earth so local coords represent orbit
+                if (moonMesh.parent !== earthMesh) {
+                  try { earthMesh.add(moonMesh); } catch (e) {}
+                }
+                moonMesh.position.set(x, y, z);
+              } catch (e) { moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z); }
             }
 
             // Keep a small moon self-rotation visual tweak
@@ -1125,13 +1151,16 @@
           timeController.lastWallMs = Date.now();
           setTimeMode('realtime');
 
-          // 定时更新显示 & 自转：始终基于真实时间同步，同时保持月球围绕地球运行
-          setInterval(function() {
-            syncSimulationTime();
-            updateMoonOrbit();
-            updateTimeDate();
-          }, 1000);
-          setInterval(stepSelfRotation, 500);
+          // 使用逐帧循环（requestAnimationFrame）持续同步仿真时间并更新场景。
+          // 这样 viz 能连续接收 JD / 速度信息，带 ephem 的物体（如月球）会随仿真时间正常运动。
+          function tick() {
+            try { syncSimulationTime(); } catch (e) {}
+            try { updateMoonOrbit(); } catch (e) {}
+            try { stepSelfRotation(); } catch (e) {}
+            try { updateTimeDate(); } catch (e) {}
+            requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
 
         } catch (e) {}
 
