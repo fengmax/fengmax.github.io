@@ -56,6 +56,27 @@
     }
     #planethome:hover { background:#3a76d0; color:#fff; border-color:#9cc4ff; }
 
+    /* 时间控制面板: 实时/加速 + 倍速滑块 */
+    #time-ctl {
+      position: fixed; top: 60px; left: 18px; z-index: 40; width: 210px;
+      background: rgba(10,15,30,.9); border: 1px solid rgba(100,150,255,.4);
+      border-radius: 10px; padding: 12px 14px; color: #e8eef7;
+      box-shadow: 0 4px 24px rgba(0,0,0,.5); backdrop-filter: blur(6px); user-select: none;
+    }
+    #time-ctl .ttl { font-size: 12px; color: #7a89a3; letter-spacing: 2px; margin-bottom: 8px; display:flex; align-items:center; gap:6px;}
+    #time-ctl .ttl .clock { font-size:13px; }
+    #time-btns { display:flex; gap:6px; margin-bottom:8px; }
+    #time-btns button {
+      flex:1; color:#cdd8ec; background:rgba(30,45,80,.7); border:1px solid rgba(120,160,255,.35);
+      padding:6px 0; border-radius:8px; cursor:pointer; font-size:12px; transition:all .15s;
+    }
+    #time-btns button.on { background:#2b62bd; color:#fff; border-color:#8fc0ff; box-shadow:0 0 8px rgba(80,140,255,.5);}
+    #time-btns button:hover { background:#3a76d0; color:#fff; }
+    .t-row { display:flex; align-items:center; gap:8px; margin-top:4px; }
+    .t-row label { font-size:11px; color:#89a; min-width:34px; }
+    .t-row input[type=range] { flex:1; accent-color:#4a8cf0; height:4px; }
+    .t-row .t-val { font-size:11px; color:#9fe2c0; font-weight:600; min-width:64px; text-align:right; }
+
     #info-panel {
       position: fixed; top: 60px; right: 18px; z-index: 40; width: 240px;
       max-height: calc(100vh - 140px); overflow-y: auto;
@@ -85,6 +106,20 @@
   <div id="hint"><b>拖动</b>旋转 · <b>滚轮</b>缩放 · <b>点击行星/名字</b>查看信息</div>
   <div id="main-container"></div>
   <div id="planet-bar"><button id="planethome" title="回到全景">🌌 全景</button></div>
+
+  <!-- 时间控制: 实时=地球自转一圈对应现实一天; 加速=可调倍速 -->
+  <div id="time-ctl">
+    <div class="ttl"><span class="clock">⏱</span> 模拟时间</div>
+    <div id="time-btns">
+      <button id="t-realtime">▸ 实时</button>
+      <button id="t-pause">⏸ 暂停</button>
+    </div>
+    <div class="t-row">
+      <label>倍速</label>
+      <input type="range" id="t-slider" min="0" max="100" value="1">
+      <span class="t-val" id="t-val">1×</span>
+    </div>
+  </div>
 
   <div id="info-panel">
     <button id="info-close" title="关闭">✕</button>
@@ -504,6 +539,61 @@
           e.stopPropagation();
           document.getElementById('info-panel').style.display = 'none';
         });
+
+        // ===== 时间控制: 实时 / 暂停 / 倍速滑块 =====
+        var currentMode = 'realtime';
+        var savedSpeed = 1/86400; // 最近一次非暂停的 days/秒
+        function setTimeMode(mode){
+          currentMode = mode;
+          var s = viz ? viz.getJd : null;
+          try {
+            if (mode==='pause') { if (viz.setJdPerSecond) viz.setJdPerSecond(0); }
+            else if (mode==='realtime') { if (viz.setJdPerSecond) viz.setJdPerSecond(1/86400); }
+          } catch(e){}
+          document.getElementById('t-realtime').classList.toggle('on', mode==='realtime');
+          document.getElementById('t-pause').classList.toggle('on', mode==='pause');
+          // 暂停/实时时禁用滑块微调不冲突
+        }
+        function applySpeed(factor){
+          if (!viz || !viz.setJdPerSecond) return;
+          currentMode = 'slider';
+          document.getElementById('t-realtime').classList.remove('on');
+          document.getElementById('t-pause').classList.remove('on');
+          // factor=1 为基准: 地球自转一圈(1天)=现实1天; 倍速=factor
+          var daysPerSec = (1/86400) * factor;
+          try { viz.setJdPerSecond(daysPerSec); } catch(e){}
+        }
+        try {
+          var slider = document.getElementById('t-slider');
+          if (slider){
+            slider.addEventListener('input', function(){
+              var v = parseFloat(slider.value);          // 0..100
+              // 对数映射: v=0->1×, v=50->365×(1年/天), v=100->约1万×
+              var factor;
+              if (v<=0) factor = 1;
+              else if (v<=50) factor = Math.pow(365, v/50);      // 1 → 365
+              else factor = 365 * Math.pow(27.4, (v-50)/50);      // 365 → 10000
+              document.getElementById('t-val').textContent = fmtX(factor);
+              applySpeed(factor);
+            });
+          }
+          var rb = document.getElementById('t-realtime');
+          if (rb) rb.addEventListener('click', function(){ setTimeMode('realtime'); });
+          var pb = document.getElementById('t-pause');
+          if (pb) pb.addEventListener('click', function(){ setTimeMode('pause'); });
+          // 默认: 中等速度便于观察(约365×, 即模拟1年/现实1秒), 面板上有"实时"可切回真实慢速
+          // (实时=地球自转一圈现实一天, 行星几乎不动; 默认用适中倍速让运动可见)
+          try { if (viz.setJdPerSecond) viz.setJdPerSecond(365); } catch(e){}
+          slider.value = 50;
+          document.getElementById('t-val').textContent = fmtX(365);
+          document.getElementById('t-realtime').classList.remove('on');
+          document.getElementById('t-pause').classList.remove('on');
+        } catch(e){}
+        function fmtX(f){
+          if (f>=1000) return (f/1000).toFixed(1)+'K×';
+          if (f>=1) return (Math.round(f))+'×';
+          return f.toFixed(2)+'×';
+        }
       } catch(err){ console.error('交互失败:', err); }
     }
     setTimeout(iface, 500);
