@@ -1088,6 +1088,8 @@
                       moonMesh.position.copy(localPos);
                     } catch (e) { try { moonMesh.position.set(desiredWorld.x, desiredWorld.y, desiredWorld.z); } catch (e) {} }
 
+                    
+
                     // create/update a visible orbit ring around earth to make moon orbit obvious
                     try {
                       var earthMeshForRing = earthMesh;
