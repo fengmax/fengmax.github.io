@@ -300,6 +300,7 @@
           currentFocus = key;
           var dist = Math.max(20, (PlanetDist[key]||40));
           setMinDistFor(key);
+          forceHiRes(key); // 聚焦拉近时强制切高清
           showInfo(key);
           try {
             var cam = viz.getViewer().get3jsCamera();
@@ -407,10 +408,12 @@
           var obj = objects[key]; if (!obj) return;
           var roots = [];
           try { roots.push(obj.get3jsObjects()[0]); } catch(e){}
-          roots.push(obj);
+          // 只保留真正有 traverse 方法的 THREE 对象(过滤类实例, 避免 TypeError 中断)
+          roots = roots.filter(function(r){ return r && typeof r.traverse === 'function'; });
           if (roots.length===0) return;
           var applyTex = function(tex){
             tex.anisotropy = 4;
+            var replaced = 0;
             roots.forEach(function(root){
               if (!root) return;
               try {
@@ -421,7 +424,7 @@
                     if (!mi) return;
                     try {
                       if (typeof mi.map !== 'undefined') { mi.map = tex; }
-                      if (mi.uniforms && mi.uniforms.sphereTexture) { mi.uniforms.sphereTexture.value = tex; }
+                      if (mi.uniforms && mi.uniforms.sphereTexture) { mi.uniforms.sphereTexture.value = tex; replaced++; }
                       mi.needsUpdate = true;
                     } catch(e){}
                   });
@@ -434,6 +437,12 @@
           if (texCache[url]) { applyTex(texCache[url]); return; }
           try { new THREE.TextureLoader().load(url, applyTex); } catch(e){}
         }
+        // 强制某行星切高清(聚焦拉近时直接调用)
+        function forceHiRes(key){
+          if (key==='sun') return;
+          var HI = './assets/textures/'+key+'-hi.jpg';
+          setTexture(key, HI, function(){ texLoaded[key]=HI; });
+        }
         function checkTextures(){
           if (!viz || !viz.getViewer) return;
           var cam, camPos=null; try { cam=viz.getViewer().get3jsCamera(); camPos=cam.position; } catch(e){ return; }
@@ -442,11 +451,13 @@
             if (p.key==='sun') return;
             var pos = getObjPos(p.key); if (!pos) return;
             var d = camPos.distanceTo(pos);
+            var r = planetRadius(p.key);
             var HI = './assets/textures/'+p.key+'-hi.jpg';
             var LO = './assets/textures/'+p.key+'.jpg';
-            // 聚焦即高清(阈值=行星直径量级, 拉近到行星附近就切换); 全景拉远回低清
-            if (d < 150 && texLoaded[p.key]!==HI){ setTexture(p.key, HI, function(){ texLoaded[p.key]=HI; }); }
-            else if (d >= 150 && texLoaded[p.key]!==LO){ setTexture(p.key, LO, function(){ texLoaded[p.key]=LO; }); }
+            // 拉近到行星半径的若干倍内(即将穿不进去)才切高清; 离远回低清
+            var hiThresh = Math.max(40, r*20); // 保证木星/土星等大行星也有合理阈值
+            if (d < hiThresh && texLoaded[p.key]!==HI){ setTexture(p.key, HI, function(){ texLoaded[p.key]=HI; }); }
+            else if (d >= hiThresh && texLoaded[p.key]!==LO){ setTexture(p.key, LO, function(){ texLoaded[p.key]=LO; }); }
           });
         }
         setInterval(checkTextures, 500);
