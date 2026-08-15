@@ -971,6 +971,28 @@
           el.textContent = formatTime(new Date());
         }
 
+        function updateMoonOrbit() {
+          if (!viz || !objects.earth || !objects.moon) return;
+          try {
+            var earthMesh = objects.earth.get3jsObjects && objects.earth.get3jsObjects()[0];
+            var moonMesh = objects.moon.get3jsObjects && objects.moon.get3jsObjects()[0];
+            if (!earthMesh || !moonMesh) return;
+
+            var earthPos = new THREE.Vector3();
+            earthMesh.getWorldPosition(earthPos);
+
+            var moonPeriodDays = 27.321661;
+            var moonAngle = ((Date.now() / 86400000) / moonPeriodDays) * Math.PI * 2;
+            var orbitRadius = 1.6;
+            var x = Math.cos(moonAngle) * orbitRadius;
+            var y = Math.sin(moonAngle * 2.0) * 0.28;
+            var z = Math.sin(moonAngle) * orbitRadius;
+
+            moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z);
+            moonMesh.rotation.y += 0.02;
+          } catch (e) {}
+        }
+
         // 自转步进
         function stepSelfRotation() {
           if (!viz || !viz.getJd) return;
@@ -1077,9 +1099,10 @@
           timeController.lastWallMs = Date.now();
           setTimeMode('realtime');
 
-          // 定时更新显示 & 自转：始终基于真实时间同步
+          // 定时更新显示 & 自转：始终基于真实时间同步，同时保持月球围绕地球运行
           setInterval(function() {
             syncSimulationTime();
+            updateMoonOrbit();
             updateTimeDate();
           }, 1000);
           setInterval(stepSelfRotation, 500);
