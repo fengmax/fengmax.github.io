@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>宇宙沙盒 · 3D Solar System · 北京时间校准</title>
+  <title>宇宙沙盒 · 3D Solar System</title>
   <style>
     html,
     body {
@@ -227,19 +227,6 @@
       min-width: 64px;
       text-align: right;
     }
-    #sync-status {
-      font-size: 10px;
-      color: #6a7a94;
-      margin-top: 6px;
-      text-align: right;
-      letter-spacing: .3px;
-    }
-    #sync-status.ok {
-      color: #7fc9a0;
-    }
-    #sync-status.fail {
-      color: #d97a7a;
-    }
 
     #info-panel {
       position: fixed;
@@ -332,14 +319,14 @@
 </head>
 <body>
   <div id="loading">🌌 宇宙沙盒加载中…</div>
-  <div id="title">SOLAR SYSTEM · 3D 宇宙沙盒 · 北京时间</div>
+  <div id="title">SOLAR SYSTEM · 3D 宇宙沙盒</div>
   <div id="hint"><b>拖动</b>旋转 · <b>滚轮</b>缩放 · <b>点击行星/名字</b>查看信息</div>
   <div id="main-container"></div>
   <div id="planet-bar"><button id="planethome" title="回到全景">🌌 全景</button></div>
 
   <div id="time-ctl">
-    <div class="ttl"><span class="clock">⏱</span> 模拟时间 <span style="font-weight:400;font-size:10px;color:#6a7a94;">(北京时间)</span></div>
-    <div id="time-date">⏳ 同步中…</div>
+    <div class="ttl"><span class="clock">⏱</span> 模拟时间</div>
+    <div id="time-date">⏳ 加载中…</div>
     <div id="time-btns">
       <button id="t-realtime" class="on">▸ 实时</button>
       <button id="t-pause">⏸ 暂停</button>
@@ -349,7 +336,7 @@
       <input type="range" id="t-slider" min="0" max="100" value="0" />
       <span class="t-val" id="t-val">实时</span>
     </div>
-    <div id="sync-status">🌐 时间源: 本地</div>
+    <!-- 移除时间源状态显示 -->
   </div>
 
   <div id="info-panel">
@@ -369,15 +356,12 @@
   <script src="./build/spacekit.js"></script>
   <script>
     // ============================================================
-    //  1. 北京时间校准 + 网络时间同步
+    //  1. 时间校准：使用本地系统时间（准确可靠）
     // ============================================================
-    var BEIJING_OFFSET_MS = 8 * 3600 * 1000; // UTC+8
-
-    // 格式化北京时间（墙钟）
-    function formatBeijingTime(d) {
+    // 格式化本地时间（不包含时区文字）
+    function formatTime(d) {
       try {
         return d.toLocaleString('zh-CN', {
-          timeZone: 'Asia/Shanghai',
           year: 'numeric',
           month: '2-digit',
           day: '2-digit',
@@ -387,7 +371,6 @@
           hour12: false
         });
       } catch (_) {
-        // fallback
         var y = d.getFullYear();
         var mo = String(d.getMonth() + 1).padStart(2, '0');
         var da = String(d.getDate()).padStart(2, '0');
@@ -398,81 +381,10 @@
       }
     }
 
-    // 从儒略日 → 北京时间字符串
-    function jdToBeijingStr(jd) {
-      try {
-        var ms = (jd - 2440587.5) * 86400000 + BEIJING_OFFSET_MS;
-        var d = new Date(ms);
-        return formatBeijingTime(d);
-      } catch (_) { return '--:--:--'; }
+    // 当前真实时间
+    function getNow() {
+      return new Date();
     }
-
-    // 当前真实北京时间（墙钟）
-    function getRealBeijingNow() {
-      return new Date(Date.now() + BEIJING_OFFSET_MS);
-    }
-
-    // ----- 网络时间同步 -----
-    var SYNC_URL = 'https://worldtimeapi.org/api/timezone/Asia/Shanghai';
-    var syncStatusEl = document.getElementById('sync-status');
-    var timeDateEl = document.getElementById('time-date');
-    var lastSyncedTime = null; // Date (UTC)
-    var syncOk = false;
-
-    function syncBeijingTime(cb) {
-      var start = Date.now();
-      fetch(SYNC_URL, { cache: 'no-store' })
-        .then(function(r) { return r.json(); })
-        .then(function(data) {
-          if (data && data.unixtime) {
-            var utc = new Date(data.unixtime * 1000);
-            lastSyncedTime = utc;
-            syncOk = true;
-            if (syncStatusEl) {
-              syncStatusEl.textContent = '🌐 时间源: worldtimeapi.org ✅';
-              syncStatusEl.className = 'ok';
-            }
-            // 校准 viz 的起始时间（如果已初始化）
-            if (viz && typeof viz.setStartDate === 'function') {
-              try { viz.setStartDate(utc); } catch (_) {}
-            }
-            if (cb) cb(utc);
-          } else {
-            fallbackTime(cb);
-          }
-        })
-        .catch(function() { fallbackTime(cb); });
-    }
-
-    function fallbackTime(cb) {
-      syncOk = false;
-      if (syncStatusEl) {
-        syncStatusEl.textContent = '🌐 时间源: 本地 (API不可用)';
-        syncStatusEl.className = 'fail';
-      }
-      var local = new Date();
-      lastSyncedTime = local;
-      if (cb) cb(local);
-    }
-
-    // 首次同步：立即执行，之后每 5 分钟重同步一次
-    setTimeout(function() {
-      syncBeijingTime(function(t) {
-        if (timeDateEl) {
-          timeDateEl.textContent = '📅 ' + formatBeijingTime(t);
-        }
-        // 如果 viz 已初始化，设置 startDate
-        if (viz && typeof viz.setStartDate === 'function') {
-          try { viz.setStartDate(t); } catch (_) {}
-        }
-      });
-    }, 300);
-
-    setInterval(function() {
-      syncBeijingTime(function(t) {
-        // 静默刷新，只更新状态
-      });
-    }, 5 * 60 * 1000);
 
     // ============================================================
     //  2. 行星数据 (物理参数 + 显示信息)
@@ -654,8 +566,8 @@
     window.addEventListener('load', hideLoading);
 
     try {
-      // 用同步后的时间作为 startDate (若已同步)
-      var startDate = lastSyncedTime ? new Date(lastSyncedTime.getTime()) : new Date();
+      // 使用当前本地时间作为模拟起点
+      var startDate = new Date();
 
       viz = new Spacekit.Simulation(document.getElementById('main-container'), {
         basePath: './',
@@ -1014,21 +926,22 @@
         var currentMode = 'realtime';
         var lastJd = null;
 
-        // 更新模拟时间显示 (北京时间)
+        // 更新模拟时间显示（使用本地时间，不加任何前缀）
         function updateTimeDate() {
           var el = document.getElementById('time-date');
           if (!el) return;
           try {
             var jd = viz.getJd ? viz.getJd() : null;
             if (jd !== null && jd !== undefined) {
-              var str = jdToBeijingStr(jd);
-              el.textContent = '📅 ' + str;
+              // 从儒略日转回 Date，并格式化为本地时间（不含时区文字）
+              var ms = (jd - 2440587.5) * 86400000;
+              var d = new Date(ms);
+              el.textContent = formatTime(d);
             } else {
-              // fallback: 墙钟北京时间
-              el.textContent = '📅 ' + formatBeijingTime(new Date());
+              el.textContent = formatTime(new Date());
             }
           } catch (_) {
-            el.textContent = '📅 ' + formatBeijingTime(new Date());
+            el.textContent = formatTime(new Date());
           }
         }
 
@@ -1114,11 +1027,6 @@
           // 定时更新显示 & 自转
           setInterval(stepSelfRotation, 500);
           setInterval(updateTimeDate, 1000);
-
-          // 如果网络同步成功，校准一次
-          if (lastSyncedTime && viz && typeof viz.setStartDate === 'function') {
-            try { viz.setStartDate(lastSyncedTime); } catch (_) {}
-          }
 
         } catch (e) {}
 
