@@ -85,21 +85,23 @@
     viz.createLight([0, 0, 0]);
 
     // 创建行星，绑定 label 名称，记录引用
+    // 注意：preset 内含 Ephem 类实例，不能 JSON 深拷贝(会破坏)，必须直接引用预设再叠加 labelText
     const objects = {};
     PLANETS.forEach(p => {
-      let obj = null;
-      if (p.key === 'sun') {
-        return; // 太阳已在上面创建
-      }
-      const opts = JSON.parse(JSON.stringify(Spacekit.SpaceObjectPresets[p.key.toUpperCase()] || {}));
-      opts.labelText = p.label;  // 行星名称标签
-      opts.unknownLabel = true;
-      try { obj = viz.createObject(p.key, opts); } catch (e) {
-        try { obj = viz.createObject(p.key, Spacekit.SpaceObjectPresets[p.key.toUpperCase()]); } catch (e2) {}
+      if (p.key === 'sun') return; // 太阳已在上面创建
+      const preset = Spacekit.SpaceObjectPresets[p.key.toUpperCase()];
+      if (!preset) return;
+      const name = p.label;
+      let obj = null, id = 0;
+      // 逐个尝试：直接 ref preset (保持 Ephem) + labelText
+      try {
+        obj = viz.createObject(p.key, Object.assign({}, preset, { labelText: name }));
+      } catch (e) {
+        // 兜底：纯 preset，无 label
+        try { obj = viz.createObject(p.key, preset); } catch (e2) {}
       }
       objects[p.key] = obj;
     });
-    // 太阳引用(通过 get3jsObjects 无法直接定位，保留占位，拾取时特殊处理)
     objects.sun = null;
 
     // ===== 控制速度：默认太快，调慢 =====
@@ -123,24 +125,27 @@
       const raycaster = new TH.Raycaster();
       const pointer = new TH.Vector2();
 
-      // 收集所有对象的3D节点用于拾取(key->3d对象)
+      // 建立 mesh -> 行星 key 映射（get3jsObjects 同步返回，第一个是行星本体）
       const meshMap = new Map();
-      function collectMeshes() {
+      function buildMeshMap() {
         meshMap.clear();
         Object.keys(objects).forEach(k => {
           const obj = objects[k];
-          if (!obj) return;
-          if (obj.getBoundingObject) {
-            obj.getBoundingObject().then(o3d => {
-              if (o3d) {
-                o3d.traverse ? o3d.traverse(child => { if (child.isMesh) meshMap.set(child, k); })
-                             : meshMap.set(o3d, k);
-              }
-            }).catch(() => {});
-          }
+          if (!obj || !obj.get3jsObjects) return;
+          let list = [];
+          try { list = obj.get3jsObjects() || []; } catch (e) { return; }
+          const root = list[0];
+          if (!root) return;
+          // 递归收集所有 mesh 都映射到该 key
+          root.traverse(ch => {
+            if (ch && ch.isMesh !== false) meshMap.set(ch, k);
+          });
+          meshMap.set(root, k);
         });
       }
-      setTimeout(collectMeshes, 600); // 等对象初始化
+      // 延迟到对象初始化后建立映射
+      setTimeout(buildMeshMap, 800);
+      setInterval(() => { if (meshMap.size === 0) buildMeshMap(); }, 2000);
 
       let downPos = null, moved = false;
       canvas.addEventListener('pointerdown', e => { downPos = {x:e.clientX,y:e.clientY}; moved = false; });
@@ -149,25 +154,33 @@
           const dx = e.clientX-downPos.x, dy = e.clientY-downPos.y;
           if (Math.abs(dx)+Math.abs(dy) > 6) moved = true;
         }
-        // 悬停光标
-        const rect = canvas.getBoundingClientRect();
-        pointer.x = ((e.clientX-rect.left)/rect.width)*2-1;
-        pointer.y = -((e.clientY-rect.top)/rect.height)*2+1;
-        raycaster.setFromCamera(pointer, camera);
-        const hits = raycaster.intersectObjects(Array.from(meshMap.keys()), false);
-        canvas.style.cursor = hits.length ? 'pointer' : 'grab';
+        try {
+          const rect = canvas.getBoundingClientRect();
+          pointer.x = ((e.clientX-rect.left)/rect.width)*2-1;
+          pointer.y = -((e.clientY-rect.top)/rect.height)*2+1;
+          raycaster.setFromCamera(pointer, camera);
+          const hits = raycaster.intersectObjects(Array.from(meshMap.keys()), true);
+          canvas.style.cursor = hits.length ? 'pointer' : 'grab';
+        } catch (err) {}
       });
       canvas.addEventListener('pointerup', e => {
         if (moved) { downPos = null; return; }
-        const rect = canvas.getBoundingClientRect();
-        pointer.x = ((e.clientX-rect.left)/rect.width)*2-1;
-        pointer.y = -((e.clientY-rect.top)/rect.height)*2+1;
-        raycaster.setFromCamera(pointer, camera);
-        const hits = raycaster.intersectObjects(Array.from(meshMap.keys()), false);
-        if (hits.length > 0) {
-          const key = meshMap.get(hits[0].object) || meshMap.get(hits[0].object.parent);
-          if (key) showInfo(key);
-        }
+        try {
+          const rect = canvas.getBoundingClientRect();
+          pointer.x = ((e.clientX-rect.left)/rect.width)*2-1;
+          pointer.y = -((e.clientY-rect.top)/rect.height)*2+1;
+          raycaster.setFromCamera(pointer, camera);
+          const hits = raycaster.intersectObjects(Array.from(meshMap.keys()), true);
+          if (hits.length > 0) {
+            // 从命中的 mesh 反查 key（含父级）
+            let node = hits[0].object, key = null;
+            while (node) {
+              if (meshMap.has(node)) { key = meshMap.get(node); break; }
+              node = node.parent;
+            }
+            if (key) showInfo(key);
+          }
+        } catch (err) {}
         downPos = null;
       });
 
@@ -179,8 +192,10 @@
         const obj = objects[key];
         let posTxt = '-';
         if (obj && obj.getPosition) {
-          const v = obj.getPosition(viz.getJd());
-          if (v) posTxt = `${v.x.toFixed(1)}, ${v.y.toFixed(1)}, ${v.z.toFixed(1)}`;
+          try {
+            const v = obj.getPosition(viz.getJd());
+            if (v) posTxt = `${v.x.toFixed(1)}, ${v.y.toFixed(1)}, ${v.z.toFixed(1)}`;
+          } catch (e) {}
         }
         document.getElementById('ip-pos').textContent = posTxt;
         document.getElementById('ip-status').textContent = (key==='sun') ? '恒星(自转)' : '公转中';
