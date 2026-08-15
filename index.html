@@ -49,6 +49,12 @@
     #planet-bar .pb-btn:hover, #planet-bar .pb-btn.active {
       background: #2b62bd; color: #fff; border-color: #8fc0ff; box-shadow: 0 0 10px rgba(80,140,255,.5);
     }
+    #planethome {
+      color:#dde6f4; background: rgba(70,90,140,.55); border:1px solid rgba(140,180,255,.5);
+      padding:5px 14px; border-radius:16px; cursor:pointer; font-size:12.5px; letter-spacing:.5px;
+      transition: all .15s; user-select:none; margin-left:4px; backdrop-filter: blur(2px);
+    }
+    #planethome:hover { background:#3a76d0; color:#fff; border-color:#9cc4ff; }
 
     #info-panel {
       position: fixed; top: 60px; right: 18px; z-index: 40; width: 240px;
@@ -78,7 +84,7 @@
   <div id="title">SOLAR SYSTEM · 3D 宇宙沙盒</div>
   <div id="hint"><b>拖动</b>旋转 · <b>滚轮</b>缩放 · <b>点击行星/名字</b>查看信息</div>
   <div id="main-container"></div>
-  <div id="planet-bar"></div>
+  <div id="planet-bar"><button id="planethome" title="回到全景">🌌 全景</button></div>
 
   <div id="info-panel">
     <button id="info-close" title="关闭">✕</button>
@@ -135,6 +141,11 @@
     ];
 
     // ===== 隐藏加载页(独立触发) =====
+    // 聚焦时相机距行星的距离(场景单位, 1AU=100)。按行星实际大小缩放。
+    var PlanetDist = {
+      sun: 120, mercury: 45, venus: 60, earth: 65, moon: 28,
+      mars: 55, jupiter: 120, saturn: 110, uranus: 85, neptune: 85
+    };
     function hideLoading(){ var l=document.getElementById('loading'); if(l) l.style.display='none'; }
     setTimeout(hideLoading, 600);
     setTimeout(hideLoading, 2000);
@@ -206,6 +217,26 @@
     // ===== 交互(独立try) =====
     function iface(){
       try {
+        var currentFocus = null;
+
+        // 聚焦到某行星(相机跟随)
+        function focusPlanet(key){
+          var obj = objects[key];
+          if (!obj || !viz || !viz.getViewer) return;
+          currentFocus = key;
+          try {
+            var viewer = viz.getViewer();
+            if (viewer.stopFollowingObject) viewer.stopFollowingObject();
+            var dist = Math.max(30, (PlanetDist[key]||40));
+            viewer.followObject(obj, [dist, dist*0.5, dist*0.8]);
+          } catch(e){}
+        }
+        // 回到全景
+        function goHome(){
+          currentFocus = null;
+          try { if (viz && viz.getViewer) viz.getViewer().stopFollowingObject(); } catch(e){}
+        }
+
         // 1) 底部行星选择栏
         var bar = document.getElementById('planet-bar');
         PLANETS.forEach(function(p){
@@ -213,12 +244,13 @@
           b.className = 'pb-btn';
           b.textContent = p.label;
           b.style.borderLeftColor = p.color;
-          b.addEventListener('click', function(){ showInfo(p.key); });
+          b.addEventListener('click', function(){ showInfo(p.key); focusPlanet(p.key); });
           bar.appendChild(b);
         });
+        var homeBtn = document.getElementById('planethome');
+        if (homeBtn) homeBtn.addEventListener('click', function(){ goHome(); });
 
         // 2) 绑定3D里的SpaceKit label点击(文字匹配)
-        //    月球label可能被遮挡, 仍按文字绑定
         function bindLabels(){
           var labels = document.querySelectorAll('.spacekit__object-label');
           Array.prototype.forEach.call(labels, function(lb){
@@ -228,13 +260,56 @@
             for (var i=0;i<PLANETS.length;i++) if (PLANETS[i].label===txt){ p=PLANETS[i]; break; }
             if (!p) return;
             lb.__bound = true;
-            lb.addEventListener('click', function(ev){ ev.stopPropagation(); showInfo(p.key); });
+            lb.addEventListener('click', function(ev){ ev.stopPropagation(); showInfo(p.key); focusPlanet(p.key); });
           });
         }
         bindLabels();
         setInterval(bindLabels, 400);
 
-        // 3) 信息面板
+        // 3) 按距离换纹理(远=低清, 近=高清)
+        var texLoaded = {};
+        function nearestTextureObj(key){
+          var obj = objects[key];
+          if (obj && obj.get3jsObjects && obj.get3jsObjects()[0]) return obj.get3jsObjects()[0];
+          return null;
+        }
+        function setTexture(key, url){
+          var mesh = nearestTextureObj(key);
+          if (!mesh) return;
+          var done = false;
+          (mesh.traverse||function(){}).call(mesh, function(n){
+            if (!done && n && n.material && (n.material.map || n.material.isMeshBasicMaterial || n.material.isMeshLambertMaterial || n.material.isMeshPhongMaterial)){
+              done = true;
+              try {
+                var loader = new THREE.TextureLoader();
+                loader.load(url, function(tex){
+                  try { n.material.map = tex; n.material.needsUpdate = true; } catch(e){}
+                });
+              } catch(e){}
+            }
+          });
+        }
+        function checkTextures(){
+          if (!viz || !viz.getViewer) return;
+          var cam, camPos = null;
+          try { cam = viz.getViewer().get3jsCamera(); camPos = cam.position; } catch(e){ return; }
+          if (!camPos) return;
+          PLANETS.forEach(function(p){
+            if (p.key==='sun') return;
+            var obj = objects[p.key]; if (!obj) return;
+            var mesh;
+            try { mesh = nearestTextureObj(p.key); } catch(e){ return; }
+            var d = 99999;
+            if (mesh && mesh.getWorldPosition){ var v=new THREE.Vector3(); mesh.getWorldPosition(v); d = camPos.distanceTo(v); }
+            var HI = './assets/textures/'+p.key+'-hi.jpg';
+            var LO = './assets/textures/'+p.key+'.jpg';
+            if (d < 260 && texLoaded[p.key]!==HI){ setTexture(p.key, HI); texLoaded[p.key]=HI; }
+            else if (d >= 260 && texLoaded[p.key]!==LO){ setTexture(p.key, LO); texLoaded[p.key]=LO; }
+          });
+        }
+        setInterval(checkTextures, 900);
+
+        // 4) 信息面板
         function showInfo(key){
           var info=null;
           for (var i=0;i<PLANETS.length;i++) if (PLANETS[i].key===key){ info=PLANETS[i]; break; }
