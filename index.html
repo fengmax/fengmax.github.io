@@ -171,20 +171,22 @@
         var finalRadius = Math.max(SUN_RADIUS * (p.diameter / SUN_DIAMETER_KM) * BOOST, 0.6);
         var radiusToPass = finalRadius / 100;
         // 月球: 不用预设(其particleSize字段会走粒子分支引发兼容问题),
-        //        手动用 createSphere + 真实地月轨道参数, 并 orbitAround 地球。
+        //        orbitAround地球 + 轨道放大到球外可见(真实数据保存在信息面板)。
         var obj = null;
         if (p.key==='moon') {
           try {
+            // 月球球体: 相对地球(半径60)约0.25倍, 可见但不至显眼
+            var moonR = 16;
             obj = viz.createSphere(p.key, {
               textureUrl: './assets/textures/moon.jpg',
-              radius: radiusToPass,
-              // 真实地月轨道: 半长轴0.00257AU, 离心率0.0549, 轨道倾角5.14°
+              radius: moonR/100,
+              // 轨道放大: 相对地球半长轴0.9AU(=90场景单位), 刚好在地球球体外
               ephem: new Spacekit.Ephem({
                 GM: 3986e11,
                 epoch: 2458426.5,
-                a: 0.00257,
-                e: 0.0549,
-                i: 5.145,
+                a: 0.90,
+                e: 0.05,
+                i: 5.1,
                 om: 125.08,
                 w: 318.15,
                 ma: 135.27,
@@ -218,18 +220,60 @@
     function iface(){
       try {
         var currentFocus = null;
+        var animId = null;
 
-        // 聚焦到某行星(相机跟随)
-        function focusPlanet(key){
-          var obj = objects[key];
-          if (!obj || !viz || !viz.getViewer) return;
-          currentFocus = key;
+        // 获取行星的3D世界位置
+        function getObjPos(key){
+          var obj = objects[key]; if(!obj) return null;
           try {
-            var viewer = viz.getViewer();
-            if (viewer.stopFollowingObject) viewer.stopFollowingObject();
-            var dist = Math.max(30, (PlanetDist[key]||40));
-            viewer.followObject(obj, [dist, dist*0.5, dist*0.8]);
+            var mesh = obj.get3jsObjects()[0];
+            if (mesh && mesh.getWorldPosition){ var v=new THREE.Vector3(); mesh.getWorldPosition(v); return v; }
           } catch(e){}
+          // fallback: 用空间对象的位置
+          try {
+            var p = objects[key].getPosition(viz.getJd ? viz.getJd() : 0);
+            return new THREE.Vector3(p[0],p[1],p[2]);
+          } catch(e){}
+          return null;
+        }
+
+        // 平滑飞向目标(相机直接定位到行星旁, 不穿模)
+        function flyTo(target, dist, dur){
+          if (!viz || !viz.getViewer) return;
+          var dur = dur || 900;
+          try {
+            var cam = viz.getViewer().get3jsCamera();
+            var controls = viz.getViewer().get3jsCameraControls();
+            if (!cam || !controls) return;
+            // 停止跟随
+            try { viz.getViewer().stopFollowingObject(); } catch(e){}
+            var startPos = cam.position.clone();
+            var startTgt = controls.target.clone();
+            var dir = new THREE.Vector3(dist, dist*0.4, dist*0.7).normalize();
+            var endPos = target.clone().add(dir.multiplyScalar(dist));
+            var endTgt = target.clone();
+            var t0 = Date.now();
+            if (animId) cancelAnimationFrame(animId);
+            function step(){
+              var t = Math.min(1,(Date.now()-t0)/dur);
+              var e = 1-Math.pow(1-t,3); // easeOut
+              cam.position.lerpVectors(startPos, endPos, e);
+              controls.target.lerpVectors(startTgt, endTgt, e);
+              if (t<1) animId = requestAnimationFrame(step);
+            }
+            step();
+          } catch(e){}
+        }
+
+        // 聚焦到某行星
+        function focusPlanet(key){
+          var obj = objects[key]; if (!obj) return;
+          currentFocus = key;
+          var dist = Math.max(20, (PlanetDist[key]||40));
+          var pos = getObjPos(key);
+          if (pos) { flyTo(pos, dist, 800); }
+          // 显示信息
+          showInfo(key);
         }
         // 回到全景
         function goHome(){
@@ -244,7 +288,7 @@
           b.className = 'pb-btn';
           b.textContent = p.label;
           b.style.borderLeftColor = p.color;
-          b.addEventListener('click', function(){ showInfo(p.key); focusPlanet(p.key); });
+          b.addEventListener('click', function(){ focusPlanet(p.key); });
           bar.appendChild(b);
         });
         var homeBtn = document.getElementById('planethome');
@@ -260,54 +304,52 @@
             for (var i=0;i<PLANETS.length;i++) if (PLANETS[i].label===txt){ p=PLANETS[i]; break; }
             if (!p) return;
             lb.__bound = true;
-            lb.addEventListener('click', function(ev){ ev.stopPropagation(); showInfo(p.key); focusPlanet(p.key); });
+            lb.addEventListener('click', function(ev){ ev.stopPropagation(); focusPlanet(p.key); });
           });
         }
         bindLabels();
         setInterval(bindLabels, 400);
 
-        // 3) 按距离换纹理(远=低清, 近=高清)
+        // 3) 按距离换纹理(远=低清, 近=高清) — 正确处理LOD
         var texLoaded = {};
-        function nearestTextureObj(key){
-          var obj = objects[key];
-          if (obj && obj.get3jsObjects && obj.get3jsObjects()[0]) return obj.get3jsObjects()[0];
-          return null;
-        }
         function setTexture(key, url){
-          var mesh = nearestTextureObj(key);
-          if (!mesh) return;
+          var obj = objects[key]; if (!obj) return;
           var done = false;
-          (mesh.traverse||function(){}).call(mesh, function(n){
-            if (!done && n && n.material && (n.material.map || n.material.isMeshBasicMaterial || n.material.isMeshLambertMaterial || n.material.isMeshPhongMaterial)){
-              done = true;
-              try {
-                var loader = new THREE.TextureLoader();
-                loader.load(url, function(tex){
-                  try { n.material.map = tex; n.material.needsUpdate = true; } catch(e){}
-                });
-              } catch(e){}
-            }
-          });
+          // 递归遍历整棵对象树找带map的材质
+          try {
+            var root = obj.get3jsObjects()[0];
+            if (!root) return;
+            root.traverse(function(n){
+              if (done || !n || !n.material) return;
+              var mm = Array.isArray(n.material) ? n.material : [n.material];
+              mm.forEach(function(mi){
+                if (done || !mi) return;
+                if (mi.map || mi.isMeshBasicMaterial || mi.isMeshLambertMaterial || mi.isMeshPhongMaterial || mi.isMeshStandardMaterial){
+                  done = true;
+                  new THREE.TextureLoader().load(url, function(tex){
+                    try { mi.map = tex; mi.needsUpdate = true; } catch(e){}
+                  });
+                }
+              });
+            });
+          } catch(e){}
         }
         function checkTextures(){
           if (!viz || !viz.getViewer) return;
-          var cam, camPos = null;
-          try { cam = viz.getViewer().get3jsCamera(); camPos = cam.position; } catch(e){ return; }
+          var cam, camPos=null; try { cam=viz.getViewer().get3jsCamera(); camPos=cam.position; } catch(e){ return; }
           if (!camPos) return;
           PLANETS.forEach(function(p){
             if (p.key==='sun') return;
-            var obj = objects[p.key]; if (!obj) return;
-            var mesh;
-            try { mesh = nearestTextureObj(p.key); } catch(e){ return; }
-            var d = 99999;
-            if (mesh && mesh.getWorldPosition){ var v=new THREE.Vector3(); mesh.getWorldPosition(v); d = camPos.distanceTo(v); }
+            var pos = getObjPos(p.key); if (!pos) return;
+            var d = camPos.distanceTo(pos);
             var HI = './assets/textures/'+p.key+'-hi.jpg';
             var LO = './assets/textures/'+p.key+'.jpg';
-            if (d < 260 && texLoaded[p.key]!==HI){ setTexture(p.key, HI); texLoaded[p.key]=HI; }
-            else if (d >= 260 && texLoaded[p.key]!==LO){ setTexture(p.key, LO); texLoaded[p.key]=LO; }
+            // 阈值: 视距小于120(场景单位)切高清
+            if (d < 120 && texLoaded[p.key]!==HI){ setTexture(p.key, HI); texLoaded[p.key]=HI; }
+            else if (d >= 120 && texLoaded[p.key]!==LO){ setTexture(p.key, LO); texLoaded[p.key]=LO; }
           });
         }
-        setInterval(checkTextures, 900);
+        setInterval(checkTextures, 700);
 
         // 4) 信息面板
         function showInfo(key){
