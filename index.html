@@ -23,10 +23,12 @@
     #hint b { color: #aac; }
     .spacekit__object-label {
       position: absolute; font-family: Arial, "PingFang SC", sans-serif;
-      font-size: 12px; color: #fff; background: rgba(0,0,0,.65);
-      padding: 2px 6px; border-radius: 3px; pointer-events: none; white-space: nowrap;
-      text-shadow: 0 0 6px rgba(100,160,255,.8);
+      font-size: 13px; color: #fff; background: rgba(0,0,0,.72);
+      padding: 3px 8px; border-radius: 4px; pointer-events: auto; cursor: pointer; white-space: nowrap;
+      border: 1px solid rgba(160,200,255,.55); box-shadow: 0 0 8px rgba(0,0,0,.6);
+      text-shadow: 0 0 6px rgba(100,160,255,.8); z-index: 15;
     }
+    .spacekit__object-label:hover { background: rgba(40,80,160,.9); border-color: #7fb2ff; }
     #info-panel {
       position: fixed; top: 60px; right: 18px; z-index: 20; width: 220px;
       max-height: 340px; overflow-y: auto;
@@ -128,86 +130,39 @@
     // 控制运行速度(天/秒)
     try { viz.setJdPerSecond(3); } catch (e) {}
 
-    // ===== 点击拾取(Raycaster) =====
-    // 关键: SpaceKit 行星球体在 THREE.LOD 内, LOD按相机距离切换显示mesh。
-    // 必须对每个行星取 LOD 当前显示的 mesh 再拾取，否则命中不准。
-    const TH = Spacekit.THREE;
-    const camera3 = viz.getViewer().get3jsCamera();
-    const renderer = viz.getRenderer();  // 真实canvas在 renderer.domElement
-    const canvas = renderer ? renderer.domElement : viz.getSimulationElement();
-    const raycaster = new TH.Raycaster();
-    const pointer = new TH.Vector2();
-    raycaster.params.Sprite.threshold = 5;
-
-    // 取某个行星当前应拾取的 mesh 列表(处理LOD)
-    function getPickMeshes(obj, camera) {
-      const meshes = [];
-      if (!obj || !obj.get3jsObjects) return meshes;
-      let list = [];
-      try { list = obj.get3jsObjects() || []; } catch (e) { return meshes; }
-      list.forEach(root => {
-        if (!root) return;
-        if (root.traverse) {
-          root.traverse(ch => {
-            if (!ch) return;
-            // LOD: 取相机距离下当前显示的级别
-            if (ch.isLOD) {
-              const d = camera.position.distanceTo(ch.position);
-              const cur = ch.getObjectForDistance ? ch.getObjectForDistance(d) : null;
-              if (cur && (cur.isMesh || cur.isSprite)) meshes.push(cur);
-            } else if (ch.isMesh || ch.isSprite) {
-              meshes.push(ch);
-            }
-          });
-        } else if (root.isMesh || root.isSprite) {
-          meshes.push(root);
-        }
-      });
-      return meshes;
-    }
-
-    function pickAt(e) {
-      try {
-        if (!canvas || !canvas.getBoundingClientRect) return null;
-        const rect = canvas.getBoundingClientRect();
-        if (!rect.width) return null;
-        pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
-        pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
-        raycaster.setFromCamera(pointer, camera3);
-        // 实时收集每个行星当前可见mesh
-        const all = [];
-        const map = new Map();
-        Object.keys(objects).forEach(k => {
-          if (k === 'sun') return;
-          getPickMeshes(objects[k], camera3).forEach(m => { all.push(m); map.set(m, k); });
+    // ===== 点击交互：点击行星名字标签(纯DOM,可靠) =====
+    // SpaceKit 为每颗行星生成了 .spacekit__object-label 元素(带框),
+    // 点击标签弹出行星信息面板，绕开球体拾取(Raycaster对LOD不可靠)的坑。
+    function bindLabelClicks() {
+      const labels = document.querySelectorAll('.spacekit__object-label');
+      labels.forEach(label => {
+        if (label.dataset.bound) return;   // 防重复绑定
+        const txt = (label.textContent || '').trim();
+        const info = PLANETS.find(p => p.label === txt);
+        if (!info) return;
+        label.dataset.bound = '1';
+        label.style.cursor = 'pointer';
+        label.style.userSelect = 'none';
+        label.title = '点击查看' + info.label + '信息';
+        label.addEventListener('click', e => {
+          e.stopPropagation();
+          showInfo(info.key);
         });
-        const hits = all.length ? raycaster.intersectObjects(all, true) : [];
-        if (!hits.length) return null;
-        let node = hits[0].object, key = null;
-        while (node) {
-          if (map.has(node)) { key = map.get(node); break; }
-          node = node.parent;
-        }
-        return key;
-      } catch (err) { return null; }
+      });
     }
 
-    let downPos = null, moved = false;
-    if (canvas) {
-      canvas.addEventListener('pointerdown', e => { downPos = { x: e.clientX, y: e.clientY }; moved = false; });
-      canvas.addEventListener('pointermove', e => {
-        if (downPos) { const dx = e.clientX - downPos.x, dy = e.clientY - downPos.y; if (Math.abs(dx) + Math.abs(dy) > 6) moved = true; }
-        const key = pickAt(e);
-        try { canvas.style.cursor = (key) ? 'pointer' : 'grab'; } catch (err) {}
-      });
-      canvas.addEventListener('pointerup', e => {
-        const wasMoved = moved;
-        downPos = null; moved = false;
-        if (wasMoved) return;
-        const key = pickAt(e);
-        if (key) showInfo(key);
-      });
-    }
+    // label 是延迟创建/移动的，反复扫描直到绑完所有行星
+    let scanCount = 0;
+    const scanTimer = setInterval(() => {
+      const labels = document.querySelectorAll('.spacekit__object-label');
+      const boundCount = document.querySelectorAll('.spacekit__object-label[data-bound]').length;
+      bindLabelClicks();
+      scanCount++;
+      // 所有行星label都已绑定或超过时间则停止
+      if ((labels.length >= PLANETS.length && labels.length > 0 && boundCount >= PLANETS.length) || scanCount > 30) {
+        clearInterval(scanTimer);
+      }
+    }, 300);
 
     function showInfo(key) {
       const info = PLANETS.find(p => p.key === key);
