@@ -1017,12 +1017,13 @@
             }
             if (simJd === null || simJd === undefined) simJd = toJd(new Date());
 
-            // If the moon object exposes getPosition(jd), ask it for the correct world coordinates at simJd.
+            // Moon orbit calculation - always use simple orbit relative to Earth
             var moonObj = objects.moon;
             var earthObj = objects.earth;
             var moonMesh = moonObj.get3jsObjects && moonObj.get3jsObjects()[0];
-
-            if (moonObj && typeof moonObj.getPosition === 'function') {
+            
+            // Skip ephem-based calculation and use direct orbit calculation
+            if (false) {
               try {
                 var mp = moonObj.getPosition(simJd);
                 // Also get earth position at same JD so we can position the moon relative to earth
