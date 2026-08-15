@@ -198,6 +198,19 @@
         basePath: './',
         unitsPerAu: 100.0,
         camera: { initialPosition: [150, 110, 220], enableDrift: true },
+        // 用北京时间(UTC+8)作为模拟起点: 显式设置 startDate, 不依赖浏览器本地时区
+        startDate: (function(){
+          try {
+            var now = new Date();
+            // 北京 = UTC+8; new Date() 已是绝对时刻(UTC基准), 直接用它即可
+            // 但为确保显示/起点都在北京时区, 构造一个 UTC 表示的北京时间 Date
+            var msUTC = now.getTime();
+            // 北京时间 = UTC + 8小时; 用 getUTC* 读出北京成分构造 Date(内部UTC毫秒不变)
+            // jd 取 now 的绝对时刻(已含当地时间), 这里仅消除浏览器时区差异:
+            // now.getTime() 是UTC毫秒, 无论浏览器在哪都指向同一宇宙时刻 → 起点正确
+            return new Date(msUTC);
+          } catch(e){ return undefined; }
+        }()),
       });
       viz.createStars();
       viz.createAmbientLight();
@@ -526,18 +539,16 @@
           document.getElementById('info-panel').style.display = 'none';
         });
 
-        // ===== 时间控制: 实时 / 暂停 / 倍速滑块 =====
-        // ===== 时间控制: 实时(接入当前真实时间) / 暂停 / 倍速(每秒N天) =====
+        // ===== 时间控制: 实时(接入当前真实时间[北京时间]) / 暂停 / 倍速(每秒N天) =====
         var currentMode = 'realtime';
         var lastJd = null;          // 自转增量参考 jd
         function fmtDateStr(jd){
           try {
-            var d = Spacekit ? Spacekit.DateUtil ? Spacekit.DateUtil.toDate(jd) : null : null;
-            if (!d && document._skDate) d = document._skDate;
-            if (d instanceof Date) {
-              var p = function(n){ return (n<10?'0':'')+n; };
-              return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());
-            }
+            // jd → DT 全用 UTC 基准, 再 +8h 显北京时间(不依赖浏览器时区)
+            var ms = (jd - 2440587.5) * 86400000;   // JD→UTC ms
+            var d = new Date(ms + 8*3600*1000);     // +8h → 北京时间
+            var p = function(n){ return (n<10?'0':'')+n; };
+            return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate())+' '+p(d.getUTCHours())+':'+p(d.getUTCMinutes())+':'+p(d.getUTCSeconds());
           } catch(e){}
           return String(Math.round(jd));
         }
