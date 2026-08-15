@@ -974,6 +974,15 @@
         function updateMoonOrbit() {
           if (!viz || !objects.earth || !objects.moon) return;
           try {
+            // sync simulation time and use simulated JD so moon follows the simulated clock
+            var simJd = null;
+            try { simJd = syncSimulationTime(); } catch (e) { /* fallback below */ }
+
+            if (simJd === null || simJd === undefined) {
+              try { if (typeof viz.getJd === 'function') simJd = viz.getJd(); } catch (e) {}
+              if (simJd === null || simJd === undefined) simJd = toJd(new Date());
+            }
+
             var earthMesh = objects.earth.get3jsObjects && objects.earth.get3jsObjects()[0];
             var moonMesh = objects.moon.get3jsObjects && objects.moon.get3jsObjects()[0];
             if (!earthMesh || !moonMesh) return;
@@ -981,8 +990,9 @@
             var earthPos = new THREE.Vector3();
             earthMesh.getWorldPosition(earthPos);
 
+            // Use simulated JD to compute moon phase angle so it follows timeController (pause/fast-forward)
             var moonPeriodDays = 27.321661;
-            var moonAngle = ((Date.now() / 86400000) / moonPeriodDays) * Math.PI * 2;
+            var moonAngle = ((simJd % moonPeriodDays) / moonPeriodDays) * Math.PI * 2;
             var orbitRadius = 1.6;
             var x = Math.cos(moonAngle) * orbitRadius;
             var y = Math.sin(moonAngle * 2.0) * 0.28;
