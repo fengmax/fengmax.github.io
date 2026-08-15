@@ -65,6 +65,11 @@
     }
     #time-ctl .ttl { font-size: 12px; color: #7a89a3; letter-spacing: 2px; margin-bottom: 8px; display:flex; align-items:center; gap:6px;}
     #time-ctl .ttl .clock { font-size:13px; }
+    #time-date {
+      font-size: 11px; color: #aab6c9; background: rgba(255,255,255,.05);
+      border-radius: 6px; padding: 5px 8px; margin-bottom: 8px; letter-spacing: .3px;
+      font-variant-numeric: tabular-nums;
+    }
     #time-btns { display:flex; gap:6px; margin-bottom:8px; }
     #time-btns button {
       flex:1; color:#cdd8ec; background:rgba(30,45,80,.7); border:1px solid rgba(120,160,255,.35);
@@ -110,14 +115,15 @@
   <!-- 时间控制: 实时=地球自转一圈对应现实一天; 加速=可调倍速 -->
   <div id="time-ctl">
     <div class="ttl"><span class="clock">⏱</span> 模拟时间</div>
+    <div id="time-date">—</div>
     <div id="time-btns">
-      <button id="t-realtime">▸ 实时</button>
+      <button id="t-realtime" class="on">▸ 实时</button>
       <button id="t-pause">⏸ 暂停</button>
     </div>
     <div class="t-row">
       <label>倍速</label>
-      <input type="range" id="t-slider" min="0" max="100" value="1">
-      <span class="t-val" id="t-val">1×</span>
+      <input type="range" id="t-slider" min="0" max="100" value="0">
+      <span class="t-val" id="t-val">实时</span>
     </div>
   </div>
 
@@ -479,27 +485,7 @@
           setTexture(key, HI, function(){ texLoaded[key]=HI; });
         }
         // 远近切换: 远看低清(加载快), 拉近行星才切高清
-        var rotBase = 2458426.5; // 自转基准儒略日
-        function updateSelfRotation(){
-          if (!viz || !viz.getJd) return;
-          var jd; try { jd = viz.getJd(); } catch(e){ return; }
-          if (jd==null) return;
-          PLANETS.forEach(function(p){
-            if (p.key==='sun' || p.key==='moon') return; // 太阳/月球特殊处理
-            var o = objects[p.key]; if (!o) return;
-            var r = p.selfrot||0; if (!r) return;
-            try {
-              // 自转角 = 2π × (jd-jd0) / 自转周期(天) × 方向
-              var days = r / 24; // 小时->天
-              var ang = (2*Math.PI) * (jd - rotBase) / days * (p.selfdir||1);
-              // 对球体 3D 对象绕本地 Z 轴旋转(球面贴图横向转动)
-              var mesh = o.get3jsObjects()[0];
-              if (mesh && mesh.rotation) mesh.rotation.z = ang % (2*Math.PI);
-            } catch(e){}
-          });
-        }
         function checkTextures(){
-          updateSelfRotation();
           if (!viz || !viz.getViewer) return;
           var cam, camPos=null; try { cam=viz.getViewer().get3jsCamera(); camPos=cam.position; } catch(e){ return; }
           if (!camPos) return;
@@ -541,59 +527,103 @@
         });
 
         // ===== 时间控制: 实时 / 暂停 / 倍速滑块 =====
+        // ===== 时间控制: 实时(接入当前真实时间) / 暂停 / 倍速(每秒N天) =====
         var currentMode = 'realtime';
-        var savedSpeed = 1/86400; // 最近一次非暂停的 days/秒
+        var lastJd = null;          // 自转增量参考 jd
+        function fmtDateStr(jd){
+          try {
+            var d = Spacekit ? Spacekit.DateUtil ? Spacekit.DateUtil.toDate(jd) : null : null;
+            if (!d && document._skDate) d = document._skDate;
+            if (d instanceof Date) {
+              var p = function(n){ return (n<10?'0':'')+n; };
+              return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes())+':'+p(d.getSeconds());
+            }
+          } catch(e){}
+          return String(Math.round(jd));
+        }
+        function updateTimeDate(){
+          var el = document.getElementById('time-date');
+          if (!el || !viz || !viz.getJd) return;
+          var jd; try { jd = viz.getJd(); } catch(e){ return; }
+          el.textContent = '📅 ' + fmtDateStr(jd);
+        }
+        // 自转: 按增量 jd 累积, 与公转同一时钟, 倍速同步
+        function stepSelfRotation(){
+          if (!viz || !viz.getJd) return;
+          var jd; try { jd = viz.getJd(); } catch(e){ return; }
+          if (jd==null) return;
+          if (lastJd==null){ lastJd = jd; return; }
+          var deltaJd = jd - lastJd;
+          lastJd = jd;
+          if (!deltaJd || Math.abs(deltaJd) < 1e-12) return;
+          PLANETS.forEach(function(p){
+            if (p.key==='sun' || p.key==='moon') return;
+            var o = objects[p.key]; if (!o) return;
+            var r = p.selfrot||0; if (!r) return;
+            try {
+              var days = r / 24; // 自转周期(天)
+              var dAng = (2*Math.PI) * deltaJd / days * (p.selfdir||1);
+              var mesh = o.get3jsObjects()[0];
+              if (mesh && mesh.rotation) mesh.rotation.z = (mesh.rotation.z + dAng) % (2*Math.PI);
+            } catch(e){}
+          });
+        }
         function setTimeMode(mode){
           currentMode = mode;
-          var s = viz ? viz.getJd : null;
+          var slider = document.getElementById('t-slider');
           try {
             if (mode==='pause') { if (viz.setJdPerSecond) viz.setJdPerSecond(0); }
-            else if (mode==='realtime') { if (viz.setJdPerSecond) viz.setJdPerSecond(1/86400); }
+            else if (mode==='realtime') {
+              // 实时: 地球自转一圈(1天) = 现实1天 → 1天/86400秒
+              if (viz.setJdPerSecond) viz.setJdPerSecond(1/86400);
+              if (slider) slider.value = 0;
+              document.getElementById('t-val').textContent = '实时';
+            }
           } catch(e){}
           document.getElementById('t-realtime').classList.toggle('on', mode==='realtime');
           document.getElementById('t-pause').classList.toggle('on', mode==='pause');
-          // 暂停/实时时禁用滑块微调不冲突
         }
-        function applySpeed(factor){
+        function applySpeed(daysPerSec){
           if (!viz || !viz.setJdPerSecond) return;
           currentMode = 'slider';
           document.getElementById('t-realtime').classList.remove('on');
           document.getElementById('t-pause').classList.remove('on');
-          // factor=1 为基准: 地球自转一圈(1天)=现实1天; 倍速=factor
-          var daysPerSec = (1/86400) * factor;
           try { viz.setJdPerSecond(daysPerSec); } catch(e){}
+        }
+        function fmtDays(dps){
+          // 中文叠加: 每秒N天(F高速率)
+          if (dps >= 36525) return '每秒'+(dps/36525).toFixed(1)+'世纪';
+          if (dps >= 365.25) return '每秒'+(dps/365.25).toFixed(1)+'年';
+          if (dps >= 1) return '每秒'+(dps>=30?Math.round(dps):dps.toFixed(1))+'天';
+          var h = dps*24;
+          if (h >= 1) return '每秒'+(h>=30?Math.round(h):h.toFixed(1))+'小时';
+          var m = h*60;
+          if (m >= 1) return '每秒'+(m>=30?Math.round(m):m.toFixed(1))+'分钟';
+          return '每秒'+(m*60).toFixed(1)+'秒';
         }
         try {
           var slider = document.getElementById('t-slider');
           if (slider){
             slider.addEventListener('input', function(){
-              var v = parseFloat(slider.value);          // 0..100
-              // 对数映射: v=0->1×, v=50->365×(1年/天), v=100->约1万×
-              var factor;
-              if (v<=0) factor = 1;
-              else if (v<=50) factor = Math.pow(365, v/50);      // 1 → 365
-              else factor = 365 * Math.pow(27.4, (v-50)/50);      // 365 → 10000
-              document.getElementById('t-val').textContent = fmtX(factor);
-              applySpeed(factor);
+              var v = parseFloat(slider.value);            // 0..100
+              if (v<=0){ setTimeMode('realtime'); return; }
+              // 倍速=每秒多少天, 对数: v=1->1天/秒 ... v=100->约1万天/秒
+              var dps = Math.pow(10000, v/100);            // 1 → 10000 天/秒 (叠加实时之上取相对倍率)
+              // 注: 用户要"每秒1天, 叠加", 故 1 天/秒 = 基准(实时是 1天/86400秒)
+              document.getElementById('t-val').textContent = fmtDays(dps);
+              applySpeed(dps);
             });
           }
           var rb = document.getElementById('t-realtime');
           if (rb) rb.addEventListener('click', function(){ setTimeMode('realtime'); });
           var pb = document.getElementById('t-pause');
           if (pb) pb.addEventListener('click', function(){ setTimeMode('pause'); });
-          // 默认: 中等速度便于观察(约365×, 即模拟1年/现实1秒), 面板上有"实时"可切回真实慢速
-          // (实时=地球自转一圈现实一天, 行星几乎不动; 默认用适中倍速让运动可见)
-          try { if (viz.setJdPerSecond) viz.setJdPerSecond(365); } catch(e){}
-          slider.value = 50;
-          document.getElementById('t-val').textContent = fmtX(365);
-          document.getElementById('t-realtime').classList.remove('on');
-          document.getElementById('t-pause').classList.remove('on');
+          // 默认: 实时(接入当前真实时间, 1天=现实1天). SpaceKit 默认 startDate=now
+          setTimeMode('realtime');
+          // 自转增量 & 日期显示定时器
+          setInterval(stepSelfRotation, 500);
+          setInterval(updateTimeDate, 1000);
         } catch(e){}
-        function fmtX(f){
-          if (f>=1000) return (f/1000).toFixed(1)+'K×';
-          if (f>=1) return (Math.round(f))+'×';
-          return f.toFixed(2)+'×';
-        }
       } catch(err){ console.error('交互失败:', err); }
     }
     setTimeout(iface, 500);
