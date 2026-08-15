@@ -185,7 +185,7 @@
             // 轨道半径≈地球半径×3.5≈5.8单位, 月球紧绕地球不会飘远。
             var moonOrbitAU = (earthFinal * 3.5) / 100; // 场景单位→AU
             obj = viz.createSphere(p.key, {
-              textureUrl: './assets/textures/moon.jpg',
+              textureUrl: './assets/textures/moon-hi.jpg',
               radius: moonR/100,
               ephem: new Spacekit.Ephem({
                 GM: 3986e11,
@@ -206,7 +206,7 @@
         } else {
           try {
             obj = viz.createSphere(p.key, {
-              textureUrl: './assets/textures/'+p.key+'.jpg',
+              textureUrl: './assets/textures/'+p.key+'-hi.jpg',
               radius: radiusToPass,
               ephem: preset.ephem,
               levelsOfDetail: [{radii:0,segments:48},{radii:40,segments:24},{radii:80,segments:12}],
