@@ -18,13 +18,19 @@
     }
     #hint {
       position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
-      color: #667; font-size: 12px; letter-spacing: 1px; z-index: 10; pointer-events: none; text-align: center;
+      color: #667; font-size: 12px; letter-spacing: 1px; z-index: 10; pointer-events: none; text-align: center; white-space: nowrap;
     }
     #hint b { color: #aac; }
+    .spacekit__object-label {
+      position: absolute; font-family: Arial, "PingFang SC", sans-serif;
+      font-size: 12px; color: #fff; background: rgba(0,0,0,.65);
+      padding: 2px 6px; border-radius: 3px; pointer-events: none; white-space: nowrap;
+      text-shadow: 0 0 6px rgba(100,160,255,.8);
+    }
     #info-panel {
-      position: fixed; top: 60px; right: 18px; z-index: 20;
-      width: 220px; max-height: 320px; overflow-y: auto;
-      background: rgba(10,15,30,.85); border: 1px solid rgba(100,150,255,.35);
+      position: fixed; top: 60px; right: 18px; z-index: 20; width: 220px;
+      max-height: 340px; overflow-y: auto;
+      background: rgba(10,15,30,.88); border: 1px solid rgba(100,150,255,.4);
       border-radius: 10px; padding: 14px 16px; color: #e8eef7;
       box-shadow: 0 4px 24px rgba(0,0,0,.5); backdrop-filter: blur(6px);
       display: none;
@@ -37,7 +43,7 @@
       background: none; border: none; line-height: 1;
     }
     #info-close:hover { color: #fff; }
-    @media (max-width: 600px) { #title { font-size: 14px; } #info-panel { width: 180px; } }
+    @media (max-width: 600px) { #title { font-size: 14px; } #info-panel { width: 180px; } #hint { font-size: 10px; } }
   </style>
 </head>
 <body>
@@ -56,111 +62,107 @@
 
   <script src="./build/spacekit.js"></script>
   <script>
-    // ===== 全局错误捕获(调试) =====
-    window.addEventListener('error', function(e){ console.log('[DBG-ERR]', e.message, e.filename, e.lineno); });
-    console.log('[DBG] script started');
     // ===== 宇宙沙盒 · SpaceKit =====
-    // 每颗行星: key/label/轨道AU/真实半径比例(以木星69911km为基准1.0)/颜色
-    const PLANETS = [
-      { key: 'sun',      label: '太阳',   au: 0,    r: 2.6,   dist: '恒星中心' },
-      { key: 'mercury',  label: '水星',   au: 0.39, r: 0.034, dist: '0.39 AU' },
-      { key: 'venus',    label: '金星',   au: 0.72, r: 0.084, dist: '0.72 AU' },
-      { key: 'earth',    label: '地球',   au: 1.00, r: 0.089, dist: '1.00 AU' },
-      { key: 'mars',     label: '火星',   au: 1.52, r: 0.047, dist: '1.52 AU' },
-      { key: 'jupiter',  label: '木星',   au: 5.20, r: 1.0,   dist: '5.20 AU' },
-      { key: 'saturn',   label: '土星',   au: 9.58, r: 0.84,  dist: '9.58 AU' },
-      { key: 'uranus',   label: '天王星', au: 19.2, r: 0.36,  dist: '19.2 AU' },
-      { key: 'neptune',  label: '海王星', au: 30.1, r: 0.35,  dist: '30.1 AU' },
-    ];
-    // 半径显示放大系数：真实比例下行星过小不可见，统一放大让肉眼可辨且保持相对比例
-    const SIZE_SCALE = 22;
-
+    // 每颗行星真实直径(km) + 轨道(AU)。大小以太阳为基准按真实直径比例。
+    // 说明: createSphere 的 radius 会被 scaleFactor(=unitsPerAu=100)自动放大100倍。
+    //       visualBoost 是对整个太阳系的统一放大系数(保持相对比例前提下让行星可见可点)。
     const viz = new Spacekit.Simulation(document.getElementById('main-container'), {
       basePath: './',
-      unitsPerAu: 100.0,              // 1 AU = 100 单位 -> 轨道距离符合真实AU比
-      camera: { initialPosition: [150, 110, 220], enableDrift: true }, // 拉远相机看完整太阳系
+      unitsPerAu: 100.0,               // 1AU=100单位 -> 轨道符合真实AU
+  
+      camera: { initialPosition: [150, 110, 220], enableDrift: true },
     });
 
     viz.createStars();
     viz.createAmbientLight();
     viz.createLight([0, 0, 0]);
 
-    // ===== 创建天体：太阳用Sprite，行星用 createSphere(3D球体Mesh, 可拾取) =====
+    const SUN_DIAMETER_KM = 1392000;
+    const SCALE = 100;                 // = unitsPerAu
+    const SUN_RADIUS = 60;             // 太阳在场景中的基准半径(单位)
+    const BOOST = 3;                   // 统一视觉放大(保持相对比例)
+
+    const PLANETS = [
+      { key: 'sun',      label: '太阳',   au: 0,    diameter: 1392000 },
+      { key: 'mercury',  label: '水星',   au: 0.39, diameter: 4879 },
+      { key: 'venus',    label: '金星',   au: 0.72, diameter: 12104 },
+      { key: 'earth',    label: '地球',   au: 1.00, diameter: 12742 },
+      { key: 'mars',     label: '火星',   au: 1.52, diameter: 6779 },
+      { key: 'jupiter',  label: '木星',   au: 5.20, diameter: 139820 },
+      { key: 'saturn',   label: '土星',   au: 9.58, diameter: 116460 },
+      { key: 'uranus',   label: '天王星', au: 19.2, diameter: 50724 },
+      { key: 'neptune',  label: '海王星', au: 30.1, diameter: 49244 },
+    ];
+
     const objects = {};
 
-    // 太阳(静态Sprite, 带辉光)
+    // 太阳：用带辉光的 sprite，并放大到基准半径大小
     objects.sun = viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
+    // 若 Sprite 支持 scale 则放大太阳(可选)
 
+    // 创建行星(3D球体)
     PLANETS.filter(p => p.key !== 'sun').forEach(p => {
       const preset = Spacekit.SpaceObjectPresets[p.key.toUpperCase()];
       if (!preset) return;
-      const radius = Math.max(p.r * SIZE_SCALE, 0.4); // 保证最小可点击
+      // 最终渲染半径 = 太阳半径 × (行星直径/太阳直径) × BOOST
+      const finalRadius = Math.max(SUN_RADIUS * (p.diameter / SUN_DIAMETER_KM) * BOOST, 0.6);
+      // getScaledRadius() 会乘以 SCALE, 所以传给 createSphere 的 radius 除以 SCALE
+      const radiusToPass = finalRadius / SCALE;
       try {
         objects[p.key] = viz.createSphere(p.key, {
           textureUrl: './assets/textures/' + p.key + '.jpg',
-          radius: radius,                                   // 真实半径比例 x 放大系数
-          ephem: preset.ephem,                              // 真实AU轨道
+          radius: radiusToPass,
+          ephem: preset.ephem,
           levelsOfDetail: [
             { radii: 0, segments: 48 },
-            { radii: 80, segments: 24 },
-            { radii: 160, segments: 12 },
+            { radii: 40, segments: 24 },
+            { radii: 80, segments: 12 },
           ],
-          labelText: p.label,   // 名称标签
+          labelText: p.label,
         });
       } catch (e) {
-        console.warn('创建' + p.label + '失败', e);
-        // 兜底：用原始preset对象
         try { objects[p.key] = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) {}
       }
     });
 
-    // ===== 控制速度 =====
-    try { viz.setJdPerSecond(5); } catch (e) {}  // 5天/秒，慢速以便观察和点击
+    // 控制运行速度(天/秒)
+    try { viz.setJdPerSecond(3); } catch (e) {}
 
-    // 隐藏 loading，暴露THREE
-    setTimeout(() => {
-      const l = document.getElementById('loading');
-      if (l) l.style.display = 'none';
-      window.THREE = Spacekit.THREE;
-      buildMeshMap();
-      // ===== 自检日志 =====
-      console.log('[DBG] objects keys:', Object.keys(objects));
-      Object.keys(objects).forEach(k => {
-        const o = objects[k];
-        if (!o) { console.log('[DBG]', k, '= null'); return; }
-        let n3d = 0, firstType = 'none';
-        try {
-          const list = o.get3jsObjects ? o.get3jsObjects() : [];
-          n3d = list.length;
-          if (list[0]) firstType = list[0].type || list[0].constructor.name;
-        } catch(e) { console.log('[DBG]', k, 'err:', e.message); }
-        console.log('[DBG]', k, '3jsObjects=', n3d, 'firstType=', firstType);
-      });
-      console.log('[DBG] meshMap.size =', meshMap.size);
-      console.log('[DBG] camera exists =', !!viz.getViewer().getCamera());
-      console.log('[DBG] canvas exists =', !!viz.getSimulationElement());
-    }, 600);
-
-    // ===== 点击拾取(Raycaster on Mesh球体) =====
-    const meshMap = new Map();
-    function buildMeshMap() {
-      meshMap.clear();
+    // ===== 点击拾取(Raycaster) =====
+    // 收集所有可拾取的三维对象
+    const pickable = [];
+    function buildPickList() {
+      pickable.length = 0;
       Object.keys(objects).forEach(k => {
         const obj = objects[k];
         if (!obj || !obj.get3jsObjects) return;
         let list = [];
         try { list = obj.get3jsObjects() || []; } catch (e) { return; }
-        const root = list[0];
-        if (!root) return;
-        // 递归收集所有子Mesh映射到该key
-        if (root.traverse) {
-          root.traverse(ch => { if (ch && ch.isMesh) meshMap.set(ch, k); });
-        } else {
-          meshMap.set(root, k);
-        }
-        meshMap.set(root, k);
+        list.forEach(root => {
+          if (!root) return;
+          root.traverse ? root.traverse(ch => { if (ch && (ch.isMesh || ch.isSprite)) pickable.push({ o: ch, key: k }); })
+                        : pickable.push({ o: root, key: k });
+        });
       });
     }
+
+    // 等待对象初始化
+    let buildCount = 0;
+    const t = setInterval(() => {
+      buildCount++;
+      if (buildMeshOK()) { buildPickList(); if (pickable.length) clearInterval(t); }
+      if (buildCount > 20) clearInterval(t);
+    }, 300);
+    function buildMeshOK() {
+      let ok = 0;
+      Object.keys(objects).forEach(k => {
+        const obj = objects[k];
+        if (obj && obj.get3jsObjects) { try { ok += (obj.get3jsObjects() || []).length; } catch(e){} }
+      });
+      return ok > 0;
+    }
+    setTimeout(() => { buildPickList(); }, 1500);
+    setTimeout(() => { const l = document.getElementById('loading'); if (l) l.style.display = 'none'; window.THREE = Spacekit.THREE; }, 800);
 
     (function initInteractions() {
       const canvas = viz.getSimulationElement();
@@ -169,6 +171,13 @@
       const TH = Spacekit.THREE;
       const raycaster = new TH.Raycaster();
       const pointer = new TH.Vector2();
+      raycaster.params.Sprite.threshold = 5;   // 增大Sprite命中容差
+
+      const meshMap = new Map();
+      function refresh(){
+        meshMap.clear();
+        pickable.forEach(({o, key}) => meshMap.set(o, key));
+      }
 
       let downPos = null, moved = false;
       canvas.addEventListener('pointerdown', e => { downPos = {x:e.clientX,y:e.clientY}; moved = false; });
@@ -176,21 +185,24 @@
         if (downPos) { const dx=e.clientX-downPos.x, dy=e.clientY-downPos.y; if (Math.abs(dx)+Math.abs(dy)>6) moved=true; }
         try {
           const rect = canvas.getBoundingClientRect();
+          if (!rect.width) return;
           pointer.x = ((e.clientX-rect.left)/rect.width)*2-1;
           pointer.y = -((e.clientY-rect.top)/rect.height)*2+1;
           raycaster.setFromCamera(pointer, camera);
-          const hits = raycaster.intersectObjects(Array.from(meshMap.keys()), true);
-          canvas.style.cursor = hits.length ? 'pointer' : 'grab';
+          const hits = raycaster.intersectObjects(Object.keys(meshMap).length ? Array.from(meshMap.keys()) : [], true);
+          canvas.style.cursor = (hits && hits.length) ? 'pointer' : 'grab';
         } catch (err) {}
       });
       canvas.addEventListener('pointerup', e => {
         if (moved) { downPos = null; return; }
         try {
           const rect = canvas.getBoundingClientRect();
+          if (!rect.width) return;
           pointer.x = ((e.clientX-rect.left)/rect.width)*2-1;
           pointer.y = -((e.clientY-rect.top)/rect.height)*2+1;
           raycaster.setFromCamera(pointer, camera);
-          const hits = raycaster.intersectObjects(Array.from(meshMap.keys()), true);
+          const objs = Array.from(meshMap.keys());
+          const hits = objs.length ? raycaster.intersectObjects(objs, true) : [];
           if (hits.length > 0) {
             let node = hits[0].object, key = null;
             while (node) {
@@ -208,24 +220,25 @@
         if (!info) return;
         const panel = document.getElementById('info-panel');
         document.getElementById('ip-name').textContent = info.label;
-        document.getElementById('ip-dist').textContent = info.dist;
+        document.getElementById('ip-dist').textContent = (key === 'sun') ? '恒星中心' : info.au + ' AU';
         const obj = objects[key];
         let posTxt = '-';
         if (obj && obj.getPosition) {
-          try {
-            const v = obj.getPosition(viz.getJd());
-            if (v) posTxt = `${v.x.toFixed(1)}, ${v.y.toFixed(1)}, ${v.z.toFixed(1)}`;
-          } catch (e) {}
+          try { const v = obj.getPosition(viz.getJd()); if (v) posTxt = `${v.x.toFixed(1)}, ${v.y.toFixed(1)}, ${v.z.toFixed(1)}`; } catch (e) {}
         }
         document.getElementById('ip-pos').textContent = posTxt;
-        document.getElementById('ip-status').textContent = (key==='sun') ? '恒星(自转)' : '公转中';
+        document.getElementById('ip-status').textContent = (key === 'sun') ? '恒星(自转)' : '公转中';
         panel.style.display = 'block';
+        // 建好拾取表
+        setTimeout(refresh, 50);
       }
 
       document.getElementById('info-close').addEventListener('click', e => {
         e.stopPropagation();
         document.getElementById('info-panel').style.display = 'none';
       });
+      // 初始化拾取表
+      setInterval(refresh, 1500);
     })();
   </script>
 </body>
