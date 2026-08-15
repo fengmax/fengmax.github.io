@@ -699,37 +699,18 @@
 
         // Ensure a visible orbit ring for the moon (added as child of earthMesh)
         function ensureMoonOrbitRing(earthMesh, radius) {
+          // Disabled: remove any existing moon orbit ring and do not create new one
           try {
-            if (!earthMesh || !THREE) return null;
-            if (moonOrbitRing && moonOrbitRing.parent !== null) {
-              // if radius changed significantly, recreate
-              var curScale = moonOrbitRing.userData && moonOrbitRing.userData.baseRadius ? (radius / moonOrbitRing.userData.baseRadius) : 1;
-              if (Math.abs(curScale - 1) > 0.05) {
-                try { earthMesh.remove(moonOrbitRing); } catch (e) {}
-                moonOrbitRing = null;
-              } else {
-                return moonOrbitRing;
-              }
+            if (moonOrbitRing) {
+              try {
+                if (moonOrbitRing.parent && typeof moonOrbitRing.parent.remove === 'function') moonOrbitRing.parent.remove(moonOrbitRing);
+              } catch (e) {}
+              try { moonOrbitRing.geometry && moonOrbitRing.geometry.dispose(); } catch (e) {}
+              try { moonOrbitRing.material && moonOrbitRing.material.dispose(); } catch (e) {}
+              moonOrbitRing = null;
             }
-            if (!moonOrbitRing) {
-              // create a circular line in the XZ plane
-              var seg = 128;
-              var pts = [];
-              for (var i = 0; i < seg; i++) {
-                var a = (i / seg) * Math.PI * 2;
-                pts.push(new THREE.Vector3(Math.cos(a) * radius, 0, Math.sin(a) * radius));
-              }
-              var geom = new THREE.BufferGeometry().setFromPoints(pts);
-              var mat = new THREE.LineBasicMaterial({ color: 0x88b0ff, transparent: true, opacity: 0.85, depthWrite: false });
-              var line = new THREE.LineLoop(geom, mat);
-              line.userData = { baseRadius: radius };
-              try { earthMesh.add(line); } catch (e) { /* fallback: add to scene */
-                try { (earthMesh.parent || earthMesh).add(line); } catch (e) {}
-              }
-              moonOrbitRing = line;
-            }
-            return moonOrbitRing;
-          } catch (e) { return null; }
+          } catch (e) {}
+          return null;
         }
 
         function planetRadius(key) {
