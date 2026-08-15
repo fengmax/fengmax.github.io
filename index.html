@@ -120,6 +120,22 @@
       if (l) l.style.display = 'none';
       window.THREE = Spacekit.THREE;
       buildMeshMap();
+      // ===== 自检日志 =====
+      console.log('[DBG] objects keys:', Object.keys(objects));
+      Object.keys(objects).forEach(k => {
+        const o = objects[k];
+        if (!o) { console.log('[DBG]', k, '= null'); return; }
+        let n3d = 0, firstType = 'none';
+        try {
+          const list = o.get3jsObjects ? o.get3jsObjects() : [];
+          n3d = list.length;
+          if (list[0]) firstType = list[0].type || list[0].constructor.name;
+        } catch(e) { console.log('[DBG]', k, 'err:', e.message); }
+        console.log('[DBG]', k, '3jsObjects=', n3d, 'firstType=', firstType);
+      });
+      console.log('[DBG] meshMap.size =', meshMap.size);
+      console.log('[DBG] camera exists =', !!viz.getViewer().getCamera());
+      console.log('[DBG] canvas exists =', !!viz.getSimulationElement());
     }, 600);
 
     // ===== 点击拾取(Raycaster on Mesh球体) =====
