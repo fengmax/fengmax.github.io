@@ -180,6 +180,13 @@
       panel.style.display = 'block';
     }
 
+    // 所有对象创建完成后隐藏加载页
+    setTimeout(() => {
+      const l = document.getElementById('loading');
+      if (l) l.style.display = 'none';
+      window.THREE = Spacekit.THREE;
+    }, 800);
+
     document.getElementById('info-close').addEventListener('click', e => {
       e.stopPropagation();
       document.getElementById('info-panel').style.display = 'none';
