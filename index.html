@@ -1192,10 +1192,51 @@
 
           // 使用逐帧循环（requestAnimationFrame）持续同步仿真时间并更新场景。
           // 这样 viz 能连续接收 JD / 速度信息，带 ephem 的物体（如月球）会随仿真时间正常运动。
+          // 快速视觉日夜修正：对地球进行视觉对齐，使纹理的“正午”面朝向太阳（仅视觉，不改变历表）。
+          var visualEarthDayNightFixEnabled = true;
+          var visualEarthRotationOffsetDeg = 0; // 若纹理经线有偏差，可在此调整
+
+          function applyQuickEarthDayNightFix() {
+            if (!visualEarthDayNightFixEnabled) return;
+            try {
+              var earthObj = objects.earth;
+              var sunObj = objects.sun;
+              if (!earthObj || !sunObj) return;
+              var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
+              var sunMesh = sunObj.get3jsObjects && sunObj.get3jsObjects()[0];
+              if (!earthMesh || !sunMesh) return;
+
+              var ePos = new THREE.Vector3();
+              var sPos = new THREE.Vector3();
+              earthMesh.getWorldPosition(ePos);
+              sunMesh.getWorldPosition(sPos);
+
+              var sunDir = new THREE.Vector3().subVectors(sPos, ePos).normalize();
+
+              // 本地纹理上的“正午”轴 — 若你的纹理正午不在 +Z，请改为 (1,0,0) 或 (0,0,-1)
+              var textureNoon = new THREE.Vector3(0, 0, 1);
+
+              var q = new THREE.Quaternion().setFromUnitVectors(textureNoon.clone().normalize(), sunDir.clone().normalize());
+
+              if (visualEarthRotationOffsetDeg) {
+                var rz = THREE.MathUtils.degToRad(visualEarthRotationOffsetDeg);
+                var qoff = new THREE.Quaternion();
+                qoff.setFromAxisAngle(new THREE.Vector3(0, 0, 1), rz);
+                q.multiply(qoff);
+              }
+
+              // 视觉覆盖：直接写入四元数以对齐昼夜（非物理修改）
+              earthMesh.quaternion.copy(q);
+            } catch (e) {
+              // 忽略视觉修正错误
+            }
+          }
+
           function tick() {
             try { syncSimulationTime(); } catch (e) {}
             try { updateMoonOrbit(); } catch (e) {}
             try { stepSelfRotation(); } catch (e) {}
+            try { applyQuickEarthDayNightFix(); } catch (e) {}
             try { updateTimeDate(); } catch (e) {}
             requestAnimationFrame(tick);
           }
