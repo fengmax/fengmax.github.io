@@ -56,6 +56,9 @@
 
   <script src="./build/spacekit.js"></script>
   <script>
+    // ===== 全局错误捕获(调试) =====
+    window.addEventListener('error', function(e){ console.log('[DBG-ERR]', e.message, e.filename, e.lineno); });
+    console.log('[DBG] script started');
     // ===== 宇宙沙盒 · SpaceKit =====
     // 每颗行星: key/label/轨道AU/真实半径比例(以木星69911km为基准1.0)/颜色
     const PLANETS = [
