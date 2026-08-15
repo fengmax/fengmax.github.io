@@ -1081,13 +1081,16 @@
             } catch (e) {}
 
             // Tide-lock the moon to face the earth (avoid artificial fast spin)
+            // If precise moon rotation is enabled, we will handle orientation elsewhere.
             try {
-              var earthMeshForLook = null;
-              try { earthMeshForLook = earthObj.get3jsObjects && earthObj.get3jsObjects()[0]; } catch (e) {}
-              if (earthMeshForLook && moonMesh && typeof moonMesh.lookAt === 'function') {
-                var _ep = new THREE.Vector3();
-                try { earthMeshForLook.getWorldPosition(_ep); } catch (e) {}
-                try { moonMesh.lookAt(_ep); } catch (e) {}
+              if (!usePreciseMoonRotation) {
+                var earthMeshForLook = null;
+                try { earthMeshForLook = earthObj.get3jsObjects && earthObj.get3jsObjects()[0]; } catch (e) {}
+                if (earthMeshForLook && moonMesh && typeof moonMesh.lookAt === 'function') {
+                  var _ep = new THREE.Vector3();
+                  try { earthMeshForLook.getWorldPosition(_ep); } catch (e) {}
+                  try { moonMesh.lookAt(_ep); } catch (e) {}
+                }
               }
             } catch (e) {}
           } catch (e) {}
@@ -1206,6 +1209,7 @@
           var usePreciseEarthRotation = true; // 切换为精确 GMST 自转实现
           var visualEarthDayNightFixEnabled = !usePreciseEarthRotation;
           var visualEarthRotationOffsetDeg = 0; // 若纹理经线有偏差，可在此调整
+          var usePreciseMoonRotation = true; // 是否启用精确的月球朝向（基于时间锚定）
 
           // 精确地球自转：使用 sim JD -> GMST 计算地球自转角度，并保持倾角
           function applyPreciseEarthRotation(simJd) {
@@ -1229,6 +1233,49 @@
               // apply spin then tilt (q = qSpin * qTilt)
               var q = qSpin.multiply(qTilt);
               earthMesh.quaternion.copy(q);
+            } catch (e) {
+              // ignore
+            }
+          }
+
+          // 精确月球朝向：基于月球与地球在 simJd 的位置，设置月球朝向使近地面朝向地球（潮汐锁定），并保留月球小倾角
+          function applyPreciseMoonRotation(simJd) {
+            if (!usePreciseMoonRotation) return;
+            try {
+              var moonObj = objects.moon;
+              var earthObj = objects.earth;
+              if (!moonObj || !earthObj) return;
+              var moonMesh = moonObj.get3jsObjects && moonObj.get3jsObjects()[0];
+              if (!moonMesh) return;
+
+              var mp = null, ep = null;
+              try { if (typeof moonObj.getPosition === 'function') mp = moonObj.getPosition(simJd); } catch (e) {}
+              try { if (typeof earthObj.getPosition === 'function') ep = earthObj.getPosition(simJd); } catch (e) {}
+
+              var moonPos = new THREE.Vector3();
+              var earthPos = new THREE.Vector3();
+              if (mp && mp.length >= 3 && ep && ep.length >= 3) {
+                moonPos.set(mp[0], mp[1], mp[2]);
+                earthPos.set(ep[0], ep[1], ep[2]);
+              } else {
+                try { moonMesh.getWorldPosition(moonPos); } catch (e) { return; }
+                var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
+                if (!earthMesh) return;
+                try { earthMesh.getWorldPosition(earthPos); } catch (e) { return; }
+              }
+
+              var v_me = new THREE.Vector3().subVectors(earthPos, moonPos).normalize();
+
+              // moon texture/noon axis — assume +Z points to sub-earth point on texture
+              var textureNoon = new THREE.Vector3(0, 0, 1);
+              var qLook = new THREE.Quaternion().setFromUnitVectors(textureNoon.clone().normalize(), v_me);
+
+              // small lunar obliquity (~1.5424°)
+              var moonObliquity = THREE.MathUtils.degToRad(1.5424);
+              var qTilt = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), moonObliquity);
+
+              var q = qLook.multiply(qTilt);
+              moonMesh.quaternion.copy(q);
             } catch (e) {
               // ignore
             }
@@ -1279,6 +1326,7 @@
               try { if (typeof viz.getJd === 'function') simJd = viz.getJd(); } catch (e) {}
               if (simJd === null || simJd === undefined) simJd = toJd(new Date());
               try { applyPreciseEarthRotation(simJd); } catch (e) {}
+              try { applyPreciseMoonRotation(simJd); } catch (e) {}
             } catch (e) {}
             try { if (visualEarthDayNightFixEnabled) applyQuickEarthDayNightFix(); } catch (e) {}
             try { updateTimeDate(); } catch (e) {}
