@@ -129,117 +129,106 @@
     try { viz.setJdPerSecond(3); } catch (e) {}
 
     // ===== 点击拾取(Raycaster) =====
-    // 收集所有可拾取的三维对象
-    const pickable = [];
-    function buildPickList() {
-      pickable.length = 0;
-      Object.keys(objects).forEach(k => {
-        const obj = objects[k];
-        if (!obj || !obj.get3jsObjects) return;
-        let list = [];
-        try { list = obj.get3jsObjects() || []; } catch (e) { return; }
-        list.forEach(root => {
-          if (!root) return;
-          root.traverse ? root.traverse(ch => { if (ch && (ch.isMesh || ch.isSprite)) pickable.push({ o: ch, key: k }); })
-                        : pickable.push({ o: root, key: k });
+    // 关键: SpaceKit 行星球体在 THREE.LOD 内, LOD按相机距离切换显示mesh。
+    // 必须对每个行星取 LOD 当前显示的 mesh 再拾取，否则命中不准。
+    const TH = Spacekit.THREE;
+    const camera3 = viz.getViewer().get3jsCamera();
+    const renderer = viz.getRenderer();  // 真实canvas在 renderer.domElement
+    const canvas = renderer ? renderer.domElement : viz.getSimulationElement();
+    const raycaster = new TH.Raycaster();
+    const pointer = new TH.Vector2();
+    raycaster.params.Sprite.threshold = 5;
+
+    // 取某个行星当前应拾取的 mesh 列表(处理LOD)
+    function getPickMeshes(obj, camera) {
+      const meshes = [];
+      if (!obj || !obj.get3jsObjects) return meshes;
+      let list = [];
+      try { list = obj.get3jsObjects() || []; } catch (e) { return meshes; }
+      list.forEach(root => {
+        if (!root) return;
+        if (root.traverse) {
+          root.traverse(ch => {
+            if (!ch) return;
+            // LOD: 取相机距离下当前显示的级别
+            if (ch.isLOD) {
+              const d = camera.position.distanceTo(ch.position);
+              const cur = ch.getObjectForDistance ? ch.getObjectForDistance(d) : null;
+              if (cur && (cur.isMesh || cur.isSprite)) meshes.push(cur);
+            } else if (ch.isMesh || ch.isSprite) {
+              meshes.push(ch);
+            }
+          });
+        } else if (root.isMesh || root.isSprite) {
+          meshes.push(root);
+        }
+      });
+      return meshes;
+    }
+
+    function pickAt(e) {
+      try {
+        if (!canvas || !canvas.getBoundingClientRect) return null;
+        const rect = canvas.getBoundingClientRect();
+        if (!rect.width) return null;
+        pointer.x = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+        pointer.y = -((e.clientY - rect.top) / rect.height) * 2 + 1;
+        raycaster.setFromCamera(pointer, camera3);
+        // 实时收集每个行星当前可见mesh
+        const all = [];
+        const map = new Map();
+        Object.keys(objects).forEach(k => {
+          if (k === 'sun') return;
+          getPickMeshes(objects[k], camera3).forEach(m => { all.push(m); map.set(m, k); });
         });
-      });
+        const hits = all.length ? raycaster.intersectObjects(all, true) : [];
+        if (!hits.length) return null;
+        let node = hits[0].object, key = null;
+        while (node) {
+          if (map.has(node)) { key = map.get(node); break; }
+          node = node.parent;
+        }
+        return key;
+      } catch (err) { return null; }
     }
 
-    // 等待对象初始化
-    let buildCount = 0;
-    const t = setInterval(() => {
-      buildCount++;
-      if (buildMeshOK()) { buildPickList(); if (pickable.length) clearInterval(t); }
-      if (buildCount > 20) clearInterval(t);
-    }, 300);
-    function buildMeshOK() {
-      let ok = 0;
-      Object.keys(objects).forEach(k => {
-        const obj = objects[k];
-        if (obj && obj.get3jsObjects) { try { ok += (obj.get3jsObjects() || []).length; } catch(e){} }
-      });
-      return ok > 0;
-    }
-    setTimeout(() => { buildPickList(); }, 1500);
-    setTimeout(() => { const l = document.getElementById('loading'); if (l) l.style.display = 'none'; window.THREE = Spacekit.THREE; }, 800);
-
-    (function initInteractions() {
-      const canvas = viz.getSimulationElement();
-      if (!canvas) return;
-      const camera = viz.getViewer().getCamera();
-      const TH = Spacekit.THREE;
-      const raycaster = new TH.Raycaster();
-      const pointer = new TH.Vector2();
-      raycaster.params.Sprite.threshold = 5;   // 增大Sprite命中容差
-
-      const meshMap = new Map();
-      function refresh(){
-        meshMap.clear();
-        pickable.forEach(({o, key}) => meshMap.set(o, key));
-      }
-
-      let downPos = null, moved = false;
-      canvas.addEventListener('pointerdown', e => { downPos = {x:e.clientX,y:e.clientY}; moved = false; });
+    let downPos = null, moved = false;
+    if (canvas) {
+      canvas.addEventListener('pointerdown', e => { downPos = { x: e.clientX, y: e.clientY }; moved = false; });
       canvas.addEventListener('pointermove', e => {
-        if (downPos) { const dx=e.clientX-downPos.x, dy=e.clientY-downPos.y; if (Math.abs(dx)+Math.abs(dy)>6) moved=true; }
-        try {
-          const rect = canvas.getBoundingClientRect();
-          if (!rect.width) return;
-          pointer.x = ((e.clientX-rect.left)/rect.width)*2-1;
-          pointer.y = -((e.clientY-rect.top)/rect.height)*2+1;
-          raycaster.setFromCamera(pointer, camera);
-          const hits = raycaster.intersectObjects(Object.keys(meshMap).length ? Array.from(meshMap.keys()) : [], true);
-          canvas.style.cursor = (hits && hits.length) ? 'pointer' : 'grab';
-        } catch (err) {}
+        if (downPos) { const dx = e.clientX - downPos.x, dy = e.clientY - downPos.y; if (Math.abs(dx) + Math.abs(dy) > 6) moved = true; }
+        const key = pickAt(e);
+        try { canvas.style.cursor = (key) ? 'pointer' : 'grab'; } catch (err) {}
       });
       canvas.addEventListener('pointerup', e => {
-        if (moved) { downPos = null; return; }
-        try {
-          const rect = canvas.getBoundingClientRect();
-          if (!rect.width) return;
-          pointer.x = ((e.clientX-rect.left)/rect.width)*2-1;
-          pointer.y = -((e.clientY-rect.top)/rect.height)*2+1;
-          raycaster.setFromCamera(pointer, camera);
-          const objs = Array.from(meshMap.keys());
-          const hits = objs.length ? raycaster.intersectObjects(objs, true) : [];
-          if (hits.length > 0) {
-            let node = hits[0].object, key = null;
-            while (node) {
-              if (meshMap.has(node)) { key = meshMap.get(node); break; }
-              node = node.parent;
-            }
-            if (key) showInfo(key);
-          }
-        } catch (err) {}
-        downPos = null;
+        const wasMoved = moved;
+        downPos = null; moved = false;
+        if (wasMoved) return;
+        const key = pickAt(e);
+        if (key) showInfo(key);
       });
+    }
 
-      function showInfo(key) {
-        const info = PLANETS.find(p => p.key === key);
-        if (!info) return;
-        const panel = document.getElementById('info-panel');
-        document.getElementById('ip-name').textContent = info.label;
-        document.getElementById('ip-dist').textContent = (key === 'sun') ? '恒星中心' : info.au + ' AU';
-        const obj = objects[key];
-        let posTxt = '-';
-        if (obj && obj.getPosition) {
-          try { const v = obj.getPosition(viz.getJd()); if (v) posTxt = `${v.x.toFixed(1)}, ${v.y.toFixed(1)}, ${v.z.toFixed(1)}`; } catch (e) {}
-        }
-        document.getElementById('ip-pos').textContent = posTxt;
-        document.getElementById('ip-status').textContent = (key === 'sun') ? '恒星(自转)' : '公转中';
-        panel.style.display = 'block';
-        // 建好拾取表
-        setTimeout(refresh, 50);
+    function showInfo(key) {
+      const info = PLANETS.find(p => p.key === key);
+      if (!info) return;
+      const panel = document.getElementById('info-panel');
+      document.getElementById('ip-name').textContent = info.label;
+      document.getElementById('ip-dist').textContent = (key === 'sun') ? '恒星中心' : info.au + ' AU';
+      const obj = objects[key];
+      let posTxt = '-';
+      if (obj && obj.getPosition) {
+        try { const v = obj.getPosition(viz.getJd()); if (v) posTxt = `${v.x.toFixed(1)}, ${v.y.toFixed(1)}, ${v.z.toFixed(1)}`; } catch (e) {}
       }
+      document.getElementById('ip-pos').textContent = posTxt;
+      document.getElementById('ip-status').textContent = (key === 'sun') ? '恒星(自转)' : '公转中  ' + info.label;
+      panel.style.display = 'block';
+    }
 
-      document.getElementById('info-close').addEventListener('click', e => {
-        e.stopPropagation();
-        document.getElementById('info-panel').style.display = 'none';
-      });
-      // 初始化拾取表
-      setInterval(refresh, 1500);
-    })();
+    document.getElementById('info-close').addEventListener('click', e => {
+      e.stopPropagation();
+      document.getElementById('info-panel').style.display = 'none';
+    });
   </script>
 </body>
 </html>
