@@ -291,7 +291,7 @@
           } catch(e){}
         }
 
-        // 持续跟随: 每帧更新相机位置与target到行星实时位置
+        // 持续跟随: 每帧让中心点锁定行星位置, 相机仅保持相对偏移(用户可自由滚轮缩放)
         function startFollow(key, dist){
           currentFocus = key;
           function loop(){
@@ -301,13 +301,12 @@
               var controls = viz.getViewer().get3jsCameraControls();
               var pos = getObjPos(key);
               if (pos && cam && controls){
-                // 保持相机相对行星的方向与距离(不穿模)
-                var v = cam.position.clone().sub(controls.target);
-                var len = v.length();
-                if (len < 1) { v.set(dist, dist*0.5, dist*0.8); }
-                v.normalize().multiplyScalar(dist);
-                cam.position.copy(pos).add(v);
+                // 相机相对target的偏移(用户滚轮会改变其长度 -> 缩放自由)
+                var delta = cam.position.clone().sub(controls.target);
+                if (delta.length() < 1) { delta.set(dist, dist*0.5, dist*0.8); }
+                // 只平移 target 跟随行星, 相机跟着 target+delta 平移(保持用户缩放的距离)
                 controls.target.copy(pos);
+                cam.position.copy(pos).add(delta);
                 controls.update();
               }
             } catch(e){}
