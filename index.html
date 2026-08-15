@@ -1047,30 +1047,33 @@
                       earthWorld.set(ep[0], ep[1], ep[2]);
                     }
 
-                    // determine rendered radii (fall back to planetRadius if geometry info unavailable)
-                    var earthRadiusRendered = null;
-                    try {
-                      if (earthMesh && earthMesh.geometry) {
-                        if (!earthMesh.geometry.boundingSphere) earthMesh.geometry.computeBoundingSphere();
-                        var ws = new THREE.Vector3();
-                        if (typeof earthMesh.getWorldScale === 'function') earthMesh.getWorldScale(ws); else ws.copy(earthMesh.scale || new THREE.Vector3(1,1,1));
-                        earthRadiusRendered = earthMesh.geometry.boundingSphere.radius * (ws.x || 1);
-                      }
-                    } catch (e) {}
-                    if (!earthRadiusRendered) earthRadiusRendered = planetRadius('earth') || 1;
+                    // determine rendered radii by searching descendant meshes for geometry
+                    function computeRenderedRadius(rootMesh, fallbackKey) {
+                      try {
+                        var found = null;
+                        rootMesh.traverse && rootMesh.traverse(function(n) {
+                          if (found) return;
+                          if (n && n.geometry) { found = n; }
+                        });
+                        var geom = found && found.geometry;
+                        if (geom) {
+                          if (!geom.boundingSphere) geom.computeBoundingSphere();
+                          var bs = geom.boundingSphere.radius || 0;
+                          // compute approximate world scale (use rootMesh.scale as conservative estimate)
+                          var s = (rootMesh.scale && rootMesh.scale.x) ? rootMesh.scale.x : 1;
+                          // if found has its own scale, factor that too
+                          try { if (found && found.scale && found.scale.x) s = s * found.scale.x; } catch (e) {}
+                          return bs * s;
+                        }
+                      } catch (e) {}
+                      // fallback: planetRadius was computed using a different unit (pre-divided by 100 when creating sphere)
+                      try { return (planetRadius(fallbackKey) || 1) / 100.0; } catch (e) { return 0.5; }
+                    }
 
-                    var moonRadiusRendered = null;
-                    try {
-                      if (moonMesh && moonMesh.geometry) {
-                        if (!moonMesh.geometry.boundingSphere) moonMesh.geometry.computeBoundingSphere();
-                        var mws = new THREE.Vector3();
-                        if (typeof moonMesh.getWorldScale === 'function') moonMesh.getWorldScale(mws); else mws.copy(moonMesh.scale || new THREE.Vector3(1,1,1));
-                        moonRadiusRendered = moonMesh.geometry.boundingSphere.radius * (mws.x || 1);
-                      }
-                    } catch (e) {}
-                    if (!moonRadiusRendered) moonRadiusRendered = planetRadius('moon') || 0.5;
+                    var earthRadiusRendered = computeRenderedRadius(earthMesh, 'earth');
+                    var moonRadiusRendered = computeRenderedRadius(moonMesh, 'moon');
 
-                    var minDist = earthRadiusRendered + moonRadiusRendered + 0.2;
+                    var minDist = earthRadiusRendered + moonRadiusRendered + 0.05; // small epsilon
                     var actualDist = desiredWorld.distanceTo(earthWorld);
                     if (actualDist < minDist) {
                       // push moon outward along ephemeris relative direction to enforce visibility
