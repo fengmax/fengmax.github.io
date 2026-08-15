@@ -1129,7 +1129,7 @@
               var moonAngle = ((simJd % moonPeriodDays) / moonPeriodDays) * Math.PI * 2;
               var orbitRadius = 5.5;
               var x = Math.cos(moonAngle) * orbitRadius;
-              var y = Math.sin(moonAngle * 2.0) * 0.28;
+              var y = Math.sin(moonAngle) * 0.3;
               var z = Math.sin(moonAngle) * orbitRadius;
               try {
                 // parent under earth so local coords represent orbit
