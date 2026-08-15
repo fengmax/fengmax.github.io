@@ -1048,8 +1048,16 @@
               }
             } catch (e) {}
 
-            // Keep a small moon self-rotation visual tweak
-            try { if (moonMesh && moonMesh.rotation) moonMesh.rotation.y += 0.02; } catch (e) {}
+            // Tide-lock the moon to face the earth (avoid artificial fast spin)
+            try {
+              var earthMeshForLook = null;
+              try { earthMeshForLook = earthObj.get3jsObjects && earthObj.get3jsObjects()[0]; } catch (e) {}
+              if (earthMeshForLook && moonMesh && typeof moonMesh.lookAt === 'function') {
+                var _ep = new THREE.Vector3();
+                try { earthMeshForLook.getWorldPosition(_ep); } catch (e) {}
+                try { moonMesh.lookAt(_ep); } catch (e) {}
+              }
+            } catch (e) {}
           } catch (e) {}
         }
 
