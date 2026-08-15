@@ -1,130 +1,355 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>宇宙沙盒 · 3D Solar System</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>宇宙沙盒 · 3D Solar System · 北京时间校准</title>
   <style>
-    html, body { margin: 0; overflow: hidden; font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif; background: #000; }
-    #main-container { width: 100vw; height: 100vh; }
+    html,
+    body {
+      margin: 0;
+      overflow: hidden;
+      font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
+      background: #000;
+    }
+    #main-container {
+      width: 100vw;
+      height: 100vh;
+    }
     #loading {
-      position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
-      background: #000; color: #9aa4b5; font-size: 18px; z-index: 999; letter-spacing: 2px;
+      position: fixed;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+      color: #9aa4b5;
+      font-size: 18px;
+      z-index: 999;
+      letter-spacing: 2px;
     }
     #title {
-      position: fixed; top: 14px; left: 50%; transform: translateX(-50%);
-      color: #fff; font-size: 18px; font-weight: 300; letter-spacing: 4px; z-index: 10;
-      text-shadow: 0 0 14px rgba(120,180,255,.55); pointer-events: none; white-space: nowrap;
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 300;
+      letter-spacing: 4px;
+      z-index: 10;
+      text-shadow: 0 0 14px rgba(120, 180, 255, .55);
+      pointer-events: none;
+      white-space: nowrap;
     }
     #hint {
-      position: fixed; bottom: 52px; left: 50%; transform: translateX(-50%);
-      color: #667; font-size: 12px; letter-spacing: 1px; z-index: 10; pointer-events: none; text-align: center; white-space: nowrap;
+      position: fixed;
+      bottom: 52px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #667;
+      font-size: 12px;
+      letter-spacing: 1px;
+      z-index: 10;
+      pointer-events: none;
+      text-align: center;
+      white-space: nowrap;
     }
-    #hint b { color: #aac; }
-    /* 强制 SpaceKit 生成的 label 始终显示(其内置updatePosition会把屏幕外的设hidden) */
-    .spacekit__object-label {
-      position: absolute; font-family: Arial, "PingFang SC", sans-serif;
-      font-size: 13px; color: #fff; background: rgba(0,0,0,.72);
-      padding: 3px 8px; border-radius: 4px; white-space: nowrap;
-      border: 1px solid rgba(160,200,255,.55); box-shadow: 0 0 8px rgba(0,0,0,.6);
-      text-shadow: 0 0 6px rgba(100,160,255,.8); z-index: 15;
-      visibility: visible !important; pointer-events: auto !important; cursor: pointer;
-      min-height: 18px; line-height: 1.3;
+    #hint b {
+      color: #aac;
     }
-    .spacekit__object-label:hover { background: #2850a0 !important; border-color: #7fb2ff !important; }
-    .spacekit__object-label > div { pointer-events: none; }
 
-    /* 底部行星选择栏(100%可靠点击) */
+    .spacekit__object-label {
+      position: absolute;
+      font-family: Arial, "PingFang SC", sans-serif;
+      font-size: 13px;
+      color: #fff;
+      background: rgba(0, 0, 0, .72);
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      border: 1px solid rgba(160, 200, 255, .55);
+      box-shadow: 0 0 8px rgba(0, 0, 0, .6);
+      text-shadow: 0 0 6px rgba(100, 160, 255, .8);
+      z-index: 15;
+      visibility: visible !important;
+      pointer-events: auto !important;
+      cursor: pointer;
+      min-height: 18px;
+      line-height: 1.3;
+    }
+    .spacekit__object-label:hover {
+      background: #2850a0 !important;
+      border-color: #7fb2ff !important;
+    }
+    .spacekit__object-label>div {
+      pointer-events: none;
+    }
+
     #planet-bar {
-      position: fixed; bottom: 0; left: 0; right: 0; z-index: 30;
-      display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
-      gap: 6px; padding: 8px 10px;
-      background: linear-gradient(transparent, rgba(0,0,0,.8));
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 30;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 10px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, .8));
     }
     #planet-bar .pb-btn {
-      color: #cdd8ec; background: rgba(30,45,80,.7); border: 1px solid rgba(120,160,255,.35);
-      padding: 5px 12px; border-radius: 16px; cursor: pointer; font-size: 12.5px; letter-spacing: .5px;
-      transition: all .15s; user-select: none; backdrop-filter: blur(2px);
+      color: #cdd8ec;
+      background: rgba(30, 45, 80, .7);
+      border: 1px solid rgba(120, 160, 255, .35);
+      padding: 5px 12px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-size: 12.5px;
+      letter-spacing: .5px;
+      transition: all .15s;
+      user-select: none;
+      backdrop-filter: blur(2px);
     }
-    #planet-bar .pb-btn:hover, #planet-bar .pb-btn.active {
-      background: #2b62bd; color: #fff; border-color: #8fc0ff; box-shadow: 0 0 10px rgba(80,140,255,.5);
+    #planet-bar .pb-btn:hover,
+    #planet-bar .pb-btn.active {
+      background: #2b62bd;
+      color: #fff;
+      border-color: #8fc0ff;
+      box-shadow: 0 0 10px rgba(80, 140, 255, .5);
     }
     #planethome {
-      color:#dde6f4; background: rgba(70,90,140,.55); border:1px solid rgba(140,180,255,.5);
-      padding:5px 14px; border-radius:16px; cursor:pointer; font-size:12.5px; letter-spacing:.5px;
-      transition: all .15s; user-select:none; margin-left:4px; backdrop-filter: blur(2px);
+      color: #dde6f4;
+      background: rgba(70, 90, 140, .55);
+      border: 1px solid rgba(140, 180, 255, .5);
+      padding: 5px 14px;
+      border-radius: 16px;
+      cursor: pointer;
+      font-size: 12.5px;
+      letter-spacing: .5px;
+      transition: all .15s;
+      user-select: none;
+      margin-left: 4px;
+      backdrop-filter: blur(2px);
     }
-    #planethome:hover { background:#3a76d0; color:#fff; border-color:#9cc4ff; }
+    #planethome:hover {
+      background: #3a76d0;
+      color: #fff;
+      border-color: #9cc4ff;
+    }
 
-    /* 时间控制面板: 实时/加速 + 倍速滑块 */
     #time-ctl {
-      position: fixed; top: 60px; left: 18px; z-index: 40; width: 210px;
-      background: rgba(10,15,30,.9); border: 1px solid rgba(100,150,255,.4);
-      border-radius: 10px; padding: 12px 14px; color: #e8eef7;
-      box-shadow: 0 4px 24px rgba(0,0,0,.5); backdrop-filter: blur(6px); user-select: none;
+      position: fixed;
+      top: 60px;
+      left: 18px;
+      z-index: 40;
+      width: 210px;
+      background: rgba(10, 15, 30, .9);
+      border: 1px solid rgba(100, 150, 255, .4);
+      border-radius: 10px;
+      padding: 12px 14px;
+      color: #e8eef7;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .5);
+      backdrop-filter: blur(6px);
+      user-select: none;
     }
-    #time-ctl .ttl { font-size: 12px; color: #7a89a3; letter-spacing: 2px; margin-bottom: 8px; display:flex; align-items:center; gap:6px;}
-    #time-ctl .ttl .clock { font-size:13px; }
+    #time-ctl .ttl {
+      font-size: 12px;
+      color: #7a89a3;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    #time-ctl .ttl .clock {
+      font-size: 13px;
+    }
     #time-date {
-      font-size: 11px; color: #aab6c9; background: rgba(255,255,255,.05);
-      border-radius: 6px; padding: 5px 8px; margin-bottom: 8px; letter-spacing: .3px;
+      font-size: 12px;
+      color: #c8d6e8;
+      background: rgba(255, 255, 255, .06);
+      border-radius: 6px;
+      padding: 5px 8px;
+      margin-bottom: 8px;
+      letter-spacing: .3px;
       font-variant-numeric: tabular-nums;
+      border-left: 2px solid #4a8cf0;
     }
-    #time-btns { display:flex; gap:6px; margin-bottom:8px; }
+    #time-btns {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
     #time-btns button {
-      flex:1; color:#cdd8ec; background:rgba(30,45,80,.7); border:1px solid rgba(120,160,255,.35);
-      padding:6px 0; border-radius:8px; cursor:pointer; font-size:12px; transition:all .15s;
+      flex: 1;
+      color: #cdd8ec;
+      background: rgba(30, 45, 80, .7);
+      border: 1px solid rgba(120, 160, 255, .35);
+      padding: 6px 0;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 12px;
+      transition: all .15s;
     }
-    #time-btns button.on { background:#2b62bd; color:#fff; border-color:#8fc0ff; box-shadow:0 0 8px rgba(80,140,255,.5);}
-    #time-btns button:hover { background:#3a76d0; color:#fff; }
-    .t-row { display:flex; align-items:center; gap:8px; margin-top:4px; }
-    .t-row label { font-size:11px; color:#89a; min-width:34px; }
-    .t-row input[type=range] { flex:1; accent-color:#4a8cf0; height:4px; }
-    .t-row .t-val { font-size:11px; color:#9fe2c0; font-weight:600; min-width:64px; text-align:right; }
+    #time-btns button.on {
+      background: #2b62bd;
+      color: #fff;
+      border-color: #8fc0ff;
+      box-shadow: 0 0 8px rgba(80, 140, 255, .5);
+    }
+    #time-btns button:hover {
+      background: #3a76d0;
+      color: #fff;
+    }
+    .t-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+    .t-row label {
+      font-size: 11px;
+      color: #89a;
+      min-width: 34px;
+    }
+    .t-row input[type=range] {
+      flex: 1;
+      accent-color: #4a8cf0;
+      height: 4px;
+    }
+    .t-row .t-val {
+      font-size: 11px;
+      color: #9fe2c0;
+      font-weight: 600;
+      min-width: 64px;
+      text-align: right;
+    }
+    #sync-status {
+      font-size: 10px;
+      color: #6a7a94;
+      margin-top: 6px;
+      text-align: right;
+      letter-spacing: .3px;
+    }
+    #sync-status.ok {
+      color: #7fc9a0;
+    }
+    #sync-status.fail {
+      color: #d97a7a;
+    }
 
     #info-panel {
-      position: fixed; top: 60px; right: 18px; z-index: 40; width: 240px;
-      max-height: calc(100vh - 140px); overflow-y: auto;
-      background: rgba(10,15,30,.92); border: 1px solid rgba(100,150,255,.4);
-      border-radius: 10px; padding: 14px 16px; color: #e8eef7;
-      box-shadow: 0 4px 24px rgba(0,0,0,.5); backdrop-filter: blur(6px);
+      position: fixed;
+      top: 60px;
+      right: 18px;
+      z-index: 40;
+      width: 240px;
+      max-height: calc(100vh - 140px);
+      overflow-y: auto;
+      background: rgba(10, 15, 30, .92);
+      border: 1px solid rgba(100, 150, 255, .4);
+      border-radius: 10px;
+      padding: 14px 16px;
+      color: #e8eef7;
+      box-shadow: 0 4px 24px rgba(0, 0, 0, .5);
+      backdrop-filter: blur(6px);
       display: none;
     }
-    #info-panel .ip-name { font-size: 20px; font-weight: 600; margin-bottom: 4px; color: #fff; display:flex; align-items:center; gap:8px;}
-    #info-panel .ip-dot { width: 14px; height: 14px; border-radius: 50%; display:inline-block; box-shadow: 0 0 8px currentColor;}
-    #info-panel .ip-desc { font-size: 12.5px; color: #aab6c9; line-height: 1.6; margin: 8px 0 10px; }
-    #info-panel .ip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
-    #info-panel .ip-cell { background: rgba(255,255,255,.04); border-radius: 6px; padding: 6px 8px; }
-    #info-panel .ip-cell .k { font-size: 10.5px; color: #7a89a3; letter-spacing: .5px; }
-    #info-panel .ip-cell .v { font-size: 13px; color: #9fe2c0; font-weight: 600; margin-top: 1px; }
-    #info-close {
-      position: absolute; top: 8px; right: 12px; cursor: pointer; color: #889; font-size: 16px;
-      background: none; border: none; line-height: 1; z-index: 1;
+    #info-panel .ip-name {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 4px;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
-    #info-close:hover { color: #fff; }
-    @media (max-width: 600px) { #title { font-size: 14px; } #info-panel { width: 200px; right: 8px; } #hint { font-size: 10px; } }
+    #info-panel .ip-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 8px currentColor;
+    }
+    #info-panel .ip-desc {
+      font-size: 12.5px;
+      color: #aab6c9;
+      line-height: 1.6;
+      margin: 8px 0 10px;
+    }
+    #info-panel .ip-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 10px;
+    }
+    #info-panel .ip-cell {
+      background: rgba(255, 255, 255, .04);
+      border-radius: 6px;
+      padding: 6px 8px;
+    }
+    #info-panel .ip-cell .k {
+      font-size: 10.5px;
+      color: #7a89a3;
+      letter-spacing: .5px;
+    }
+    #info-panel .ip-cell .v {
+      font-size: 13px;
+      color: #9fe2c0;
+      font-weight: 600;
+      margin-top: 1px;
+    }
+    #info-close {
+      position: absolute;
+      top: 8px;
+      right: 12px;
+      cursor: pointer;
+      color: #889;
+      font-size: 16px;
+      background: none;
+      border: none;
+      line-height: 1;
+      z-index: 1;
+    }
+    #info-close:hover {
+      color: #fff;
+    }
+    @media (max-width:600px) {
+      #title {
+        font-size: 14px;
+      }
+      #info-panel {
+        width: 200px;
+        right: 8px;
+      }
+      #hint {
+        font-size: 10px;
+      }
+    }
   </style>
 </head>
 <body>
   <div id="loading">🌌 宇宙沙盒加载中…</div>
-  <div id="title">SOLAR SYSTEM · 3D 宇宙沙盒</div>
+  <div id="title">SOLAR SYSTEM · 3D 宇宙沙盒 · 北京时间</div>
   <div id="hint"><b>拖动</b>旋转 · <b>滚轮</b>缩放 · <b>点击行星/名字</b>查看信息</div>
   <div id="main-container"></div>
   <div id="planet-bar"><button id="planethome" title="回到全景">🌌 全景</button></div>
 
-  <!-- 时间控制: 实时=地球自转一圈对应现实一天; 加速=可调倍速 -->
   <div id="time-ctl">
-    <div class="ttl"><span class="clock">⏱</span> 模拟时间</div>
-    <div id="time-date">—</div>
+    <div class="ttl"><span class="clock">⏱</span> 模拟时间 <span style="font-weight:400;font-size:10px;color:#6a7a94;">(北京时间)</span></div>
+    <div id="time-date">⏳ 同步中…</div>
     <div id="time-btns">
       <button id="t-realtime" class="on">▸ 实时</button>
       <button id="t-pause">⏸ 暂停</button>
     </div>
     <div class="t-row">
       <label>倍速</label>
-      <input type="range" id="t-slider" min="0" max="100" value="0">
+      <input type="range" id="t-slider" min="0" max="100" value="0" />
       <span class="t-val" id="t-val">实时</span>
     </div>
+    <div id="sync-status">🌐 时间源: 本地</div>
   </div>
 
   <div id="info-panel">
@@ -143,104 +368,328 @@
 
   <script src="./build/spacekit.js"></script>
   <script>
-    // ===== 宇宙沙盒 · SpaceKit =====
+    // ============================================================
+    //  1. 北京时间校准 + 网络时间同步
+    // ============================================================
+    var BEIJING_OFFSET_MS = 8 * 3600 * 1000; // UTC+8
+
+    // 格式化北京时间（墙钟）
+    function formatBeijingTime(d) {
+      try {
+        return d.toLocaleString('zh-CN', {
+          timeZone: 'Asia/Shanghai',
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit',
+          hour12: false
+        });
+      } catch (_) {
+        // fallback
+        var y = d.getFullYear();
+        var mo = String(d.getMonth() + 1).padStart(2, '0');
+        var da = String(d.getDate()).padStart(2, '0');
+        var h = String(d.getHours()).padStart(2, '0');
+        var mi = String(d.getMinutes()).padStart(2, '0');
+        var s = String(d.getSeconds()).padStart(2, '0');
+        return y + '-' + mo + '-' + da + ' ' + h + ':' + mi + ':' + s;
+      }
+    }
+
+    // 从儒略日 → 北京时间字符串
+    function jdToBeijingStr(jd) {
+      try {
+        var ms = (jd - 2440587.5) * 86400000 + BEIJING_OFFSET_MS;
+        var d = new Date(ms);
+        return formatBeijingTime(d);
+      } catch (_) { return '--:--:--'; }
+    }
+
+    // 当前真实北京时间（墙钟）
+    function getRealBeijingNow() {
+      return new Date(Date.now() + BEIJING_OFFSET_MS);
+    }
+
+    // ----- 网络时间同步 -----
+    var SYNC_URL = 'https://worldtimeapi.org/api/timezone/Asia/Shanghai';
+    var syncStatusEl = document.getElementById('sync-status');
+    var timeDateEl = document.getElementById('time-date');
+    var lastSyncedTime = null; // Date (UTC)
+    var syncOk = false;
+
+    function syncBeijingTime(cb) {
+      var start = Date.now();
+      fetch(SYNC_URL, { cache: 'no-store' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          if (data && data.unixtime) {
+            var utc = new Date(data.unixtime * 1000);
+            lastSyncedTime = utc;
+            syncOk = true;
+            if (syncStatusEl) {
+              syncStatusEl.textContent = '🌐 时间源: worldtimeapi.org ✅';
+              syncStatusEl.className = 'ok';
+            }
+            // 校准 viz 的起始时间（如果已初始化）
+            if (viz && typeof viz.setStartDate === 'function') {
+              try { viz.setStartDate(utc); } catch (_) {}
+            }
+            if (cb) cb(utc);
+          } else {
+            fallbackTime(cb);
+          }
+        })
+        .catch(function() { fallbackTime(cb); });
+    }
+
+    function fallbackTime(cb) {
+      syncOk = false;
+      if (syncStatusEl) {
+        syncStatusEl.textContent = '🌐 时间源: 本地 (API不可用)';
+        syncStatusEl.className = 'fail';
+      }
+      var local = new Date();
+      lastSyncedTime = local;
+      if (cb) cb(local);
+    }
+
+    // 首次同步：立即执行，之后每 5 分钟重同步一次
+    setTimeout(function() {
+      syncBeijingTime(function(t) {
+        if (timeDateEl) {
+          timeDateEl.textContent = '📅 ' + formatBeijingTime(t);
+        }
+        // 如果 viz 已初始化，设置 startDate
+        if (viz && typeof viz.setStartDate === 'function') {
+          try { viz.setStartDate(t); } catch (_) {}
+        }
+      });
+    }, 300);
+
+    setInterval(function() {
+      syncBeijingTime(function(t) {
+        // 静默刷新，只更新状态
+      });
+    }, 5 * 60 * 1000);
+
+    // ============================================================
+    //  2. 行星数据 (物理参数 + 显示信息)
+    // ============================================================
+    var PLANETS = [{
+      key: 'sun',
+      label: '太阳',
+      color: '#fdb813',
+      au: 0,
+      diameter: 1392000,
+      desc: '太阳系的中心恒星，占太阳系总质量的99.86%。主要成分为氢和氦，核心温度约1500万℃，通过核聚变释放能量。',
+      earthAU: '约1.496亿公里',
+      temp: '表面 5500℃ / 核心 1500万℃',
+      orb: '—',
+      rot: '25.4天(赤道)',
+      per: '—',
+      diamTxt: '直径 139.2万 km'
+    }, {
+      key: 'mercury',
+      label: '水星',
+      color: '#9c9c9c',
+      au: 0.39,
+      diameter: 4879,
+      desc: '太阳系最小的行星，离太阳最近。表面布满陨石坑，昼夜温差极大(白天430℃,夜间-180℃)，几乎没有大气层。',
+      earthAU: '约0.61 AU',
+      temp: '平均 167℃',
+      orb: '47.9 km/s',
+      rot: '58.6天',
+      per: '88天',
+      diamTxt: '直径 4879 km',
+      selfrot: 1407.6,
+      selfdir: 1
+    }, {
+      key: 'venus',
+      label: '金星',
+      color: '#e8c47d',
+      au: 0.72,
+      diameter: 12104,
+      desc: '太阳系最热的行星，被称为地球的"姊妹星"。浓厚二氧化碳大气层产生失控温室效应，地表温度高达465℃。自转逆行。',
+      earthAU: '约0.28 AU',
+      temp: '平均 464℃',
+      orb: '35.0 km/s',
+      rot: '243天(逆行)',
+      per: '225天',
+      diamTxt: '直径 12104 km',
+      selfrot: 5832,
+      selfdir: -1
+    }, {
+      key: 'earth',
+      label: '地球',
+      color: '#3a86ff',
+      au: 1.00,
+      diameter: 12742,
+      desc: '我们的家园，目前已知唯一孕育生命的星球。表面71%被液态水覆盖，拥有适宜的大气层和强大的磁场。',
+      earthAU: '1.0 AU',
+      temp: '平均 15℃',
+      orb: '29.8 km/s',
+      rot: '23.9小时',
+      per: '365.25天',
+      diamTxt: '直径 12742 km',
+      selfrot: 23.9,
+      selfdir: 1
+    }, {
+      key: 'moon',
+      label: '月球',
+      color: '#c9c9c9',
+      au: 0.00257,
+      diameter: 3475,
+      desc: '地球唯一的天然卫星，人类唯一踏足过的外星体。因潮汐锁定总是同一面朝向地球，表面布满陨石坑。',
+      earthAU: '约 38.4 万 km',
+      temp: '白天 127℃ / 夜间 -173℃',
+      orb: '绕地球 1.02 km/s',
+      rot: '27.3天(潮汐锁定)',
+      per: '27.3天(恒星月)',
+      diamTxt: '直径 3475 km',
+      selfrot: 0,
+      selfdir: 1
+    }, {
+      key: 'mars',
+      label: '火星',
+      color: '#e05d3f',
+      au: 1.52,
+      diameter: 6779,
+      desc: '红色星球，表面富含氧化铁呈现锈红色。拥有太阳系最高的火山(奥林帕斯山,高2.2万米)和最大的峡谷。',
+      earthAU: '约0.52 AU',
+      temp: '平均 -63℃',
+      orb: '24.1 km/s',
+      rot: '24.6小时',
+      per: '687天',
+      diamTxt: '直径 6779 km',
+      selfrot: 24.6,
+      selfdir: 1
+    }, {
+      key: 'jupiter',
+      label: '木星',
+      color: '#d8a06a',
+      au: 5.20,
+      diameter: 139820,
+      desc: '太阳系最大的行星，质量是其他行星总和的2.5倍。大红斑是持续数百年的巨型风暴。拥有79颗已知卫星。',
+      earthAU: '约4.2 AU',
+      temp: '平均 -108℃',
+      orb: '13.1 km/s',
+      rot: '9.9小时(最快)',
+      per: '11.9年',
+      diamTxt: '直径 139820 km',
+      selfrot: 9.9,
+      selfdir: 1
+    }, {
+      key: 'saturn',
+      label: '土星',
+      color: '#e6c98a',
+      au: 9.58,
+      diameter: 116460,
+      desc: '以壮观的光环闻名，由无数冰块和岩石碎片组成。密度极低，比水还轻，是太阳系"最轻"的行星。',
+      earthAU: '约8.6 AU',
+      temp: '平均 -139℃',
+      orb: '9.7 km/s',
+      rot: '10.7小时',
+      per: '29.5年',
+      diamTxt: '直径 116460 km',
+      selfrot: 10.7,
+      selfdir: 1
+    }, {
+      key: 'uranus',
+      label: '天王星',
+      color: '#7fd6d8',
+      au: 19.2,
+      diameter: 50724,
+      desc: '冰巨星，自转轴几乎"躺平"(倾斜98°)，四季极长且极端。呈蓝绿色，大气含甲烷吸收红光。',
+      earthAU: '约18.2 AU',
+      temp: '平均 -195℃',
+      orb: '6.8 km/s',
+      rot: '17.2小时(逆行)',
+      per: '84年',
+      diamTxt: '直径 50724 km',
+      selfrot: 17.2,
+      selfdir: -1
+    }, {
+      key: 'neptune',
+      label: '海王星',
+      color: '#4a6fe0',
+      au: 30.1,
+      diameter: 49244,
+      desc: '离太阳最远的行星，深蓝色外观因大气中的甲烷。拥有太阳系最快的风速(可达2100km/h)。',
+      earthAU: '约29.1 AU',
+      temp: '平均 -201℃',
+      orb: '5.4 km/s',
+      rot: '16.1小时',
+      per: '164.8年',
+      diamTxt: '直径 49244 km',
+      selfrot: 16.1,
+      selfdir: 1
+    }, ];
+
+    // ============================================================
+    //  3. 初始化 3D (SpaceKit)
+    // ============================================================
     var viz = null;
     var objects = {};
-
-    // 行星数据: 真实直径(km)/轨道(AU)/介绍/相对地球距离/温度/自转/公转
-    var PLANETS = [
-      { key:'sun',     label:'太阳',   color:'#fdb813', au:0,    diameter:1392000,
-        desc:'太阳系的中心恒星，占太阳系总质量的99.86%。主要成分为氢和氦，核心温度约1500万℃，通过核聚变释放能量。',
-        earthAU:'约1.496亿公里', temp:'表面 5500℃ / 核心 1500万℃', orb:'—', rot:'25.4天(赤道)', per:'—', diamTxt:'直径 139.2万 km' },
-      { key:'mercury', label:'水星',   color:'#9c9c9c', au:0.39, diameter:4879,
-        desc:'太阳系最小的行星，也是离太阳最近的行星。表面布满陨石坑，昼夜温差极大(白天430℃,夜间-180℃)，几乎没有大气层。',
-        earthAU:'约0.61 AU', temp:'平均 167℃', orb:'47.9 km/s', rot:'58.6天', per:'88天', diamTxt:'直径 4879 km', selfrot:1407.6, selfdir:1 },
-      { key:'venus',   label:'金星',   color:'#e8c47d', au:0.72, diameter:12104,
-        desc:'太阳系最热的行星，被称为地球的"姊妹星"。浓厚的二氧化碳大气层产生失控温室效应，地表温度高达465℃。自转方向与公转相反(逆行)。',
-        earthAU:'约0.28 AU', temp:'平均 464℃', orb:'35.0 km/s', rot:'243天(逆行)', per:'225天', diamTxt:'直径 12104 km', selfrot:5832, selfdir:-1 },
-      { key:'earth',   label:'地球',   color:'#3a86ff', au:1.00, diameter:12742,
-        desc:'我们的家园，太阳系目前已知唯一孕育生命的星球。表面71%被液态水覆盖，拥有适宜的大气层和强大的磁场。',
-        earthAU:'1.0 AU', temp:'平均 15℃', orb:'29.8 km/s', rot:'23.9小时', per:'365.25天', diamTxt:'直径 12742 km', selfrot:23.9, selfdir:1 },
-      { key:'moon',     label:'月球',   color:'#c9c9c9', au:0.00257, diameter:3475,
-        desc:'地球唯一的天然卫星，也是人类唯一踏足过的外星体。因潮汐锁定总是同一面朝向地球，表面布满陨石坑，其引力是地球海洋潮汐的源泉。',
-        earthAU:'约 38.4 万 km', temp:'白天 127℃ / 夜间 -173℃', orb:'绕地球 1.02 km/s', rot:'27.3天(潮汐锁定)', per:'27.3天(恒星月)', diamTxt:'直径 3475 km', selfrot:0, selfdir:1 },
-      { key:'mars',    label:'火星',   color:'#e05d3f', au:1.52, diameter:6779,
-        desc:'红色星球，因表面富含氧化铁呈现锈红色。拥有太阳系最高的火山(奥林帕斯山,高2.2万米)和最大的峡谷(水手号峡谷)。',
-        earthAU:'约0.52 AU', temp:'平均 -63℃', orb:'24.1 km/s', rot:'24.6小时', per:'687天', diamTxt:'直径 6779 km', selfrot:24.6, selfdir:1 },
-      { key:'jupiter', label:'木星',   color:'#d8a06a', au:5.20, diameter:139820,
-        desc:'太阳系最大的行星，质量是其他所有行星总和的2.5倍。著名的大红斑是持续数百年的巨型风暴。拥有79颗已知卫星。',
-        earthAU:'约4.2 AU', temp:'平均 -108℃', orb:'13.1 km/s', rot:'9.9小时(最快)', per:'11.9年', diamTxt:'直径 139820 km', selfrot:9.9, selfdir:1 },
-      { key:'saturn',  label:'土星',   color:'#e6c98a', au:9.58, diameter:116460,
-        desc:'以壮观的光环闻名，由无数冰块和岩石碎片组成。密度极低，比水还轻，是太阳系"最轻"的行星。',
-        earthAU:'约8.6 AU', temp:'平均 -139℃', orb:'9.7 km/s', rot:'10.7小时', per:'29.5年', diamTxt:'直径 116460 km', selfrot:10.7, selfdir:1 },
-      { key:'uranus',  label:'天王星', color:'#7fd6d8', au:19.2, diameter:50724,
-        desc:'冰巨星，自转轴几乎"躺平"(倾斜98°)，因此四季极长且极端。呈蓝绿色，大气含甲烷吸收红光。',
-        earthAU:'约18.2 AU', temp:'平均 -195℃', orb:'6.8 km/s', rot:'17.2小时(逆行)', per:'84年', diamTxt:'直径 50724 km', selfrot:17.2, selfdir:-1 },
-      { key:'neptune', label:'海王星', color:'#4a6fe0', au:30.1, diameter:49244,
-        desc:'离太阳最远的行星，深蓝色外观因大气中的甲烷。拥有太阳系最快的风速(可达2100km/h)。',
-        earthAU:'约29.1 AU', temp:'平均 -201℃', orb:'5.4 km/s', rot:'16.1小时', per:'164.8年', diamTxt:'直径 49244 km', selfrot:16.1, selfdir:1 },
-    ];
-
-    // ===== 隐藏加载页(独立触发) =====
-    // 聚焦时相机距行星的距离(场景单位, 1AU=100)。按行星实际大小缩放。
     var PlanetDist = {
-      sun: 120, mercury: 45, venus: 60, earth: 65, moon: 28,
-      mars: 55, jupiter: 120, saturn: 110, uranus: 85, neptune: 85
+      sun: 120,
+      mercury: 45,
+      venus: 60,
+      earth: 65,
+      moon: 28,
+      mars: 55,
+      jupiter: 120,
+      saturn: 110,
+      uranus: 85,
+      neptune: 85
     };
-    function hideLoading(){ var l=document.getElementById('loading'); if(l) l.style.display='none'; }
+
+    function hideLoading() {
+      var l = document.getElementById('loading');
+      if (l) l.style.display = 'none';
+    }
     setTimeout(hideLoading, 600);
     setTimeout(hideLoading, 2000);
     window.addEventListener('load', hideLoading);
 
-    // ===== 初始化3D(独立try) =====
     try {
+      // 用同步后的时间作为 startDate (若已同步)
+      var startDate = lastSyncedTime ? new Date(lastSyncedTime.getTime()) : new Date();
+
       viz = new Spacekit.Simulation(document.getElementById('main-container'), {
         basePath: './',
         unitsPerAu: 100.0,
         camera: { initialPosition: [150, 110, 220], enableDrift: true },
-        // 用北京时间(UTC+8)作为模拟起点: 显式设置 startDate, 不依赖浏览器本地时区
-        startDate: (function(){
-          try {
-            var now = new Date();
-            // 北京 = UTC+8; new Date() 已是绝对时刻(UTC基准), 直接用它即可
-            // 但为确保显示/起点都在北京时区, 构造一个 UTC 表示的北京时间 Date
-            var msUTC = now.getTime();
-            // 北京时间 = UTC + 8小时; 用 getUTC* 读出北京成分构造 Date(内部UTC毫秒不变)
-            // jd 取 now 的绝对时刻(已含当地时间), 这里仅消除浏览器时区差异:
-            // now.getTime() 是UTC毫秒, 无论浏览器在哪都指向同一宇宙时刻 → 起点正确
-            return new Date(msUTC);
-          } catch(e){ return undefined; }
-        }()),
+        startDate: startDate,
       });
+
       viz.createStars();
       viz.createAmbientLight();
       viz.createLight([0, 0, 0]);
       objects.sun = viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
 
-      var SUN_DIAMETER_KM = 1392000, SUN_RADIUS = 60, BOOST = 3;
-      PLANETS.forEach(function(p){
-        if (p.key==='sun') return;
+      var SUN_DIAMETER_KM = 1392000,
+        SUN_RADIUS = 60,
+        BOOST = 3;
+
+      PLANETS.forEach(function(p) {
+        if (p.key === 'sun') return;
         var preset = Spacekit.SpaceObjectPresets[p.key.toUpperCase()];
         if (!preset) return;
         var finalRadius = Math.max(SUN_RADIUS * (p.diameter / SUN_DIAMETER_KM) * BOOST, 0.6);
         var radiusToPass = finalRadius / 100;
-        // 月球: 不用预设(其particleSize字段会走粒子分支引发兼容问题),
-        //        orbitAround地球 + 轨道放大到球外可见(真实数据保存在信息面板)。
         var obj = null;
-        if (p.key==='moon') {
+
+        if (p.key === 'moon') {
           try {
-            // 月球球体: 严格按真实直径对比地球(月球/地球直径比约0.273)。
-            // 地球最终半径在上面按比例算出来是 earthFinal。
             var earthFinal = Math.max(SUN_RADIUS * (12742 / SUN_DIAMETER_KM) * BOOST, 0.6);
             var moonFinal = earthFinal * (3475 / 12742);
-            // 视觉折中: 月球球体按真实0.273倍, 但保证至少可见(0.5单位)
             var moonR = Math.max(moonFinal, 0.5);
-            // 月球轨道: 贴住地球转但在地球球体外。地球半径约1.65,
-            // 轨道半径≈地球半径×3.5≈5.8单位, 月球紧绕地球不会飘远。
-            var moonOrbitAU = (earthFinal * 3.5) / 100; // 场景单位→AU
+            var moonOrbitAU = (earthFinal * 3.5) / 100;
             obj = viz.createSphere(p.key, {
               textureUrl: './assets/textures/moon.jpg',
-              radius: moonR/100,
+              radius: moonR / 100,
               ephem: new Spacekit.Ephem({
                 GM: 3986e11,
                 epoch: 2458426.5,
@@ -253,280 +702,300 @@
               }, 'deg', true),
               labelText: p.label,
             });
-          } catch(e) {
-            try { obj = viz.createObject(p.key, Object.assign({},preset,{labelText:p.label})); } catch(e2){ obj=null; }
+          } catch (e) {
+            try { obj = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) { obj =
+              null; }
           }
-          if (obj && objects.earth && obj.orbitAround) { try { obj.orbitAround(objects.earth); } catch(e){} }
+          if (obj && objects.earth && obj.orbitAround) { try { obj.orbitAround(objects.earth); } catch (e) {} }
         } else {
           try {
             obj = viz.createSphere(p.key, {
-              textureUrl: './assets/textures/'+p.key+'.jpg',
+              textureUrl: './assets/textures/' + p.key + '.jpg',
               radius: radiusToPass,
               ephem: preset.ephem,
-              levelsOfDetail: [{radii:0,segments:48},{radii:40,segments:24},{radii:80,segments:12}],
+              levelsOfDetail: [{ radii: 0, segments: 48 }, { radii: 40, segments: 24 }, { radii: 80, segments: 12 }],
               labelText: p.label,
             });
-          } catch(e) {
-            try { obj = viz.createObject(p.key, Object.assign({},preset,{labelText:p.label})); } catch(e2){ obj=null; }
+          } catch (e) {
+            try { obj = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) { obj =
+              null; }
           }
         }
         if (obj) objects[p.key] = obj;
       });
-      try { viz.setJdPerSecond(3); } catch(e){}
-      window.THREE = Spacekit.THREE;
-    } catch(err){ console.error('3D初始化失败:', err); hideLoading(); }
 
-    // ===== 交互(独立try) =====
-    function iface(){
+      try { viz.setJdPerSecond(1 / 86400); } catch (e) {}
+      window.THREE = Spacekit.THREE;
+
+    } catch (err) {
+      console.error('3D初始化失败:', err);
+      hideLoading();
+    }
+
+    // ============================================================
+    //  4. 交互逻辑 (聚焦/跟随/信息面板/纹理切换)
+    // ============================================================
+    function iface() {
       try {
         var currentFocus = null;
         var followId = null;
         var flyAnimId = null;
 
-        // 获取行星的3D世界位置
-        function getObjPos(key){
-          var obj = objects[key]; if(!obj) return null;
+        function getObjPos(key) {
+          var obj = objects[key];
+          if (!obj) return null;
           try {
             var mesh = obj.get3jsObjects()[0];
-            if (mesh && mesh.getWorldPosition){ var v=new THREE.Vector3(); mesh.getWorldPosition(v); return v; }
-          } catch(e){}
+            if (mesh && mesh.getWorldPosition) { var v = new THREE.Vector3();
+              mesh.getWorldPosition(v); return v; }
+          } catch (e) {}
           try {
             var p = objects[key].getPosition(viz.getJd ? viz.getJd() : 0);
-            return new THREE.Vector3(p[0],p[1],p[2]);
-          } catch(e){}
+            return new THREE.Vector3(p[0], p[1], p[2]);
+          } catch (e) {}
           return null;
         }
 
-        // 停止所有跟随/动画
-        function stopMotion(){
+        function stopMotion() {
           currentFocus = null;
-          if (followId) { cancelAnimationFrame(followId); followId=null; }
-          if (flyAnimId) { cancelAnimationFrame(flyAnimId); flyAnimId=null; }
-          try { if (viz && viz.getViewer) viz.getViewer().stopFollowingObject(); } catch(e){}
+          if (followId) { cancelAnimationFrame(followId);
+            followId = null; }
+          if (flyAnimId) { cancelAnimationFrame(flyAnimId);
+            flyAnimId = null; }
+          try { if (viz && viz.getViewer) viz.getViewer().stopFollowingObject(); } catch (e) {}
         }
 
-        // 平滑动画: 把相机与target从当前值动画到( endPos, endTgt )
-        function animateTo(endPos, endTgt, dur, done){
+        function animateTo(endPos, endTgt, dur, done) {
           var cam = viz.getViewer().get3jsCamera();
           var controls = viz.getViewer().get3jsCameraControls();
           var startPos = cam.position.clone();
           var startTgt = controls.target.clone();
           var t0 = Date.now();
           if (flyAnimId) cancelAnimationFrame(flyAnimId);
-          function step(){
-            var t = Math.min(1,(Date.now()-t0)/dur);
-            var e = 1-Math.pow(1-t,3);
+
+          function step() {
+            var t = Math.min(1, (Date.now() - t0) / dur);
+            var e = 1 - Math.pow(1 - t, 3);
             cam.position.lerpVectors(startPos, endPos, e);
             controls.target.lerpVectors(startTgt, endTgt, e);
-            if (t<1) flyAnimId = requestAnimationFrame(step);
+            if (t < 1) flyAnimId = requestAnimationFrame(step);
             else if (done) done();
           }
           step();
         }
 
-        // 行星场景半径(用于缩放防穿模: minDistance)
-        function planetRadius(key){
-          var DIAM={mercury:4879,venus:12104,earth:12742,moon:3475,mars:6779,jupiter:139820,saturn:116460,uranus:50724,neptune:49244};
-          if (key==='sun') return 60;
-          return Math.max(60*( (DIAM[key]||10000)/1392000 )*3, 0.6);
+        function planetRadius(key) {
+          var DIAM = { mercury: 4879, venus: 12104, earth: 12742, moon: 3475, mars: 6779, jupiter: 139820, saturn: 116460,
+            uranus: 50724, neptune: 49244 };
+          if (key === 'sun') return 60;
+          return Math.max(60 * ((DIAM[key] || 10000) / 1392000) * 3, 0.6);
         }
-        // 设置缩放下限: 拉近到行星表面即停, 不穿模
-        function setMinDistFor(key){
+
+        function setMinDistFor(key) {
           try {
             var controls = viz.getViewer().get3jsCameraControls();
             var r = planetRadius(key);
-            controls.minDistance = r*1.18 + 1.5; // 半径*1.18 + 余量(相机到中心距离)
+            controls.minDistance = r * 1.18 + 1.5;
             controls.update();
-          } catch(e){}
-        }
-        function resetMinDist(){
-          try {
-            var controls = viz.getViewer().get3jsCameraControls();
-            controls.minDistance = 2; // 全景时可贴近小行星, 放开限制
-            controls.update();
-          } catch(e){}
+          } catch (e) {}
         }
 
-        // 聚焦到某行星: 进入跟随模式, 每帧保持相机在行星旁跟随其移动
-        function focusPlanet(key){
-          var obj = objects[key]; if (!obj) return;
+        function resetMinDist() {
+          try {
+            var controls = viz.getViewer().get3jsCameraControls();
+            controls.minDistance = 2;
+            controls.update();
+          } catch (e) {}
+        }
+
+        function focusPlanet(key) {
+          var obj = objects[key];
+          if (!obj) return;
           stopMotion();
           currentFocus = key;
-          var dist = Math.max(20, (PlanetDist[key]||40));
+          var dist = Math.max(20, (PlanetDist[key] || 40));
           setMinDistFor(key);
-          forceHiRes(key); // 聚焦拉近时强制切高清
+          forceHiRes(key);
           showInfo(key);
           try {
             var cam = viz.getViewer().get3jsCamera();
             var controls = viz.getViewer().get3jsCameraControls();
-            // 先动画飞向目标当前位置
             var pos = getObjPos(key);
             if (!pos) return;
-            var dir = new THREE.Vector3(dist, dist*0.5, dist*0.8).normalize();
+            var dir = new THREE.Vector3(dist, dist * 0.5, dist * 0.8).normalize();
             var dest = pos.clone().add(dir.clone().multiplyScalar(dist));
-            var chk = 0;
-            var followStart = function(){ startFollow(key, dist); };
+            var followStart = function() { startFollow(key, dist); };
             animateTo(dest, pos.clone(), 800, followStart);
-          } catch(e){}
+          } catch (e) {}
         }
 
-        // 持续跟随: 每帧让中心点锁定行星位置, 相机仅保持相对偏移(用户可自由滚轮缩放)
-        function startFollow(key, dist){
+        function startFollow(key, dist) {
           currentFocus = key;
-          function loop(){
+
+          function loop() {
             if (currentFocus !== key) return;
             try {
               var cam = viz.getViewer().get3jsCamera();
               var controls = viz.getViewer().get3jsCameraControls();
               var pos = getObjPos(key);
-              if (pos && cam && controls){
-                // 相机相对target的偏移(用户滚轮会改变其长度 -> 缩放自由)
+              if (pos && cam && controls) {
                 var delta = cam.position.clone().sub(controls.target);
-                if (delta.length() < 1) { delta.set(dist, dist*0.5, dist*0.8); }
-                // 只平移 target 跟随行星, 相机跟着 target+delta 平移(保持用户缩放的距离)
+                if (delta.length() < 1) { delta.set(dist, dist * 0.5, dist * 0.8); }
                 controls.target.copy(pos);
                 cam.position.copy(pos).add(delta);
                 controls.update();
               }
-            } catch(e){}
+            } catch (e) {}
             followId = requestAnimationFrame(loop);
           }
           loop();
         }
 
-        // 回到全景: 退出跟随, 平滑飞回初始视角
-        function goHome(){
+        function goHome() {
           stopMotion();
           resetMinDist();
           try {
-            // 返回初始位置 [150,110,220], 并重新启用相机漂移
             var home = new THREE.Vector3(150, 110, 220);
-            var origin = new THREE.Vector3(0,0,0);
-            animateTo(home, origin, 1000, function(){
-              try { viz.setCameraDrift(true); } catch(e){}
+            var origin = new THREE.Vector3(0, 0, 0);
+            animateTo(home, origin, 1000, function() {
+              try { viz.setCameraDrift(true); } catch (e) {}
             });
-          } catch(e){}
+          } catch (e) {}
         }
 
-        // 1) 底部行星选择栏
+        // 底部行星栏
         var bar = document.getElementById('planet-bar');
-        PLANETS.forEach(function(p){
+        PLANETS.forEach(function(p) {
           var b = document.createElement('button');
           b.className = 'pb-btn';
           b.textContent = p.label;
           b.style.borderLeftColor = p.color;
-          b.addEventListener('click', function(){ focusPlanet(p.key); });
+          b.addEventListener('click', function() { focusPlanet(p.key); });
           bar.appendChild(b);
         });
         var homeBtn = document.getElementById('planethome');
-        if (homeBtn) homeBtn.addEventListener('click', function(){ goHome(); });
+        if (homeBtn) homeBtn.addEventListener('click', function() { goHome(); });
 
-        // 2) 绑定3D里的SpaceKit label点击(文字匹配)
-        function bindLabels(){
+        // 绑定 label 点击
+        function bindLabels() {
           var labels = document.querySelectorAll('.spacekit__object-label');
-          Array.prototype.forEach.call(labels, function(lb){
+          Array.prototype.forEach.call(labels, function(lb) {
             if (lb.__bound) return;
-            var txt = (lb.textContent||'').replace(/\s+/g,'').trim();
+            var txt = (lb.textContent || '').replace(/\s+/g, '').trim();
             var p = null;
-            for (var i=0;i<PLANETS.length;i++) if (PLANETS[i].label===txt){ p=PLANETS[i]; break; }
+            for (var i = 0; i < PLANETS.length; i++) {
+              if (PLANETS[i].label === txt) { p = PLANETS[i]; break; }
+            }
             if (!p) return;
             lb.__bound = true;
-            lb.addEventListener('click', function(ev){ ev.stopPropagation(); focusPlanet(p.key); });
+            lb.addEventListener('click', function(ev) { ev.stopPropagation();
+              focusPlanet(p.key); });
           });
         }
         bindLabels();
         setInterval(bindLabels, 400);
 
-        // 3) 按距离换纹理(远=低清, 近=高清) — 替换所有LOD层的材质贴图
-        //    createSphere用光源时是自定义ShaderMaterial, 纹理在uniforms.sphereTexture.value,
-        //    而非material.map, 所以两种都要设。
-        var texLoaded = {};
-        // 预加载缓存: 所有高清+低清纹理提前下载, 切换时立即生效
+        // 纹理切换 (远低清/近高清)
         var texCache = {};
-        var _loaders = {};
-        function preloadTextures(){
+
+        function preloadTextures() {
           try {
             var loader = new THREE.TextureLoader();
-            PLANETS.forEach(function(p){
-              if (p.key==='sun') return;
-              ['', '-hi'].forEach(function(sfx){
-                var url = './assets/textures/'+p.key+sfx+'.jpg';
+            PLANETS.forEach(function(p) {
+              if (p.key === 'sun') return;
+              ['', '-hi'].forEach(function(sfx) {
+                var url = './assets/textures/' + p.key + sfx + '.jpg';
                 if (texCache[url]) return;
-                loader.load(url, function(tex){ tex.anisotropy=4; texCache[url]=tex; });
+                loader.load(url, function(tex) { tex.anisotropy = 4;
+                  texCache[url] = tex; });
               });
             });
-          } catch(e){}
+          } catch (e) {}
         }
         preloadTextures();
-        function setTexture(key, url, onDone){
-          var obj = objects[key]; if (!obj) return;
+
+        function setTexture(key, url, onDone) {
+          var obj = objects[key];
+          if (!obj) return;
           var roots = [];
-          try { roots.push(obj.get3jsObjects()[0]); } catch(e){}
-          // 只保留真正有 traverse 方法的 THREE 对象(过滤类实例, 避免 TypeError 中断)
-          roots = roots.filter(function(r){ return r && typeof r.traverse === 'function'; });
-          if (roots.length===0) return;
-          var applyTex = function(tex){
+          try { roots.push(obj.get3jsObjects()[0]); } catch (e) {}
+          roots = roots.filter(function(r) { return r && typeof r.traverse === 'function'; });
+          if (roots.length === 0) return;
+
+          function applyTex(tex) {
             tex.anisotropy = 4;
             var replaced = 0;
-            roots.forEach(function(root){
+            roots.forEach(function(root) {
               if (!root) return;
               try {
-                root.traverse(function(n){
+                root.traverse(function(n) {
                   if (!n || !n.material) return;
                   var mm = Array.isArray(n.material) ? n.material : [n.material];
-                  mm.forEach(function(mi){
+                  mm.forEach(function(mi) {
                     if (!mi) return;
                     try {
                       if (typeof mi.map !== 'undefined') { mi.map = tex; }
-                      if (mi.uniforms && mi.uniforms.sphereTexture) { mi.uniforms.sphereTexture.value = tex; replaced++; }
+                      if (mi.uniforms && mi.uniforms.sphereTexture) { mi.uniforms.sphereTexture
+                          .value = tex;
+                        replaced++; }
                       mi.needsUpdate = true;
-                    } catch(e){}
+                    } catch (e) {}
                   });
                 });
-              } catch(e){}
+              } catch (e) {}
             });
             if (onDone) onDone();
-          };
-          // 优先用缓存
+          }
           if (texCache[url]) { applyTex(texCache[url]); return; }
-          try { new THREE.TextureLoader().load(url, applyTex); } catch(e){}
+          try { new THREE.TextureLoader().load(url, applyTex); } catch (e) {}
         }
-        // 强制某行星切高清(聚焦拉近时直接调用)
-        function forceHiRes(key){
-          if (key==='sun') return;
-          var HI = './assets/textures/'+key+'-hi.jpg';
-          setTexture(key, HI, function(){ texLoaded[key]=HI; });
+
+        var texLoaded = {};
+
+        function forceHiRes(key) {
+          if (key === 'sun') return;
+          var HI = './assets/textures/' + key + '-hi.jpg';
+          setTexture(key, HI, function() { texLoaded[key] = HI; });
         }
-        // 远近切换: 远看低清(加载快), 拉近行星才切高清
-        function checkTextures(){
+
+        function checkTextures() {
           if (!viz || !viz.getViewer) return;
-          var cam, camPos=null; try { cam=viz.getViewer().get3jsCamera(); camPos=cam.position; } catch(e){ return; }
+          var cam,
+            camPos = null;
+          try { cam = viz.getViewer().get3jsCamera();
+            camPos = cam.position; } catch (e) { return; }
           if (!camPos) return;
-          PLANETS.forEach(function(p){
-            if (p.key==='sun') return;
-            var pos = getObjPos(p.key); if (!pos) return;
+          PLANETS.forEach(function(p) {
+            if (p.key === 'sun') return;
+            var pos = getObjPos(p.key);
+            if (!pos) return;
             var d = camPos.distanceTo(pos);
             var r = planetRadius(p.key);
-            var HI = './assets/textures/'+p.key+'-hi.jpg';
-            var LO = './assets/textures/'+p.key+'.jpg';
-            // 拉近行星(临近穿不进/表面附近)才切高清; 离远回低清
-            var hiThresh = Math.max(40, r*20);
-            if (d < hiThresh && texLoaded[p.key]!==HI){ setTexture(p.key, HI, function(){ texLoaded[p.key]=HI; }); }
-            else if (d >= hiThresh && texLoaded[p.key]!==LO){ setTexture(p.key, LO, function(){ texLoaded[p.key]=LO; }); }
+            var HI = './assets/textures/' + p.key + '-hi.jpg';
+            var LO = './assets/textures/' + p.key + '.jpg';
+            var hiThresh = Math.max(40, r * 20);
+            if (d < hiThresh && texLoaded[p.key] !== HI) {
+              setTexture(p.key, HI, function() { texLoaded[p.key] = HI; });
+            } else if (d >= hiThresh && texLoaded[p.key] !== LO) {
+              setTexture(p.key, LO, function() { texLoaded[p.key] = LO; });
+            }
           });
         }
         setInterval(checkTextures, 500);
 
-        // 4) 信息面板
-        function showInfo(key){
-          var info=null;
-          for (var i=0;i<PLANETS.length;i++) if (PLANETS[i].key===key){ info=PLANETS[i]; break; }
+        // 信息面板
+        function showInfo(key) {
+          var info = null;
+          for (var i = 0; i < PLANETS.length; i++) {
+            if (PLANETS[i].key === key) { info = PLANETS[i]; break; }
+          }
           if (!info) return;
           document.getElementById('ip-dot').style.background = info.color;
           document.getElementById('ip-dot').style.color = info.color;
           document.getElementById('ip-name').textContent = info.label;
           document.getElementById('ip-desc').textContent = info.desc;
-          document.getElementById('ip-dist').textContent = (key==='sun') ? '中心' : (key==='moon' ? '绕地球运行' : info.au + ' AU（'+(info.au*1.496)+'亿km）');
+          document.getElementById('ip-dist').textContent = (key === 'sun') ? '中心' : (key === 'moon' ? '绕地球运行' : info.au +
+            ' AU（' + (info.au * 1.496) + '亿km）');
           document.getElementById('ip-earth').textContent = info.earthAU;
           document.getElementById('ip-temp').textContent = info.temp;
           document.getElementById('ip-orb').textContent = info.orb;
@@ -534,109 +1003,130 @@
           document.getElementById('ip-per').textContent = info.per;
           document.getElementById('info-panel').style.display = 'block';
         }
-        document.getElementById('info-close').addEventListener('click', function(e){
+        document.getElementById('info-close').addEventListener('click', function(e) {
           e.stopPropagation();
           document.getElementById('info-panel').style.display = 'none';
         });
 
-        // ===== 时间控制: 实时(接入当前真实时间[北京时间]) / 暂停 / 倍速(每秒N天) =====
+        // ============================================================
+        //  5. 时间控制：实时/暂停/倍速  + 自转
+        // ============================================================
         var currentMode = 'realtime';
-        var lastJd = null;          // 自转增量参考 jd
-        function fmtDateStr(jd){
-          // 仅保留通用格式化: 传入的 Date 用 UTC+8 显北京时间
-          try {
-            var d = (typeof jd === 'number') ? (new Date((jd - 2440587.5) * 86400000 + 8*3600*1000)) : jd;
-            var p = function(n){ return (n<10?'0':'')+n; };
-            return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate())+' '+p(d.getUTCHours())+':'+p(d.getUTCMinutes())+':'+p(d.getUTCSeconds());
-          } catch(e){}
-          return '';
-        }
-        function updateTimeDate(){
-          // 始终显示现实的北京时间(墙钟时间), 不随暂停/倍速变化
+        var lastJd = null;
+
+        // 更新模拟时间显示 (北京时间)
+        function updateTimeDate() {
           var el = document.getElementById('time-date');
           if (!el) return;
-          var now = new Date();
-          el.textContent = '📅 北京时间 ' + fmtDateStr(now.getTime());
+          try {
+            var jd = viz.getJd ? viz.getJd() : null;
+            if (jd !== null && jd !== undefined) {
+              var str = jdToBeijingStr(jd);
+              el.textContent = '📅 ' + str;
+            } else {
+              // fallback: 墙钟北京时间
+              el.textContent = '📅 ' + formatBeijingTime(new Date());
+            }
+          } catch (_) {
+            el.textContent = '📅 ' + formatBeijingTime(new Date());
+          }
         }
-        // 自转: 按增量 jd 累积, 与公转同一时钟, 倍速同步
-        function stepSelfRotation(){
+
+        // 自转步进
+        function stepSelfRotation() {
           if (!viz || !viz.getJd) return;
-          var jd; try { jd = viz.getJd(); } catch(e){ return; }
-          if (jd==null) return;
-          if (lastJd==null){ lastJd = jd; return; }
+          var jd;
+          try { jd = viz.getJd(); } catch (e) { return; }
+          if (jd == null) return;
+          if (lastJd == null) { lastJd = jd; return; }
           var deltaJd = jd - lastJd;
           lastJd = jd;
           if (!deltaJd || Math.abs(deltaJd) < 1e-12) return;
-          PLANETS.forEach(function(p){
-            if (p.key==='sun' || p.key==='moon') return;
-            var o = objects[p.key]; if (!o) return;
-            var r = p.selfrot||0; if (!r) return;
+          PLANETS.forEach(function(p) {
+            if (p.key === 'sun' || p.key === 'moon') return;
+            var o = objects[p.key];
+            if (!o) return;
+            var r = p.selfrot || 0;
+            if (!r) return;
             try {
-              var days = r / 24; // 自转周期(天)
-              var dAng = (2*Math.PI) * deltaJd / days * (p.selfdir||1);
+              var days = r / 24;
+              var dAng = (2 * Math.PI) * deltaJd / days * (p.selfdir || 1);
               var mesh = o.get3jsObjects()[0];
-              if (mesh && mesh.rotation) mesh.rotation.z = (mesh.rotation.z + dAng) % (2*Math.PI);
-            } catch(e){}
+              if (mesh && mesh.rotation) mesh.rotation.z = (mesh.rotation.z + dAng) % (2 * Math.PI);
+            } catch (e) {}
           });
         }
-        function setTimeMode(mode){
+
+        function setTimeMode(mode) {
           currentMode = mode;
           var slider = document.getElementById('t-slider');
           try {
-            if (mode==='pause') { if (viz.setJdPerSecond) viz.setJdPerSecond(0); }
-            else if (mode==='realtime') {
-              // 实时: 地球自转一圈(1天) = 现实1天 → 1天/86400秒
-              if (viz.setJdPerSecond) viz.setJdPerSecond(1/86400);
+            if (mode === 'pause') {
+              if (viz.setJdPerSecond) viz.setJdPerSecond(0);
+            } else if (mode === 'realtime') {
+              if (viz.setJdPerSecond) viz.setJdPerSecond(1 / 86400);
               if (slider) slider.value = 0;
               document.getElementById('t-val').textContent = '实时';
             }
-          } catch(e){}
-          document.getElementById('t-realtime').classList.toggle('on', mode==='realtime');
-          document.getElementById('t-pause').classList.toggle('on', mode==='pause');
+          } catch (e) {}
+          document.getElementById('t-realtime').classList.toggle('on', mode === 'realtime');
+          document.getElementById('t-pause').classList.toggle('on', mode === 'pause');
         }
-        function applySpeed(daysPerSec){
+
+        function applySpeed(daysPerSec) {
           if (!viz || !viz.setJdPerSecond) return;
           currentMode = 'slider';
           document.getElementById('t-realtime').classList.remove('on');
           document.getElementById('t-pause').classList.remove('on');
-          try { viz.setJdPerSecond(daysPerSec); } catch(e){}
+          try { viz.setJdPerSecond(daysPerSec); } catch (e) {}
         }
-        function fmtDays(dps){
-          // 中文叠加: 每秒N天(F高速率)
-          if (dps >= 36525) return '每秒'+(dps/36525).toFixed(1)+'世纪';
-          if (dps >= 365.25) return '每秒'+(dps/365.25).toFixed(1)+'年';
-          if (dps >= 1) return '每秒'+(dps>=30?Math.round(dps):dps.toFixed(1))+'天';
-          var h = dps*24;
-          if (h >= 1) return '每秒'+(h>=30?Math.round(h):h.toFixed(1))+'小时';
-          var m = h*60;
-          if (m >= 1) return '每秒'+(m>=30?Math.round(m):m.toFixed(1))+'分钟';
-          return '每秒'+(m*60).toFixed(1)+'秒';
+
+        function fmtDays(dps) {
+          if (dps >= 36525) return '每秒' + (dps / 36525).toFixed(1) + '世纪';
+          if (dps >= 365.25) return '每秒' + (dps / 365.25).toFixed(1) + '年';
+          if (dps >= 1) return '每秒' + (dps >= 30 ? Math.round(dps) : dps.toFixed(1)) + '天';
+          var h = dps * 24;
+          if (h >= 1) return '每秒' + (h >= 30 ? Math.round(h) : h.toFixed(1)) + '小时';
+          var m = h * 60;
+          if (m >= 1) return '每秒' + (m >= 30 ? Math.round(m) : m.toFixed(1)) + '分钟';
+          return '每秒' + (m * 60).toFixed(1) + '秒';
         }
+
         try {
           var slider = document.getElementById('t-slider');
-          if (slider){
-            slider.addEventListener('input', function(){
-              var v = parseFloat(slider.value);            // 0..100
-              if (v<=0){ setTimeMode('realtime'); return; }
-              // 倍速=每秒多少天, 对数: v=1->1天/秒 ... v=100->约1万天/秒
-              var dps = Math.pow(10000, v/100);            // 1 → 10000 天/秒 (叠加实时之上取相对倍率)
-              // 注: 用户要"每秒1天, 叠加", 故 1 天/秒 = 基准(实时是 1天/86400秒)
+          if (slider) {
+            slider.addEventListener('input', function() {
+              var v = parseFloat(slider.value);
+              if (v <= 0) { setTimeMode('realtime'); return; }
+              var dps = Math.pow(10000, v / 100);
               document.getElementById('t-val').textContent = fmtDays(dps);
               applySpeed(dps);
             });
           }
           var rb = document.getElementById('t-realtime');
-          if (rb) rb.addEventListener('click', function(){ setTimeMode('realtime'); });
+          if (rb) rb.addEventListener('click', function() { setTimeMode('realtime'); });
           var pb = document.getElementById('t-pause');
-          if (pb) pb.addEventListener('click', function(){ setTimeMode('pause'); });
-          // 默认: 实时(接入当前真实时间, 1天=现实1天). SpaceKit 默认 startDate=now
+          if (pb) pb.addEventListener('click', function() { setTimeMode('pause'); });
+
+          // 默认实时
           setTimeMode('realtime');
-          // 自转增量 & 日期显示定时器
+
+          // 定时更新显示 & 自转
           setInterval(stepSelfRotation, 500);
           setInterval(updateTimeDate, 1000);
-        } catch(e){}
-      } catch(err){ console.error('交互失败:', err); }
+
+          // 如果网络同步成功，校准一次
+          if (lastSyncedTime && viz && typeof viz.setStartDate === 'function') {
+            try { viz.setStartDate(lastSyncedTime); } catch (_) {}
+          }
+
+        } catch (e) {}
+
+      } catch (err) {
+        console.error('交互失败:', err);
+      }
     }
+
     setTimeout(iface, 500);
   </script>
 </body>
