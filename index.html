@@ -957,6 +957,15 @@
           return new Date((jd - 2440587.5) * 86400000);
         }
 
+        // 将 Julian Date 转为 GMST（格林尼治恒星时，弧度）
+        function jdToGMST(jd) {
+          // Approximate GMST in degrees using IAU 1982 expression
+          var T = (jd - 2451545.0) / 36525.0;
+          var gmst = 280.46061837 + 360.98564736629 * (jd - 2451545.0) + 0.000387933 * T * T - (T * T * T) / 38710000.0;
+          gmst = ((gmst % 360) + 360) % 360;
+          return THREE.MathUtils.degToRad(gmst);
+        }
+
         function syncSimulationTime() {
           if (!viz) return null;
           var now = new Date();
@@ -1095,7 +1104,8 @@
           lastJd = jd;
           if (!deltaJd || Math.abs(deltaJd) < 1e-12) return;
           PLANETS.forEach(function(p) {
-            if (p.key === 'sun' || p.key === 'moon') return;
+            // skip sun, moon and earth here — earth rotation is handled by precise GMST when enabled
+            if (p.key === 'sun' || p.key === 'moon' || p.key === 'earth') return;
             var o = objects[p.key];
             if (!o) return;
             var r = p.selfrot || 0;
@@ -1193,8 +1203,36 @@
           // 使用逐帧循环（requestAnimationFrame）持续同步仿真时间并更新场景。
           // 这样 viz 能连续接收 JD / 速度信息，带 ephem 的物体（如月球）会随仿真时间正常运动。
           // 快速视觉日夜修正：对地球进行视觉对齐，使纹理的“正午”面朝向太阳（仅视觉，不改变历表）。
-          var visualEarthDayNightFixEnabled = true;
+          var usePreciseEarthRotation = true; // 切换为精确 GMST 自转实现
+          var visualEarthDayNightFixEnabled = !usePreciseEarthRotation;
           var visualEarthRotationOffsetDeg = 0; // 若纹理经线有偏差，可在此调整
+
+          // 精确地球自转：使用 sim JD -> GMST 计算地球自转角度，并保持倾角
+          function applyPreciseEarthRotation(simJd) {
+            if (!usePreciseEarthRotation) return;
+            try {
+              var earthObj = objects.earth;
+              if (!earthObj) return;
+              var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
+              if (!earthMesh) return;
+
+              var gmst = jdToGMST(simJd); // radians
+              var obliquity = THREE.MathUtils.degToRad(23.4392911);
+
+              // spin around local Z by GMST (sign tuned to visual expectation)
+              var spinAngle = -gmst + THREE.MathUtils.degToRad(visualEarthRotationOffsetDeg);
+              var qSpin = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), spinAngle);
+
+              // tilt around local X by obliquity
+              var qTilt = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), obliquity);
+
+              // apply spin then tilt (q = qSpin * qTilt)
+              var q = qSpin.multiply(qTilt);
+              earthMesh.quaternion.copy(q);
+            } catch (e) {
+              // ignore
+            }
+          }
 
           function applyQuickEarthDayNightFix() {
             if (!visualEarthDayNightFixEnabled) return;
@@ -1236,7 +1274,13 @@
             try { syncSimulationTime(); } catch (e) {}
             try { updateMoonOrbit(); } catch (e) {}
             try { stepSelfRotation(); } catch (e) {}
-            try { applyQuickEarthDayNightFix(); } catch (e) {}
+            try {
+              var simJd = null;
+              try { if (typeof viz.getJd === 'function') simJd = viz.getJd(); } catch (e) {}
+              if (simJd === null || simJd === undefined) simJd = toJd(new Date());
+              try { applyPreciseEarthRotation(simJd); } catch (e) {}
+            } catch (e) {}
+            try { if (visualEarthDayNightFixEnabled) applyQuickEarthDayNightFix(); } catch (e) {}
             try { updateTimeDate(); } catch (e) {}
             requestAnimationFrame(tick);
           }
