@@ -226,7 +226,8 @@
     function iface(){
       try {
         var currentFocus = null;
-        var animId = null;
+        var followId = null;
+        var flyAnimId = null;
 
         // 获取行星的3D世界位置
         function getObjPos(key){
@@ -235,7 +236,6 @@
             var mesh = obj.get3jsObjects()[0];
             if (mesh && mesh.getWorldPosition){ var v=new THREE.Vector3(); mesh.getWorldPosition(v); return v; }
           } catch(e){}
-          // fallback: 用空间对象的位置
           try {
             var p = objects[key].getPosition(viz.getJd ? viz.getJd() : 0);
             return new THREE.Vector3(p[0],p[1],p[2]);
@@ -243,48 +243,90 @@
           return null;
         }
 
-        // 平滑飞向目标(相机直接定位到行星旁, 不穿模)
-        function flyTo(target, dist, dur){
-          if (!viz || !viz.getViewer) return;
-          var dur = dur || 900;
+        // 停止所有跟随/动画
+        function stopMotion(){
+          currentFocus = null;
+          if (followId) { cancelAnimationFrame(followId); followId=null; }
+          if (flyAnimId) { cancelAnimationFrame(flyAnimId); flyAnimId=null; }
+          try { if (viz && viz.getViewer) viz.getViewer().stopFollowingObject(); } catch(e){}
+        }
+
+        // 平滑动画: 把相机与target从当前值动画到( endPos, endTgt )
+        function animateTo(endPos, endTgt, dur, done){
+          var cam = viz.getViewer().get3jsCamera();
+          var controls = viz.getViewer().get3jsCameraControls();
+          var startPos = cam.position.clone();
+          var startTgt = controls.target.clone();
+          var t0 = Date.now();
+          if (flyAnimId) cancelAnimationFrame(flyAnimId);
+          function step(){
+            var t = Math.min(1,(Date.now()-t0)/dur);
+            var e = 1-Math.pow(1-t,3);
+            cam.position.lerpVectors(startPos, endPos, e);
+            controls.target.lerpVectors(startTgt, endTgt, e);
+            if (t<1) flyAnimId = requestAnimationFrame(step);
+            else if (done) done();
+          }
+          step();
+        }
+
+        // 聚焦到某行星: 进入跟随模式, 每帧保持相机在行星旁跟随其移动
+        function focusPlanet(key){
+          var obj = objects[key]; if (!obj) return;
+          stopMotion();
+          currentFocus = key;
+          var dist = Math.max(20, (PlanetDist[key]||40));
+          showInfo(key);
           try {
             var cam = viz.getViewer().get3jsCamera();
             var controls = viz.getViewer().get3jsCameraControls();
-            if (!cam || !controls) return;
-            // 停止跟随
-            try { viz.getViewer().stopFollowingObject(); } catch(e){}
-            var startPos = cam.position.clone();
-            var startTgt = controls.target.clone();
-            var dir = new THREE.Vector3(dist, dist*0.4, dist*0.7).normalize();
-            var endPos = target.clone().add(dir.multiplyScalar(dist));
-            var endTgt = target.clone();
-            var t0 = Date.now();
-            if (animId) cancelAnimationFrame(animId);
-            function step(){
-              var t = Math.min(1,(Date.now()-t0)/dur);
-              var e = 1-Math.pow(1-t,3); // easeOut
-              cam.position.lerpVectors(startPos, endPos, e);
-              controls.target.lerpVectors(startTgt, endTgt, e);
-              if (t<1) animId = requestAnimationFrame(step);
-            }
-            step();
+            // 先动画飞向目标当前位置
+            var pos = getObjPos(key);
+            if (!pos) return;
+            var dir = new THREE.Vector3(dist, dist*0.5, dist*0.8).normalize();
+            var dest = pos.clone().add(dir.clone().multiplyScalar(dist));
+            var chk = 0;
+            var followStart = function(){ startFollow(key, dist); };
+            animateTo(dest, pos.clone(), 800, followStart);
           } catch(e){}
         }
 
-        // 聚焦到某行星
-        function focusPlanet(key){
-          var obj = objects[key]; if (!obj) return;
+        // 持续跟随: 每帧更新相机位置与target到行星实时位置
+        function startFollow(key, dist){
           currentFocus = key;
-          var dist = Math.max(20, (PlanetDist[key]||40));
-          var pos = getObjPos(key);
-          if (pos) { flyTo(pos, dist, 800); }
-          // 显示信息
-          showInfo(key);
+          function loop(){
+            if (currentFocus !== key) return;
+            try {
+              var cam = viz.getViewer().get3jsCamera();
+              var controls = viz.getViewer().get3jsCameraControls();
+              var pos = getObjPos(key);
+              if (pos && cam && controls){
+                // 保持相机相对行星的方向与距离(不穿模)
+                var v = cam.position.clone().sub(controls.target);
+                var len = v.length();
+                if (len < 1) { v.set(dist, dist*0.5, dist*0.8); }
+                v.normalize().multiplyScalar(dist);
+                cam.position.copy(pos).add(v);
+                controls.target.copy(pos);
+                controls.update();
+              }
+            } catch(e){}
+            followId = requestAnimationFrame(loop);
+          }
+          loop();
         }
-        // 回到全景
+
+        // 回到全景: 退出跟随, 平滑飞回初始视角
         function goHome(){
-          currentFocus = null;
-          try { if (viz && viz.getViewer) viz.getViewer().stopFollowingObject(); } catch(e){}
+          stopMotion();
+          try {
+            // 返回初始位置 [150,110,220], 并重新启用相机漂移
+            var home = new THREE.Vector3(150, 110, 220);
+            var origin = new THREE.Vector3(0,0,0);
+            animateTo(home, origin, 1000, function(){
+              try { viz.setCameraDrift(true); } catch(e){}
+            });
+          } catch(e){}
         }
 
         // 1) 底部行星选择栏
