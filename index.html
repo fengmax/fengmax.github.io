@@ -17,81 +17,127 @@
       text-shadow: 0 0 14px rgba(120,180,255,.55); pointer-events: none; white-space: nowrap;
     }
     #hint {
-      position: fixed; bottom: 12px; left: 50%; transform: translateX(-50%);
+      position: fixed; bottom: 52px; left: 50%; transform: translateX(-50%);
       color: #667; font-size: 12px; letter-spacing: 1px; z-index: 10; pointer-events: none; text-align: center; white-space: nowrap;
     }
     #hint b { color: #aac; }
+    /* 强制 SpaceKit 生成的 label 始终显示(其内置updatePosition会把屏幕外的设hidden) */
     .spacekit__object-label {
       position: absolute; font-family: Arial, "PingFang SC", sans-serif;
       font-size: 13px; color: #fff; background: rgba(0,0,0,.72);
       padding: 3px 8px; border-radius: 4px; white-space: nowrap;
       border: 1px solid rgba(160,200,255,.55); box-shadow: 0 0 8px rgba(0,0,0,.6);
       text-shadow: 0 0 6px rgba(100,160,255,.8); z-index: 15;
+      visibility: visible !important; pointer-events: auto !important; cursor: pointer;
+      min-height: 18px; line-height: 1.3;
     }
+    .spacekit__object-label:hover { background: #2850a0 !important; border-color: #7fb2ff !important; }
+    .spacekit__object-label > div { pointer-events: none; }
+
+    /* 底部行星选择栏(100%可靠点击) */
+    #planet-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 30;
+      display: flex; flex-wrap: wrap; justify-content: center; align-items: center;
+      gap: 6px; padding: 8px 10px;
+      background: linear-gradient(transparent, rgba(0,0,0,.8));
+    }
+    #planet-bar .pb-btn {
+      color: #cdd8ec; background: rgba(30,45,80,.7); border: 1px solid rgba(120,160,255,.35);
+      padding: 5px 12px; border-radius: 16px; cursor: pointer; font-size: 12.5px; letter-spacing: .5px;
+      transition: all .15s; user-select: none; backdrop-filter: blur(2px);
+    }
+    #planet-bar .pb-btn:hover, #planet-bar .pb-btn.active {
+      background: #2b62bd; color: #fff; border-color: #8fc0ff; box-shadow: 0 0 10px rgba(80,140,255,.5);
+    }
+
     #info-panel {
-      position: fixed; top: 60px; right: 18px; z-index: 20; width: 220px;
-      max-height: 340px; overflow-y: auto;
-      background: rgba(10,15,30,.88); border: 1px solid rgba(100,150,255,.4);
+      position: fixed; top: 60px; right: 18px; z-index: 40; width: 240px;
+      max-height: calc(100vh - 140px); overflow-y: auto;
+      background: rgba(10,15,30,.92); border: 1px solid rgba(100,150,255,.4);
       border-radius: 10px; padding: 14px 16px; color: #e8eef7;
       box-shadow: 0 4px 24px rgba(0,0,0,.5); backdrop-filter: blur(6px);
       display: none;
     }
-    #info-panel .ip-name { font-size: 18px; font-weight: 600; margin-bottom: 8px; color: #fff; }
-    #info-panel .ip-row { font-size: 13px; margin: 5px 0; color: #b8c4d6; }
-    #info-panel .ip-row span { color: #9fe2c0; font-weight: 500; }
+    #info-panel .ip-name { font-size: 20px; font-weight: 600; margin-bottom: 4px; color: #fff; display:flex; align-items:center; gap:8px;}
+    #info-panel .ip-dot { width: 14px; height: 14px; border-radius: 50%; display:inline-block; box-shadow: 0 0 8px currentColor;}
+    #info-panel .ip-desc { font-size: 12.5px; color: #aab6c9; line-height: 1.6; margin: 8px 0 10px; }
+    #info-panel .ip-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 10px; }
+    #info-panel .ip-cell { background: rgba(255,255,255,.04); border-radius: 6px; padding: 6px 8px; }
+    #info-panel .ip-cell .k { font-size: 10.5px; color: #7a89a3; letter-spacing: .5px; }
+    #info-panel .ip-cell .v { font-size: 13px; color: #9fe2c0; font-weight: 600; margin-top: 1px; }
     #info-close {
       position: absolute; top: 8px; right: 12px; cursor: pointer; color: #889; font-size: 16px;
-      background: none; border: none; line-height: 1;
+      background: none; border: none; line-height: 1; z-index: 1;
     }
     #info-close:hover { color: #fff; }
-    @media (max-width: 600px) { #title { font-size: 14px; } #info-panel { width: 180px; } #hint { font-size: 10px; } }
+    @media (max-width: 600px) { #title { font-size: 14px; } #info-panel { width: 200px; right: 8px; } #hint { font-size: 10px; } }
   </style>
 </head>
 <body>
   <div id="loading">🌌 宇宙沙盒加载中…</div>
   <div id="title">SOLAR SYSTEM · 3D 宇宙沙盒</div>
-  <div id="hint"><b>点击</b>行星名字查看信息 · <b>拖动</b>旋转 · <b>滚轮</b>缩放</div>
+  <div id="hint"><b>拖动</b>旋转 · <b>滚轮</b>缩放 · <b>点击行星/名字</b>查看信息</div>
   <div id="main-container"></div>
+  <div id="planet-bar"></div>
 
   <div id="info-panel">
     <button id="info-close" title="关闭">✕</button>
-    <div class="ip-name" id="ip-name">-</div>
-    <div class="ip-row">距太阳：<span id="ip-dist">-</span></div>
-    <div class="ip-row">实时位置：[<span id="ip-pos">-</span>]</div>
-    <div class="ip-row">运行状态：<span id="ip-status">-</span></div>
+    <div class="ip-name"><span class="ip-dot" id="ip-dot"></span><span id="ip-name">-</span></div>
+    <div class="ip-desc" id="ip-desc">-</div>
+    <div class="ip-grid">
+      <div class="ip-cell"><div class="k">距太阳</div><div class="v" id="ip-dist">-</div></div>
+      <div class="ip-cell"><div class="k">距地球</div><div class="v" id="ip-earth">-</div></div>
+      <div class="ip-cell"><div class="k">平均温度</div><div class="v" id="ip-temp">-</div></div>
+      <div class="ip-cell"><div class="k">公转速度</div><div class="v" id="ip-orb">-</div></div>
+      <div class="ip-cell"><div class="k">自转周期</div><div class="v" id="ip-rot">-</div></div>
+      <div class="ip-cell"><div class="k">公转周期</div><div class="v" id="ip-per">-</div></div>
+    </div>
   </div>
 
   <script src="./build/spacekit.js"></script>
   <script>
     // ===== 宇宙沙盒 · SpaceKit =====
-    // 行星大小以太阳为基准按真实直径比例；行行星名标签可点击查看信息。
-    // 防御式架构: 加载页隐藏独立于3D渲染, 互不阻塞。
     var viz = null;
     var objects = {};
 
-    // 行星数据(真实直径km + 轨道AU)
+    // 行星数据: 真实直径(km)/轨道(AU)/介绍/相对地球距离/温度/自转/公转
     var PLANETS = [
-      { key: 'sun',      label: '太阳',   au: 0,    diameter: 1392000 },
-      { key: 'mercury',  label: '水星',   au: 0.39, diameter: 4879 },
-      { key: 'venus',    label: '金星',   au: 0.72, diameter: 12104 },
-      { key: 'earth',    label: '地球',   au: 1.00, diameter: 12742 },
-      { key: 'mars',     label: '火星',   au: 1.52, diameter: 6779 },
-      { key: 'jupiter',  label: '木星',   au: 5.20, diameter: 139820 },
-      { key: 'saturn',   label: '土星',   au: 9.58, diameter: 116460 },
-      { key: 'uranus',   label: '天王星', au: 19.2, diameter: 50724 },
-      { key: 'neptune',  label: '海王星', au: 30.1, diameter: 49244 },
+      { key:'sun',     label:'太阳',   color:'#fdb813', au:0,    diameter:1392000,
+        desc:'太阳系的中心恒星，占太阳系总质量的99.86%。主要成分为氢和氦，核心温度约1500万℃，通过核聚变释放能量。',
+        earthAU:'约1.496亿公里', temp:'表面 5500℃ / 核心 1500万℃', orb:'—', rot:'25.4天(赤道)', per:'—', diamTxt:'直径 139.2万 km' },
+      { key:'mercury', label:'水星',   color:'#9c9c9c', au:0.39, diameter:4879,
+        desc:'太阳系最小的行星，也是离太阳最近的行星。表面布满陨石坑，昼夜温差极大(白天430℃,夜间-180℃)，几乎没有大气层。',
+        earthAU:'约0.61 AU', temp:'平均 167℃', orb:'47.9 km/s', rot:'58.6天', per:'88天', diamTxt:'直径 4879 km' },
+      { key:'venus',   label:'金星',   color:'#e8c47d', au:0.72, diameter:12104,
+        desc:'太阳系最热的行星，被称为地球的"姊妹星"。浓厚的二氧化碳大气层产生失控温室效应，地表温度高达465℃。自转方向与公转相反(逆行)。',
+        earthAU:'约0.28 AU', temp:'平均 464℃', orb:'35.0 km/s', rot:'243天(逆行)', per:'225天', diamTxt:'直径 12104 km' },
+      { key:'earth',   label:'地球',   color:'#3a86ff', au:1.00, diameter:12742,
+        desc:'我们的家园，太阳系目前已知唯一孕育生命的星球。表面71%被液态水覆盖，拥有适宜的大气层和强大的磁场。',
+        earthAU:'1.0 AU', temp:'平均 15℃', orb:'29.8 km/s', rot:'23.9小时', per:'365.25天', diamTxt:'直径 12742 km' },
+      { key:'mars',    label:'火星',   color:'#e05d3f', au:1.52, diameter:6779,
+        desc:'红色星球，因表面富含氧化铁呈现锈红色。拥有太阳系最高的火山(奥林帕斯山,高2.2万米)和最大的峡谷(水手号峡谷)。',
+        earthAU:'约0.52 AU', temp:'平均 -63℃', orb:'24.1 km/s', rot:'24.6小时', per:'687天', diamTxt:'直径 6779 km' },
+      { key:'jupiter', label:'木星',   color:'#d8a06a', au:5.20, diameter:139820,
+        desc:'太阳系最大的行星，质量是其他所有行星总和的2.5倍。著名的大红斑是持续数百年的巨型风暴。拥有79颗已知卫星。',
+        earthAU:'约4.2 AU', temp:'平均 -108℃', orb:'13.1 km/s', rot:'9.9小时(最快)', per:'11.9年', diamTxt:'直径 139820 km' },
+      { key:'saturn',  label:'土星',   color:'#e6c98a', au:9.58, diameter:116460,
+        desc:'以壮观的光环闻名，由无数冰块和岩石碎片组成。密度极低，比水还轻，是太阳系"最轻"的行星。',
+        earthAU:'约8.6 AU', temp:'平均 -139℃', orb:'9.7 km/s', rot:'10.7小时', per:'29.5年', diamTxt:'直径 116460 km' },
+      { key:'uranus',  label:'天王星', color:'#7fd6d8', au:19.2, diameter:50724,
+        desc:'冰巨星，自转轴几乎"躺平"(倾斜98°)，因此四季极长且极端。呈蓝绿色，大气含甲烷吸收红光。',
+        earthAU:'约18.2 AU', temp:'平均 -195℃', orb:'6.8 km/s', rot:'17.2小时(逆行)', per:'84年', diamTxt:'直径 50724 km' },
+      { key:'neptune', label:'海王星', color:'#4a6fe0', au:30.1, diameter:49244,
+        desc:'离太阳最远的行星，深蓝色外观因大气中的甲烷。拥有太阳系最快的风速(可达2100km/h)。',
+        earthAU:'约29.1 AU', temp:'平均 -201℃', orb:'5.4 km/s', rot:'16.1小时', per:'164.8年', diamTxt:'直径 49244 km' },
     ];
 
-    // ===== 隐藏加载页: 用 window.load 独立触发, 任何情况下都会尽力隐藏 =====
-    function hideLoading() {
-      var l = document.getElementById('loading');
-      if (l) l.style.display = 'none';
-    }
+    // ===== 隐藏加载页(独立触发) =====
+    function hideLoading(){ var l=document.getElementById('loading'); if(l) l.style.display='none'; }
     setTimeout(hideLoading, 600);
     setTimeout(hideLoading, 2000);
     window.addEventListener('load', hideLoading);
 
-    // ===== 初始化3D(包在try里, 失败也不影响加载页隐藏) =====
+    // ===== 初始化3D(独立try) =====
     try {
       viz = new Spacekit.Simulation(document.getElementById('main-container'), {
         basePath: './',
@@ -101,83 +147,83 @@
       viz.createStars();
       viz.createAmbientLight();
       viz.createLight([0, 0, 0]);
-
-      // 太阳
       objects.sun = viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
 
-      // 行星(3D球体, createSphere)
-      var SUN_DIAMETER_KM = 1392000;
-      var SUN_RADIUS = 60;
-      var BOOST = 3;
-      PLANETS.forEach(function(p) {
-        if (p.key === 'sun') return;
+      var SUN_DIAMETER_KM = 1392000, SUN_RADIUS = 60, BOOST = 3;
+      PLANETS.forEach(function(p){
+        if (p.key==='sun') return;
         var preset = Spacekit.SpaceObjectPresets[p.key.toUpperCase()];
         if (!preset) return;
         var finalRadius = Math.max(SUN_RADIUS * (p.diameter / SUN_DIAMETER_KM) * BOOST, 0.6);
-        var radiusToPass = finalRadius / 100;   // 抵消 scaleFactor(=100)
+        var radiusToPass = finalRadius / 100;
         try {
           objects[p.key] = viz.createSphere(p.key, {
-            textureUrl: './assets/textures/' + p.key + '.jpg',
+            textureUrl: './assets/textures/'+p.key+'.jpg',
             radius: radiusToPass,
             ephem: preset.ephem,
-            levelsOfDetail: [{ radii: 0, segments: 48 }, { radii: 40, segments: 24 }, { radii: 80, segments: 12 }],
+            levelsOfDetail: [{radii:0,segments:48},{radii:40,segments:24},{radii:80,segments:12}],
             labelText: p.label,
           });
-        } catch (e) {
-          try { objects[p.key] = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) {}
+        } catch(e) {
+          try { objects[p.key] = viz.createObject(p.key, Object.assign({},preset,{labelText:p.label})); } catch(e2){}
         }
       });
-
-      try { viz.setJdPerSecond(3); } catch (e) {}
+      try { viz.setJdPerSecond(3); } catch(e){}
       window.THREE = Spacekit.THREE;
-    } catch (err) {
-      console.error('初始化失败:', err);
-      hideLoading();
-    }
+    } catch(err){ console.error('3D初始化失败:', err); hideLoading(); }
 
-    // ===== 点击行星名标签(纯DOM, 独立try) =====
-    function iface() {
+    // ===== 交互(独立try) =====
+    function iface(){
       try {
-        var bound = {};
-        function bindAll() {
+        // 1) 底部行星选择栏
+        var bar = document.getElementById('planet-bar');
+        PLANETS.forEach(function(p){
+          var b = document.createElement('button');
+          b.className = 'pb-btn';
+          b.textContent = p.label;
+          b.style.borderLeftColor = p.color;
+          b.addEventListener('click', function(){ showInfo(p.key); });
+          bar.appendChild(b);
+        });
+
+        // 2) 绑定3D里的SpaceKit label点击(文字匹配)
+        function bindLabels(){
           var labels = document.querySelectorAll('.spacekit__object-label');
-          Array.prototype.forEach.call(labels, function(label) {
-            if (bound[label]) return;
-            var txt = (label.textContent || '').replace(/\s+/g, '').trim();
+          Array.prototype.forEach.call(labels, function(lb){
+            if (lb.__bound) return;
+            var txt = (lb.textContent||'').replace(/\s+/g,'').trim();
             var p = null;
-            for (var i = 0; i < PLANETS.length; i++) if (PLANETS[i].label === txt) { p = PLANETS[i]; break; }
+            for (var i=0;i<PLANETS.length;i++) if (PLANETS[i].label===txt){ p=PLANETS[i]; break; }
             if (!p) return;
-            bound[label] = true;
-            label.style.cursor = 'pointer';
-            label.style.userSelect = 'none';
-            label.style.pointerEvents = 'auto';
-            label.title = '点击查看' + p.label + '信息';
-            label.addEventListener('click', function(ev) {
-              ev.stopPropagation();
-              showInfo(p.key);
-            });
+            lb.__bound = true;
+            lb.addEventListener('click', function(ev){ ev.stopPropagation(); showInfo(p.key); });
           });
         }
-        bindAll();
-        setInterval(bindAll, 400);
+        bindLabels();
+        setInterval(bindLabels, 400);
 
-        function showInfo(key) {
-          var info = null;
-          for (var i = 0; i < PLANETS.length; i++) if (PLANETS[i].key === key) { info = PLANETS[i]; break; }
+        // 3) 信息面板
+        function showInfo(key){
+          var info=null;
+          for (var i=0;i<PLANETS.length;i++) if (PLANETS[i].key===key){ info=PLANETS[i]; break; }
           if (!info) return;
+          document.getElementById('ip-dot').style.background = info.color;
+          document.getElementById('ip-dot').style.color = info.color;
           document.getElementById('ip-name').textContent = info.label;
-          document.getElementById('ip-dist').textContent = (key === 'sun') ? '恒星中心' : info.au + ' AU';
-          var obj = objects[key];
-          var posTxt = '-';
-          if (obj && obj.getPosition) {
-            try { var v = obj.getPosition(viz.getJd()); if (v) posTxt = v.x.toFixed(1) + ', ' + v.y.toFixed(1) + ', ' + v.z.toFixed(1); } catch (e) {}
-          }
-          document.getElementById('ip-pos').textContent = posTxt;
-          document.getElementById('ip-status').textContent = info.label + ((key === 'sun') ? ' 恒星(自转)' : ' 公转中');
+          document.getElementById('ip-desc').textContent = info.desc;
+          document.getElementById('ip-dist').textContent = key==='sun' ? '中心' : info.au + ' AU（'+(info.au*1.496)+'亿km）';
+          document.getElementById('ip-earth').textContent = info.earthAU;
+          document.getElementById('ip-temp').textContent = info.temp;
+          document.getElementById('ip-orb').textContent = info.orb;
+          document.getElementById('ip-rot').textContent = info.rot;
+          document.getElementById('ip-per').textContent = info.per;
           document.getElementById('info-panel').style.display = 'block';
         }
-        document.getElementById('info-close').addEventListener('click', function(e) { e.stopPropagation(); document.getElementById('info-panel').style.display = 'none'; });
-      } catch (err) { console.error('交互失败:', err); }
+        document.getElementById('info-close').addEventListener('click', function(e){
+          e.stopPropagation();
+          document.getElementById('info-panel').style.display = 'none';
+        });
+      } catch(err){ console.error('交互失败:', err); }
     }
     setTimeout(iface, 500);
   </script>
