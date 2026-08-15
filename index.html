@@ -1004,15 +1004,13 @@
                     var relX = mp[0] - ep[0];
                     var relY = mp[1] - ep[1];
                     var relZ = mp[2] - ep[2];
-                    // attempt to parent moon mesh under earth mesh so local position is relative
+                    // set moon world position as earth ephem + relative vector
                     try {
-                      var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
-                      if (earthMesh && moonMesh && moonMesh.parent !== earthMesh) {
-                        try { earthMesh.add(moonMesh); } catch (e) {}
-                      }
+                      var worldX = ep[0] + relX;
+                      var worldY = ep[1] + relY;
+                      var worldZ = ep[2] + relZ;
+                      moonMesh.position.set(worldX, worldY, worldZ);
                     } catch (e) {}
-                    // set local position relative to earth
-                    try { moonMesh.position.set(relX, relY, relZ); } catch (e) {}
                   } else {
                     // no earth ephem available — fallback to world placement
                     try { moonMesh.position.set(mp[0], mp[1], mp[2]); } catch (e) {}
@@ -1033,12 +1031,22 @@
               var z = Math.sin(moonAngle) * orbitRadius;
               try {
                 // parent under earth so local coords represent orbit
-                if (moonMesh.parent !== earthMesh) {
-                  try { earthMesh.add(moonMesh); } catch (e) {}
-                }
-                moonMesh.position.set(x, y, z);
+                // place moon in world coords relative to earth position
+                try {
+                  moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z);
+                } catch (e) { moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z); }
               } catch (e) { moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z); }
             }
+
+            // ensure moon mesh visible and renderable
+            try {
+              if (moonMesh) {
+                moonMesh.visible = true;
+                if (moonMesh.material) {
+                  try { moonMesh.material.opacity = 1; moonMesh.material.transparent = false; } catch (e) {}
+                }
+              }
+            } catch (e) {}
 
             // Keep a small moon self-rotation visual tweak
             try { if (moonMesh && moonMesh.rotation) moonMesh.rotation.y += 0.02; } catch (e) {}
