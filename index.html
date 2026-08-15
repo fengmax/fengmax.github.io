@@ -24,11 +24,10 @@
     .spacekit__object-label {
       position: absolute; font-family: Arial, "PingFang SC", sans-serif;
       font-size: 13px; color: #fff; background: rgba(0,0,0,.72);
-      padding: 3px 8px; border-radius: 4px; pointer-events: auto; cursor: pointer; white-space: nowrap;
+      padding: 3px 8px; border-radius: 4px; white-space: nowrap;
       border: 1px solid rgba(160,200,255,.55); box-shadow: 0 0 8px rgba(0,0,0,.6);
       text-shadow: 0 0 6px rgba(100,160,255,.8); z-index: 15;
     }
-    .spacekit__object-label:hover { background: rgba(40,80,160,.9); border-color: #7fb2ff; }
     #info-panel {
       position: fixed; top: 60px; right: 18px; z-index: 20; width: 220px;
       max-height: 340px; overflow-y: auto;
@@ -51,7 +50,7 @@
 <body>
   <div id="loading">🌌 宇宙沙盒加载中…</div>
   <div id="title">SOLAR SYSTEM · 3D 宇宙沙盒</div>
-  <div id="hint"><b>点击</b>行星查看信息 · <b>拖动</b>旋转 · <b>滚轮</b>缩放</div>
+  <div id="hint"><b>点击</b>行星名字查看信息 · <b>拖动</b>旋转 · <b>滚轮</b>缩放</div>
   <div id="main-container"></div>
 
   <div id="info-panel">
@@ -65,26 +64,13 @@
   <script src="./build/spacekit.js"></script>
   <script>
     // ===== 宇宙沙盒 · SpaceKit =====
-    // 每颗行星真实直径(km) + 轨道(AU)。大小以太阳为基准按真实直径比例。
-    // 说明: createSphere 的 radius 会被 scaleFactor(=unitsPerAu=100)自动放大100倍。
-    //       visualBoost 是对整个太阳系的统一放大系数(保持相对比例前提下让行星可见可点)。
-    const viz = new Spacekit.Simulation(document.getElementById('main-container'), {
-      basePath: './',
-      unitsPerAu: 100.0,               // 1AU=100单位 -> 轨道符合真实AU
-  
-      camera: { initialPosition: [150, 110, 220], enableDrift: true },
-    });
+    // 行星大小以太阳为基准按真实直径比例；行行星名标签可点击查看信息。
+    // 防御式架构: 加载页隐藏独立于3D渲染, 互不阻塞。
+    var viz = null;
+    var objects = {};
 
-    viz.createStars();
-    viz.createAmbientLight();
-    viz.createLight([0, 0, 0]);
-
-    const SUN_DIAMETER_KM = 1392000;
-    const SCALE = 100;                 // = unitsPerAu
-    const SUN_RADIUS = 60;             // 太阳在场景中的基准半径(单位)
-    const BOOST = 3;                   // 统一视觉放大(保持相对比例)
-
-    const PLANETS = [
+    // 行星数据(真实直径km + 轨道AU)
+    var PLANETS = [
       { key: 'sun',      label: '太阳',   au: 0,    diameter: 1392000 },
       { key: 'mercury',  label: '水星',   au: 0.39, diameter: 4879 },
       { key: 'venus',    label: '金星',   au: 0.72, diameter: 12104 },
@@ -96,101 +82,104 @@
       { key: 'neptune',  label: '海王星', au: 30.1, diameter: 49244 },
     ];
 
-    const objects = {};
-
-    // 太阳：用带辉光的 sprite，并放大到基准半径大小
-    objects.sun = viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
-    // 若 Sprite 支持 scale 则放大太阳(可选)
-
-    // 创建行星(3D球体)
-    PLANETS.filter(p => p.key !== 'sun').forEach(p => {
-      const preset = Spacekit.SpaceObjectPresets[p.key.toUpperCase()];
-      if (!preset) return;
-      // 最终渲染半径 = 太阳半径 × (行星直径/太阳直径) × BOOST
-      const finalRadius = Math.max(SUN_RADIUS * (p.diameter / SUN_DIAMETER_KM) * BOOST, 0.6);
-      // getScaledRadius() 会乘以 SCALE, 所以传给 createSphere 的 radius 除以 SCALE
-      const radiusToPass = finalRadius / SCALE;
-      try {
-        objects[p.key] = viz.createSphere(p.key, {
-          textureUrl: './assets/textures/' + p.key + '.jpg',
-          radius: radiusToPass,
-          ephem: preset.ephem,
-          levelsOfDetail: [
-            { radii: 0, segments: 48 },
-            { radii: 40, segments: 24 },
-            { radii: 80, segments: 12 },
-          ],
-          labelText: p.label,
-        });
-      } catch (e) {
-        try { objects[p.key] = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) {}
-      }
-    });
-
-    // 控制运行速度(天/秒)
-    try { viz.setJdPerSecond(3); } catch (e) {}
-
-    // ===== 点击交互：点击行星名字标签(纯DOM,可靠) =====
-    // SpaceKit 为每颗行星生成了 .spacekit__object-label 元素(带框),
-    // 点击标签弹出行星信息面板，绕开球体拾取(Raycaster对LOD不可靠)的坑。
-    function bindLabelClicks() {
-      const labels = document.querySelectorAll('.spacekit__object-label');
-      labels.forEach(label => {
-        if (label.dataset.bound) return;   // 防重复绑定
-        const txt = (label.textContent || '').trim();
-        const info = PLANETS.find(p => p.label === txt);
-        if (!info) return;
-        label.dataset.bound = '1';
-        label.style.cursor = 'pointer';
-        label.style.userSelect = 'none';
-        label.title = '点击查看' + info.label + '信息';
-        label.addEventListener('click', e => {
-          e.stopPropagation();
-          showInfo(info.key);
-        });
-      });
-    }
-
-    // label 是延迟创建/移动的，反复扫描直到绑完所有行星
-    let scanCount = 0;
-    const scanTimer = setInterval(() => {
-      const labels = document.querySelectorAll('.spacekit__object-label');
-      const boundCount = document.querySelectorAll('.spacekit__object-label[data-bound]').length;
-      bindLabelClicks();
-      scanCount++;
-      // 所有行星label都已绑定或超过时间则停止
-      if ((labels.length >= PLANETS.length && labels.length > 0 && boundCount >= PLANETS.length) || scanCount > 30) {
-        clearInterval(scanTimer);
-      }
-    }, 300);
-
-    function showInfo(key) {
-      const info = PLANETS.find(p => p.key === key);
-      if (!info) return;
-      const panel = document.getElementById('info-panel');
-      document.getElementById('ip-name').textContent = info.label;
-      document.getElementById('ip-dist').textContent = (key === 'sun') ? '恒星中心' : info.au + ' AU';
-      const obj = objects[key];
-      let posTxt = '-';
-      if (obj && obj.getPosition) {
-        try { const v = obj.getPosition(viz.getJd()); if (v) posTxt = `${v.x.toFixed(1)}, ${v.y.toFixed(1)}, ${v.z.toFixed(1)}`; } catch (e) {}
-      }
-      document.getElementById('ip-pos').textContent = posTxt;
-      document.getElementById('ip-status').textContent = (key === 'sun') ? '恒星(自转)' : '公转中  ' + info.label;
-      panel.style.display = 'block';
-    }
-
-    // 所有对象创建完成后隐藏加载页
-    setTimeout(() => {
-      const l = document.getElementById('loading');
+    // ===== 隐藏加载页: 用 window.load 独立触发, 任何情况下都会尽力隐藏 =====
+    function hideLoading() {
+      var l = document.getElementById('loading');
       if (l) l.style.display = 'none';
-      window.THREE = Spacekit.THREE;
-    }, 800);
+    }
+    setTimeout(hideLoading, 600);
+    setTimeout(hideLoading, 2000);
+    window.addEventListener('load', hideLoading);
 
-    document.getElementById('info-close').addEventListener('click', e => {
-      e.stopPropagation();
-      document.getElementById('info-panel').style.display = 'none';
-    });
+    // ===== 初始化3D(包在try里, 失败也不影响加载页隐藏) =====
+    try {
+      viz = new Spacekit.Simulation(document.getElementById('main-container'), {
+        basePath: './',
+        unitsPerAu: 100.0,
+        camera: { initialPosition: [150, 110, 220], enableDrift: true },
+      });
+      viz.createStars();
+      viz.createAmbientLight();
+      viz.createLight([0, 0, 0]);
+
+      // 太阳
+      objects.sun = viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
+
+      // 行星(3D球体, createSphere)
+      var SUN_DIAMETER_KM = 1392000;
+      var SUN_RADIUS = 60;
+      var BOOST = 3;
+      PLANETS.forEach(function(p) {
+        if (p.key === 'sun') return;
+        var preset = Spacekit.SpaceObjectPresets[p.key.toUpperCase()];
+        if (!preset) return;
+        var finalRadius = Math.max(SUN_RADIUS * (p.diameter / SUN_DIAMETER_KM) * BOOST, 0.6);
+        var radiusToPass = finalRadius / 100;   // 抵消 scaleFactor(=100)
+        try {
+          objects[p.key] = viz.createSphere(p.key, {
+            textureUrl: './assets/textures/' + p.key + '.jpg',
+            radius: radiusToPass,
+            ephem: preset.ephem,
+            levelsOfDetail: [{ radii: 0, segments: 48 }, { radii: 40, segments: 24 }, { radii: 80, segments: 12 }],
+            labelText: p.label,
+          });
+        } catch (e) {
+          try { objects[p.key] = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) {}
+        }
+      });
+
+      try { viz.setJdPerSecond(3); } catch (e) {}
+      window.THREE = Spacekit.THREE;
+    } catch (err) {
+      console.error('初始化失败:', err);
+      hideLoading();
+    }
+
+    // ===== 点击行星名标签(纯DOM, 独立try) =====
+    function iface() {
+      try {
+        var bound = {};
+        function bindAll() {
+          var labels = document.querySelectorAll('.spacekit__object-label');
+          Array.prototype.forEach.call(labels, function(label) {
+            if (bound[label]) return;
+            var txt = (label.textContent || '').replace(/\s+/g, '').trim();
+            var p = null;
+            for (var i = 0; i < PLANETS.length; i++) if (PLANETS[i].label === txt) { p = PLANETS[i]; break; }
+            if (!p) return;
+            bound[label] = true;
+            label.style.cursor = 'pointer';
+            label.style.userSelect = 'none';
+            label.style.pointerEvents = 'auto';
+            label.title = '点击查看' + p.label + '信息';
+            label.addEventListener('click', function(ev) {
+              ev.stopPropagation();
+              showInfo(p.key);
+            });
+          });
+        }
+        bindAll();
+        setInterval(bindAll, 400);
+
+        function showInfo(key) {
+          var info = null;
+          for (var i = 0; i < PLANETS.length; i++) if (PLANETS[i].key === key) { info = PLANETS[i]; break; }
+          if (!info) return;
+          document.getElementById('ip-name').textContent = info.label;
+          document.getElementById('ip-dist').textContent = (key === 'sun') ? '恒星中心' : info.au + ' AU';
+          var obj = objects[key];
+          var posTxt = '-';
+          if (obj && obj.getPosition) {
+            try { var v = obj.getPosition(viz.getJd()); if (v) posTxt = v.x.toFixed(1) + ', ' + v.y.toFixed(1) + ', ' + v.z.toFixed(1); } catch (e) {}
+          }
+          document.getElementById('ip-pos').textContent = posTxt;
+          document.getElementById('ip-status').textContent = info.label + ((key === 'sun') ? ' 恒星(自转)' : ' 公转中');
+          document.getElementById('info-panel').style.display = 'block';
+        }
+        document.getElementById('info-close').addEventListener('click', function(e) { e.stopPropagation(); document.getElementById('info-panel').style.display = 'none'; });
+      } catch (err) { console.error('交互失败:', err); }
+    }
+    setTimeout(iface, 500);
   </script>
 </body>
 </html>
