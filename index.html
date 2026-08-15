@@ -543,20 +543,20 @@
         var currentMode = 'realtime';
         var lastJd = null;          // 自转增量参考 jd
         function fmtDateStr(jd){
+          // 仅保留通用格式化: 传入的 Date 用 UTC+8 显北京时间
           try {
-            // jd → DT 全用 UTC 基准, 再 +8h 显北京时间(不依赖浏览器时区)
-            var ms = (jd - 2440587.5) * 86400000;   // JD→UTC ms
-            var d = new Date(ms + 8*3600*1000);     // +8h → 北京时间
+            var d = (typeof jd === 'number') ? (new Date((jd - 2440587.5) * 86400000 + 8*3600*1000)) : jd;
             var p = function(n){ return (n<10?'0':'')+n; };
             return d.getUTCFullYear()+'-'+p(d.getUTCMonth()+1)+'-'+p(d.getUTCDate())+' '+p(d.getUTCHours())+':'+p(d.getUTCMinutes())+':'+p(d.getUTCSeconds());
           } catch(e){}
-          return String(Math.round(jd));
+          return '';
         }
         function updateTimeDate(){
+          // 始终显示现实的北京时间(墙钟时间), 不随暂停/倍速变化
           var el = document.getElementById('time-date');
-          if (!el || !viz || !viz.getJd) return;
-          var jd; try { jd = viz.getJd(); } catch(e){ return; }
-          el.textContent = '📅 ' + fmtDateStr(jd);
+          if (!el) return;
+          var now = new Date();
+          el.textContent = '📅 北京时间 ' + fmtDateStr(now.getTime());
         }
         // 自转: 按增量 jd 累积, 与公转同一时钟, 倍速同步
         function stepSelfRotation(){
