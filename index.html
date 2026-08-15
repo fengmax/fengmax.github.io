@@ -952,12 +952,15 @@
           }
 
           try {
+            // Always update the viz to the target JD if possible so object ephemerides align
             if (typeof viz.setJd === 'function') {
-              viz.setJd(targetJd);
+              try { viz.setJd(targetJd); } catch (e) {}
+            }
+            // Also inform viz about the current simulation rate so it can animate between JD updates.
+            if (typeof viz.setJdPerSecond === 'function') {
+              try { viz.setJdPerSecond(timeController.mode === 'pause' ? 0 : timeController.speedDaysPerSecond); } catch (e) {}
             } else if (typeof viz.setDate === 'function') {
-              viz.setDate(jdToDate(targetJd));
-            } else if (typeof viz.setJdPerSecond === 'function') {
-              viz.setJdPerSecond(timeController.mode === 'pause' ? 0 : timeController.speedDaysPerSecond);
+              try { viz.setDate(jdToDate(targetJd)); } catch (e) {}
             }
           } catch (e) {}
 
@@ -974,32 +977,45 @@
         function updateMoonOrbit() {
           if (!viz || !objects.earth || !objects.moon) return;
           try {
-            // sync simulation time and use simulated JD so moon follows the simulated clock
+            // Prefer using the viz's current JD (which should be kept in sync by syncSimulationTime)
             var simJd = null;
-            try { simJd = syncSimulationTime(); } catch (e) { /* fallback below */ }
-
+            try {
+              if (typeof viz.getJd === 'function') simJd = viz.getJd();
+            } catch (e) {}
             if (simJd === null || simJd === undefined) {
-              try { if (typeof viz.getJd === 'function') simJd = viz.getJd(); } catch (e) {}
-              if (simJd === null || simJd === undefined) simJd = toJd(new Date());
+              try { simJd = syncSimulationTime(); } catch (e) {}
+            }
+            if (simJd === null || simJd === undefined) simJd = toJd(new Date());
+
+            // If the moon object exposes getPosition(jd), ask it for the correct world coordinates at simJd.
+            var moonObj = objects.moon;
+            var earthObj = objects.earth;
+            var moonMesh = moonObj.get3jsObjects && moonObj.get3jsObjects()[0];
+
+            if (moonObj && typeof moonObj.getPosition === 'function') {
+              try {
+                var mp = moonObj.getPosition(simJd);
+                if (mp && mp.length >= 3 && moonMesh) {
+                  moonMesh.position.set(mp[0], mp[1], mp[2]);
+                }
+              } catch (e) {}
+            } else {
+              // Fallback: approximate moon orbit around earth using simJd
+              var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
+              if (!earthMesh || !moonMesh) return;
+              var earthPos = new THREE.Vector3();
+              earthMesh.getWorldPosition(earthPos);
+              var moonPeriodDays = 27.321661;
+              var moonAngle = ((simJd % moonPeriodDays) / moonPeriodDays) * Math.PI * 2;
+              var orbitRadius = 1.6;
+              var x = Math.cos(moonAngle) * orbitRadius;
+              var y = Math.sin(moonAngle * 2.0) * 0.28;
+              var z = Math.sin(moonAngle) * orbitRadius;
+              moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z);
             }
 
-            var earthMesh = objects.earth.get3jsObjects && objects.earth.get3jsObjects()[0];
-            var moonMesh = objects.moon.get3jsObjects && objects.moon.get3jsObjects()[0];
-            if (!earthMesh || !moonMesh) return;
-
-            var earthPos = new THREE.Vector3();
-            earthMesh.getWorldPosition(earthPos);
-
-            // Use simulated JD to compute moon phase angle so it follows timeController (pause/fast-forward)
-            var moonPeriodDays = 27.321661;
-            var moonAngle = ((simJd % moonPeriodDays) / moonPeriodDays) * Math.PI * 2;
-            var orbitRadius = 1.6;
-            var x = Math.cos(moonAngle) * orbitRadius;
-            var y = Math.sin(moonAngle * 2.0) * 0.28;
-            var z = Math.sin(moonAngle) * orbitRadius;
-
-            moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z);
-            moonMesh.rotation.y += 0.02;
+            // Keep a small moon self-rotation visual tweak
+            try { if (moonMesh && moonMesh.rotation) moonMesh.rotation.y += 0.02; } catch (e) {}
           } catch (e) {}
         }
 
