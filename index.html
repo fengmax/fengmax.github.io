@@ -1028,22 +1028,69 @@
                 // Also get earth position at same JD so we can position the moon relative to earth
                 var ep = null;
                 try { if (earthObj && typeof earthObj.getPosition === 'function') ep = earthObj.getPosition(simJd); } catch (e) {}
-                // If we have both positions, compute relative vector and make moon a child of earthMesh
+                // If we have both positions, compute relative vector and set moon world position
                 if (mp && mp.length >= 3 && moonMesh) {
                   if (ep && ep.length >= 3) {
                     var relX = mp[0] - ep[0];
                     var relY = mp[1] - ep[1];
                     var relZ = mp[2] - ep[2];
-                    // set moon world position as earth ephem + relative vector
+
+                    // desired world position computed from ephemeris
+                    var desiredWorld = new THREE.Vector3(ep[0] + relX, ep[1] + relY, ep[2] + relZ);
+
+                    // try to get earth rendered/world position for distance checks
+                    var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
+                    var earthWorld = new THREE.Vector3();
+                    if (earthMesh && typeof earthMesh.getWorldPosition === 'function') {
+                      try { earthMesh.getWorldPosition(earthWorld); } catch (e) { earthWorld.set(ep[0], ep[1], ep[2]); }
+                    } else {
+                      earthWorld.set(ep[0], ep[1], ep[2]);
+                    }
+
+                    // determine rendered radii (fall back to planetRadius if geometry info unavailable)
+                    var earthRadiusRendered = null;
                     try {
-                      var worldX = ep[0] + relX;
-                      var worldY = ep[1] + relY;
-                      var worldZ = ep[2] + relZ;
-                      moonMesh.position.set(worldX, worldY, worldZ);
+                      if (earthMesh && earthMesh.geometry) {
+                        if (!earthMesh.geometry.boundingSphere) earthMesh.geometry.computeBoundingSphere();
+                        var ws = new THREE.Vector3();
+                        if (typeof earthMesh.getWorldScale === 'function') earthMesh.getWorldScale(ws); else ws.copy(earthMesh.scale || new THREE.Vector3(1,1,1));
+                        earthRadiusRendered = earthMesh.geometry.boundingSphere.radius * (ws.x || 1);
+                      }
                     } catch (e) {}
+                    if (!earthRadiusRendered) earthRadiusRendered = planetRadius('earth') || 1;
+
+                    var moonRadiusRendered = null;
+                    try {
+                      if (moonMesh && moonMesh.geometry) {
+                        if (!moonMesh.geometry.boundingSphere) moonMesh.geometry.computeBoundingSphere();
+                        var mws = new THREE.Vector3();
+                        if (typeof moonMesh.getWorldScale === 'function') moonMesh.getWorldScale(mws); else mws.copy(moonMesh.scale || new THREE.Vector3(1,1,1));
+                        moonRadiusRendered = moonMesh.geometry.boundingSphere.radius * (mws.x || 1);
+                      }
+                    } catch (e) {}
+                    if (!moonRadiusRendered) moonRadiusRendered = planetRadius('moon') || 0.5;
+
+                    var minDist = earthRadiusRendered + moonRadiusRendered + 0.2;
+                    var actualDist = desiredWorld.distanceTo(earthWorld);
+                    if (actualDist < minDist) {
+                      // push moon outward along ephemeris relative direction to enforce visibility
+                      var dir = new THREE.Vector3(relX, relY, relZ);
+                      if (dir.lengthSq() === 0) dir.set(1, 0, 0);
+                      dir.normalize();
+                      desiredWorld.copy(earthWorld).add(dir.multiplyScalar(minDist));
+                    }
+
+                    // convert desired world position to moonMesh parent-local coordinates if needed
+                    try {
+                      var parent = moonMesh.parent;
+                      var localPos = desiredWorld.clone();
+                      if (parent && typeof parent.worldToLocal === 'function') parent.worldToLocal(localPos);
+                      moonMesh.position.copy(localPos);
+                    } catch (e) { try { moonMesh.position.set(desiredWorld.x, desiredWorld.y, desiredWorld.z); } catch (e) {} }
+
                     // create/update a visible orbit ring around earth to make moon orbit obvious
                     try {
-                      var earthMeshForRing = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
+                      var earthMeshForRing = earthMesh;
                       var orad = Math.sqrt(relX*relX + relY*relY + relZ*relZ);
                       ensureMoonOrbitRing(earthMeshForRing, orad);
                     } catch (e) {}
