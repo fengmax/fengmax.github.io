@@ -21,10 +21,6 @@
       color: #667; font-size: 12px; letter-spacing: 1px; z-index: 10; pointer-events: none; text-align: center;
     }
     #hint b { color: #aac; }
-    .planet-label {
-      color: #dbe6f7; font-size: 12px; font-weight: 500; letter-spacing: 1px;
-      text-shadow: 0 0 8px rgba(100,160,255,.7); pointer-events: none;
-    }
     #info-panel {
       position: fixed; top: 60px; right: 18px; z-index: 20;
       width: 220px; max-height: 320px; overflow-y: auto;
@@ -55,105 +51,110 @@
     <div class="ip-name" id="ip-name">-</div>
     <div class="ip-row">距太阳：<span id="ip-dist">-</span></div>
     <div class="ip-row">实时位置：[<span id="ip-pos">-</span>]</div>
-    <div class="ip-row">公转速度：<span id="ip-status">-</span></div>
+    <div class="ip-row">运行状态：<span id="ip-status">-</span></div>
   </div>
 
   <script src="./build/spacekit.js"></script>
   <script>
     // ===== 宇宙沙盒 · SpaceKit =====
+    // 每颗行星: key/label/轨道AU/真实半径比例(以木星69911km为基准1.0)/颜色
     const PLANETS = [
-      { key: 'sun',      label: '太阳',   dist: '中心' },
-      { key: 'mercury',  label: '水星',   dist: '0.39 AU' },
-      { key: 'venus',    label: '金星',   dist: '0.72 AU' },
-      { key: 'earth',    label: '地球',   dist: '1.00 AU' },
-      { key: 'mars',     label: '火星',   dist: '1.52 AU' },
-      { key: 'jupiter',  label: '木星',   dist: '5.20 AU' },
-      { key: 'saturn',   label: '土星',   dist: '9.58 AU' },
-      { key: 'uranus',   label: '天王星', dist: '19.2 AU' },
-      { key: 'neptune',  label: '海王星', dist: '30.0 AU' },
+      { key: 'sun',      label: '太阳',   au: 0,    r: 2.6,   dist: '恒星中心' },
+      { key: 'mercury',  label: '水星',   au: 0.39, r: 0.034, dist: '0.39 AU' },
+      { key: 'venus',    label: '金星',   au: 0.72, r: 0.084, dist: '0.72 AU' },
+      { key: 'earth',    label: '地球',   au: 1.00, r: 0.089, dist: '1.00 AU' },
+      { key: 'mars',     label: '火星',   au: 1.52, r: 0.047, dist: '1.52 AU' },
+      { key: 'jupiter',  label: '木星',   au: 5.20, r: 1.0,   dist: '5.20 AU' },
+      { key: 'saturn',   label: '土星',   au: 9.58, r: 0.84,  dist: '9.58 AU' },
+      { key: 'uranus',   label: '天王星', au: 19.2, r: 0.36,  dist: '19.2 AU' },
+      { key: 'neptune',  label: '海王星', au: 30.1, r: 0.35,  dist: '30.1 AU' },
     ];
+    // 半径显示放大系数：真实比例下行星过小不可见，统一放大让肉眼可辨且保持相对比例
+    const SIZE_SCALE = 22;
 
     const viz = new Spacekit.Simulation(document.getElementById('main-container'), {
       basePath: './',
-      unitsPerAu: 100.0,
-      camera: { initialPosition: [0, 28, 60], enableDrift: true },
+      unitsPerAu: 100.0,              // 1 AU = 100 单位 -> 轨道距离符合真实AU比
+      camera: { initialPosition: [150, 110, 220], enableDrift: true }, // 拉远相机看完整太阳系
     });
 
     viz.createStars();
-    viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
     viz.createAmbientLight();
     viz.createLight([0, 0, 0]);
 
-    // 创建行星，绑定 label 名称，记录引用
-    // 注意：preset 内含 Ephem 类实例，不能 JSON 深拷贝(会破坏)，必须直接引用预设再叠加 labelText
+    // ===== 创建天体：太阳用Sprite，行星用 createSphere(3D球体Mesh, 可拾取) =====
     const objects = {};
-    PLANETS.forEach(p => {
-      if (p.key === 'sun') return; // 太阳已在上面创建
+
+    // 太阳(静态Sprite, 带辉光)
+    objects.sun = viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
+
+    PLANETS.filter(p => p.key !== 'sun').forEach(p => {
       const preset = Spacekit.SpaceObjectPresets[p.key.toUpperCase()];
       if (!preset) return;
-      const name = p.label;
-      let obj = null, id = 0;
-      // 逐个尝试：直接 ref preset (保持 Ephem) + labelText
+      const radius = Math.max(p.r * SIZE_SCALE, 0.4); // 保证最小可点击
       try {
-        obj = viz.createObject(p.key, Object.assign({}, preset, { labelText: name }));
+        objects[p.key] = viz.createSphere(p.key, {
+          textureUrl: './assets/textures/' + p.key + '.jpg',
+          radius: radius,                                   // 真实半径比例 x 放大系数
+          ephem: preset.ephem,                              // 真实AU轨道
+          levelsOfDetail: [
+            { radii: 0, segments: 48 },
+            { radii: 80, segments: 24 },
+            { radii: 160, segments: 12 },
+          ],
+          labelText: p.label,   // 名称标签
+        });
       } catch (e) {
-        // 兜底：纯 preset，无 label
-        try { obj = viz.createObject(p.key, preset); } catch (e2) {}
+        console.warn('创建' + p.label + '失败', e);
+        // 兜底：用原始preset对象
+        try { objects[p.key] = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) {}
       }
-      objects[p.key] = obj;
     });
-    objects.sun = null;
 
-    // ===== 控制速度：默认太快，调慢 =====
-    // setJdPerSecond: 每秒推进天数。0.5 天/秒 便于观察
-    try { viz.setJdPerSecond(0.5); } catch (e) { console.warn('setJdPerSecond 不可用'); }
+    // ===== 控制速度 =====
+    try { viz.setJdPerSecond(5); } catch (e) {}  // 5天/秒，慢速以便观察和点击
 
-    // 隐藏 loading
+    // 隐藏 loading，暴露THREE
     setTimeout(() => {
       const l = document.getElementById('loading');
       if (l) l.style.display = 'none';
       window.THREE = Spacekit.THREE;
-    }, 500);
+      buildMeshMap();
+    }, 600);
 
-    // ===== 点击拾取 + 信息面板(Raycaster) =====
-    (function init() {
+    // ===== 点击拾取(Raycaster on Mesh球体) =====
+    const meshMap = new Map();
+    function buildMeshMap() {
+      meshMap.clear();
+      Object.keys(objects).forEach(k => {
+        const obj = objects[k];
+        if (!obj || !obj.get3jsObjects) return;
+        let list = [];
+        try { list = obj.get3jsObjects() || []; } catch (e) { return; }
+        const root = list[0];
+        if (!root) return;
+        // 递归收集所有子Mesh映射到该key
+        if (root.traverse) {
+          root.traverse(ch => { if (ch && ch.isMesh) meshMap.set(ch, k); });
+        } else {
+          meshMap.set(root, k);
+        }
+        meshMap.set(root, k);
+      });
+    }
+
+    (function initInteractions() {
       const canvas = viz.getSimulationElement();
       if (!canvas) return;
-      const scene = viz.getScene();
       const camera = viz.getViewer().getCamera();
       const TH = Spacekit.THREE;
       const raycaster = new TH.Raycaster();
       const pointer = new TH.Vector2();
 
-      // 建立 mesh -> 行星 key 映射（get3jsObjects 同步返回，第一个是行星本体）
-      const meshMap = new Map();
-      function buildMeshMap() {
-        meshMap.clear();
-        Object.keys(objects).forEach(k => {
-          const obj = objects[k];
-          if (!obj || !obj.get3jsObjects) return;
-          let list = [];
-          try { list = obj.get3jsObjects() || []; } catch (e) { return; }
-          const root = list[0];
-          if (!root) return;
-          // 递归收集所有 mesh 都映射到该 key
-          root.traverse(ch => {
-            if (ch && ch.isMesh !== false) meshMap.set(ch, k);
-          });
-          meshMap.set(root, k);
-        });
-      }
-      // 延迟到对象初始化后建立映射
-      setTimeout(buildMeshMap, 800);
-      setInterval(() => { if (meshMap.size === 0) buildMeshMap(); }, 2000);
-
       let downPos = null, moved = false;
       canvas.addEventListener('pointerdown', e => { downPos = {x:e.clientX,y:e.clientY}; moved = false; });
       canvas.addEventListener('pointermove', e => {
-        if (downPos) {
-          const dx = e.clientX-downPos.x, dy = e.clientY-downPos.y;
-          if (Math.abs(dx)+Math.abs(dy) > 6) moved = true;
-        }
+        if (downPos) { const dx=e.clientX-downPos.x, dy=e.clientY-downPos.y; if (Math.abs(dx)+Math.abs(dy)>6) moved=true; }
         try {
           const rect = canvas.getBoundingClientRect();
           pointer.x = ((e.clientX-rect.left)/rect.width)*2-1;
@@ -172,7 +173,6 @@
           raycaster.setFromCamera(pointer, camera);
           const hits = raycaster.intersectObjects(Array.from(meshMap.keys()), true);
           if (hits.length > 0) {
-            // 从命中的 mesh 反查 key（含父级）
             let node = hits[0].object, key = null;
             while (node) {
               if (meshMap.has(node)) { key = meshMap.get(node); break; }
@@ -186,9 +186,10 @@
 
       function showInfo(key) {
         const info = PLANETS.find(p => p.key === key);
+        if (!info) return;
         const panel = document.getElementById('info-panel');
-        document.getElementById('ip-name').textContent = info ? info.label : key;
-        document.getElementById('ip-dist').textContent = info ? info.dist : '-';
+        document.getElementById('ip-name').textContent = info.label;
+        document.getElementById('ip-dist').textContent = info.dist;
         const obj = objects[key];
         let posTxt = '-';
         if (obj && obj.getPosition) {
