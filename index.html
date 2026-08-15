@@ -185,7 +185,7 @@
             // 轨道半径≈地球半径×3.5≈5.8单位, 月球紧绕地球不会飘远。
             var moonOrbitAU = (earthFinal * 3.5) / 100; // 场景单位→AU
             obj = viz.createSphere(p.key, {
-              textureUrl: './assets/textures/moon-hi.jpg',
+              textureUrl: './assets/textures/moon.jpg',
               radius: moonR/100,
               ephem: new Spacekit.Ephem({
                 GM: 3986e11,
@@ -206,7 +206,7 @@
         } else {
           try {
             obj = viz.createSphere(p.key, {
-              textureUrl: './assets/textures/'+p.key+'-hi.jpg',
+              textureUrl: './assets/textures/'+p.key+'.jpg',
               radius: radiusToPass,
               ephem: preset.ephem,
               levelsOfDetail: [{radii:0,segments:48},{radii:40,segments:24},{radii:80,segments:12}],
@@ -443,6 +443,7 @@
           var HI = './assets/textures/'+key+'-hi.jpg';
           setTexture(key, HI, function(){ texLoaded[key]=HI; });
         }
+        // 远近切换: 远看低清(加载快), 拉近行星才切高清
         function checkTextures(){
           if (!viz || !viz.getViewer) return;
           var cam, camPos=null; try { cam=viz.getViewer().get3jsCamera(); camPos=cam.position; } catch(e){ return; }
@@ -454,8 +455,8 @@
             var r = planetRadius(p.key);
             var HI = './assets/textures/'+p.key+'-hi.jpg';
             var LO = './assets/textures/'+p.key+'.jpg';
-            // 拉近到行星半径的若干倍内(即将穿不进去)才切高清; 离远回低清
-            var hiThresh = Math.max(40, r*20); // 保证木星/土星等大行星也有合理阈值
+            // 拉近行星(临近穿不进/表面附近)才切高清; 离远回低清
+            var hiThresh = Math.max(40, r*20);
             if (d < hiThresh && texLoaded[p.key]!==HI){ setTexture(p.key, HI, function(){ texLoaded[p.key]=HI; }); }
             else if (d >= hiThresh && texLoaded[p.key]!==LO){ setTexture(p.key, LO, function(){ texLoaded[p.key]=LO; }); }
           });
