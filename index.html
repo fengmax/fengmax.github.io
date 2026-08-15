@@ -114,6 +114,9 @@
       { key:'earth',   label:'地球',   color:'#3a86ff', au:1.00, diameter:12742,
         desc:'我们的家园，太阳系目前已知唯一孕育生命的星球。表面71%被液态水覆盖，拥有适宜的大气层和强大的磁场。',
         earthAU:'1.0 AU', temp:'平均 15℃', orb:'29.8 km/s', rot:'23.9小时', per:'365.25天', diamTxt:'直径 12742 km' },
+      { key:'moon',     label:'月球',   color:'#c9c9c9', au:0.00257, diameter:3475,
+        desc:'地球唯一的天然卫星，也是人类唯一踏足过的外星体。因潮汐锁定总是同一面朝向地球，表面布满陨石坑，其引力是地球海洋潮汐的源泉。',
+        earthAU:'约 38.4 万 km', temp:'白天 127℃ / 夜间 -173℃', orb:'绕地球 1.02 km/s', rot:'27.3天(潮汐锁定)', per:'27.3天(恒星月)', diamTxt:'直径 3475 km' },
       { key:'mars',    label:'火星',   color:'#e05d3f', au:1.52, diameter:6779,
         desc:'红色星球，因表面富含氧化铁呈现锈红色。拥有太阳系最高的火山(奥林帕斯山,高2.2万米)和最大的峡谷(水手号峡谷)。',
         earthAU:'约0.52 AU', temp:'平均 -63℃', orb:'24.1 km/s', rot:'24.6小时', per:'687天', diamTxt:'直径 6779 km' },
@@ -187,6 +190,7 @@
         });
 
         // 2) 绑定3D里的SpaceKit label点击(文字匹配)
+        //    月球label可能被遮挡, 仍按文字绑定
         function bindLabels(){
           var labels = document.querySelectorAll('.spacekit__object-label');
           Array.prototype.forEach.call(labels, function(lb){
@@ -211,7 +215,7 @@
           document.getElementById('ip-dot').style.color = info.color;
           document.getElementById('ip-name').textContent = info.label;
           document.getElementById('ip-desc').textContent = info.desc;
-          document.getElementById('ip-dist').textContent = key==='sun' ? '中心' : info.au + ' AU（'+(info.au*1.496)+'亿km）';
+          document.getElementById('ip-dist').textContent = (key==='sun') ? '中心' : (key==='moon' ? '绕地球运行' : info.au + ' AU（'+(info.au*1.496)+'亿km）');
           document.getElementById('ip-earth').textContent = info.earthAU;
           document.getElementById('ip-temp').textContent = info.temp;
           document.getElementById('ip-orb').textContent = info.orb;
