@@ -175,8 +175,13 @@
         var obj = null;
         if (p.key==='moon') {
           try {
-            // 月球球体: 相对地球(半径60)约0.25倍, 可见但不至显眼
-            var moonR = 16;
+            // 月球球体: 严格按真实直径对比地球(月球/地球直径比约0.273)。
+            // 地球最终半径在上面按比例算出来是 finalRadius 对应值;
+            // 此处用地球半径 × 0.273, 保证比例真实。
+            var earthFinal = Math.max(SUN_RADIUS * (12742 / SUN_DIAMETER_KM) * BOOST, 0.6);
+            var moonFinal = earthFinal * (3475 / 12742);
+            // 视觉折中: 轨道在球外(约90单位), 球体太小会看不见, 轻微放大但保持远小于地球
+            var moonR = Math.max(moonFinal, earthFinal * 0.35);
             obj = viz.createSphere(p.key, {
               textureUrl: './assets/textures/moon.jpg',
               radius: moonR/100,
@@ -310,29 +315,31 @@
         bindLabels();
         setInterval(bindLabels, 400);
 
-        // 3) 按距离换纹理(远=低清, 近=高清) — 正确处理LOD
+        // 3) 按距离换纹理(远=低清, 近=高清) — 替换所有LOD层的材质贴图
         var texLoaded = {};
         function setTexture(key, url){
           var obj = objects[key]; if (!obj) return;
-          var done = false;
-          // 递归遍历整棵对象树找带map的材质
+          var roots = [];
           try {
-            var root = obj.get3jsObjects()[0];
-            if (!root) return;
-            root.traverse(function(n){
-              if (done || !n || !n.material) return;
-              var mm = Array.isArray(n.material) ? n.material : [n.material];
-              mm.forEach(function(mi){
-                if (done || !mi) return;
-                if (mi.map || mi.isMeshBasicMaterial || mi.isMeshLambertMaterial || mi.isMeshPhongMaterial || mi.isMeshStandardMaterial){
-                  done = true;
-                  new THREE.TextureLoader().load(url, function(tex){
-                    try { mi.map = tex; mi.needsUpdate = true; } catch(e){}
-                  });
-                }
-              });
-            });
+            // LOD结构: get3jsObjects()[0]可能是LOD, 递归所有children
+            var root0 = obj.get3jsObjects()[0];
+            roots.push(root0);
           } catch(e){}
+          roots.push(obj);
+          var loader = new THREE.TextureLoader();
+          loader.load(url, function(tex){
+            tex.anisotropy = 4;
+            roots.forEach(function(root){
+              if (!root) return;
+              try {
+                root.traverse(function(n){
+                  if (!n || !n.material) return;
+                  var mm = Array.isArray(n.material) ? n.material : [n.material];
+                  mm.forEach(function(mi){ if(mi){ try{ mi.map=tex; mi.needsUpdate=true; }catch(e){} } });
+                });
+              } catch(e){}
+            });
+          });
         }
         function checkTextures(){
           if (!viz || !viz.getViewer) return;
@@ -344,12 +351,13 @@
             var d = camPos.distanceTo(pos);
             var HI = './assets/textures/'+p.key+'-hi.jpg';
             var LO = './assets/textures/'+p.key+'.jpg';
-            // 阈值: 视距小于120(场景单位)切高清
-            if (d < 120 && texLoaded[p.key]!==HI){ setTexture(p.key, HI); texLoaded[p.key]=HI; }
-            else if (d >= 120 && texLoaded[p.key]!==LO){ setTexture(p.key, LO); texLoaded[p.key]=LO; }
+            // 阈值: 场景单位(行星半径几~几十)。聚焦后距离为PlanetDist(20~120),
+            // 靠近行星表面时距离很小(几单位), 用 150 作为切换线。
+            if (d < 150 && texLoaded[p.key]!==HI){ setTexture(p.key, HI); texLoaded[p.key]=HI; }
+            else if (d >= 150 && texLoaded[p.key]!==LO){ setTexture(p.key, LO); texLoaded[p.key]=LO; }
           });
         }
-        setInterval(checkTextures, 700);
+        setInterval(checkTextures, 500);
 
         // 4) 信息面板
         function showInfo(key){
