@@ -1080,12 +1080,26 @@
                       desiredWorld.copy(earthWorld).add(dir.multiplyScalar(minDist));
                     }
 
-                    // convert desired world position to moonMesh parent-local coordinates if needed
+                    // Ensure moon is placed using absolute world coordinates to avoid parent transform issues.
                     try {
-                      var parent = moonMesh.parent;
-                      var localPos = desiredWorld.clone();
-                      if (parent && typeof parent.worldToLocal === 'function') parent.worldToLocal(localPos);
-                      moonMesh.position.copy(localPos);
+                      // Try to reparent moon to scene root so moonMesh.position is world position
+                      var sceneRoot = null;
+                      try {
+                        if (viz && viz.getViewer && typeof viz.getViewer === 'function') {
+                          var viewer = viz.getViewer();
+                          if (viewer && typeof viewer.get3jsScene === 'function') sceneRoot = viewer.get3jsScene();
+                        }
+                      } catch (e) { sceneRoot = null; }
+
+                      try {
+                        if (sceneRoot && moonMesh.parent && moonMesh.parent !== sceneRoot && typeof moonMesh.parent.remove === 'function') {
+                          try { moonMesh.parent.remove(moonMesh); } catch (e) {}
+                          try { sceneRoot.add(moonMesh); } catch (e) {}
+                        }
+                      } catch (e) {}
+
+                      // Set world position directly
+                      try { moonMesh.position.set(desiredWorld.x, desiredWorld.y, desiredWorld.z); } catch (e) { moonMesh.position.copy(desiredWorld); }
                     } catch (e) { try { moonMesh.position.set(desiredWorld.x, desiredWorld.y, desiredWorld.z); } catch (e) {} }
 
                     
