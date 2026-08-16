@@ -557,6 +557,95 @@
       neptune: 85
     };
 
+    // ============================================================
+    //  2.5 月球轨道根数 (简化的开普勒模型,基于 J2000.0 历元)
+    // ============================================================
+    //  说明: 真实月球轨道偏心率/倾角/近拱点/升交点都随时间变化。
+    //        这里采用平均根数 + 线性进动,得到"看起来真实、跑起来稳定"的简化模型。
+    //  周期: 恒星月 27.321661 天; 倾角: 对黄道约 5.145°;
+    //  升交点退行 18.6 年/周,近拱点进动 8.85 年/周。
+    var MOON_ORBIT = {
+      period: 27.321661,         // 恒星月周期(天)
+      semiMajorAxis: 12,         // 半长轴(可视化单位,等于月球轨道平均半径)
+      eccentricity: 0.0549,      // 轨道偏心率
+      inclination: 5.145,        // 相对黄道面的倾角(度)
+      nodePeriod: 6798.4,        // 升交点退行周期(天) ≈ 18.6 年
+      perigeePeriod: 3232.4,     // 近拱点进动周期(天) ≈ 8.85 年
+      // J2000.0 (JD 2451545.0) 时刻的初始角(度)
+      M0: 218.316,               // 平近点角初值(Meeus)
+      node0: 125.045,            // 升交点黄经初值
+      argPeri0: 83.353,          // 近拱点幅角初值
+      epoch: 2451545.0           // 历元 = J2000
+    };
+
+    // 解开普勒方程: M = E - e * sin(E)   (牛顿迭代)
+    function solveKeplerEquation(M, e) {
+      var E = M;
+      for (var i = 0; i < 12; i++) {
+        var f = E - e * Math.sin(E) - M;
+        var fp = 1 - e * Math.cos(E);
+        var dE = f / fp;
+        E = E - dE;
+        if (Math.abs(dE) < 1e-12) break;
+      }
+      return E;
+    }
+
+    // 计算月球相对地球的位置 + 当时轨道几何
+    // 公式采用 Meeus《天文算法》:x = r[cosΩ cos u - sinΩ sin u cos i] 等
+    function computeMoonOrbitState(simJd) {
+      var cfg = MOON_ORBIT;
+      var d = simJd - cfg.epoch;   // 距 J2000.0 的天数
+      // 平近点角 (度,归一化到 [0, 360))
+      var Mdeg = ((cfg.M0 + 360 * d / cfg.period) % 360 + 360) % 360;
+      var M = THREE.MathUtils.degToRad(Mdeg);
+      // 近拱点幅角 ω
+      var argPeriDeg = ((cfg.argPeri0 + 360 * d / cfg.perigeePeriod) % 360 + 360) % 360;
+      var argPeri = THREE.MathUtils.degToRad(argPeriDeg);
+      // 升交点黄经 Ω (退行 → 减号)
+      var nodeDeg = ((cfg.node0 - 360 * d / cfg.nodePeriod) % 360 + 360) % 360;
+      var node = THREE.MathUtils.degToRad(nodeDeg);
+      // 倾角 i
+      var incl = THREE.MathUtils.degToRad(cfg.inclination);
+
+      var e = cfg.eccentricity;
+      var a = cfg.semiMajorAxis;
+
+      // 1) 牛顿迭代求偏近点角 E
+      var E = solveKeplerEquation(M, e);
+      var cosE = Math.cos(E), sinE = Math.sin(E);
+      var sqrtOneMinusE2 = Math.sqrt(1 - e * e);
+
+      // 2) 轨道平面坐标(近日点方向 = +x,法向 = +z)
+      var xOrb = a * (cosE - e);
+      var yOrb = a * sqrtOneMinusE2 * sinE;
+      var r = Math.sqrt(xOrb * xOrb + yOrb * yOrb);
+
+      // 3) 真近点角 ν → u = ω + ν(从升交点起算的辐角)
+      var nu = Math.atan2(yOrb, xOrb);
+      var u = nu + argPeri;
+      var cosU = Math.cos(u), sinU = Math.sin(u);
+      var cosO = Math.cos(node), sinO = Math.sin(node);
+      var cosI = Math.cos(incl), sinI = Math.sin(incl);
+
+      // 4) Meeus 公式: 轨道面 → 黄道参考系(地心)
+      //    x = r [ cosΩ cos u − sinΩ sin u cos i ]
+      //    y = r [ sinΩ cos u + cosΩ sin u cos i ]
+      //    z = r [ sin u sin i ]
+      var relX = r * (cosU * cosO - sinU * sinO * cosI);
+      var relY = r * (sinU * cosO + cosU * sinO * cosI);
+      var relZ = r * (sinU * sinI);
+
+      return {
+        relX: relX, relY: relY, relZ: relZ,
+        r: r,
+        nu: nu, u: u,
+        node: node, incl: incl, argPeri: argPeri,
+        cosO: cosO, sinO: sinO, cosI: cosI, sinI: sinI,
+        a: a, e: e, sqrtOneMinusE2: sqrtOneMinusE2
+      };
+    }
+
     function hideLoading() {
       var l = document.getElementById('loading');
       if (l) l.style.display = 'none';
@@ -596,9 +685,11 @@
         if (p.key === 'moon') {
           try {
             var earthFinal = Math.max(SUN_RADIUS * (12742 / SUN_DIAMETER_KM) * BOOST, 0.6);
-            // Moon radius: correct proportion relative to Earth (3475/12742 of Earth's visual size)
-            var moonRadiusScaled = (earthFinal / 100) * (3475 / 12742);  // Same scale as Earth
-            var moonR = Math.max(moonRadiusScaled, 0.5);  // Minimum visible size
+            // Moon radius: 真实比例 3475/12742 ≈ 0.273,因地球已 BOOST 3 倍、可视直径偏小,
+            // 真实显示出来会几乎看不见。叠 1 个适度放大系数并设 0.12 下限,让月球看起来
+            // 大约是地球直径的 1/7 倍(原本 ~60 倍太大,缩小到 ~7 倍)。
+            var moonRadiusScaled = (earthFinal / 100) * (3475 / 12742);
+            var moonR = Math.max(moonRadiusScaled * 1.0, 0.12);  // 0.5 → 0.12,小巧清晰
             // Create moon as simple sphere WITHOUT ephemeris - orbit will be managed by updateMoonOrbit()
             obj = viz.createSphere(p.key, {
               textureUrl: './assets/textures/moon.jpg',
@@ -696,20 +787,74 @@
           step();
         }
 
-        // Ensure a visible orbit ring for the moon (added as child of earthMesh)
-        function ensureMoonOrbitRing(earthMesh, radius) {
-          // Disabled: remove any existing moon orbit ring and do not create new one
+        // 绘制/更新月球轨道环 (跟随地球 + 当前轨道平面方向)
+        //   state 由 computeMoonOrbitState(simJd) 给出,内含 ω/i/Ω/a/e 等根数
+        //   earthPos 为地球当前的世界坐标(THREE.Vector3)
+        //   环用 LineLoop 沿轨道平面真椭圆采样绘制,与实际月球轨道共面
+        function ensureMoonOrbitRing(state, earthPos) {
           try {
-            if (moonOrbitRing) {
-              try {
-                if (moonOrbitRing.parent && typeof moonOrbitRing.parent.remove === 'function') moonOrbitRing.parent.remove(moonOrbitRing);
-              } catch (e) {}
-              try { moonOrbitRing.geometry && moonOrbitRing.geometry.dispose(); } catch (e) {}
-              try { moonOrbitRing.material && moonOrbitRing.material.dispose(); } catch (e) {}
-              moonOrbitRing = null;
+            if (!viz || !state || !earthPos) return;
+            var sceneRoot = null;
+            try {
+              var viewer = viz.getViewer && viz.getViewer();
+              if (viewer && typeof viewer.get3jsScene === 'function') sceneRoot = viewer.get3jsScene();
+            } catch (e) {}
+            if (!sceneRoot) return;
+
+            var N = 128;                                  // 轨道环采样点数
+            if (!moonOrbitRing || !moonOrbitRing.geometry || !moonOrbitRing.geometry.attributes) {
+              // 首次创建:顶点用动态数组,LineLoop 头尾由 LineLoop 自身处理,我们预留 N+1 个点首尾重合
+              var positions = new Float32Array((N + 1) * 3);
+              var geo = new THREE.BufferGeometry();
+              geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+              var mat = new THREE.LineBasicMaterial({
+                color: 0x9fc8ff,        // 月光蓝灰
+                transparent: true,
+                opacity: 0.55,
+                depthWrite: false
+              });
+              moonOrbitRing = new THREE.LineLoop(geo, mat);
+              moonOrbitRing.renderOrder = 5;
+              moonOrbitRing.frustumCulled = false;
+              sceneRoot.add(moonOrbitRing);
             }
-          } catch (e) {}
-          return null;
+
+            // 抽取根数,按当前轨道平面绘制椭圆
+            var argPeri = state.argPeri;
+            var node = state.node;
+            var incl = state.incl;
+            var a = state.a, e = state.e, sqrtOneMinusE2 = state.sqrtOneMinusE2;
+            var cosO = Math.cos(node), sinO = Math.sin(node);
+            var cosI = Math.cos(incl), sinI = Math.sin(incl);
+
+            var pos = moonOrbitRing.geometry.attributes.position.array;
+            for (var i = 0; i <= N; i++) {
+              // 用真近点角 ν ∈ [0, 2π] 沿椭圆线积分
+              var nu = (i / N) * Math.PI * 2;
+              var cosNu = Math.cos(nu), sinNu = Math.sin(nu);
+              // 椭圆轨道上从焦点出发: xF = a(cosE − e), yF = a√(1-e²) sinE
+              // 为绘制整圈椭圆,直接用 ν 得 r = a(1-e²)/(1+e cos ν)
+              var rRing = a * (1 - e * e) / (1 + e * cosNu);
+              // u = ω + ν(从升交点起算)
+              var uRing = nu + argPeri;
+              var cosURing = Math.cos(uRing), sinURing = Math.sin(uRing);
+              // Meeus 公式 → 地球参考系下相对地球的坐标
+              var dx = rRing * (cosURing * cosO - sinURing * sinO * cosI);
+              var dy = rRing * (sinURing * cosO + cosURing * sinO * cosI);
+              var dz = rRing * (sinURing * sinI);
+              pos[i * 3 + 0] = earthPos.x + dx;
+              pos[i * 3 + 1] = earthPos.y + dy;
+              pos[i * 3 + 2] = earthPos.z + dz;
+            }
+            // 最后一点重合到首点,确保闭环(虽然 LineLoop 会自动闭合,但显式合上以防万一)
+            pos[N * 3 + 0] = pos[0];
+            pos[N * 3 + 1] = pos[1];
+            pos[N * 3 + 2] = pos[2];
+            moonOrbitRing.geometry.attributes.position.needsUpdate = true;
+            moonOrbitRing.geometry.computeBoundingSphere();
+          } catch (e) {
+            console.warn('Moon orbit ring update failed:', e);
+          }
         }
 
         function planetRadius(key) {
@@ -1002,7 +1147,7 @@
         function updateMoonOrbit() {
           if (!viz || !objects.earth || !objects.moon) return;
           try {
-            // Prefer using the viz's current JD (which should be kept in sync by syncSimulationTime)
+            // 优先使用 viz 的当前 JD(由 syncSimulationTime 持续同步)
             var simJd = null;
             try {
               if (typeof viz.getJd === 'function') simJd = viz.getJd();
@@ -1012,158 +1157,65 @@
             }
             if (simJd === null || simJd === undefined) simJd = toJd(new Date());
 
-            // Get Earth and Moon objects
             var moonObj = objects.moon;
             var earthObj = objects.earth;
             var moonMesh = moonObj.get3jsObjects && moonObj.get3jsObjects()[0];
             var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
-            
-            // Skip ephem-based calculation and use direct orbit calculation
-            if (false) {
+            if (!moonMesh || !earthMesh) return;
+
+            // 地球当前世界位置
+            var earthPos = new THREE.Vector3();
+            try { earthMesh.getWorldPosition(earthPos); } catch (e) { earthPos.set(0, 0, 0); }
+
+            // 计算月球轨道状态(开普勒根数 → 相对地球坐标 + 轨道几何)
+            var state = computeMoonOrbitState(simJd);
+
+            // 确保月球 mesh 是 scene root 的直接子节点,
+            // 这样 moonMesh.position 即世界坐标,与父变换无关
+            try {
+              var sceneRoot = null;
               try {
-                var mp = moonObj.getPosition(simJd);
-                // Also get earth position at same JD so we can position the moon relative to earth
-                var ep = null;
-                try { if (earthObj && typeof earthObj.getPosition === 'function') ep = earthObj.getPosition(simJd); } catch (e) {}
-                // If we have both positions, compute relative vector and set moon world position
-                if (mp && mp.length >= 3 && moonMesh) {
-                  if (ep && ep.length >= 3) {
-                    var relX = mp[0] - ep[0];
-                    var relY = mp[1] - ep[1];
-                    var relZ = mp[2] - ep[2];
-
-                    // desired world position computed from ephemeris
-                    var desiredWorld = new THREE.Vector3(ep[0] + relX, ep[1] + relY, ep[2] + relZ);
-
-                    // try to get earth rendered/world position for distance checks
-                    var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
-                    var earthWorld = new THREE.Vector3();
-                    if (earthMesh && typeof earthMesh.getWorldPosition === 'function') {
-                      try { earthMesh.getWorldPosition(earthWorld); } catch (e) { earthWorld.set(ep[0], ep[1], ep[2]); }
-                    } else {
-                      earthWorld.set(ep[0], ep[1], ep[2]);
-                    }
-
-                    // determine rendered radii by searching descendant meshes for geometry
-                    function computeRenderedRadius(rootMesh, fallbackKey) {
-                      try {
-                        var found = null;
-                        rootMesh.traverse && rootMesh.traverse(function(n) {
-                          if (found) return;
-                          if (n && n.geometry) { found = n; }
-                        });
-                        var geom = found && found.geometry;
-                        if (geom) {
-                          if (!geom.boundingSphere) geom.computeBoundingSphere();
-                          var bs = geom.boundingSphere.radius || 0;
-                          // compute approximate world scale (use rootMesh.scale as conservative estimate)
-                          var s = (rootMesh.scale && rootMesh.scale.x) ? rootMesh.scale.x : 1;
-                          // if found has its own scale, factor that too
-                          try { if (found && found.scale && found.scale.x) s = s * found.scale.x; } catch (e) {}
-                          return bs * s;
-                        }
-                      } catch (e) {}
-                      // fallback: planetRadius was computed using a different unit (pre-divided by 100 when creating sphere)
-                      try { return (planetRadius(fallbackKey) || 1) / 100.0; } catch (e) { return 0.5; }
-                    }
-
-                    var earthRadiusRendered = computeRenderedRadius(earthMesh, 'earth');
-                    var moonRadiusRendered = computeRenderedRadius(moonMesh, 'moon');
-
-                    var minDist = earthRadiusRendered + moonRadiusRendered + 0.5; // increased visual gap
-                    var actualDist = desiredWorld.distanceTo(earthWorld);
-                    if (actualDist < minDist) {
-                      // push moon outward along ephemeris relative direction to enforce visibility
-                      var dir = new THREE.Vector3(relX, relY, relZ);
-                      if (dir.lengthSq() === 0) dir.set(1, 0, 0);
-                      dir.normalize();
-                      desiredWorld.copy(earthWorld).add(dir.multiplyScalar(minDist));
-                    }
-
-                    // Ensure moon is placed using absolute world coordinates to avoid parent transform issues.
-                    try {
-                      // Try to reparent moon to scene root so moonMesh.position is world position
-                      var sceneRoot = null;
-                      try {
-                        if (viz && viz.getViewer && typeof viz.getViewer === 'function') {
-                          var viewer = viz.getViewer();
-                          if (viewer && typeof viewer.get3jsScene === 'function') sceneRoot = viewer.get3jsScene();
-                        }
-                      } catch (e) { sceneRoot = null; }
-
-                      try {
-                        if (sceneRoot && moonMesh.parent && moonMesh.parent !== sceneRoot && typeof moonMesh.parent.remove === 'function') {
-                          try { moonMesh.parent.remove(moonMesh); } catch (e) {}
-                          try { sceneRoot.add(moonMesh); } catch (e) {}
-                        }
-                      } catch (e) {}
-
-                      // Set world position directly
-                      try { moonMesh.position.set(desiredWorld.x, desiredWorld.y, desiredWorld.z); } catch (e) { moonMesh.position.copy(desiredWorld); }
-                    } catch (e) { try { moonMesh.position.set(desiredWorld.x, desiredWorld.y, desiredWorld.z); } catch (e) {} }
-
-                    
-
-                    // create/update a visible orbit ring around earth to make moon orbit obvious
-                    try {
-                      var earthMeshForRing = earthMesh;
-                      var orad = Math.sqrt(relX*relX + relY*relY + relZ*relZ);
-                      ensureMoonOrbitRing(earthMeshForRing, orad);
-                    } catch (e) {}
-                  } else {
-                    // no earth ephem available — fallback to world placement
-                    try { moonMesh.position.set(mp[0], mp[1], mp[2]); } catch (e) {}
-                  }
-                }
+                var viewer = viz && viz.getViewer();
+                if (viewer && typeof viewer.get3jsScene === 'function') sceneRoot = viewer.get3jsScene();
               } catch (e) {}
-            } else if (earthMesh && moonMesh) {
-              // Calculate moon orbit around Earth in world coordinates
-              var earthPos = new THREE.Vector3();
-              earthMesh.getWorldPosition(earthPos);
-              
-              // Moon orbital period: 27.321661 days
-              var moonPeriodDays = 27.321661;
-              var moonAngle = ((simJd % moonPeriodDays) / moonPeriodDays) * Math.PI * 2;
-              
-              // Orbital radius: 12 units (scaled for visualization)
-              var orbitRadius = 12;
-              
-              // Calculate moon position in orbital plane
-              var x = Math.cos(moonAngle) * orbitRadius;
-              var z = Math.sin(moonAngle) * orbitRadius;
-              // Small inclination to orbital plane
-              var y = Math.sin(moonAngle * 0.3) * 1.2;
-              
-              // Set moon position in world coordinates (relative to Earth)
-              try {
-                moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z);
-              } catch (e) {}
+              if (sceneRoot && moonMesh.parent && moonMesh.parent !== sceneRoot &&
+                  typeof moonMesh.parent.remove === 'function' &&
+                  typeof sceneRoot.add === 'function') {
+                try { moonMesh.parent.remove(moonMesh); } catch (e) {}
+                try { sceneRoot.add(moonMesh); } catch (e) {}
+              }
+            } catch (e) {}
+
+            // 设置月球世界位置 = 地球世界位置 + (relX, relY, relZ)
+            var moonWorld = new THREE.Vector3(
+              earthPos.x + state.relX,
+              earthPos.y + state.relY,
+              earthPos.z + state.relZ
+            );
+            try { moonMesh.position.copy(moonWorld); } catch (e) {
+              try { moonMesh.position.set(moonWorld.x, moonWorld.y, moonWorld.z); } catch (e) {}
             }
 
-            // ensure moon mesh visible and renderable
+            // 同步更新月球轨道环 (state 驱动)
+            ensureMoonOrbitRing(state, earthPos);
+
+            // 确保月球可见
             try {
-              if (moonMesh) {
-                moonMesh.visible = true;
-                if (moonMesh.material) {
-                  try { moonMesh.material.opacity = 1; moonMesh.material.transparent = false; } catch (e) {}
-                }
+              moonMesh.visible = true;
+              if (moonMesh.material) {
+                try { moonMesh.material.opacity = 1; moonMesh.material.transparent = false; } catch (e) {}
               }
             } catch (e) {}
 
-            // Tide-lock the moon to face the earth (avoid artificial fast spin)
-            // If precise moon rotation is enabled, we will handle orientation elsewhere.
+            // 潮汐锁定: 让月球近地面朝向地球 (applyPreciseMoonRotation 会接管更精确的版本)
             try {
-              if (!usePreciseMoonRotation) {
-                var earthMeshForLook = null;
-                try { earthMeshForLook = earthObj.get3jsObjects && earthObj.get3jsObjects()[0]; } catch (e) {}
-                if (earthMeshForLook && moonMesh && typeof moonMesh.lookAt === 'function') {
-                  var _ep = new THREE.Vector3();
-                  try { earthMeshForLook.getWorldPosition(_ep); } catch (e) {}
-                  try { moonMesh.lookAt(_ep); } catch (e) {}
-                }
+              if (!usePreciseMoonRotation && moonMesh && typeof moonMesh.lookAt === 'function') {
+                moonMesh.lookAt(earthPos);
               }
             } catch (e) {}
-          } catch (e) {}
+          } catch (e) {
+            // ignore
+          }
         }
 
         // 自转步进
