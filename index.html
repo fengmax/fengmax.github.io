@@ -598,20 +598,19 @@
             var earthFinal = Math.max(SUN_RADIUS * (12742 / SUN_DIAMETER_KM) * BOOST, 0.6);
             var moonFinal = earthFinal * (3475 / 12742);
             var moonR = Math.max(moonFinal, 0.5);
-            // Use realistic semi-major axis in AU for the Moon (from PLANETS entry) instead
-            // of a screen-size-derived value which was far too large.
-            var moonOrbitAU = (typeof p !== 'undefined' && p.au) ? p.au : 0.00257;
+            // Moon orbits Earth, not Sun. Use Earth-relative semi-major axis (0.00257 AU ≈ 384,400 km)
+            var moonOrbitAU = 0.00257;
             // Set ephemeris epoch to simulation start date JD so phase matches visualization
             var moonEpoch = (startDate.getTime() / 86400000) + 2440587.5;
             obj = viz.createSphere(p.key, {
               textureUrl: './assets/textures/moon.jpg',
               radius: moonR / 100,
               ephem: new Spacekit.Ephem({
-                GM: 3986e11,
+                GM: 3986004.418e5,
                 epoch: moonEpoch,
                 a: moonOrbitAU,
-                e: 0.05,
-                i: 5.1,
+                e: 0.0549,
+                i: 5.16,
                 om: 125.08,
                 w: 318.15,
                 ma: 135.27,
