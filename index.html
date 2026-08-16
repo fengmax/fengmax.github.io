@@ -86,8 +86,8 @@
       pointer-events: none;
     }
 
-    /* 月球专用 HTML overlay label:跟随月球 mesh 的屏幕投影,固定偏移到月球上方,
-       比 SpaceKit 默认 SVG label 更可控、不与月面重叠。*/
+    /* 月球专用 HTML overlay label:纯文字「月球」,不带任何 emoji(emoji 是擅自加的,已移除)。
+       跟随月球 mesh 的屏幕投影,固定偏移到月球上方。*/
     .moon-overlay-label {
       position: fixed;
       z-index: 16;
@@ -352,7 +352,7 @@
   <div id="title">SOLAR SYSTEM · 3D 宇宙沙盒</div>
   <div id="hint"><b>拖动</b>旋转 · <b>滚轮</b>缩放 · <b>点击行星/名字</b>查看信息</div>
   <div id="main-container"></div>
-  <div class="moon-overlay-label hidden" id="moon-overlay-label" title="点击聚焦月球">🌙 月球</div>
+  <div class="moon-overlay-label hidden" id="moon-overlay-label" title="点击聚焦月球">月球</div>
   <div id="planet-bar"><button id="planethome" title="回到全景">🌌 全景</button></div>
 
   <div id="time-ctl">
@@ -716,12 +716,13 @@
         if (p.key === 'moon') {
           try {
             var earthFinal = Math.max(SUN_RADIUS * (12742 / SUN_DIAMETER_KM) * BOOST, 0.6);
-            // Moon radius: 真实比例 3475/12742 ≈ 0.273,因地球已 BOOST 3 倍、可视直径偏小。
-            // 设下限 0.10 让月球看起来大约是地球直径的 1/7(0.12 → 0.10,更小巧)。
+            // 月球半径严格按真实比例: 3475/12742 ≈ 0.2727(月球直径 / 地球直径)。
+            // 即 月球半径 = 地球半径(earthFinal/100) × 0.2727,与真实地月大小比一致。
+            // 去掉之前人工下限 0.10,回归"参照地球大小"的真实比例。
             var moonRadiusScaled = (earthFinal / 100) * (3475 / 12742);
-            var moonR = Math.max(moonRadiusScaled * 1.0, 0.10);  // 0.5 → 0.12 → 0.10,小巧清晰
+            var moonR = Math.max(moonRadiusScaled, 0.003);  // 真实比例 ≈0.0045,保留极小下限防退化
             // Create moon as simple sphere WITHOUT ephemeris - orbit will be managed by updateMoonOrbit().
-            // 这里不传 labelText,避免 SpaceKit 自动创建 SVG label;label 改用自定义 HTML overlay。
+            // 不传 labelText,也不挂 HTML overlay —— 月球不带任何名字标签(按需求移除)。
             obj = viz.createSphere(p.key, {
               textureUrl: './assets/textures/moon.jpg',
               radius: moonR,
@@ -736,8 +737,7 @@
               } catch (e) {}
             }
           } catch (e) {
-            try { obj = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) { obj =
-              null; }
+            try { obj = viz.createObject(p.key, preset); } catch (e2) { obj = null; }
           }
         } else {
           try {
@@ -774,7 +774,7 @@
         var flyAnimId = null;
         var moonOrbitRing = null;
         var moonOverlayEl = null;         // 月球 HTML overlay label 引用
-        // 初始化月球 overlay label:取 DOM 并绑定点击 → 聚焦月球
+        // 初始化月球 overlay label:取 DOM 并绑定点击 → 聚焦月球(纯文字「月球」,无 emoji)
         try {
           moonOverlayEl = document.getElementById('moon-overlay-label');
           if (moonOverlayEl) {
@@ -1255,7 +1255,7 @@
               }
             } catch (e) {}
 
-            // 月球 HTML overlay label 屏幕投影
+            // 月球 HTML overlay label 屏幕投影(纯文字「月球」,无 emoji)
             // 把月球 mesh 的世界坐标投影到屏幕,然后把 label 摆到月球上方若干像素处
             // 月球在相机背面(z > 1 或 < -1)时隐藏,避免 label 穿到不该去的地方
             try {
