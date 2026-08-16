@@ -849,9 +849,9 @@
               var geo = new THREE.BufferGeometry();
               geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
               var mat = new THREE.LineBasicMaterial({
-                color: 0xbfe2ff,        // 月光蓝 → 偏亮的冰蓝
+                color: 0x9ad4ff,        // 轨道蓝,与行星轨道环视觉语言一致
                 transparent: true,
-                opacity: 0.78,          // 0.55 → 0.78,远距离更易看见
+                opacity: 0.9,           // 提亮,黑色太空背景下清晰可见
                 depthWrite: false
               });
               moonOrbitRing = new THREE.LineLoop(geo, mat);
