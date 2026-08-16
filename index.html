@@ -603,6 +603,7 @@
               textureUrl: './assets/textures/moon.jpg',
               radius: moonR / 40,
               labelText: p.label,
+              position: [12, 0, 0],  // Initial position: 12 units away from Earth
             });
           } catch (e) {
             try { obj = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) { obj =
@@ -1002,10 +1003,11 @@
             }
             if (simJd === null || simJd === undefined) simJd = toJd(new Date());
 
-            // Moon orbit calculation - always use simple orbit relative to Earth
+            // Get Earth and Moon objects
             var moonObj = objects.moon;
             var earthObj = objects.earth;
             var moonMesh = moonObj.get3jsObjects && moonObj.get3jsObjects()[0];
+            var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
             
             // Skip ephem-based calculation and use direct orbit calculation
             if (false) {
@@ -1105,25 +1107,28 @@
                   }
                 }
               } catch (e) {}
-            } else {
-              // Moon orbit calculation: position moon around earth using simJd
-              var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
-              if (!earthMesh || !moonMesh) return;
+            } else if (earthMesh && moonMesh) {
+              // Calculate moon orbit around Earth in world coordinates
               var earthPos = new THREE.Vector3();
               earthMesh.getWorldPosition(earthPos);
+              
+              // Moon orbital period: 27.321661 days
               var moonPeriodDays = 27.321661;
               var moonAngle = ((simJd % moonPeriodDays) / moonPeriodDays) * Math.PI * 2;
-              var orbitRadius = 12;  // Increased from 5.5 to avoid collision with Earth
+              
+              // Orbital radius: 12 units (scaled for visualization)
+              var orbitRadius = 12;
+              
+              // Calculate moon position in orbital plane
               var x = Math.cos(moonAngle) * orbitRadius;
-              var y = Math.sin(moonAngle) * 0.5;  // Slight inclination
-              var z = Math.sin(moonAngle * 0.5) * orbitRadius * 0.3;  // Small out-of-plane component
+              var z = Math.sin(moonAngle) * orbitRadius;
+              // Small inclination to orbital plane
+              var y = Math.sin(moonAngle * 0.3) * 1.2;
+              
+              // Set moon position in world coordinates (relative to Earth)
               try {
-                // parent under earth so local coords represent orbit
-                // place moon in world coords relative to earth position
-                try {
-                  moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z);
-                } catch (e) { moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z); }
-              } catch (e) { moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z); }
+                moonMesh.position.set(earthPos.x + x, earthPos.y + y, earthPos.z + z);
+              } catch (e) {}
             }
 
             // ensure moon mesh visible and renderable
