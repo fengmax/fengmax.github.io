@@ -579,8 +579,8 @@
       sun: 120,
       mercury: 45,
       venus: 60,
-      earth: 65,
-      moon: 68,
+      earth: 22,    // 原 65 → 22:聚焦地球时让相机贴近,月球轨道环(半径≈8)能在屏幕上清晰成环
+      moon: 5,      // 原 68 → 5 :聚焦月球时让月球(R≈0.45)可见,而不是几像素的点
       mars: 55,
       jupiter: 120,
       saturn: 110,
@@ -807,6 +807,9 @@
           if (flyAnimId) { cancelAnimationFrame(flyAnimId);
             flyAnimId = null; }
           try { if (viz && viz.getViewer) viz.getViewer().stopFollowingObject(); } catch (e) {}
+          // 关闭相机漂移:否则 SpaceKit 内部会在每帧把 cam.position 重置回漂移轨道,
+          // 导致 animateTo 飞过去后立刻被拉回。聚焦行星 / 跟随时必须关漂移。
+          try { if (viz && typeof viz.setCameraDrift === 'function') viz.setCameraDrift(false); } catch (e) {}
         }
 
         function animateTo(endPos, endTgt, dur, done) {
