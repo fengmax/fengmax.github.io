@@ -596,15 +596,24 @@
         if (p.key === 'moon') {
           try {
             var earthFinal = Math.max(SUN_RADIUS * (12742 / SUN_DIAMETER_KM) * BOOST, 0.6);
-            var moonFinal = earthFinal * (3475 / 12742);
-            var moonR = Math.max(moonFinal, 1.2);
+            // Moon radius: correct proportion relative to Earth (3475/12742 of Earth's visual size)
+            var moonRadiusScaled = (earthFinal / 100) * (3475 / 12742);  // Same scale as Earth
+            var moonR = Math.max(moonRadiusScaled, 0.5);  // Minimum visible size
             // Create moon as simple sphere WITHOUT ephemeris - orbit will be managed by updateMoonOrbit()
             obj = viz.createSphere(p.key, {
               textureUrl: './assets/textures/moon.jpg',
-              radius: moonR / 40,
+              radius: moonR,
               labelText: p.label,
-              position: [12, 0, 0],  // Initial position: 12 units away from Earth
             });
+            // Set initial position: 12 units away from origin (where Earth is)
+            if (obj) {
+              try {
+                var meshes = obj.get3jsObjects && obj.get3jsObjects();
+                if (meshes && meshes[0]) {
+                  meshes[0].position.set(12, 0, 0);
+                }
+              } catch (e) {}
+            }
           } catch (e) {
             try { obj = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) { obj =
               null; }
