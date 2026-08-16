@@ -86,6 +86,36 @@
       pointer-events: none;
     }
 
+    /* 月球专用 HTML overlay label:跟随月球 mesh 的屏幕投影,固定偏移到月球上方,
+       比 SpaceKit 默认 SVG label 更可控、不与月面重叠。*/
+    .moon-overlay-label {
+      position: fixed;
+      z-index: 16;
+      pointer-events: auto;
+      cursor: pointer;
+      font-family: Arial, "PingFang SC", sans-serif;
+      font-size: 13px;
+      color: #fff;
+      background: rgba(0, 0, 0, .72);
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      border: 1px solid rgba(160, 200, 255, .55);
+      box-shadow: 0 0 8px rgba(0, 0, 0, .6);
+      text-shadow: 0 0 6px rgba(100, 160, 255, .8);
+      transform: translate(-50%, -100%);                /* 锚点在月球上方,label 居于月球上方 */
+      transition: opacity .18s, left .08s, top .08s;
+      user-select: none;
+    }
+    .moon-overlay-label:hover {
+      background: #2850a0 !important;
+      border-color: #7fb2ff !important;
+    }
+    .moon-overlay-label.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
     #planet-bar {
       position: fixed;
       bottom: 0;
@@ -322,6 +352,7 @@
   <div id="title">SOLAR SYSTEM · 3D 宇宙沙盒</div>
   <div id="hint"><b>拖动</b>旋转 · <b>滚轮</b>缩放 · <b>点击行星/名字</b>查看信息</div>
   <div id="main-container"></div>
+  <div class="moon-overlay-label hidden" id="moon-overlay-label" title="点击聚焦月球">🌙 月球</div>
   <div id="planet-bar"><button id="planethome" title="回到全景">🌌 全景</button></div>
 
   <div id="time-ctl">
@@ -685,23 +716,22 @@
         if (p.key === 'moon') {
           try {
             var earthFinal = Math.max(SUN_RADIUS * (12742 / SUN_DIAMETER_KM) * BOOST, 0.6);
-            // Moon radius: 真实比例 3475/12742 ≈ 0.273,因地球已 BOOST 3 倍、可视直径偏小,
-            // 真实显示出来会几乎看不见。叠 1 个适度放大系数并设 0.12 下限,让月球看起来
-            // 大约是地球直径的 1/7 倍(原本 ~60 倍太大,缩小到 ~7 倍)。
+            // Moon radius: 真实比例 3475/12742 ≈ 0.273,因地球已 BOOST 3 倍、可视直径偏小。
+            // 设下限 0.10 让月球看起来大约是地球直径的 1/7(0.12 → 0.10,更小巧)。
             var moonRadiusScaled = (earthFinal / 100) * (3475 / 12742);
-            var moonR = Math.max(moonRadiusScaled * 1.0, 0.12);  // 0.5 → 0.12,小巧清晰
-            // Create moon as simple sphere WITHOUT ephemeris - orbit will be managed by updateMoonOrbit()
+            var moonR = Math.max(moonRadiusScaled * 1.0, 0.10);  // 0.5 → 0.12 → 0.10,小巧清晰
+            // Create moon as simple sphere WITHOUT ephemeris - orbit will be managed by updateMoonOrbit().
+            // 这里不传 labelText,避免 SpaceKit 自动创建 SVG label;label 改用自定义 HTML overlay。
             obj = viz.createSphere(p.key, {
               textureUrl: './assets/textures/moon.jpg',
               radius: moonR,
-              labelText: p.label,
             });
-            // Set initial position: 12 units away from origin (where Earth is)
+            // 初始位置留 0 — updateMoonOrbit 在第一个 tick 立即接管,不会出现 (12,0,0) 闪烁
             if (obj) {
               try {
                 var meshes = obj.get3jsObjects && obj.get3jsObjects();
                 if (meshes && meshes[0]) {
-                  meshes[0].position.set(12, 0, 0);
+                  meshes[0].position.set(0, 0, 0);
                 }
               } catch (e) {}
             }
@@ -743,6 +773,17 @@
         var followId = null;
         var flyAnimId = null;
         var moonOrbitRing = null;
+        var moonOverlayEl = null;         // 月球 HTML overlay label 引用
+        // 初始化月球 overlay label:取 DOM 并绑定点击 → 聚焦月球
+        try {
+          moonOverlayEl = document.getElementById('moon-overlay-label');
+          if (moonOverlayEl) {
+            moonOverlayEl.addEventListener('click', function(e) {
+              e.stopPropagation();
+              try { focusPlanet('moon'); } catch (er) {}
+            });
+          }
+        } catch (e) {}
 
         function getObjPos(key) {
           var obj = objects[key];
@@ -808,9 +849,9 @@
               var geo = new THREE.BufferGeometry();
               geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
               var mat = new THREE.LineBasicMaterial({
-                color: 0x9fc8ff,        // 月光蓝灰
+                color: 0xbfe2ff,        // 月光蓝 → 偏亮的冰蓝
                 transparent: true,
-                opacity: 0.55,
+                opacity: 0.78,          // 0.55 → 0.78,远距离更易看见
                 depthWrite: false
               });
               moonOrbitRing = new THREE.LineLoop(geo, mat);
@@ -1211,6 +1252,33 @@
             try {
               if (!usePreciseMoonRotation && moonMesh && typeof moonMesh.lookAt === 'function') {
                 moonMesh.lookAt(earthPos);
+              }
+            } catch (e) {}
+
+            // 月球 HTML overlay label 屏幕投影
+            // 把月球 mesh 的世界坐标投影到屏幕,然后把 label 摆到月球上方若干像素处
+            // 月球在相机背面(z > 1 或 < -1)时隐藏,避免 label 穿到不该去的地方
+            try {
+              if (moonOverlayEl) {
+                var cam = null;
+                try { cam = viz && viz.getViewer && viz.getViewer().get3jsCamera(); } catch (e) {}
+                if (cam && moonMesh) {
+                  var projV = new THREE.Vector3();
+                  try { moonMesh.getWorldPosition(projV); } catch (e) {}
+                  projV.project(cam);
+                  // 在相机背后 → 隐藏;否则放到月球上方一点点(避免压到月面)
+                  if (projV.z > 1 || projV.z < -1) {
+                    moonOverlayEl.classList.add('hidden');
+                  } else {
+                    var halfW = window.innerWidth * 0.5;
+                    var halfH = window.innerHeight * 0.5;
+                    var sx = projV.x * halfW + halfW;
+                    var sy = -projV.y * halfH + halfH;
+                    moonOverlayEl.style.left = sx.toFixed(1) + 'px';
+                    moonOverlayEl.style.top = (sy - 22).toFixed(1) + 'px';
+                    moonOverlayEl.classList.remove('hidden');
+                  }
+                }
               }
             } catch (e) {}
           } catch (e) {
