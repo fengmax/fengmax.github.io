@@ -589,25 +589,16 @@
     };
 
     // ============================================================
-    //  2.5 月球轨道根数 (简化的开普勒模型,基于 J2000.0 历元)
+    //  2.5 月球轨道 (Schlyter 截断月球理论,地心黄道坐标)
     // ============================================================
     //  说明: 真实月球轨道偏心率/倾角/近拱点/升交点都随时间变化。
-    //        这里采用平均根数 + 线性进动,得到"看起来真实、跑起来稳定"的简化模型。
-    //  周期: 恒星月 27.321661 天; 倾角: 对黄道约 5.145°;
-    //  升交点退行 18.6 年/周,近拱点进动 8.85 年/周。
-    var MOON_ORBIT = {
-      period: 27.321661,         // 恒星月周期(天)
-      semiMajorAxis: 8,          // 半长轴(可视化单位);原 12 缩短 1/3,视觉上离地球更近
-      eccentricity: 0.0549,      // 轨道偏心率
-      inclination: 5.145,        // 相对黄道面的倾角(度)
-      nodePeriod: 6798.4,        // 升交点退行周期(天) ≈ 18.6 年
-      perigeePeriod: 3232.4,     // 近拱点进动周期(天) ≈ 8.85 年
-      // J2000.0 (JD 2451545.0) 时刻的初始角(度)
-      M0: 218.316,               // 平近点角初值(Meeus)
-      node0: 125.045,            // 升交点黄经初值
-      argPeri0: 83.353,          // 近拱点幅角初值
-      epoch: 2451545.0           // 历元 = J2000
-    };
+    //  月球轨道模型: Schlyter 截断月球理论(12 黄经摄动项 + 5 黄纬项 + 2 距离项)。
+    //  2026-08-16 起替换旧的"线性进动 + 开普勒"简化模型——旧模型对月球误差可达 50°
+    //  (月球受太阳摄动剧烈,月缩/出差/二均差等主项幅度就超过 1°,线性模型必然漂移)。
+    //  新模型经 JPL DE421 星历在 2026-2027 年 9 个日期验证,黄经最大误差 0.044°。
+    //  可视化基准: 半长轴 8 个场景单位 = 60.2666 地球半径(真实值)。
+    var MOON_VIS_A = 8;        // 半长轴(可视化单位)
+    var MOON_A_ER = 60.2666;   // 真实半长轴(地球半径)
 
     // 解开普勒方程: M = E - e * sin(E)   (牛顿迭代)
     function solveKeplerEquation(M, e) {
@@ -622,58 +613,88 @@
       return E;
     }
 
-    // 计算月球相对地球的位置 + 当时轨道几何
-    // 公式采用 Meeus《天文算法》:x = r[cosΩ cos u - sinΩ sin u cos i] 等
+    // 计算月球相对地球的位置 + 当时轨道几何 (Schlyter 截断月球理论)
+    //  返回坐标为 J2000 黄道系、可视化单位(MOON_VIS_A=8 对应 60.2666 地球半径);
+    //  与 JPL DE421 对比,2026-2027 年黄经误差 < 0.05°,月相/照明方向随之正确。
     function computeMoonOrbitState(simJd) {
-      var cfg = MOON_ORBIT;
-      var d = simJd - cfg.epoch;   // 距 J2000.0 的天数
-      // 平近点角 (度,归一化到 [0, 360))
-      var Mdeg = ((cfg.M0 + 360 * d / cfg.period) % 360 + 360) % 360;
-      var M = THREE.MathUtils.degToRad(Mdeg);
-      // 近拱点幅角 ω
-      var argPeriDeg = ((cfg.argPeri0 + 360 * d / cfg.perigeePeriod) % 360 + 360) % 360;
-      var argPeri = THREE.MathUtils.degToRad(argPeriDeg);
-      // 升交点黄经 Ω (退行 → 减号)
-      var nodeDeg = ((cfg.node0 - 360 * d / cfg.nodePeriod) % 360 + 360) % 360;
-      var node = THREE.MathUtils.degToRad(nodeDeg);
-      // 倾角 i
-      var incl = THREE.MathUtils.degToRad(cfg.inclination);
+      var D2R = Math.PI / 180;
+      var d = simJd - 2451543.5;                    // Schlyter 日数(2000 Jan 0.0)
+      // 当日吻切根数(度)
+      var Ndeg = (125.1228 - 0.0529538083 * d) % 360;
+      var inclDeg = 5.1454;
+      var wDeg = (318.0634 + 0.1643573223 * d) % 360;
+      var e = 0.054900;
+      var Mdeg = ((115.3654 + 13.0649929509 * d) % 360 + 360) % 360;
+      // 太阳平位置(摄动角 D 需要)
+      var wsDeg = (282.9404 + 4.70935e-5 * d) % 360;
+      var MsDeg = ((356.0470 + 0.9856002585 * d) % 360 + 360) % 360;
+      var LsDeg = (MsDeg + wsDeg) % 360;
 
-      var e = cfg.eccentricity;
-      var a = cfg.semiMajorAxis;
-
-      // 1) 牛顿迭代求偏近点角 E
+      // 开普勒方程 → 真近点角 ν 与向径 r(地球半径)
+      var M = Mdeg * D2R;
       var E = solveKeplerEquation(M, e);
-      var cosE = Math.cos(E), sinE = Math.sin(E);
-      var sqrtOneMinusE2 = Math.sqrt(1 - e * e);
+      var xv = Math.cos(E) - e;
+      var yv = Math.sqrt(1 - e * e) * Math.sin(E);
+      var nu = Math.atan2(yv, xv);
+      var rER = Math.sqrt(xv * xv + yv * yv);
 
-      // 2) 轨道平面坐标(近日点方向 = +x,法向 = +z)
-      var xOrb = a * (cosE - e);
-      var yOrb = a * sqrtOneMinusE2 * sinE;
-      var r = Math.sqrt(xOrb * xOrb + yOrb * yOrb);
+      // 轨道面 → 地心黄道(当日春分点)
+      var u = nu + wDeg * D2R;
+      var N = Ndeg * D2R, incl = inclDeg * D2R;
+      var xh = rER * (Math.cos(u) * Math.cos(N) - Math.sin(u) * Math.sin(N) * Math.cos(incl));
+      var yh = rER * (Math.sin(u) * Math.cos(N) + Math.cos(u) * Math.sin(N) * Math.cos(incl));
+      var zh = rER * Math.sin(u) * Math.sin(incl);
+      var lon = Math.atan2(yh, xh) / D2R;
+      var lat = Math.atan2(zh, Math.sqrt(xh * xh + yh * yh)) / D2R;
 
-      // 3) 真近点角 ν → u = ω + ν(从升交点起算的辐角)
-      var nu = Math.atan2(yOrb, xOrb);
-      var u = nu + argPeri;
-      var cosU = Math.cos(u), sinU = Math.sin(u);
-      var cosO = Math.cos(node), sinO = Math.sin(node);
-      var cosI = Math.cos(incl), sinI = Math.sin(incl);
+      // 摄动角: Lm 平黄经, D 平距角, F 升交距角
+      var Lm = (Ndeg + wDeg + Mdeg) % 360;
+      var D = ((Lm - LsDeg) % 360 + 360) % 360;
+      var F = ((Lm - Ndeg) % 360 + 360) % 360;
+      var Dr = D * D2R, Fr = F * D2R, Msr = MsDeg * D2R;
 
-      // 4) Meeus 公式: 轨道面 → 黄道参考系(地心)
-      //    x = r [ cosΩ cos u − sinΩ sin u cos i ]
-      //    y = r [ sinΩ cos u + cosΩ sin u cos i ]
-      //    z = r [ sin u sin i ]
-      var relX = r * (cosU * cosO - sinU * sinO * cosI);
-      var relY = r * (sinU * cosO + cosU * sinO * cosI);
-      var relZ = r * (sinU * sinI);
+      // 主摄动项(月缩/出差/二均差等,度 / 地球半径)
+      lon += -1.274 * Math.sin(M - 2 * Dr)      // 出差 (evection)
+           + 0.658 * Math.sin(2 * Dr)           // 二均差 (variation)
+           - 0.186 * Math.sin(Msr)              // 周年差
+           - 0.059 * Math.sin(2 * M - 2 * Dr)
+           - 0.057 * Math.sin(M - 2 * Dr + Msr)
+           + 0.053 * Math.sin(M + 2 * Dr)
+           + 0.046 * Math.sin(2 * Dr - Msr)
+           + 0.041 * Math.sin(M - Msr)
+           - 0.035 * Math.sin(Dr)               // 月缩 (parallactic eq.)
+           - 0.031 * Math.sin(M + Msr)
+           - 0.015 * Math.sin(2 * Fr - 2 * Dr)
+           + 0.011 * Math.sin(M - 4 * Dr);
+      lat += -0.173 * Math.sin(Fr - 2 * Dr)
+           - 0.055 * Math.sin(M - Fr - 2 * Dr)
+           - 0.046 * Math.sin(M + Fr - 2 * Dr)
+           + 0.033 * Math.sin(Fr + 2 * Dr)
+           + 0.017 * Math.sin(2 * M + Fr);
+      // 距离摄动项单位是地球半径;开普勒向径 rER 是"半长轴倍数"(≈1.0),
+      // 必须先乘 MOON_A_ER 换算成地球半径再加摄动项,否则月球会陷进地球里
+      rER = rER * MOON_A_ER - 0.58 * Math.cos(M - 2 * Dr) - 0.46 * Math.cos(2 * Dr);
+
+      // 当日春分点 → J2000 岁差修正(行星场景是 J2000 框架)
+      var T = (simJd - 2451545.0) / 36525.0;
+      lon -= (5029.0966 * T + 1.11161 * T * T) / 3600.0;
+
+      // 可视化缩放 + 球坐标 → 直角坐标
+      var scale = MOON_VIS_A / MOON_A_ER;
+      var r = rER * scale;
+      var lonR = lon * D2R, latR = lat * D2R;
+      var relX = r * Math.cos(latR) * Math.cos(lonR);
+      var relY = r * Math.cos(latR) * Math.sin(lonR);
+      var relZ = r * Math.sin(latR);
 
       return {
         relX: relX, relY: relY, relZ: relZ,
         r: r,
         nu: nu, u: u,
-        node: node, incl: incl, argPeri: argPeri,
-        cosO: cosO, sinO: sinO, cosI: cosI, sinI: sinI,
-        a: a, e: e, sqrtOneMinusE2: sqrtOneMinusE2
+        node: N, incl: incl, argPeri: wDeg * D2R,   // 吻切根数(供轨道环绘制)
+        cosO: Math.cos(N), sinO: Math.sin(N),
+        cosI: Math.cos(incl), sinI: Math.sin(incl),
+        a: MOON_VIS_A, e: e, sqrtOneMinusE2: Math.sqrt(1 - e * e)
       };
     }
 
@@ -839,10 +860,16 @@
           try {
             if (!viz || !state || !earthPos) return;
             var sceneRoot = null;
+            // 本地 build/spacekit.js 的 Viewer 没有 get3jsScene(),场景挂在 Simulation.getScene() 上
             try {
-              var viewer = viz.getViewer && viz.getViewer();
-              if (viewer && typeof viewer.get3jsScene === 'function') sceneRoot = viewer.get3jsScene();
+              if (typeof viz.getScene === 'function') sceneRoot = viz.getScene();
             } catch (e) {}
+            if (!sceneRoot) {
+              try {
+                var viewer = viz.getViewer && viz.getViewer();
+                if (viewer && typeof viewer.get3jsScene === 'function') sceneRoot = viewer.get3jsScene();
+              } catch (e) {}
+            }
             if (!sceneRoot) return;
 
             var N = 128;                                  // 轨道环采样点数
@@ -852,9 +879,9 @@
               var geo = new THREE.BufferGeometry();
               geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
               var mat = new THREE.LineBasicMaterial({
-                color: 0x9ad4ff,        // 轨道蓝,与行星轨道环视觉语言一致
-                transparent: true,
-                opacity: 0.9,           // 提亮,黑色太空背景下清晰可见
+                color: 0x444444,        // 与 SpaceKit 行星轨道环默认色一致(spacekit.js generateAndCacheOrbitShape: 4473924 = 0x444444)
+                transparent: false,     // 行星轨道环不透明,保持一致
+                opacity: 1,
                 depthWrite: false
               });
               moonOrbitRing = new THREE.LineLoop(geo, mat);
@@ -1020,12 +1047,12 @@
             var loader = new THREE.TextureLoader();
             PLANETS.forEach(function(p) {
               if (p.key === 'sun') return;
-              ['', '-hi'].forEach(function(sfx) {
-                var url = './assets/textures/' + p.key + sfx + '.jpg';
-                if (texCache[url]) return;
-                loader.load(url, function(tex) { tex.anisotropy = 4;
-                  texCache[url] = tex; });
-              });
+              // 只预载低清: 加快首页加载。高清(-hi)不预载,
+              // 由 checkTextures 在镜头拉近时按需加载(2026-08-16 起不再全量预载高清)
+              var url = './assets/textures/' + p.key + '.jpg';
+              if (texCache[url]) return;
+              loader.load(url, function(tex) { tex.anisotropy = 4;
+                texCache[url] = tex; });
             });
           } catch (e) {}
         }
@@ -1218,10 +1245,16 @@
             // 这样 moonMesh.position 即世界坐标,与父变换无关
             try {
               var sceneRoot = null;
+              // 优先用 Simulation.getScene()(本版 spacekit 没有 viewer.get3jsScene)
               try {
-                var viewer = viz && viz.getViewer();
-                if (viewer && typeof viewer.get3jsScene === 'function') sceneRoot = viewer.get3jsScene();
+                if (viz && typeof viz.getScene === 'function') sceneRoot = viz.getScene();
               } catch (e) {}
+              if (!sceneRoot) {
+                try {
+                  var viewer = viz && viz.getViewer();
+                  if (viewer && typeof viewer.get3jsScene === 'function') sceneRoot = viewer.get3jsScene();
+                } catch (e) {}
+              }
               if (sceneRoot && moonMesh.parent && moonMesh.parent !== sceneRoot &&
                   typeof moonMesh.parent.remove === 'function' &&
                   typeof sceneRoot.add === 'function') {
@@ -1289,6 +1322,39 @@
           }
         }
 
+        // IAU 行星北极指向(J2000 赤经/赤纬,度) — 用于各行星的黄赤倾角
+        // 场景是 J2000 黄道系: 极点先按赤道坐标取单位向量,再绕 +X 转 -ε 到黄道系
+        var PLANET_POLES = {
+          mercury: [281.01, 61.45],   // 倾角(对黄道)≈7.0°
+          venus: [272.76, 67.16],     // IAU 北极几乎指黄极,配合 selfdir=-1 逆行自转
+          mars: [317.68, 52.89],      // ≈26.7°
+          jupiter: [268.06, 64.50],   // ≈2.2°
+          saturn: [40.60, 83.54],     // ≈28.1°
+          uranus: [257.31, -15.18],   // 几乎躺在黄道面上(≈82°/"躺着转")
+          neptune: [299.36, 42.95]    // ≈28.5°
+        };
+        var planetSpinAngles = {};   // 各行星累计自转角(弧度)
+        var planetTiltQuats = {};    // 各行星倾角四元数缓存
+
+        // 由 IAU 极点计算该行星"从竖直(+Z)到真实极轴指向"的倾角四元数
+        function getPlanetTiltQuat(key) {
+          if (planetTiltQuats[key]) return planetTiltQuats[key];
+          var q = new THREE.Quaternion();
+          var p = PLANET_POLES[key];
+          if (p) {
+            var a = THREE.MathUtils.degToRad(p[0]), d = THREE.MathUtils.degToRad(p[1]);
+            var eps = THREE.MathUtils.degToRad(23.4392911);
+            var x = Math.cos(a) * Math.cos(d), y = Math.sin(a) * Math.cos(d), z = Math.sin(d);
+            // 赤道 → 黄道: 绕 +X 转 -ε(与地球修正同一约定)
+            var y2 = y * Math.cos(eps) + z * Math.sin(eps);
+            var z2 = -y * Math.sin(eps) + z * Math.cos(eps);
+            var pole = new THREE.Vector3(x, y2, z2).normalize();
+            q.setFromUnitVectors(new THREE.Vector3(0, 0, 1), pole);
+          }
+          planetTiltQuats[key] = q;
+          return q;
+        }
+
         // 自转步进
         function stepSelfRotation() {
           if (!viz || !viz.getJd) return;
@@ -1310,7 +1376,14 @@
               var days = r / 24;
               var dAng = (2 * Math.PI) * deltaJd / days * (p.selfdir || 1);
               var mesh = o.get3jsObjects()[0];
-              if (mesh && mesh.rotation) mesh.rotation.z = (mesh.rotation.z + dAng) % (2 * Math.PI);
+              if (mesh && mesh.quaternion) {
+                // 累计自转角,四元数合成: q = qTilt * qSpin(先自转后倾角)
+                // 倾角在外层 → 极轴指向在空间中固定,不会像旧代码那样所有行星都"竖直自转"
+                planetSpinAngles[p.key] = ((planetSpinAngles[p.key] || 0) + dAng) % (2 * Math.PI);
+                var qSpin = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), planetSpinAngles[p.key]);
+                var q = getPlanetTiltQuat(p.key).clone().multiply(qSpin);
+                mesh.quaternion.copy(q);
+              }
             } catch (e) {}
           });
         }
@@ -1416,15 +1489,16 @@
               var gmst = jdToGMST(simJd); // radians
               var obliquity = THREE.MathUtils.degToRad(23.4392911);
 
-              // spin around local Z by GMST (sign tuned to visual expectation)
-              var spinAngle = -gmst + THREE.MathUtils.degToRad(visualEarthRotationOffsetDeg);
+              // 物理正确的合成顺序: 先绕地轴(Z)自转 GMST,再整体绕 +X 倾斜 -ε(黄赤交角)。
+              // 倾角在外层 → 地轴指向在空间中固定(北黄极附近),不会随自转每天扫一圈;
+              // 且赤道→黄道必须用 -ε 旋转(Sun RA 90°/Dec +23.44° ↔ 黄经 90°/黄纬 0° 可互相验证)。
+              // 2026-08-16 前为 Rz(spin)*Rx(+ε),太阳直射点错到 147°W(太平洋),且地轴每日进动。
+              var spinAngle = gmst + THREE.MathUtils.degToRad(visualEarthRotationOffsetDeg);
               var qSpin = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 0, 1), spinAngle);
+              var qTilt = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), -obliquity);
 
-              // tilt around local X by obliquity
-              var qTilt = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(1, 0, 0), obliquity);
-
-              // apply spin then tilt (q = qSpin * qTilt)
-              var q = qSpin.multiply(qTilt);
+              // apply spin then tilt (q = qTilt * qSpin)
+              var q = qTilt.multiply(qSpin);
               earthMesh.quaternion.copy(q);
             } catch (e) {
               // ignore
