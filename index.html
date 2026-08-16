@@ -597,31 +597,17 @@
           try {
             var earthFinal = Math.max(SUN_RADIUS * (12742 / SUN_DIAMETER_KM) * BOOST, 0.6);
             var moonFinal = earthFinal * (3475 / 12742);
-            var moonR = Math.max(moonFinal, 0.5);
-            // Moon orbits Earth, not Sun. Use Earth-relative semi-major axis (0.00257 AU ≈ 384,400 km)
-            var moonOrbitAU = 0.00257;
-            // Set ephemeris epoch to simulation start date JD so phase matches visualization
-            var moonEpoch = (startDate.getTime() / 86400000) + 2440587.5;
+            var moonR = Math.max(moonFinal, 1.2);
+            // Create moon as simple sphere WITHOUT ephemeris - orbit will be managed by updateMoonOrbit()
             obj = viz.createSphere(p.key, {
               textureUrl: './assets/textures/moon.jpg',
-              radius: moonR / 100,
-              ephem: new Spacekit.Ephem({
-                GM: 3986004.418e5,
-                epoch: moonEpoch,
-                a: moonOrbitAU,
-                e: 0.0549,
-                i: 5.16,
-                om: 125.08,
-                w: 318.15,
-                ma: 135.27,
-              }, 'deg', true),
+              radius: moonR / 40,
               labelText: p.label,
             });
           } catch (e) {
             try { obj = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) { obj =
               null; }
           }
-          if (obj && objects.earth && obj.orbitAround) { try { obj.orbitAround(objects.earth); } catch (e) {} }
         } else {
           try {
             obj = viz.createSphere(p.key, {
@@ -1120,17 +1106,17 @@
                 }
               } catch (e) {}
             } else {
-              // Fallback: approximate moon orbit around earth using simJd
+              // Moon orbit calculation: position moon around earth using simJd
               var earthMesh = earthObj.get3jsObjects && earthObj.get3jsObjects()[0];
               if (!earthMesh || !moonMesh) return;
               var earthPos = new THREE.Vector3();
               earthMesh.getWorldPosition(earthPos);
               var moonPeriodDays = 27.321661;
               var moonAngle = ((simJd % moonPeriodDays) / moonPeriodDays) * Math.PI * 2;
-              var orbitRadius = 5.5;
+              var orbitRadius = 12;  // Increased from 5.5 to avoid collision with Earth
               var x = Math.cos(moonAngle) * orbitRadius;
-              var y = Math.sin(moonAngle) * 0.3;
-              var z = Math.sin(moonAngle) * orbitRadius;
+              var y = Math.sin(moonAngle) * 0.5;  // Slight inclination
+              var z = Math.sin(moonAngle * 0.5) * orbitRadius * 0.3;  // Small out-of-plane component
               try {
                 // parent under earth so local coords represent orbit
                 // place moon in world coords relative to earth position
