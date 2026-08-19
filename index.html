@@ -792,6 +792,9 @@
         if (!T || !viz || !objects) return;
         var loader = new T.TextureLoader();
 
+        // 1x 法线强度
+        var NSTR = 0.85;
+
         // 有大气的行星 -> 加 Fresnel 辉光(颜色/强度/放大比)
         var ATM = {
           earth:   { color: 0x5b9bff, power: 3.2, coeff: 0.88, scale: 1.025 },
@@ -802,23 +805,77 @@
           uranus:  { color: 0x9fe6e6, power: 3.6, coeff: 0.85, scale: 1.030 },
           neptune: { color: 0x5a7bff, power: 3.6, coeff: 0.85, scale: 1.030 }
         };
-        // 法线强度统一 0.85(原始 1x)
 
-        function getMesh(key) {
+        // SpaceKit 行星用的是自带 Lambert 着色器(je): 仅 sphereTexture + lightPos 两个 uniform,
+        // 没有法线/镜面。我们不改库, 给该材质注入法线扰动 + 海洋镜面, 光照模型保持不变(仍是太阳 Lambert, 夜面仍为黑)。
+        var AUG_FRAG = [
+          'uniform sampler2D sphereTexture;',
+          'uniform sampler2D normalMap;',
+          'uniform float useNormal;',
+          'uniform float normalScale;',
+          'uniform sampler2D specularMap;',
+          'uniform float useSpec;',
+          'uniform float specStrength;',
+          'uniform float shininess;',
+          'varying vec2 vUv;',
+          'varying vec3 vViewPosition;',
+          'varying vec3 vViewLightPos;',
+          'varying vec3 vNormal;',
+          'vec3 perturbNormal(vec3 N, vec3 V, vec2 uv, vec3 mapN){',
+          '  vec3 dp1 = dFdx(V); vec3 dp2 = dFdy(V);',
+          '  vec2 duv1 = dFdx(uv); vec2 duv2 = dFdy(uv);',
+          '  vec3 dp2perp = cross(dp2, N); vec3 dp1perp = cross(N, dp1);',
+          '  vec3 T = dp2perp * duv1.x + dp1perp * duv2.x;',
+          '  vec3 B = dp2perp * duv1.y + dp1perp * duv2.y;',
+          '  float invmax = inversesqrt(max(dot(T,T), dot(B,B)));',
+          '  mat3 TBN = mat3(T * invmax, B * invmax, N);',
+          '  return normalize(TBN * mapN);',
+          '}',
+          'void main() {',
+          '  vec3 N = normalize(vNormal);',
+          '  if (useNormal > 0.5) {',
+          '    vec3 mapN = texture2D(normalMap, vUv).xyz * 2.0 - 1.0;',
+          '    mapN.xy *= normalScale;',
+          '    N = perturbNormal(N, -vViewPosition, vUv, mapN);',
+          '  }',
+          '  vec3 L = normalize(vViewLightPos - vViewPosition);',
+          '  float lambertian = max(dot(N, L), 0.0);',
+          '  vec3 color = texture2D(sphereTexture, vUv).rgb * lambertian;',
+          '  if (useSpec > 0.5) {',
+          '    float specMask = texture2D(specularMap, vUv).r;',
+          '    vec3 V = normalize(-vViewPosition);',
+          '    vec3 H = normalize(L + V);',
+          '    float s = pow(max(dot(N, H), 0.0), shininess) * specStrength * specMask;',
+          '    color += vec3(s);',
+          '  }',
+          '  gl_FragColor = vec4(color, 1.0);',
+          '}'
+        ].join('\n');
+
+        // 避免 null sampler 警告用的占位贴图
+        var dummyNormal = new T.DataTexture(new Uint8Array([128,128,255,255]), 1, 1, T.RGBAFormat);
+        dummyNormal.needsUpdate = true;
+        var dummySpec = new T.DataTexture(new Uint8Array([0,0,0,255]), 1, 1, T.RGBAFormat);
+        dummySpec.needsUpdate = true;
+
+        // get3jsObjects()[0] 是 LOD/group, 不是带材质的网格 -> 用 traverse 收集真实网格
+        function getRoot(key) {
           try {
             var o = objects[key];
-            if (!o) return null;
-            var arr = o.get3jsObjects ? o.get3jsObjects() :
-                      (o.get3jsObject ? [o.get3jsObject()] : null);
-            if (arr && arr[0]) return arr[0];
-          } catch (e) {}
-          return null;
+            if (!o || !o.get3jsObjects) return null;
+            var arr = o.get3jsObjects();
+            return (arr && arr[0]) ? arr[0] : null;
+          } catch (e) { return null; }
         }
-
+        function collectMeshes(root) {
+          var out = [];
+          if (!root || !root.traverse) return out;
+          root.traverse(function (c) { if (c.isMesh && c.material) out.push(c); });
+          return out;
+        }
         function loadTex(url, cb) {
-          loader.load(url, function (tex) {
-            try { cb(tex); } catch (e) {}
-          }, undefined, function () {});
+          loader.load(url, function (tex) { try { cb(tex); } catch (e) {} },
+                             undefined, function () {});
         }
 
         function makeAtmosphere(radius, opt) {
@@ -860,76 +917,119 @@
           return new T.Mesh(geo, mat);
         }
 
+        var cloudMeshes = [];
+
         Object.keys(objects).forEach(function (key) {
           if (key === 'sun') return;
-          var mesh = getMesh(key);
-          if (!mesh || !mesh.material) return;
-          var mat = mesh.material;
-          if (!mesh.geometry) return;
-          if (!mesh.geometry.boundingSphere) mesh.geometry.computeBoundingSphere();
-          var radius = (mesh.geometry.boundingSphere && mesh.geometry.boundingSphere.radius) ||
-                       (mesh.geometry.parameters && mesh.geometry.parameters.radius) || 0.01;
+          var root = getRoot(key);
+          var meshes = collectMeshes(root);
+          if (!meshes.length) return;
 
-          // 1) 法线贴图(所有行星)
-          if (mat.normalMap !== undefined) {
+          meshes.forEach(function (mesh) {
+            var g = mesh.geometry;
+            if (g && !g.boundingSphere) { try { g.computeBoundingSphere(); } catch (e) {} }
+            var radius = (g && g.boundingSphere && g.boundingSphere.radius) ||
+                         (g && g.parameters && g.parameters.radius) || 0.01;
+            var mat = mesh.material;
+
+            // A) 注入法线 / 镜面 uniform 到 SpaceKit 自带 Lambert 着色器
+            if (mat && mat.uniforms && mat.uniforms.sphereTexture) {
+              try {
+                mat.uniforms.normalMap = { value: dummyNormal };
+                mat.uniforms.useNormal = { value: 0 };
+                mat.uniforms.normalScale = { value: NSTR };
+                mat.uniforms.specularMap = { value: dummySpec };
+                mat.uniforms.useSpec = { value: 0 };
+                mat.uniforms.specStrength = { value: 0.35 };
+                mat.uniforms.shininess = { value: 20.0 };
+                mat.fragmentShader = AUG_FRAG;
+                mat.extensions = Object.assign({}, mat.extensions, { derivatives: true });
+                mat.needsUpdate = true;
+              } catch (e) {}
+            }
+
+            // B) 法线贴图(异步加载, 两种材质路径都覆盖)
             loadTex('./assets/textures/' + key + '-normal.jpg', function (tex) {
               try {
                 if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
                 else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
-                mat.normalMap = tex;
-                if (mat.normalScale && mat.normalScale.set) mat.normalScale.set(0.85, 0.85);
-                mat.needsUpdate = true;
+                var m = mesh.material;
+                if (m && m.uniforms && m.uniforms.normalMap) {
+                  m.uniforms.normalMap.value = tex;
+                  m.uniforms.useNormal.value = 1;
+                  m.needsUpdate = true;
+                } else if (m && m.normalMap !== undefined) {
+                  m.normalMap = tex;
+                  if (m.normalScale && m.normalScale.set) m.normalScale.set(NSTR, NSTR);
+                  m.needsUpdate = true;
+                }
               } catch (e) {}
             });
-          }
 
-          // 2) 地球专属: 云层 + 海洋高光
-          if (key === 'earth') {
-            if (mat.specularMap !== undefined) {
-              loadTex('./assets/textures/earth-specular.jpg', function (tex) {
-                try {
-                  if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
-                  else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
-                  mat.specularMap = tex;
-                  if (mat.specular && mat.specular.setHex) mat.specular.setHex(0x335577);
-                  if (mat.shininess !== undefined) mat.shininess = 18;
-                  mat.needsUpdate = true;
-                } catch (e) {}
-              });
+            // C) 大气辉光: 作为子网格挂到真实网格上(跟随行星移动, 每个 LOD 级别都生效)
+            if (ATM[key]) {
+              try {
+                var atm = makeAtmosphere(radius, ATM[key]);
+                atm.name = key + '-atmosphere';
+                mesh.add(atm);
+              } catch (e) {}
             }
-            try {
-              var cloudGeo = new T.SphereGeometry(radius * 1.012, 48, 32);
-              var cloudMat = new T.MeshPhongMaterial({
-                color: 0xffffff, transparent: true, depthWrite: false, opacity: 0.9
-              });
-              loadTex('./assets/textures/earth-clouds.png', function (tex) {
-                try {
-                  if (T.SRGBColorSpace) tex.colorSpace = T.SRGBColorSpace;
-                  cloudMat.alphaMap = tex;   // 白=云, 黑=透明
-                  cloudMat.needsUpdate = true;
-                } catch (e) {}
-              });
-              var cloudMesh = new T.Mesh(cloudGeo, cloudMat);
-              cloudMesh.name = 'earth-clouds';
-              mesh.add(cloudMesh);
-              window.__cloudMesh = cloudMesh;
-            } catch (e) {}
-          }
+          });
 
-          // 3) 大气辉光
-          if (ATM[key]) {
-            try {
-              var atm = makeAtmosphere(radius, ATM[key]);
-              atm.name = key + '-atmosphere';
-              mesh.add(atm);
-            } catch (e) {}
+          // 地球专属: 海洋镜面高光 + 云层
+          if (key === 'earth') {
+            meshes.forEach(function (mesh) {
+              var m = mesh.material;
+              if (m && m.uniforms && m.uniforms.specularMap) {
+                loadTex('./assets/textures/earth-specular.jpg', function (tex) {
+                  try {
+                    if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
+                    else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
+                    var mm = mesh.material;
+                    if (mm && mm.uniforms && mm.uniforms.specularMap) {
+                      mm.uniforms.specularMap.value = tex;
+                      mm.uniforms.useSpec.value = 1;
+                      mm.needsUpdate = true;
+                    }
+                  } catch (e) {}
+                });
+              }
+              // 云层: 场景无 THREE 灯光 -> 用不受光的 MeshBasicMaterial + alphaMap(白=云/黑=空)
+              try {
+                var g = mesh.geometry;
+                if (g && !g.boundingSphere) { try { g.computeBoundingSphere(); } catch (e) {} }
+                var r = (g && g.boundingSphere && g.boundingSphere.radius) ||
+                        (g && g.parameters && g.parameters.radius) || 0.01;
+                var cloudGeo = new T.SphereGeometry(r * 1.012, 48, 32);
+                var cloudMat = new T.MeshBasicMaterial({
+                  color: 0xffffff, transparent: true, depthWrite: false, opacity: 0.9
+                });
+                loadTex('./assets/textures/earth-clouds.png', function (tex) {
+                  try {
+                    if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
+                    else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
+                    cloudMat.alphaMap = tex;
+                    cloudMat.needsUpdate = true;
+                  } catch (e) {}
+                });
+                var cloudMesh = new T.Mesh(cloudGeo, cloudMat);
+                cloudMesh.name = 'earth-clouds';
+                mesh.add(cloudMesh);
+                cloudMeshes.push(cloudMesh);
+              } catch (e) {}
+            });
           }
         });
 
         // 云层缓慢自转(独立 rAF, 不影响 SpaceKit 主循环)
-        if (window.__cloudMesh) {
+        if (cloudMeshes.length) {
+          window.__cloudMeshes = cloudMeshes;
           (function spin() {
-            try { if (window.__cloudMesh) window.__cloudMesh.rotation.y += 0.0006; } catch (e) {}
+            try {
+              for (var i = 0; i < cloudMeshes.length; i++) {
+                if (cloudMeshes[i]) cloudMeshes[i].rotation.y += 0.0006;
+              }
+            } catch (e) {}
             requestAnimationFrame(spin);
           })();
         }
