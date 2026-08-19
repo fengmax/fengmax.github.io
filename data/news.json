@@ -1,6 +1,6 @@
 {
- "updated": "2026-08-19T21:38:57.012Z",
- "count": 12,
+ "updated": "2026-08-19T21:48:47.718Z",
+ "count": 15,
  "items": [
   {
    "title": "Private mission to save NASA's Swift space telescope fails",
@@ -57,6 +57,12 @@
    "source": "NASA"
   },
   {
+   "title": "刚果埃博拉疫情感染人数突破5000例 蔓延速度远超救援响应",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573992.htm",
+   "date": "2026-08-19T17:24:43.000Z",
+   "source": "cnBeta"
+  },
+  {
    "title": "特斯拉过度宣传智驾遭反噬：Robotaxi 撞穿路障后继续行驶，此前高管宣称安全记录“无可挑剔”",
    "link": "https://www.ithome.com/0/991/865.htm",
    "date": "2026-08-19T16:14:35.000Z",
@@ -73,6 +79,18 @@
    "link": "https://www.ithome.com/0/991/863.htm",
    "date": "2026-08-19T15:39:52.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "对AI客服连发十几条“转人工” 只会回复“理解心情”？",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573990.htm",
+   "date": "2026-08-19T14:37:48.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Moderna股价飙升150% 与默沙东合作的黑色素瘤疫苗在大规模试验中取得成功",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573988.htm",
+   "date": "2026-08-19T14:37:29.000Z",
+   "source": "cnBeta"
   }
  ]
 }
