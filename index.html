@@ -794,14 +794,16 @@
 
         // 有大气的行星 -> 加 Fresnel 辉光(颜色/强度/放大比)
         var ATM = {
-          earth:   { color: 0x5b9bff, power: 3.2, coeff: 0.88, scale: 1.025 },
-          venus:   { color: 0xe8c27a, power: 3.0, coeff: 0.88, scale: 1.030 },
-          mars:    { color: 0xff7a4a, power: 4.0, coeff: 0.82, scale: 1.030 },
-          jupiter: { color: 0xd8b48a, power: 3.6, coeff: 0.85, scale: 1.020 },
-          saturn:  { color: 0xe8d6a8, power: 3.6, coeff: 0.85, scale: 1.020 },
-          uranus:  { color: 0x9fe6e6, power: 3.6, coeff: 0.85, scale: 1.030 },
-          neptune: { color: 0x5a7bff, power: 3.6, coeff: 0.85, scale: 1.030 }
+          earth:   { color: 0x5b9bff, power: 2.4, coeff: 0.98, scale: 1.045 },
+          venus:   { color: 0xe8c27a, power: 2.4, coeff: 0.98, scale: 1.050 },
+          mars:    { color: 0xff7a4a, power: 2.6, coeff: 0.95, scale: 1.050 },
+          jupiter: { color: 0xd8b48a, power: 2.6, coeff: 0.95, scale: 1.035 },
+          saturn:  { color: 0xe8d6a8, power: 2.6, coeff: 0.95, scale: 1.035 },
+          uranus:  { color: 0x9fe6e6, power: 2.6, coeff: 0.95, scale: 1.050 },
+          neptune: { color: 0x5a7bff, power: 2.6, coeff: 0.95, scale: 1.050 }
         };
+        // 各行星法线强度(月球/火星最强, 气态巨行星弱)
+        var NSTR = { moon: 2.2, mercury: 1.6, mars: 1.7, venus: 1.2, earth: 1.3, jupiter: 1.3, saturn: 1.3, uranus: 1.0, neptune: 1.0 };
 
         function getMesh(key) {
           try {
@@ -876,7 +878,7 @@
                 if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
                 else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
                 mat.normalMap = tex;
-                if (mat.normalScale && mat.normalScale.set) mat.normalScale.set(0.85, 0.85);
+                if (mat.normalScale && mat.normalScale.set) mat.normalScale.set(NSTR[key] || 1.4, NSTR[key] || 1.4);
                 mat.needsUpdate = true;
               } catch (e) {}
             });
@@ -899,7 +901,7 @@
             try {
               var cloudGeo = new T.SphereGeometry(radius * 1.012, 48, 32);
               var cloudMat = new T.MeshPhongMaterial({
-                color: 0xffffff, transparent: true, depthWrite: false, opacity: 0.9
+                color: 0xffffff, transparent: true, depthWrite: false, opacity: 1.0
               });
               loadTex('./assets/textures/earth-clouds.png', function (tex) {
                 try {
