@@ -143,39 +143,43 @@ html, body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, .45);
 }
 
-/* 底部行星栏：默认隐藏，点击右下 🪐 展开 */
+/* 行星列表（垂直卡片）：默认隐藏，点击左上"行星"按钮展开 */
 #planet-bar {
   position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 30;
+  top: 92px;
+  left: 114px;                /* 与"行星"按钮锚定（16 + 88 + 10） */
+  z-index: 40;
+  width: 184px;
   display: none;
-  flex-direction: row;
-  gap: 8px;
-  align-items: center;
-  padding: 10px 76px 10px 14px;   /* right padding 让出 toggle 按钮位置 */
-  overflow-x: auto;
-  overflow-y: hidden;
-  background: linear-gradient(to top, rgba(5, 7, 13, .92), rgba(5, 7, 13, 0));
-  scrollbar-width: none;
-  -webkit-overflow-scrolling: touch;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  max-height: calc(100vh - 140px);
+  overflow-y: auto;
+  background: var(--glass);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .45);
 }
 #planet-bar.open {
   display: flex;
-  animation: sheetUp .28s ease;
+  animation: slideFromLeft .22s ease;
 }
-#planet-bar::-webkit-scrollbar { display: none; }
+#planet-bar::-webkit-scrollbar { width: 3px; }
+#planet-bar::-webkit-scrollbar-thumb { background: rgba(120, 160, 255, .3); border-radius: 2px; }
 #planet-bar .pb-btn {
-  flex: 0 0 auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 11px;
+  border-radius: 9px;
   color: var(--txt-dim);
-  background: rgba(30, 42, 72, .55);
-  border: 1px solid var(--border);
-  padding: 7px 14px;
-  border-radius: 20px;
-  cursor: pointer;
+  background: rgba(30, 42, 72, .45);
+  border: 1px solid transparent;
   font-size: 13px;
   letter-spacing: .5px;
+  cursor: pointer;
   transition: .15s;
   user-select: none;
   white-space: nowrap;
@@ -187,27 +191,38 @@ html, body {
   border-color: var(--accent-2);
   box-shadow: 0 0 12px rgba(74, 140, 240, .5);
 }
-#planethome {
+/* 行星色点（用每颗行星的主题色，替代纯文字按钮） */
+#planet-bar .pb-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
   flex: 0 0 auto;
+  box-shadow: 0 0 6px currentColor;
+}
+#planethome {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 11px;
+  border-radius: 9px;
   color: #dde6f4;
-  background: rgba(70, 90, 140, .5);
-  border: 1px solid var(--border);
-  padding: 7px 16px;
-  border-radius: 20px;
-  cursor: pointer;
+  background: rgba(70, 90, 140, .4);
+  border: 1px solid transparent;
   font-size: 13px;
   letter-spacing: .5px;
+  cursor: pointer;
   transition: .15s;
   user-select: none;
   white-space: nowrap;
 }
 #planethome:hover { background: #3a76d0; color: #fff; }
 
-/* 时间控制面板（默认收起，点击右上 ⏱ 展开） */
+/* 时间控制面板（默认收起，点击左上"时间"按钮展开） */
 #time-ctl {
   position: fixed;
-  top: 64px;
-  left: 16px;
+  top: 48px;
+  left: 114px;                /* 与"时间"按钮锚定（16 + 88 + 10） */
   z-index: 40;
   width: 220px;
   padding: 14px 16px;
@@ -217,7 +232,7 @@ html, body {
 }
 #time-ctl.open {
   display: block;
-  animation: dropIn .22s ease;
+  animation: slideFromLeft .22s ease;
 }
 #time-ctl .ttl {
   font-size: 11px;
@@ -258,40 +273,43 @@ html, body {
 .t-row input[type=range] { flex: 1; accent-color: var(--accent); height: 4px; }
 .t-row .t-val { font-size: 11px; color: #9fe2c0; font-weight: 600; min-width: 62px; text-align: right; }
 
-/* 浮动切换按钮（⏱ 时间面板 / 🪐 行星栏），常驻显示，点击展开对应面板 */
+/* 左上工具条：两个胶囊按钮垂直排列（时间 / 行星），常驻显示 */
+#ui-toolbar {
+  position: fixed;
+  top: 48px;
+  left: 16px;
+  z-index: 41;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 #time-toggle,
 #planet-bar-toggle {
   display: flex;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
   align-items: center;
-  justify-content: center;
-  font-size: 20px;
+  gap: 7px;
+  min-width: 88px;
+  height: 36px;
+  padding: 0 14px;
+  border-radius: 18px;
+  font-size: 13px;
   color: #fff;
-  cursor: pointer;
   background: rgba(13, 18, 32, .82);
   border: 1px solid rgba(120, 160, 255, .24);
   box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
-  transition: transform .15s, background .15s, border-color .15s;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s, transform .15s, border-color .15s;
 }
 #time-toggle:hover,
 #planet-bar-toggle:hover {
-  transform: scale(1.08);
+  transform: translateX(2px);
   background: var(--accent);
   border-color: var(--accent-2);
 }
-#time-toggle {
-  position: fixed;
-  top: 14px;
-  right: 16px;
-  z-index: 41;
-}
-#planet-bar-toggle {
-  position: fixed;
-  bottom: 14px;
-  right: 16px;
-  z-index: 41;
+#time-toggle:active,
+#planet-bar-toggle:active {
+  transform: scale(.96);
 }
 
 /* 信息面板（桌面右侧） */
@@ -358,12 +376,18 @@ html, body {
 /* ===== 移动端适配（≤768px） ===== */
 @media (max-width: 768px) {
   #hint { bottom: 62px; font-size: 10px; }
+  #ui-toolbar { top: 48px; left: 12px; gap: 8px; }
   #time-ctl.open {
-    top: 64px;
+    top: 92px;
     left: 12px;
     right: 12px;
     width: auto;
-    animation: dropIn .22s ease;
+    animation: slideFromLeft .22s ease;
+  }
+  #planet-bar {
+    top: 92px;
+    left: 12px;
+    width: 168px;
   }
   #info-panel {
     top: auto;
@@ -376,8 +400,7 @@ html, body {
     border-bottom: none;
     animation: sheetUp .28s ease;
   }
-  #planet-bar.open { padding: 9px 70px 9px 12px; gap: 6px; }
-  #planet-bar .pb-btn, #planethome { padding: 8px 12px; font-size: 12px; }
+  #planet-bar .pb-btn, #planethome { padding: 7px 10px; font-size: 12px; }
   #title { font-size: 12px; }
 }
 @keyframes sheetUp {
@@ -387,6 +410,11 @@ html, body {
 @keyframes dropIn {
   from { transform: translateY(-12px); opacity: .5; }
   to { transform: translateY(0); opacity: 1; }
+}
+/* 面板从左侧按钮旁滑出 */
+@keyframes slideFromLeft {
+  from { transform: translateX(-10px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
 }
 /* SpaceKit 自动生成的行星名字标签(地球/月球/水星/木星等) — 按用户要求隐藏 */
 .spacekit__object-label { display: none !important; }

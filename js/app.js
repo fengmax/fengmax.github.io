@@ -259,13 +259,16 @@ function iface() {
       } catch (e) {}
     }
 
-    // 底部行星栏
+    // 行星列表按钮（垂直卡片：行星色点 + 名字）
     var bar = document.getElementById('planet-bar');
     PLANETS.forEach(function(p) {
       var b = document.createElement('button');
       b.className = 'pb-btn';
-      b.textContent = p.label;
-      b.style.borderLeftColor = p.color;
+      var dot = document.createElement('span');
+      dot.className = 'pb-dot';
+      dot.style.background = p.color;
+      b.appendChild(dot);
+      b.appendChild(document.createTextNode(p.label));
       b.addEventListener('click', function() { focusPlanet(p.key); });
       bar.appendChild(b);
     });
