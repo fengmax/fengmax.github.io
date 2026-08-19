@@ -809,6 +809,39 @@
       viz.createLight([0, 0, 0]);
       objects.sun = viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
 
+      // 替换默认 SUN 精灵贴图 (Spacekit 内置 lensflare0.png 带放射光芒+大黄光晕, 偏黄外圈突兀)
+      // 保留原 sprite mesh(scale/position/renderOrder), 只换 material.map
+      // 换成程序生成的干净白核: 纯白内核 + 极短柔光(暖白偏冷, 0 黄偏, 0 十字光芒)
+      try {
+        // 此时 window.THREE 还未设(window.THREE = Spacekit.THREE 在下方第 946 行),
+        // 直接用 Spacekit.THREE, 与 enhancePlanets/enhanceSky 同源
+        var TSun = (window.THREE || Spacekit.THREE);
+        if (objects.sun && objects.sun._object3js && objects.sun._object3js.material) {
+          var sunSprite = objects.sun._object3js;
+          var sc2 = document.createElement('canvas');
+          sc2.width = sc2.height = 256;
+          var sctx2 = sc2.getContext('2d');
+          var ccx2 = 128, ccy2 = 128;
+          // 外层柔光: 极短半径, 暖白偏冷(避开黄偏)
+          var g1b = sctx2.createRadialGradient(ccx2, ccy2, 0, ccx2, ccy2, 56);
+          g1b.addColorStop(0,    'rgba(255, 250, 240, 0.90)');
+          g1b.addColorStop(0.50, 'rgba(255, 245, 232, 0.30)');
+          g1b.addColorStop(1,    'rgba(255, 240, 220, 0)');
+          sctx2.fillStyle = g1b; sctx2.fillRect(0, 0, 256, 256);
+          // 内核: 100% 纯白, 紧凑饱满
+          var g2b = sctx2.createRadialGradient(ccx2, ccy2, 0, ccx2, ccy2, 22);
+          g2b.addColorStop(0, 'rgba(255, 255, 255, 1)');
+          g2b.addColorStop(1, 'rgba(255, 255, 250, 0)');
+          sctx2.fillStyle = g2b; sctx2.fillRect(0, 0, 256, 256);
+          var newSunTex = new TSun.CanvasTexture(sc2);
+          newSunTex.encoding = TSun.sRGBEncoding;
+          if (sunSprite.material.map) sunSprite.material.map.dispose();
+          sunSprite.material.map = newSunTex;
+          sunSprite.material.color.set(0xffffff);
+          sunSprite.material.needsUpdate = true;
+        }
+      } catch (e) { console.warn('替换 SUN 精灵贴图失败:', e && e.message); }
+
       // 银河天空盒：SpaceKit 内置 createSkybox(equirect 全景球)。
       // 预设与 assets/skybox/ 下 3 张图一一对应(ESO_GIGAGALAXY→eso_milkyway)，
       // 官方矩阵已含 longitudeOffsetDeg=180 + mirrorLongitude 修正(黄道系对齐)。
