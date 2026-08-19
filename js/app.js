@@ -388,9 +388,9 @@ function iface() {
       document.getElementById('ip-dot').style.color = info.color;
       document.getElementById('ip-name').textContent = info.label;
       document.getElementById('ip-desc').textContent = info.desc;
-      // 距太阳：统一两位小数（AU + 亿km）
-      document.getElementById('ip-dist').textContent = (key === 'sun') ? '中心' : (key === 'moon' ? '绕地球运行' : info.au.toFixed(2) +
-        ' AU（' + (info.au * 1.496).toFixed(2) + '亿km）');
+      // 距太阳：统一 km（亿 km，两位小数）
+      document.getElementById('ip-dist').textContent = (key === 'sun') ? '中心' : (key === 'moon' ? '绕地球运行' : (info.au * 1.496).toFixed(2) +
+        ' 亿 km');
       document.getElementById('ip-earth').textContent = info.earthAU;
       document.getElementById('ip-temp').textContent = info.temp;
       document.getElementById('ip-orb').textContent = info.orb;
