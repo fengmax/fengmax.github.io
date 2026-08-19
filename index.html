@@ -978,14 +978,16 @@
 
           // 地球专属: 海洋镜面高光 + 云层
           if (key === 'earth') {
-            meshes.forEach(function (mesh) {
-              var m = mesh.material;
+            // 取地球真实网格的半径，只加一次云层到根对象（避免 LOD 多级重复）
+            var earthMesh = meshes[0];
+            if (earthMesh) {
+              var m = earthMesh.material;
               if (m && m.uniforms && m.uniforms.specularMap) {
                 loadTex('./assets/textures/earth-specular.jpg', function (tex) {
                   try {
                     if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
                     else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
-                    var mm = mesh.material;
+                    var mm = earthMesh.material;
                     if (mm && mm.uniforms && mm.uniforms.specularMap) {
                       mm.uniforms.specularMap.value = tex;
                       mm.uniforms.useSpec.value = 1;
@@ -994,15 +996,20 @@
                   } catch (e) {}
                 });
               }
-              // 云层: 场景无 THREE 灯光 -> 用不受光的 MeshBasicMaterial + alphaMap(白=云/黑=空)
+              // 云层: 用半径 1.06 明显浮出地表，alphaTest 让边缘锐利
               try {
-                var g = mesh.geometry;
+                var g = earthMesh.geometry;
                 if (g && !g.boundingSphere) { try { g.computeBoundingSphere(); } catch (e) {} }
                 var r = (g && g.boundingSphere && g.boundingSphere.radius) ||
                         (g && g.parameters && g.parameters.radius) || 0.01;
-                var cloudGeo = new T.SphereGeometry(r * 1.012, 48, 32);
+                var cloudGeo = new T.SphereGeometry(r * 1.06, 64, 48);
                 var cloudMat = new T.MeshBasicMaterial({
-                  color: 0xffffff, transparent: true, depthWrite: false, opacity: 0.9
+                  color: 0xffffff,
+                  transparent: true,
+                  depthWrite: false,
+                  opacity: 0.75,
+                  alphaTest: 0.06,
+                  side: T.DoubleSide
                 });
                 loadTex('./assets/textures/earth-clouds.png', function (tex) {
                   try {
@@ -1014,10 +1021,12 @@
                 });
                 var cloudMesh = new T.Mesh(cloudGeo, cloudMat);
                 cloudMesh.name = 'earth-clouds';
-                mesh.add(cloudMesh);
+                // 挂到行星根对象，跟随自转且不随 LOD 切换而丢失
+                if (root) root.add(cloudMesh);
+                else earthMesh.add(cloudMesh);
                 cloudMeshes.push(cloudMesh);
               } catch (e) {}
-            });
+            }
           }
         });
 
@@ -1027,7 +1036,7 @@
           (function spin() {
             try {
               for (var i = 0; i < cloudMeshes.length; i++) {
-                if (cloudMeshes[i]) cloudMeshes[i].rotation.y += 0.0006;
+                if (cloudMeshes[i]) cloudMeshes[i].rotation.y += 0.0015;
               }
             } catch (e) {}
             requestAnimationFrame(spin);
