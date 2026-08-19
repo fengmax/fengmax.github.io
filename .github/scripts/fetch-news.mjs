@@ -2,6 +2,7 @@
    GitHub Actions 新闻抓取脚本（方案 B）
    Node 原生实现，零第三方依赖（Node 18+ 全局 fetch）
    抓 6 家主流科技媒体 RSS/Atom → 生成 data/news.json
+   配额制：每家最多 2 条（QUOTA_PER_SOURCE），共 12 条，防止高频源霸榜
    由 .github/workflows/fetch-news.yml 定时执行
 
    用法: node .github/scripts/fetch-news.mjs
@@ -13,8 +14,9 @@ import { dirname, join } from 'node:path';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT = join(__dirname, '..', '..', 'data', 'news.json');
-const MAX_PER_SOURCE = 15;   // 每家最多取 15 条
-const MAX_TOTAL = 60;        // 总条数上限（前端显示 12）
+const MAX_PER_SOURCE = 15;       // 每家抓取时最多取 15 条
+const QUOTA_PER_SOURCE = 2;      // 最终结果每家最多 2 条（配额制，防止高频源霸榜）
+const MAX_TOTAL = 12;            // 总条数上限（6 家 × 2 = 12，正好是前端显示窗口）
 
 // ---- 源列表（科技/航天/科学气质，与前端 news-feed.js 保持一致） ----
 const SOURCES = [
@@ -95,6 +97,15 @@ async function main() {
     const k = it.title.slice(0, 40);
     if (seen[k]) return false;
     seen[k] = true;
+    return true;
+  });
+  // 配额制：按时间从新到旧取，每家最多 QUOTA_PER_SOURCE 条
+  // （否则 Phys.org 这类 24h 高频源会霸占前 12 条）
+  const quota = {};
+  all = all.filter(function (it) {
+    const used = quota[it.source] || 0;
+    if (used >= QUOTA_PER_SOURCE) return false;
+    quota[it.source] = used + 1;
     return true;
   });
   all = all.slice(0, MAX_TOTAL);
