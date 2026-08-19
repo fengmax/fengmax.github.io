@@ -1213,8 +1213,9 @@
             setRenderer: function() {},
             setSize: function() {},
             render: function(renderer, writeBuffer, readBuffer) {
-              this._mat.uniforms.tDiffuse.value = readBuffer.texture;
-              this._mat.uniforms.tBloom.value = writeBuffer.texture;
+              // writeBuffer = 原场景(上一pass needsSwap 后), readBuffer = bloom 输出
+              this._mat.uniforms.tDiffuse.value = writeBuffer.texture;
+              this._mat.uniforms.tBloom.value = readBuffer.texture;
               this._scene.add(this._quad);
               renderer.setRenderTarget(null);
               renderer.render(this._scene, this._cam);
