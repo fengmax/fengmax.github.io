@@ -16,13 +16,13 @@ const OUT = join(__dirname, '..', '..', 'data', 'news.json');
 const MAX_PER_SOURCE = 15;   // 每家最多取 15 条
 const MAX_TOTAL = 60;        // 总条数上限（前端显示 12）
 
-// ---- 源列表（与前端 news-feed.js 保持一致） ----
+// ---- 源列表（科技/航天/科学气质，与前端 news-feed.js 保持一致） ----
 const SOURCES = [
   { name: 'NASA',       url: 'https://www.nasa.gov/rss/dyn/breaking_news.rss' },
-  { name: 'TechCrunch', url: 'https://techcrunch.com/feed/' },
+  { name: 'Space.com',  url: 'https://www.space.com/feeds/all' },
+  { name: 'Phys.org',   url: 'https://phys.org/rss-feed/' },
   { name: 'The Verge',  url: 'https://www.theverge.com/rss/index.xml' },
   { name: 'IT之家',     url: 'https://www.ithome.com/rss/' },
-  { name: '36氪',       url: 'https://36kr.com/feed' },
   { name: 'cnBeta',     url: 'https://www.cnbeta.com.tw/backend.php' }
 ];
 

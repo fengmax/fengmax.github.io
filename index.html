@@ -61,11 +61,13 @@
   <!-- 行星列表（垂直卡片，默认收起） -->
   <div id="planet-bar" class="panel"><button id="planethome" title="回到全景">🌌 全景</button></div>
 
-  <!-- 科技新闻滚动框（右下角常驻） -->
+  <!-- 科技新闻滚动框（右下角，可收起） -->
   <div id="news-panel" class="panel">
-    <div class="news-head"><span class="news-dot" id="news-dot"></span>科技资讯</div>
+    <div class="news-head"><span class="news-dot" id="news-dot"></span>科技资讯<button id="news-collapse" title="收起">✕</button></div>
     <div id="news-list"></div>
   </div>
+  <!-- 收起后的展开按钮（默认隐藏） -->
+  <button id="news-toggle" title="展开科技资讯">新闻</button>
 
   <!-- ============================================================ -->
   <!-- JS 模块加载（按依赖顺序）                                       -->

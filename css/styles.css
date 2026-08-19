@@ -634,3 +634,43 @@ body.loaded #info-panel {
   #news-list { height: 200px; }
   .news-title { font-size: 11px; }
 }
+
+/* 新闻框：收起按钮 + 收起状态 + 展开胶囊 */
+#news-collapse {
+  margin-left: auto;
+  background: none;
+  border: none;
+  color: #889;
+  font-size: 13px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 2px;
+}
+#news-collapse:hover { color: #fff; }
+#news-panel.hidden { display: none; }
+/* 收起后的展开按钮（右下角胶囊，风格与左上 ⏱/🪐 一致） */
+#news-toggle {
+  display: none;
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 35;
+  min-width: 76px;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 18px;
+  font-size: 13px;
+  color: #fff;
+  background: rgba(13, 18, 32, .82);
+  border: 1px solid rgba(120, 160, 255, .24);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background .15s, transform .15s, border-color .15s;
+  transform: translateZ(0);
+}
+#news-toggle:hover {
+  background: var(--accent);
+  border-color: var(--accent-2);
+}
+#news-toggle:not(.hidden) { display: flex; align-items: center; justify-content: center; }

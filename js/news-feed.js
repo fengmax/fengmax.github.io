@@ -9,10 +9,10 @@
   var NEWS_URL = './data/news.json';  // 本地 JSON（Actions 定时生成）
   var MAX_ITEMS = 12;               // 最多显示条数
   var REFRESH_MS = 10 * 60 * 1000;  // 10 分钟重新读取一次（看有没有新数据）
-  var SCROLL_MS = 40000;            // 滚动一圈时长（ms）
+  var SCROLL_MS = 80000;            // 滚动一圈时长（ms）—— 放慢一倍，方便阅读
   var MIN_SCROLL = 6;               // 少于该条数则静态展示
 
-  var listEl = null, dotEl = null;
+  var listEl = null, dotEl = null, panelEl = null;
 
   function $(id) { return document.getElementById(id); }
 
@@ -70,10 +70,29 @@
       });
   }
 
+  // 收起 / 展开（点击 ✕ 收起为右下角小胶囊，点胶囊展开）
+  function initCollapse() {
+    panelEl = $('news-panel');
+    var collapseBtn = $('news-collapse');
+    var toggleBtn = $('news-toggle');
+    if (!panelEl || !collapseBtn || !toggleBtn) return;
+    collapseBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      panelEl.classList.add('hidden');
+      toggleBtn.classList.remove('hidden');
+    });
+    toggleBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      panelEl.classList.remove('hidden');
+      toggleBtn.classList.add('hidden');
+    });
+  }
+
   function init() {
     listEl = $('news-list');
     if (!listEl) return;
     dotEl = $('news-dot');
+    initCollapse();
     refresh();
     setInterval(refresh, REFRESH_MS);
   }
