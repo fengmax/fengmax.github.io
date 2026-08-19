@@ -143,22 +143,27 @@ html, body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, .45);
 }
 
-/* 底部行星栏：横向滚动，触控友好 */
+/* 底部行星栏：默认隐藏，点击右下 🪐 展开 */
 #planet-bar {
   position: fixed;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: 30;
-  display: flex;
+  display: none;
+  flex-direction: row;
   gap: 8px;
   align-items: center;
-  padding: 10px 14px;
+  padding: 10px 76px 10px 14px;   /* right padding 让出 toggle 按钮位置 */
   overflow-x: auto;
   overflow-y: hidden;
   background: linear-gradient(to top, rgba(5, 7, 13, .92), rgba(5, 7, 13, 0));
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+}
+#planet-bar.open {
+  display: flex;
+  animation: sheetUp .28s ease;
 }
 #planet-bar::-webkit-scrollbar { display: none; }
 #planet-bar .pb-btn {
@@ -198,16 +203,21 @@ html, body {
 }
 #planethome:hover { background: #3a76d0; color: #fff; }
 
-/* 时间控制面板（桌面常驻左上） */
+/* 时间控制面板（默认收起，点击右上 ⏱ 展开） */
 #time-ctl {
   position: fixed;
-  top: 54px;
+  top: 64px;
   left: 16px;
   z-index: 40;
   width: 220px;
   padding: 14px 16px;
   color: var(--txt);
   user-select: none;
+  display: none;
+}
+#time-ctl.open {
+  display: block;
+  animation: dropIn .22s ease;
 }
 #time-ctl .ttl {
   font-size: 11px;
@@ -248,21 +258,40 @@ html, body {
 .t-row input[type=range] { flex: 1; accent-color: var(--accent); height: 4px; }
 .t-row .t-val { font-size: 11px; color: #9fe2c0; font-weight: 600; min-width: 62px; text-align: right; }
 
-/* 移动端时间开关按钮（桌面隐藏） */
+/* 浮动切换按钮（⏱ 时间面板 / 🪐 行星栏），常驻显示，点击展开对应面板 */
+#time-toggle,
+#planet-bar-toggle {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(13, 18, 32, .82);
+  border: 1px solid rgba(120, 160, 255, .24);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .35);
+  transition: transform .15s, background .15s, border-color .15s;
+}
+#time-toggle:hover,
+#planet-bar-toggle:hover {
+  transform: scale(1.08);
+  background: var(--accent);
+  border-color: var(--accent-2);
+}
 #time-toggle {
-  display: none;
   position: fixed;
   top: 14px;
   right: 16px;
   z-index: 41;
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  color: #fff;
-  cursor: pointer;
+}
+#planet-bar-toggle {
+  position: fixed;
+  bottom: 14px;
+  right: 16px;
+  z-index: 41;
 }
 
 /* 信息面板（桌面右侧） */
@@ -329,9 +358,13 @@ html, body {
 /* ===== 移动端适配（≤768px） ===== */
 @media (max-width: 768px) {
   #hint { bottom: 62px; font-size: 10px; }
-  #time-toggle { display: flex; }
-  #time-ctl { display: none; top: 64px; left: 12px; right: 12px; width: auto; }
-  #time-ctl.open { display: block; animation: dropIn .22s ease; }
+  #time-ctl.open {
+    top: 64px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    animation: dropIn .22s ease;
+  }
   #info-panel {
     top: auto;
     left: 0;
@@ -343,7 +376,7 @@ html, body {
     border-bottom: none;
     animation: sheetUp .28s ease;
   }
-  #planet-bar { padding: 9px 12px; gap: 6px; }
+  #planet-bar.open { padding: 9px 70px 9px 12px; gap: 6px; }
   #planet-bar .pb-btn, #planethome { padding: 8px 12px; font-size: 12px; }
   #title { font-size: 12px; }
 }
