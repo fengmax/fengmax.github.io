@@ -388,13 +388,18 @@ function iface() {
       document.getElementById('ip-dot').style.color = info.color;
       document.getElementById('ip-name').textContent = info.label;
       document.getElementById('ip-desc').textContent = info.desc;
-      document.getElementById('ip-dist').textContent = (key === 'sun') ? '中心' : (key === 'moon' ? '绕地球运行' : info.au +
-        ' AU（' + (info.au * 1.496) + '亿km）');
+      // 距太阳：统一两位小数（AU + 亿km）
+      document.getElementById('ip-dist').textContent = (key === 'sun') ? '中心' : (key === 'moon' ? '绕地球运行' : info.au.toFixed(2) +
+        ' AU（' + (info.au * 1.496).toFixed(2) + '亿km）');
       document.getElementById('ip-earth').textContent = info.earthAU;
       document.getElementById('ip-temp').textContent = info.temp;
       document.getElementById('ip-orb').textContent = info.orb;
       document.getElementById('ip-rot').textContent = info.rot;
       document.getElementById('ip-per').textContent = info.per;
+      document.getElementById('ip-diam').textContent = info.diamTxt;
+      document.getElementById('ip-mass').textContent = info.massTxt;
+      document.getElementById('ip-grav').textContent = info.gravTxt;
+      document.getElementById('ip-moons').textContent = info.moonsTxt;
       document.getElementById('info-panel').style.display = 'block';
     }
     document.getElementById('info-close').addEventListener('click', function(e) {
