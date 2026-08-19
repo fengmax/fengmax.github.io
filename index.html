@@ -727,6 +727,17 @@
       viz.createLight([0, 0, 0]);
       objects.sun = viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
 
+      // 官方大气语法: atmosphere = { enable, color } 由 SpaceKit renderFullAtmosphere() 自动渲染
+      var ATM = {
+        earth:   { color: 0x5b9bff },
+        venus:   { color: 0xe8c27a },
+        mars:    { color: 0xff7a4a },
+        jupiter: { color: 0xd8b48a },
+        saturn:  { color: 0xe8d6a8 },
+        uranus:  { color: 0x9fe6e6 },
+        neptune: { color: 0x5a7bff }
+      };
+
       var SUN_DIAMETER_KM = 1392000,
         SUN_RADIUS = 60,
         BOOST = 3;
@@ -767,13 +778,18 @@
           }
         } else {
           try {
-            obj = viz.createSphere(p.key, {
+            var sphereOpts = {
               textureUrl: './assets/textures/' + p.key + '.jpg',
               radius: radiusToPass,
               ephem: preset.ephem,
               levelsOfDetail: [{ radii: 0, segments: 48 }, { radii: 40, segments: 24 }, { radii: 80, segments: 12 }],
-              labelText: p.label,
-            });
+              labelText: p.label
+            };
+            // 官方大气: 有大气行星在创建时启用(颜色取自 ATM)
+            if (ATM[p.key]) {
+              sphereOpts.atmosphere = { enable: true, color: ATM[p.key].color };
+            }
+            obj = viz.createSphere(p.key, sphereOpts);
           } catch (e) {
             try { obj = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) { obj =
               null; }
@@ -794,17 +810,6 @@
 
         // 法线强度分行星(岩石星立体感强, 气态星顺滑弱)
         var NSTR = { moon: 1.2, mercury: 1.0, mars: 1.0, venus: 0.6, earth: 0.85, jupiter: 0.4, saturn: 0.4, uranus: 0.4, neptune: 0.4 };
-
-        // 有大气的行星 -> 加 Fresnel 辉光(颜色/强度/放大比)
-        var ATM = {
-          earth:   { color: 0x5b9bff, power: 3.2, coeff: 0.88, scale: 1.025 },
-          venus:   { color: 0xe8c27a, power: 3.0, coeff: 0.88, scale: 1.030 },
-          mars:    { color: 0xff7a4a, power: 4.0, coeff: 0.82, scale: 1.030 },
-          jupiter: { color: 0xd8b48a, power: 3.6, coeff: 0.85, scale: 1.020 },
-          saturn:  { color: 0xe8d6a8, power: 3.6, coeff: 0.85, scale: 1.020 },
-          uranus:  { color: 0x9fe6e6, power: 3.6, coeff: 0.85, scale: 1.030 },
-          neptune: { color: 0x5a7bff, power: 3.6, coeff: 0.85, scale: 1.030 }
-        };
 
         // SpaceKit 行星用的是自带 Lambert 着色器(je): 仅 sphereTexture + lightPos 两个 uniform,
         // 没有法线/镜面。我们不改库, 给该材质注入法线扰动 + 海洋镜面, 光照模型保持不变(仍是太阳 Lambert, 夜面仍为黑)。
@@ -890,45 +895,6 @@
                              undefined, function () {});
         }
 
-        function makeAtmosphere(radius, opt) {
-          var geo = new T.SphereGeometry(radius * opt.scale, 48, 32);
-          var mat = new T.ShaderMaterial({
-            uniforms: {
-              glowColor: { value: new T.Color(opt.color) },
-              coefficient: { value: opt.coeff },
-              power: { value: opt.power }
-            },
-            vertexShader: [
-              'varying vec3 vNormal;',
-              'varying vec3 vView;',
-              'void main() {',
-              '  vNormal = normalize(normalMatrix * normal);',
-              '  vec4 mv = modelViewMatrix * vec4(position, 1.0);',
-              '  vView = -mv.xyz;',
-              '  gl_Position = projectionMatrix * mv;',
-              '}'
-            ].join('\n'),
-            fragmentShader: [
-              'uniform vec3 glowColor;',
-              'uniform float coefficient;',
-              'uniform float power;',
-              'varying vec3 vNormal;',
-              'varying vec3 vView;',
-              'void main() {',
-              '  vec3 viewDir = normalize(vView);',
-              '  float d = dot(normalize(vNormal), viewDir);',
-              '  float intensity = pow(max(coefficient - d, 0.0), power);',
-              '  gl_FragColor = vec4(glowColor, 1.0) * intensity;',
-              '}'
-            ].join('\n'),
-            side: T.FrontSide,
-            blending: T.AdditiveBlending,
-            transparent: true,
-            depthWrite: false
-          });
-          return new T.Mesh(geo, mat);
-        }
-
         var cloudAngles = [];
 
         Object.keys(objects).forEach(function (key) {
@@ -981,15 +947,6 @@
                 }
               } catch (e) {}
             });
-
-            // C) 大气辉光: 作为子网格挂到真实网格上(跟随行星移动, 每个 LOD 级别都生效)
-            if (ATM[key]) {
-              try {
-                var atm = makeAtmosphere(radius, ATM[key]);
-                atm.name = key + '-atmosphere';
-                mesh.add(atm);
-              } catch (e) {}
-            }
           });
 
           // 地球专属: 海洋镜面高光 + 云层(云层直接叠加进地球自身着色器, 同一颗球, 无第二个球体)
