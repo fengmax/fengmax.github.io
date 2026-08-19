@@ -1022,6 +1022,10 @@
         // 法线强度分行星(岩石星立体感强, 气态星顺滑弱)
         var NSTR = { moon: 1.2, mercury: 1.0, mars: 1.0, venus: 0.6, earth: 0.85, jupiter: 0.4, saturn: 0.4, uranus: 0.4, neptune: 0.4 };
 
+        // 按大气类型分档的环境光(无大气 = 硬阴影, 厚大气 = 天光散射填亮暗部)
+        var AMBIENT_BY_KEY = { moon: 0.05, mercury: 0.05, mars: 0.08, venus: 0.18, earth: 0.18, jupiter: 0.16, saturn: 0.16, uranus: 0.16, neptune: 0.16 };
+        var ambientForKey = function (k) { return (AMBIENT_BY_KEY[k] !== undefined ? AMBIENT_BY_KEY[k] : 0.15); };
+
         // SpaceKit 行星用的是自带 Lambert 着色器(je): 仅 sphereTexture + lightPos 两个 uniform,
         // 没有法线/镜面。我们不改库, 给该材质注入法线扰动 + 海洋镜面, 光照模型保持不变(仍是太阳 Lambert, 夜面仍为黑)。
         var AUG_FRAG = [
@@ -1134,8 +1138,10 @@
                 mat.uniforms.useSpec = { value: 0 };
                 mat.uniforms.specStrength = { value: 0.35 };
                 mat.uniforms.shininess = { value: 20.0 };
-                // 全局环境光: 所有行星统一, 夜面最低 15% 亮度(风格统一)
-                mat.uniforms.ambientLight = { value: 0.15 };
+                // 全局环境光: 按行星大气类型分档(物理正确 + 视觉统一)
+                // 无大气岩石(月球/水星) -> 0.05 硬阴影(避免月面被填亮成 70%+ 亮)
+                // 极薄大气(火星) -> 0.08; 浓厚大气(金星/地球/气态) -> 0.16-0.18
+                mat.uniforms.ambientLight = { value: ambientForKey(key) };
                 mat.uniforms.cloudDrift = { value: 0.0 };
                 mat.uniforms.bandAmpl = { value: 0.0 };
                 mat.fragmentShader = AUG_FRAG;
