@@ -847,30 +847,29 @@
             sctx.fillStyle = 'rgba(255, 252, 200, ' + la + ')';
             sctx.beginPath(); sctx.arc(lx, ly, lr, 0, Math.PI * 2); sctx.fill();
           }
-          for (var k = 0; k < 3; k++) {
-            var sx = 100 + Math.random() * 312, sy = 100 + Math.random() * 312;
-            var sr = 8 + Math.random() * 6;
-            var spotGrd = sctx.createRadialGradient(sx, sy, 0, sx, sy, sr);
-            spotGrd.addColorStop(0, 'rgba(80, 40, 0, 0.75)');
-            spotGrd.addColorStop(1, 'rgba(80, 40, 0, 0)');
-            sctx.fillStyle = spotGrd;
-            sctx.beginPath(); sctx.arc(sx, sy, sr, 0, Math.PI * 2); sctx.fill();
-          }
+          // 不再生成太阳黑子 (按用户反馈: 黑色斑点干扰视觉, 太阳保持纯净表面)
           var sunTex = new TSun.CanvasTexture(sunCanvas);
           sunTex.encoding = TSun.sRGBEncoding;
           var sunCoreGeo = new TSun.SphereGeometry(SUN_RADIUS, 64, 64);
           var sunCoreMat = new TSun.MeshBasicMaterial({ map: sunTex });
           var sunCore = new TSun.Mesh(sunCoreGeo, sunCoreMat);
 
-          var GLOW_SCALE = SUN_RADIUS * 2 * 1.4;
+          // 光晕 sprite: 加大 sprite 尺寸让 home 远景下也能看到
+          // 之前 1.4x 球直径 = 5.6 单位, home dist 335 下光晕 18px 直径, 球外环只有 5px 宽看不见
+          // 2.0x 仍然太薄 -> 改 3.0x 球直径 = 12 单位, home 远景下光晕 39px 直径, 球外环 26px 宽
+          // 配合 canvas 渐变加宽+加亮, 球外环的 alpha 提到 0.60-0.90
+          // 关掉 depthTest: 避免 sprite 在球内部分被 sphere 深度遮挡
+          // (sprite 始终面向相机, 与 sphere 同一位置, 深度冲突会让外圈也丢失)
+          var GLOW_SCALE = SUN_RADIUS * 2 * 3.0;
           var glowCanvas = document.createElement('canvas');
           glowCanvas.width = glowCanvas.height = 256;
           var gctx = glowCanvas.getContext('2d');
           var gcx = 128, gcy = 128;
           var glowGrd = gctx.createRadialGradient(gcx, gcy, 0, gcx, gcy, 128);
-          glowGrd.addColorStop(0,    'rgba(255, 220, 100, 0.80)');
-          glowGrd.addColorStop(0.35, 'rgba(255, 200, 60, 0.42)');
-          glowGrd.addColorStop(0.7,  'rgba(255, 180, 30, 0.16)');
+          glowGrd.addColorStop(0,    'rgba(255, 220, 100, 1.00)');
+          glowGrd.addColorStop(0.20, 'rgba(255, 200, 60, 0.85)');
+          glowGrd.addColorStop(0.45, 'rgba(255, 180, 30, 0.60)');
+          glowGrd.addColorStop(0.70, 'rgba(255, 160, 0, 0.30)');
           glowGrd.addColorStop(1,    'rgba(255, 160, 0, 0)');
           gctx.fillStyle = glowGrd;
           gctx.fillRect(0, 0, 256, 256);
@@ -879,7 +878,8 @@
           var glowMat = new TSun.SpriteMaterial({
             map: glowTex, color: 0xffffff,
             blending: TSun.AdditiveBlending,
-            depthWrite: false, transparent: true
+            depthWrite: false, transparent: true,
+            depthTest: false
           });
           var sunGlow = new TSun.Sprite(glowMat);
           sunGlow.scale.set(GLOW_SCALE, GLOW_SCALE, 1);
