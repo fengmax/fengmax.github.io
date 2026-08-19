@@ -273,16 +273,7 @@ html, body {
 .t-row input[type=range] { flex: 1; accent-color: var(--accent); height: 4px; }
 .t-row .t-val { font-size: 11px; color: #9fe2c0; font-weight: 600; min-width: 62px; text-align: right; }
 
-/* 左上工具条：两个胶囊按钮垂直排列（时间 / 行星），常驻显示 */
-#ui-toolbar {
-  position: fixed;
-  top: 48px;
-  left: 16px;
-  z-index: 41;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
+/* 左上两个胶囊按钮：时间 / 行星，各自 fixed 定位，常驻显示 */
 #time-toggle,
 #planet-bar-toggle {
   display: flex;
@@ -292,7 +283,8 @@ html, body {
   height: 36px;
   padding: 0 14px;
   border-radius: 18px;
-  font-size: 13px;
+  font-size: 14px;        /* 统一两个 emoji 的视觉大小 */
+  line-height: 1;
   color: #fff;
   background: rgba(13, 18, 32, .82);
   border: 1px solid rgba(120, 160, 255, .24);
@@ -300,6 +292,18 @@ html, body {
   cursor: pointer;
   white-space: nowrap;
   transition: background .15s, transform .15s, border-color .15s;
+}
+#time-toggle {
+  position: fixed;
+  top: 48px;
+  left: 16px;
+  z-index: 41;
+}
+#planet-bar-toggle {
+  position: fixed;
+  top: 92px;   /* 48 + 36 + 8 */
+  left: 16px;
+  z-index: 41;
 }
 #time-toggle:hover,
 #planet-bar-toggle:hover {
