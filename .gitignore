@@ -3,6 +3,9 @@ verify-*.png
 verify-*.html
 verify-*.log
 
+# WorkBuddy 本地记忆
+.workbuddy/
+
 # 系统文件
 .DS_Store
 Thumbs.db
