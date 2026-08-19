@@ -817,6 +817,10 @@
           'uniform float useSpec;',
           'uniform float specStrength;',
           'uniform float shininess;',
+          'uniform sampler2D cloudMap;',
+          'uniform float useCloud;',
+          'uniform float cloudOpacity;',
+          'uniform float cloudAngle;',
           'varying vec2 vUv;',
           'varying vec3 vViewPosition;',
           'varying vec3 vViewLightPos;',
@@ -848,6 +852,12 @@
           '    float s = pow(max(dot(N, H), 0.0), shininess) * specStrength * specMask;',
           '    color += vec3(s);',
           '  }',
+          '  if (useCloud > 0.5) {',
+          '    vec2 cloudUv = vec2(fract(vUv.x - cloudAngle), vUv.y);',
+          '    float cloudA = texture2D(cloudMap, cloudUv).r * cloudOpacity;',
+          '    vec3 cloudCol = vec3(1.0) * max(lambertian, 0.08);',
+          '    color = mix(color, cloudCol, cloudA);',
+          '  }',
           '  gl_FragColor = vec4(color, 1.0);',
           '}'
         ].join('\n');
@@ -857,6 +867,8 @@
         dummyNormal.needsUpdate = true;
         var dummySpec = new T.DataTexture(new Uint8Array([0,0,0,255]), 1, 1, T.RGBAFormat);
         dummySpec.needsUpdate = true;
+        var dummyCloud = new T.DataTexture(new Uint8Array([0,0,0,255]), 1, 1, T.RGBAFormat);
+        dummyCloud.needsUpdate = true;
 
         // get3jsObjects()[0] 是 LOD/group, 不是带材质的网格 -> 用 traverse 收集真实网格
         function getRoot(key) {
@@ -917,7 +929,7 @@
           return new T.Mesh(geo, mat);
         }
 
-        var cloudMeshes = [];
+        var cloudAngles = [];
 
         Object.keys(objects).forEach(function (key) {
           if (key === 'sun') return;
@@ -942,6 +954,10 @@
                 mat.uniforms.useSpec = { value: 0 };
                 mat.uniforms.specStrength = { value: 0.35 };
                 mat.uniforms.shininess = { value: 20.0 };
+                mat.uniforms.cloudMap = { value: dummyCloud };
+                mat.uniforms.useCloud = { value: 0 };
+                mat.uniforms.cloudOpacity = { value: 0.0 };
+                mat.uniforms.cloudAngle = { value: 0.0 };
                 mat.fragmentShader = AUG_FRAG;
                 mat.extensions = Object.assign({}, mat.extensions, { derivatives: true });
                 mat.needsUpdate = true;
@@ -976,18 +992,17 @@
             }
           });
 
-          // 地球专属: 海洋镜面高光 + 云层
+          // 地球专属: 海洋镜面高光 + 云层(云层直接叠加进地球自身着色器, 同一颗球, 无第二个球体)
           if (key === 'earth') {
-            // 取地球真实网格的半径，只加一次云层到根对象（避免 LOD 多级重复）
-            var earthMesh = meshes[0];
-            if (earthMesh) {
-              var m = earthMesh.material;
+            var cloudTexLoaded = null;
+            meshes.forEach(function (mesh) {
+              var m = mesh.material;
               if (m && m.uniforms && m.uniforms.specularMap) {
                 loadTex('./assets/textures/earth-specular.jpg', function (tex) {
                   try {
                     if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
                     else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
-                    var mm = earthMesh.material;
+                    var mm = mesh.material;
                     if (mm && mm.uniforms && mm.uniforms.specularMap) {
                       mm.uniforms.specularMap.value = tex;
                       mm.uniforms.useSpec.value = 1;
@@ -996,47 +1011,45 @@
                   } catch (e) {}
                 });
               }
-              // 云层: 用半径 1.06 明显浮出地表，alphaTest 让边缘锐利
-              try {
-                var g = earthMesh.geometry;
-                if (g && !g.boundingSphere) { try { g.computeBoundingSphere(); } catch (e) {} }
-                var r = (g && g.boundingSphere && g.boundingSphere.radius) ||
-                        (g && g.parameters && g.parameters.radius) || 0.01;
-                var cloudGeo = new T.SphereGeometry(r * 1.06, 64, 48);
-                var cloudMat = new T.MeshBasicMaterial({
-                  color: 0xffffff,
-                  transparent: true,
-                  depthWrite: false,
-                  opacity: 0.75,
-                  alphaTest: 0.06,
-                  side: T.DoubleSide
-                });
-                loadTex('./assets/textures/earth-clouds.png', function (tex) {
-                  try {
-                    if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
-                    else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
-                    cloudMat.alphaMap = tex;
-                    cloudMat.needsUpdate = true;
-                  } catch (e) {}
-                });
-                var cloudMesh = new T.Mesh(cloudGeo, cloudMat);
-                cloudMesh.name = 'earth-clouds';
-                // 挂到行星根对象，跟随自转且不随 LOD 切换而丢失
-                if (root) root.add(cloudMesh);
-                else earthMesh.add(cloudMesh);
-                cloudMeshes.push(cloudMesh);
-              } catch (e) {}
-            }
+              // 云层: 同一 Lambert 着色器内叠加, 云层亮度当密度, UV 经度偏移实现独立转动
+              if (m && m.uniforms && m.uniforms.cloudMap) {
+                m.uniforms.useCloud.value = 1;
+                m.uniforms.cloudOpacity.value = 0.9;
+                m.uniforms.cloudAngle.value = 0.0;
+                if (cloudTexLoaded) {
+                  m.uniforms.cloudMap.value = cloudTexLoaded;
+                } else {
+                  loadTex('./assets/textures/earth-clouds.png', function (tex) {
+                    try {
+                      tex.wrapS = T.RepeatWrapping;
+                      tex.wrapT = T.ClampToEdgeWrapping;
+                      if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
+                      else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
+                      cloudTexLoaded = tex;
+                      meshes.forEach(function (mm2) {
+                        try {
+                          var m2 = mm2.material;
+                          if (m2 && m2.uniforms && m2.uniforms.cloudMap) {
+                            m2.uniforms.cloudMap.value = tex;
+                            m2.needsUpdate = true;
+                          }
+                        } catch (e) {}
+                      });
+                    } catch (e) {}
+                  });
+                }
+                cloudAngles.push(m.uniforms.cloudAngle);
+              }
+            });
           }
         });
 
-        // 云层缓慢自转(独立 rAF, 不影响 SpaceKit 主循环)
-        if (cloudMeshes.length) {
-          window.__cloudMeshes = cloudMeshes;
+        // 云层经度偏移独立自转(叠加在地球同一球体上, 比地表转得快一点)
+        if (cloudAngles.length) {
           (function spin() {
             try {
-              for (var i = 0; i < cloudMeshes.length; i++) {
-                if (cloudMeshes[i]) cloudMeshes[i].rotation.y += 0.0015;
+              for (var i = 0; i < cloudAngles.length; i++) {
+                if (cloudAngles[i]) cloudAngles[i].value = (cloudAngles[i].value + 0.0012) % 1.0;
               }
             } catch (e) {}
             requestAnimationFrame(spin);
