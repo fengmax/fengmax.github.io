@@ -1,6 +1,6 @@
 {
- "updated": "2026-08-19T20:13:45.443Z",
- "count": 50,
+ "updated": "2026-08-19T20:21:39.873Z",
+ "count": 60,
  "items": [
   {
    "title": "Rillet raises $100M Series C at $1B valuation — 2 years after emerging from stealth",
@@ -97,6 +97,12 @@
    "link": "https://techcrunch.com/2026/08/19/t-mobile-chopped-a-cable-to-expel-chinese-hackers-from-its-network/",
    "date": "2026-08-19T17:26:32.000Z",
    "source": "TechCrunch"
+  },
+  {
+   "title": "刚果埃博拉疫情感染人数突破5000例 蔓延速度远超救援响应",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573992.htm",
+   "date": "2026-08-19T17:24:43.000Z",
+   "source": "cnBeta"
   },
   {
    "title": "OpenAI hit the brakes. Now what?",
@@ -267,6 +273,42 @@
    "source": "IT之家"
   },
   {
+   "title": "对AI客服连发十几条“转人工” 只会回复“理解心情”？",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573990.htm",
+   "date": "2026-08-19T14:37:48.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Moderna股价飙升150% 与默沙东合作的黑色素瘤疫苗在大规模试验中取得成功",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573988.htm",
+   "date": "2026-08-19T14:37:29.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "发现外星生命了吗？最新调查揭示科学界的真实态度",
+   "link": "https://www.cnbeta.com.tw/articles/science/1573986.htm",
+   "date": "2026-08-19T14:19:24.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "OpenAI加速广告业务扩张 ChatGPT广告正式登陆31个欧洲市场",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573984.htm",
+   "date": "2026-08-19T14:17:02.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "微软频繁改名引发关注 以至于开发者建专门网站追踪产品更名历史",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573982.htm",
+   "date": "2026-08-19T14:13:32.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Epic Games强烈抨击苹果欧盟区应用商店新规 称其为“新垃圾费用”",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573980.htm",
+   "date": "2026-08-19T14:12:02.000Z",
+   "source": "cnBeta"
+  },
+  {
    "title": "Calendly throws its hat into meeting note-taker circus",
    "link": "https://techcrunch.com/2026/08/19/calendly-throws-its-hat-into-meeting-note-taker-circus/",
    "date": "2026-08-19T14:09:39.000Z",
@@ -279,28 +321,46 @@
    "source": "NASA"
   },
   {
-   "title": "Behind the Lens: Meet NASA Johnson’s Photographers",
-   "link": "https://www.nasa.gov/centers-and-facilities/johnson/behind-the-lens-meet-nasa-johnsons-photographers/",
-   "date": "2026-08-19T05:02:06.000Z",
-   "source": "NASA"
+   "title": "NASA公布SpaceX火箭残骸撞月高清照片 撞击坑现蝴蝶状条纹",
+   "link": "https://www.cnbeta.com.tw/articles/science/1573978.htm",
+   "date": "2026-08-19T12:19:15.000Z",
+   "source": "cnBeta"
   },
   {
-   "title": "APOD: 2026 August 19 – The Case of the Mysterious Maybe Meteor",
-   "link": "https://science.nasa.gov/image-article/apod-2026-august-19-the-case-of-the-mysterious-maybe-meteor/",
-   "date": "2026-08-19T04:05:00.000Z",
-   "source": "NASA"
+   "title": "mRNA领域首次突破：Moderna默沙东新型癌症疫苗可防止黑色素瘤复发",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573976.htm",
+   "date": "2026-08-19T12:18:28.000Z",
+   "source": "cnBeta"
   },
   {
-   "title": "NASA’s LRO Images Falcon 9 Crater on Moon, Learns New Details",
-   "link": "https://science.nasa.gov/solar-system/moon/nasas-lro-images-falcon-9-crater-on-moon-learns-new-details/",
-   "date": "2026-08-18T18:49:50.000Z",
-   "source": "NASA"
+   "title": "亚马逊Prime Air无人机配送年底将覆盖美国近500个城市和城镇",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573974.htm",
+   "date": "2026-08-19T12:14:24.000Z",
+   "source": "cnBeta"
   },
   {
-   "title": "NASA Student Aviation Challenge Focuses on Nation’s Infrastructure",
-   "link": "https://www.nasa.gov/aeronautics/nasa-student-aviation-challenge-focuses-on-nations-infrastructure/",
-   "date": "2026-08-18T18:03:44.000Z",
-   "source": "NASA"
+   "title": "Google扩大Chrome中的Gemini覆盖范围 美国用户现可使用Auto Browse",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573972.htm",
+   "date": "2026-08-19T12:13:20.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "哥斯达黎加深海发现“黄金树”珊瑚：独特基因与形态促成全新科属",
+   "link": "https://www.cnbeta.com.tw/articles/science/1573970.htm",
+   "date": "2026-08-19T12:08:30.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "科学家将量子存储器间纠缠距离提升至420公里",
+   "link": "https://www.cnbeta.com.tw/articles/science/1573968.htm",
+   "date": "2026-08-19T11:40:58.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "三星先进制程代工涨价最高15% AI芯片需求推动产能趋紧",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1573966.htm",
+   "date": "2026-08-19T11:37:19.000Z",
+   "source": "cnBeta"
   }
  ]
 }
