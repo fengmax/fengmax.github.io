@@ -1,43 +1,47 @@
 /* ============================================================
    科技新闻滚动框（右下角常驻）
-   方案 A: 前端直接抓 RSS + 免费 CORS 代理（AllOrigins → codetabs）
-   独立 IIFE，ES5 风格（与项目其他模块一致），无依赖
-   加载顺序: 放在所有模块最后（不依赖其他模块）
+   直连为主：国外源直接 fetch（浏览器本地访问，无需代理）
+   国内源（无 CORS 头）走免费代理链，失败自动跳过
+   独立 IIFE，ES5 风格，无依赖。加载顺序: 放最后
    ============================================================ */
 (function () {
   // ---- 可配置 ----
-  // 新闻源（可增删，或替换成你喜欢的科技媒体 RSS）
+  // 国外源直连（优先）；国内源标记 proxy:true 走代理（失败自动跳过）
   var SOURCES = [
-    { name: 'IT之家', url: 'https://www.ithome.com/rss/' },
-    { name: '36氪',   url: 'https://36kr.com/feed' },
-    { name: 'cnBeta', url: 'https://www.cnbeta.com.tw/backend.php' }
+    // JSON API（Hacker News，官方 API 明确带 CORS: *）
+    { name: 'Hacker News', url: 'https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=30', json: true },
+    // XML RSS / Atom（直连）
+    { name: 'Reddit 科技', url: 'https://www.reddit.com/r/technology/top/.rss?limit=20' },
+    { name: 'DEV.to', url: 'https://dev.to/feed' },
+    { name: 'NASA', url: 'https://www.nasa.gov/rss/dyn/breaking_news.rss' },
+    // 国内源走代理（无 CORS，代理失败则跳过该源）
+    { name: 'IT之家', url: 'https://www.ithome.com/rss/', proxy: true },
+    { name: '36氪', url: 'https://36kr.com/feed', proxy: true },
+    { name: 'cnBeta', url: 'https://www.cnbeta.com.tw/backend.php', proxy: true }
   ];
-  // CORS 代理链（依次尝试，第一个成功即用）
+  // CORS 代理链（仅国内源使用）
   var PROXIES = [
     function (u) { return 'https://api.allorigins.win/raw?url=' + encodeURIComponent(u); },
     function (u) { return 'https://api.codetabs.com/v1/proxy?quest=' + encodeURIComponent(u); }
   ];
 
-  var MAX_ITEMS = 10;               // 最多显示条数
+  var MAX_ITEMS = 12;               // 最多显示条数
   var REFRESH_MS = 10 * 60 * 1000;  // 10 分钟刷新一次
   var SCROLL_MS = 40000;            // 滚动一圈时长（ms）
-  var MIN_SCROLL = 6;               // 少于该条数则静态展示（不滚动）
+  var MIN_SCROLL = 6;               // 少于该条数则静态展示
 
   var listEl = null, dotEl = null;
-  var items = [];                   // 各源结果（数组的数组）
+  var items = [];
 
   function $(id) { return document.getElementById(id); }
 
-  // HTML 转义（RSS 标题可能含特殊字符）
   function esc(s) {
     return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  // 相对时间
+  // 相对时间（兼容 ISO / RFC822 / 时间戳）
   function timeAgo(str) {
     var d = new Date(str);
     if (isNaN(d.getTime())) return '';
@@ -48,40 +52,68 @@
     return Math.floor(s / 86400) + ' 天前';
   }
 
-  // 抓取单个源（代理链 fallback）
-  function fetchSource(src) {
-    var attempt = 0;
-    function tryNext() {
-      if (attempt >= PROXIES.length) {
-        return Promise.reject(new Error('proxy exhausted: ' + src.name));
-      }
-      var proxyUrl = PROXIES[attempt](src.url);
-      attempt++;
-      return fetch(proxyUrl)
-        .then(function (r) { return r.text(); })
-        .then(function (xmlText) {
-          var doc = new DOMParser().parseFromString(xmlText, 'text/xml');
-          if (doc.querySelector('parsererror')) throw new Error('xml parse fail');
-          var nodes = doc.querySelectorAll('item');
-          var out = [];
-          for (var i = 0; i < nodes.length; i++) {
-            var n = nodes[i];
-            var t = (n.querySelector('title') || {}).textContent || '';
-            var l = (n.querySelector('link') || {}).textContent || '';
-            var p = (n.querySelector('pubDate') || n.querySelector('published') || {}).textContent || '';
-            if (t && l) {
-              out.push({ title: t.trim(), link: l.trim(), date: p, source: src.name });
-            }
-          }
-          if (!out.length) throw new Error('empty feed: ' + src.name);
-          return out;
-        })
-        .catch(function () { return tryNext(); });
+  // --- 解析 JSON 源（Hacker News 等） ---
+  function parseJson(src, data) {
+    var hits = (data && data.hits) || [];
+    var out = [];
+    for (var i = 0; i < hits.length; i++) {
+      var h = hits[i];
+      var t = h.title || h.story_title || '';
+      var l = h.url || h.story_url || ('https://news.ycombinator.com/item?id=' + h.objectID);
+      if (t && l) out.push({ title: t.trim(), link: l, date: h.created_at, source: src.name });
     }
-    return tryNext();
+    return out;
   }
 
-  // 渲染列表（首尾复制两份实现无缝滚动）
+  // --- 解析 XML 源（RSS item / Atom entry） ---
+  function parseXml(src, xmlText) {
+    var doc = new DOMParser().parseFromString(xmlText, 'text/xml');
+    if (doc.querySelector('parsererror')) throw new Error('xml parse fail');
+    var out = [];
+    // RSS <item> 或 Atom <entry>
+    var nodes = doc.querySelectorAll('item, entry');
+    for (var i = 0; i < nodes.length; i++) {
+      var n = nodes[i];
+      var t = (n.querySelector('title') || {}).textContent || '';
+      var l = (n.querySelector('link') || {});
+      // Atom 的 link 是属性 href；RSS 是文本内容
+      var href = l.getAttribute ? (l.getAttribute('href') || '') : '';
+      var txt = l.textContent || '';
+      var link = href || txt || '';
+      var p = (n.querySelector('pubDate') || n.querySelector('published') || n.querySelector('updated') || {}).textContent || '';
+      if (t && link) out.push({ title: t.trim(), link: link.trim(), date: p, source: src.name });
+    }
+    if (!out.length) throw new Error('empty feed');
+    return out;
+  }
+
+  // 抓取单个源：JSON 直连 / XML 直连 / 国内源走代理链
+  function fetchSource(src) {
+    if (src.json) {
+      return fetch(src.url).then(function (r) { return r.json(); }).then(function (d) {
+        var out = parseJson(src, d);
+        if (!out.length) throw new Error('empty json');
+        return out;
+      });
+    }
+    if (src.proxy) {
+      var attempt = 0;
+      function tryNext() {
+        if (attempt >= PROXIES.length) return Promise.reject(new Error('proxy exhausted'));
+        var proxyUrl = PROXIES[attempt](src.url);
+        attempt++;
+        return fetch(proxyUrl).then(function (r) { return r.text(); }).then(function (t) {
+          return parseXml(src, t);
+        }).catch(function () { return tryNext(); });
+      }
+      return tryNext();
+    }
+    return fetch(src.url).then(function (r) { return r.text(); }).then(function (t) {
+      return parseXml(src, t);
+    });
+  }
+
+  // 渲染（首尾复制两份无缝滚动）
   function render() {
     if (!listEl) return;
     var all = [];
@@ -95,7 +127,7 @@
     }
 
     var needScroll = all.length >= MIN_SCROLL;
-    var reps = needScroll ? 2 : 1;   // 复制两份才能无缝循环
+    var reps = needScroll ? 2 : 1;
     var html = '';
     for (var r = 0; r < reps; r++) {
       for (var i = 0; i < all.length; i++) {
@@ -111,7 +143,6 @@
     if (dotEl) dotEl.className = 'news-dot on';
   }
 
-  // 抓取全部源并刷新
   function refresh() {
     Promise.all(SOURCES.map(function (s) {
       return fetchSource(s).catch(function () { return []; });
