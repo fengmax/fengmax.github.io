@@ -585,16 +585,16 @@
     var viz = null;
     var objects = {};
     var PlanetDist = {
-      sun: 120,
-      mercury: 45,
-      venus: 60,
-      earth: 22,    // 原 65 → 22:聚焦地球时让相机贴近,月球轨道环(半径≈8)能在屏幕上清晰成环
-      moon: 5,      // 原 68 → 5 :聚焦月球时让月球(R≈0.45)可见,而不是几像素的点
-      mars: 55,
-      jupiter: 120,
-      saturn: 110,
-      uranus: 85,
-      neptune: 85
+      sun: 100,
+      mercury: 35,
+      venus: 45,
+      earth: 15,    // 压迫感镜头: 拉近后行星占画面更大(月球轨道环部分在屏外属正常)
+      moon: 4,
+      mars: 40,
+      jupiter: 85,
+      saturn: 80,
+      uranus: 65,
+      neptune: 65
     };
 
     // ============================================================
@@ -796,7 +796,18 @@
               if (ATM[p.key].inner) sphereOpts.atmosphere.innerSizeRatio = ATM[p.key].inner;
               if (ATM[p.key].outer) sphereOpts.atmosphere.outerSizeRatio = ATM[p.key].outer;
             }
+            // 轴向倾角(官方选项): 土星 26.7° / 天王星 97.8°(躺着自转)
+            if (p.key === 'saturn') sphereOpts.axialTilt = 26.7;
+            if (p.key === 'uranus') sphereOpts.axialTilt = 97.8;
             obj = viz.createSphere(p.key, sphereOpts);
+            // 土星环(官方 addRings): 真实环带半径 74,500 ~ 136,800 km, 贴图含卡西尼缝
+            if (obj && p.key === 'saturn') {
+              try {
+                if (typeof obj.addRings === 'function') {
+                  obj.addRings(74500, 136800, './assets/textures/saturn-ring-alpha.png', 160);
+                }
+              } catch (e) {}
+            }
           } catch (e) {
             try { obj = viz.createObject(p.key, Object.assign({}, preset, { labelText: p.label })); } catch (e2) { obj =
               null; }
@@ -829,6 +840,8 @@
           'uniform float useSpec;',
           'uniform float specStrength;',
           'uniform float shininess;',
+          'uniform float cloudDrift;',
+          'uniform float bandAmpl;',
           'varying vec2 vUv;',
           'varying vec3 vViewPosition;',
           'varying vec3 vViewLightPos;',
@@ -852,7 +865,16 @@
           '  }',
           '  vec3 L = normalize(vViewLightPos - vViewPosition);',
           '  float lambertian = max(dot(N, L), 0.0);',
-          '  vec3 color = texture2D(sphereTexture, vUv).rgb * lambertian;',
+          '  vec2 texUv = vUv;',
+          '  if (abs(cloudDrift) > 0.0001) {',
+          '    float shear = 1.0 - abs(vUv.y - 0.5) * 2.0;',
+          '    texUv.x = fract(vUv.x + cloudDrift * shear);',
+          '  }',
+          '  vec3 color = texture2D(sphereTexture, texUv).rgb * lambertian;',
+          '  if (abs(bandAmpl) > 0.0001) {',
+          '    float band = 0.5 + 0.5 * sin(vUv.y * 30.0 + cloudDrift * 8.0);',
+          '    color *= 1.0 - bandAmpl * 0.5 + bandAmpl * band;',
+          '  }',
           '  if (useSpec > 0.5) {',
           '    float specMask = texture2D(specularMap, vUv).r;',
           '    vec3 V = normalize(-vViewPosition);',
@@ -890,6 +912,8 @@
                              undefined, function () {});
         }
 
+        var driftTargets = [];
+
         Object.keys(objects).forEach(function (key) {
           if (key === 'sun') return;
           var root = getRoot(key);
@@ -913,6 +937,8 @@
                 mat.uniforms.useSpec = { value: 0 };
                 mat.uniforms.specStrength = { value: 0.35 };
                 mat.uniforms.shininess = { value: 20.0 };
+                mat.uniforms.cloudDrift = { value: 0.0 };
+                mat.uniforms.bandAmpl = { value: 0.0 };
                 mat.fragmentShader = AUG_FRAG;
                 mat.extensions = Object.assign({}, mat.extensions, { derivatives: true });
                 mat.needsUpdate = true;
@@ -958,9 +984,256 @@
               }
             });
           }
+
+          // 云带漂移(木星差动自转 / 金星云带流动): 收集 cloudDrift uniform 供 rAF 累加
+          if (key === 'jupiter' || key === 'venus') {
+            meshes.forEach(function (mesh) {
+              var m = mesh.material;
+              if (m && m.uniforms && m.uniforms.cloudDrift !== undefined) {
+                if (key === 'venus') m.uniforms.bandAmpl.value = 0.16;   // 金星云带明暗
+                driftTargets.push(m.uniforms.cloudDrift);
+              }
+            });
+          }
         });
+
+        // 云带漂移独立 rAF: 表面纹理经度方向缓慢流动(赤道快两极慢)
+        if (driftTargets.length) {
+          (function drift() {
+            try {
+              for (var i = 0; i < driftTargets.length; i++) {
+                if (driftTargets[i]) driftTargets[i].value = (driftTargets[i].value + 0.0018) % 2.0;
+              }
+            } catch (e) {}
+            requestAnimationFrame(drift);
+          })();
+        }
+      }
+
+      // ===== 天空氛围: 太阳日冕光晕 + 银河星尘(自写 additive sprite/粒子) =====
+      // 官方 LensFlare 已在 THREE 新版本移除, 这里用 CanvasTexture + Sprite 自建光晕
+      function enhanceSky() {
+        var T = window.THREE;
+        if (!T || !viz || !objects) return;
+        try {
+          // 1) 太阳日冕光晕(两层 additive sprite, 挂到太阳根对象, 随太阳移动)
+          var sun = objects.sun;
+          var sunRoot = null;
+          try {
+            var arr = sun && sun.get3jsObjects ? sun.get3jsObjects() : null;
+            sunRoot = (arr && arr[0]) ? arr[0] : null;
+          } catch (e) {}
+          if (sunRoot) {
+            var c = document.createElement('canvas');
+            c.width = c.height = 256;
+            var ctx = c.getContext('2d');
+            var g = ctx.createRadialGradient(128, 128, 0, 128, 128, 128);
+            g.addColorStop(0, 'rgba(255, 246, 214, 1)');
+            g.addColorStop(0.18, 'rgba(255, 224, 160, 0.6)');
+            g.addColorStop(0.45, 'rgba(255, 178, 96, 0.2)');
+            g.addColorStop(1, 'rgba(255, 150, 70, 0)');
+            ctx.fillStyle = g;
+            ctx.fillRect(0, 0, 256, 256);
+            var glowTex = new T.CanvasTexture(c);
+            if (T.NoColorSpace) glowTex.colorSpace = T.NoColorSpace;
+            var SUN_R = 60;   // 与行星尺寸计算同源的太阳半径
+            var sp1 = new T.Sprite(new T.SpriteMaterial({
+              map: glowTex, blending: T.AdditiveBlending,
+              transparent: true, depthWrite: false, opacity: 0.95
+            }));
+            sp1.name = 'sun-corona-inner';
+            sp1.scale.set(SUN_R * 2.6, SUN_R * 2.6, 1);
+            sunRoot.add(sp1);
+            var sp2 = new T.Sprite(new T.SpriteMaterial({
+              map: glowTex, blending: T.AdditiveBlending,
+              transparent: true, depthWrite: false, opacity: 0.28
+            }));
+            sp2.name = 'sun-corona-outer';
+            sp2.scale.set(SUN_R * 5.5, SUN_R * 5.5, 1);
+            sunRoot.add(sp2);
+          }
+        } catch (e) {}
+
+        try {
+          // 2) 银河星尘: 扁平盘状分布的稀疏粒子, 增加太空纵深
+          var scene = (typeof viz.getScene === 'function') ? viz.getScene() : null;
+          if (scene && T.BufferGeometry && T.Points) {
+            var N = 800;
+            var positions = new Float32Array(N * 3);
+            for (var i = 0; i < N; i++) {
+              var ang = Math.random() * Math.PI * 2;
+              var r = 900 + Math.random() * 500;
+              var th = (Math.random() - 0.5) * 200;
+              positions[i * 3] = Math.cos(ang) * r;
+              positions[i * 3 + 1] = th;
+              positions[i * 3 + 2] = Math.sin(ang) * r;
+            }
+            var geo = new T.BufferGeometry();
+            geo.setAttribute('position', new T.BufferAttribute(positions, 3));
+            var pmat = new T.PointsMaterial({
+              color: 0xaabbdd, size: 2.4, sizeAttenuation: true,
+              transparent: true, opacity: 0.32,
+              blending: T.AdditiveBlending, depthWrite: false
+            });
+            var dust = new T.Points(geo, pmat);
+            dust.name = 'galaxy-dust';
+            scene.add(dust);
+          }
+        } catch (e) {}
       }
       try { enhancePlanets(); } catch (e) { console.error('enhancePlanets failed:', e); }
+      try { enhanceSky(); } catch (e) { console.error('enhanceSky failed:', e); }
+      try { enhancePost(); } catch (e) { console.error('enhancePost failed:', e); }
+
+      // ===== B层: 后期管线 — 自写 bloom 泛光 + ACES 色调 + 暗角 =====
+      // 打包 THREE 自带 EffectComposer/RenderPass 但无 bloom pass, 这里自写:
+      //   RenderPass(场景) → BloomPass(亮度阈值+高斯模糊) → FinalPass(叠加+ACES+暗角)
+      // 通过拦截 renderer.render 接管渲染循环, 失败时自动回退原始渲染
+      function enhancePost() {
+        var T = window.THREE;
+        if (!T || !viz) return;
+        var renderer = null;
+        try { renderer = viz.getRenderer(); } catch (e) {}
+        if (!renderer || !T.EffectComposer || !T.RenderPass) return;
+        var scene = (typeof viz.getScene === 'function') ? viz.getScene() : null;
+        if (!scene) return;
+
+        var composer = null;
+        var postReady = false;
+        var quadScene = new T.Scene();
+        var quadCam = new T.OrthographicCamera(-1, 1, 1, -1, 0, 1);
+        var quadGeo = new T.PlaneGeometry(2, 2);
+        function makeQuad(mat) {
+          var m = new T.Mesh(quadGeo, mat);
+          m.frustumCulled = false;
+          return m;
+        }
+
+        function buildBloomMat(px) {
+          return new T.ShaderMaterial({
+            uniforms: {
+              tDiffuse: { value: null },
+              texel: { value: new T.Vector2(1 / 512, 1 / 512) },
+              threshold: { value: 0.72 },
+              strength: { value: 0.55 }
+            },
+            vertexShader: [
+              'varying vec2 vUv;',
+              'void main() { vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }'
+            ].join('\n'),
+            fragmentShader: [
+              'uniform sampler2D tDiffuse;',
+              'uniform vec2 texel;',
+              'uniform float threshold;',
+              'uniform float strength;',
+              'varying vec2 vUv;',
+              'void main() {',
+              '  vec3 acc = vec3(0.0);',
+              '  float wsum = 0.0;',
+              '  for (int x = -2; x <= 2; x++) {',
+              '    for (int y = -2; y <= 2; y++) {',
+              '      vec2 off = vec2(float(x), float(y)) * texel;',
+              '      vec3 s = texture2D(tDiffuse, vUv + off).rgb;',
+              '      float l = dot(s, vec3(0.2126, 0.7152, 0.0722));',
+              '      float mask = smoothstep(threshold, threshold + 0.25, l);',
+              '      float ww = 1.0 - (abs(float(x)) + abs(float(y))) * 0.1;',
+              '      acc += s * mask * ww;',
+              '      wsum += mask * ww;',
+              '    }',
+              '  }',
+              '  vec3 outCol = wsum > 0.0 ? acc / wsum : vec3(0.0);',
+              '  gl_FragColor = vec4(outCol * strength, 1.0);',
+              '}'
+            ].join('\n')
+          });
+        }
+
+        function buildFinalMat() {
+          return new T.ShaderMaterial({
+            uniforms: {
+              tDiffuse: { value: null },
+              tBloom: { value: null },
+              exposure: { value: 1.08 },
+              vignette: { value: 0.45 }
+            },
+            vertexShader: [
+              'varying vec2 vUv;',
+              'void main() { vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }'
+            ].join('\n'),
+            fragmentShader: [
+              'uniform sampler2D tDiffuse;',
+              'uniform sampler2D tBloom;',
+              'uniform float exposure;',
+              'uniform float vignette;',
+              'varying vec2 vUv;',
+              'vec3 aces(vec3 x) {',
+              '  return clamp((x * (2.51 * x + 0.03)) / (x * (2.43 * x + 0.59) + 0.14), 0.0, 1.0);',
+              '}',
+              'void main() {',
+              '  vec3 col = texture2D(tDiffuse, vUv).rgb * exposure;',
+              '  col += texture2D(tBloom, vUv).rgb;',
+              '  col = aces(col);',
+              '  float d = distance(vUv, vec2(0.5, 0.5));',
+              '  col *= 1.0 - smoothstep(0.55, 1.15, d) * vignette;',
+              '  gl_FragColor = vec4(col, 1.0);',
+              '}'
+            ].join('\n')
+          });
+        }
+
+        function setupPost(renderer, sceneArg, cameraArg) {
+          composer = new T.EffectComposer(renderer);
+          var renderPass = new T.RenderPass(sceneArg, cameraArg);
+          composer.addPass(renderPass);
+
+          var bloomMat = buildBloomMat();
+          var bloomQuad = makeQuad(bloomMat);
+          var bloomPass = {
+            renderToScreen: false,
+            _scene: quadScene, _cam: quadCam, _quad: bloomQuad, _mat: bloomMat,
+            setRenderer: function() {},
+            setSize: function(w, h) {
+              try { this._mat.uniforms.texel.value.set(1.0 / w, 1.0 / h); } catch (e) {}
+            },
+            render: function(renderer, writeBuffer, readBuffer) {
+              this._mat.uniforms.tDiffuse.value = readBuffer.texture;
+              this._scene.add(this._quad);
+              renderer.setRenderTarget(writeBuffer);
+              renderer.render(this._scene, this._cam);
+              this._scene.remove(this._quad);
+            }
+          };
+          composer.addPass(bloomPass);
+
+          var finalMat = buildFinalMat();
+          var finalQuad = makeQuad(finalMat);
+          var finalPass = {
+            renderToScreen: true,
+            _scene: quadScene, _cam: quadCam, _quad: finalQuad, _mat: finalMat,
+            setRenderer: function() {},
+            setSize: function() {},
+            render: function(renderer, writeBuffer, readBuffer) {
+              this._mat.uniforms.tDiffuse.value = readBuffer.texture;
+              this._mat.uniforms.tBloom.value = writeBuffer.texture;
+              this._scene.add(this._quad);
+              renderer.setRenderTarget(null);
+              renderer.render(this._scene, this._cam);
+              this._scene.remove(this._quad);
+            }
+          };
+          composer.addPass(finalPass);
+          return true;
+        }
+
+        var origRender = renderer.render.bind(renderer);
+        renderer.render = function(sceneArg, cameraArg) {
+          if (!postReady) {
+            try { postReady = setupPost(renderer, sceneArg, cameraArg); } catch (e) { postReady = false; }
+            if (!postReady) { origRender(sceneArg, cameraArg); return; }
+          }
+          try { composer.render(); } catch (e) { origRender(sceneArg, cameraArg); }
+        };
+      }
 
     } catch (err) {
       console.error('3D初始化失败:', err);
@@ -975,6 +1248,7 @@
         var currentFocus = null;
         var followId = null;
         var flyAnimId = null;
+        var DEFAULT_FOV = null;   // 首次聚焦时记录默认 FOV, 回全景恢复
         var moonOrbitRing = null;
         var moonOverlayEl = null;         // 月球 HTML overlay label 引用
         // 初始化月球 overlay label:取 DOM 并绑定点击 → 聚焦月球(纯文字「月球」,无 emoji)
@@ -1028,6 +1302,36 @@
             var e = 1 - Math.pow(1 - t, 3);
             cam.position.lerpVectors(startPos, endPos, e);
             controls.target.lerpVectors(startTgt, endTgt, e);
+            if (t < 1) flyAnimId = requestAnimationFrame(step);
+            else if (done) done();
+          }
+          step();
+        }
+
+        // 压迫感飞掠: 二次贝塞尔弧线, 相机先上抛掠过行星再滑到目标位
+        function flyBy(endPos, endTgt, dur, done) {
+          var cam = viz.getViewer().get3jsCamera();
+          var controls = viz.getViewer().get3jsCameraControls();
+          var startPos = cam.position.clone();
+          var startTgt = controls.target.clone();
+          var t0 = Date.now();
+          if (flyAnimId) cancelAnimationFrame(flyAnimId);
+          var lift = (startPos.length() + endPos.length()) * 0.14;
+          var mid = startPos.clone().add(endPos).multiplyScalar(0.5);
+          mid.y += lift;   // 上抛弧线, 制造"掠过"感
+
+          function step() {
+            var t = Math.min(1, (Date.now() - t0) / dur);
+            var e = 1 - Math.pow(1 - t, 3);
+            var u = 1 - e;
+            var p = new THREE.Vector3(
+              u * u * startPos.x + 2 * u * e * mid.x + e * e * endPos.x,
+              u * u * startPos.y + 2 * u * e * mid.y + e * e * endPos.y,
+              u * u * startPos.z + 2 * u * e * mid.z + e * e * endPos.z
+            );
+            cam.position.copy(p);
+            controls.target.lerpVectors(startTgt, endTgt, e);
+            controls.update();
             if (t < 1) flyAnimId = requestAnimationFrame(step);
             else if (done) done();
           }
@@ -1140,6 +1444,12 @@
           stopMotion();
           currentFocus = key;
           var dist = Math.max(20, (PlanetDist[key] || 40));
+          // 压迫感镜头: 聚焦时切广角 FOV(首次记录默认值, 回全景时恢复)
+          try {
+            var cam0 = viz.getViewer().get3jsCamera();
+            if (DEFAULT_FOV === null) DEFAULT_FOV = cam0.fov;
+            if (Math.abs(cam0.fov - 72) > 0.5) { cam0.fov = 72; cam0.updateProjectionMatrix(); }
+          } catch (e) {}
           setMinDistFor(key);
           forceHiRes(key);
           showInfo(key);
@@ -1151,7 +1461,8 @@
             var dir = new THREE.Vector3(dist, dist * 0.5, dist * 0.8).normalize();
             var dest = pos.clone().add(dir.clone().multiplyScalar(dist));
             var followStart = function() { startFollow(key, dist); };
-            animateTo(dest, pos.clone(), 800, followStart);
+            // 弧线飞掠: 沿贝塞尔曲线上抛掠过行星, 比直线飞更有"压迫感"
+            flyBy(dest, pos.clone(), 950, followStart);
           } catch (e) {}
         }
 
@@ -1180,6 +1491,13 @@
         function goHome() {
           stopMotion();
           resetMinDist();
+          // 恢复默认 FOV(退出压迫感镜头)
+          try {
+            var cam = viz.getViewer().get3jsCamera();
+            if (DEFAULT_FOV !== null && Math.abs(cam.fov - DEFAULT_FOV) > 0.5) {
+              cam.fov = DEFAULT_FOV; cam.updateProjectionMatrix();
+            }
+          } catch (e) {}
           try {
             var home = new THREE.Vector3(150, 110, 220);
             var origin = new THREE.Vector3(0, 0, 0);
