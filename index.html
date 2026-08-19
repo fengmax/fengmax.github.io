@@ -61,6 +61,12 @@
   <!-- 行星列表（垂直卡片，默认收起） -->
   <div id="planet-bar" class="panel"><button id="planethome" title="回到全景">🌌 全景</button></div>
 
+  <!-- 科技新闻滚动框（右下角常驻） -->
+  <div id="news-panel" class="panel">
+    <div class="news-head"><span class="news-dot" id="news-dot"></span>科技资讯</div>
+    <div id="news-list"></div>
+  </div>
+
   <!-- ============================================================ -->
   <!-- JS 模块加载（按依赖顺序）                                       -->
   <!-- ============================================================ -->
@@ -80,5 +86,7 @@
   <script src="./js/mobile-ui.js"></script>
   <!-- 8. 星芒闪烁层（独立 IIFE） -->
   <script src="./js/stars-fx.js"></script>
+  <!-- 9. 科技新闻滚动框（独立 IIFE，无依赖，放最后） -->
+  <script src="./js/news-feed.js"></script>
 </body>
 </html>
