@@ -1020,7 +1020,10 @@
         var loader = new T.TextureLoader();
 
         // 法线强度分行星(岩石星立体感强, 气态星顺滑弱)
-        var NSTR = { moon: 1.2, mercury: 1.0, mars: 1.0, venus: 0.6, earth: 0.85, jupiter: 0.4, saturn: 0.4, uranus: 0.4, neptune: 0.4 };
+        // 月球 NSTR=0: 不应用法线扰动, lambertian 用真实几何法线 = 物理正确的一半月
+        //   否则 perturbNormal 让 NSTR=1.2 抹平了明暗对比, 整个球均匀亮, 没晨昏线
+        //   月球 2K 贴图 moon-hi.jpg 本身有丰富坑洼, 不需要法线扰动增加
+        var NSTR = { moon: 0, mercury: 1.0, mars: 1.0, venus: 0.6, earth: 0.85, jupiter: 0.4, saturn: 0.4, uranus: 0.4, neptune: 0.4 };
 
         // 按大气类型分档的环境光(无大气 = 硬阴影, 厚大气 = 天光散射填亮暗部)
         var AMBIENT_BY_KEY = { moon: 0.05, mercury: 0.05, mars: 0.08, venus: 0.18, earth: 0.18, jupiter: 0.16, saturn: 0.16, uranus: 0.16, neptune: 0.16 };
