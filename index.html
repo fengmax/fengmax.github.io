@@ -35,6 +35,7 @@
       position: fixed;
       inset: 0;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
       background: var(--bg);
@@ -43,6 +44,20 @@
       letter-spacing: 3px;
       z-index: 999;
     }
+    /* 加载微光旋转环：低调不刺眼 */
+    #loading::after {
+      content: '';
+      display: block;
+      margin-top: 18px;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      border: 2px solid rgba(120, 160, 255, .16);
+      border-top-color: rgba(150, 190, 255, .9);
+      box-shadow: 0 0 20px rgba(90, 140, 255, .22);
+      animation: spinRing 1.1s linear infinite;
+    }
+    @keyframes spinRing { to { transform: rotate(360deg); } }
     /* 顶部标题：低调角标 */
     #title {
       position: fixed;
@@ -347,11 +362,73 @@
     .spacekit__object-label { display: none !important; }
     /* 月球独立 overlay 标签(JS 动态跟随月球显示) — 按用户要求一并隐藏 */
     .moon-overlay-label { display: none !important; }
+
+    /* ===== 氛围层（纯 CSS，零 3D 性能成本；克制调性，避免重蹈 bloom 全屏发黄覆辙） ===== */
+    /* 柔和暗角：边缘压暗突出中心场景 */
+    #fx-vignette {
+      position: fixed;
+      inset: 0;
+      z-index: 7;
+      pointer-events: none;
+      background: radial-gradient(ellipse 120% 92% at 50% 45%,
+        transparent 55%,
+        rgba(2, 4, 12, .28) 82%,
+        rgba(1, 2, 8, .52) 100%);
+    }
+    /* 极淡氛围光：顶部冷蓝 + 底部深蓝，增加深邃感 */
+    #fx-glow {
+      position: fixed;
+      inset: 0;
+      z-index: 6;
+      pointer-events: none;
+      background:
+        radial-gradient(60% 42% at 50% -8%, rgba(80, 140, 255, .07), transparent 70%),
+        radial-gradient(50% 34% at 50% 112%, rgba(60, 90, 200, .05), transparent 70%);
+    }
+    /* 星芒闪烁层：微小白点慢速呼吸，数量少、透明度低，不干扰视觉 */
+    #fx-stars {
+      position: fixed;
+      inset: 0;
+      z-index: 5;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 1.4s ease 1.4s;
+    }
+    body.loaded #fx-stars { opacity: 1; }
+    .fx-star {
+      position: absolute;
+      border-radius: 50%;
+      background: #dbe7ff;
+      box-shadow: 0 0 6px rgba(180, 210, 255, .7);
+      animation: fxTwinkle var(--dur, 4s) ease-in-out var(--delay, 0s) infinite;
+      opacity: 0;
+    }
+    @keyframes fxTwinkle {
+      0%, 100% { opacity: 0; transform: scale(.6); }
+      50% { opacity: var(--maxo, .6); transform: scale(1); }
+    }
+    /* UI 淡入：加载完成后各面板柔缓浮现 */
+    #title, #planet-bar, #time-ctl, #time-toggle, #info-panel {
+      opacity: 0;
+      transition: opacity .9s ease .1s;
+    }
+    body.loaded #title,
+    body.loaded #planet-bar,
+    body.loaded #time-ctl,
+    body.loaded #time-toggle,
+    body.loaded #info-panel {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
   <div id="loading">🌌 太阳系沙盒加载中…</div>
   <div id="main-container"></div>
+
+  <!-- 氛围层：星芒闪烁 / 氛围光 / 暗角（纯 CSS，指针穿透） -->
+  <div id="fx-stars"></div>
+  <div id="fx-glow"></div>
+  <div id="fx-vignette"></div>
 
   <div id="title">SOLAR SYSTEM · 太阳系</div>
   <div id="hint"><b>拖动</b>旋转 · <b>滚轮</b>缩放 · <b>点击</b>行星查看信息</div>
@@ -710,6 +787,8 @@
     function hideLoading() {
       var l = document.getElementById('loading');
       if (l) l.style.display = 'none';
+      // 触发 UI 淡入 + 星芒层显现
+      document.body.classList.add('loaded');
     }
     setTimeout(hideLoading, 600);
     setTimeout(hideLoading, 2000);
@@ -726,10 +805,24 @@
         startDate: startDate,
       });
 
-      viz.createStars();
       viz.createAmbientLight();
       viz.createLight([0, 0, 0]);
       objects.sun = viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
+
+      // 银河天空盒：SpaceKit 内置 createSkybox(equirect 全景球)。
+      // 预设与 assets/skybox/ 下 3 张图一一对应(ESO_GIGAGALAXY→eso_milkyway)，
+      // 官方矩阵已含 longitudeOffsetDeg=180 + mirrorLongitude 修正(黄道系对齐)。
+      // 替换原 createStars() 点星星空(与银河全景图重叠反而显脏)；失败时回退点星。
+      try {
+        viz.createSkybox({
+          textureUrl: './assets/skybox/eso_milkyway.jpg',
+          longitudeOffsetDeg: 180,
+          mirrorLongitude: true
+        });
+      } catch (e) {
+        console.warn('skybox 加载失败，回退点星星空:', e);
+        try { viz.createStars(); } catch (e2) {}
+      }
 
       // 官方大气语法: atmosphere = { enable, color } 由 SpaceKit renderFullAtmosphere() 自动渲染
       var ATM = {
@@ -1031,8 +1124,8 @@
             var geo = new T.BufferGeometry();
             geo.setAttribute('position', new T.BufferAttribute(positions, 3));
             var pmat = new T.PointsMaterial({
-              color: 0xaabbdd, size: 2.4, sizeAttenuation: true,
-              transparent: true, opacity: 0.32,
+              color: 0xc8d4ee, size: 2.0, sizeAttenuation: true,
+              transparent: true, opacity: 0.24,
               blending: T.AdditiveBlending, depthWrite: false
             });
             var dust = new T.Points(geo, pmat);
@@ -1935,6 +2028,28 @@
           }
         });
       }
+    })();
+  </script>
+  <script>
+    // 星芒闪烁层：生成少量微光点（数量少+低透明度，克制不刺眼），随机位置与呼吸节奏
+    (function () {
+      var el = document.getElementById('fx-stars');
+      if (!el) return;
+      var frag = document.createDocumentFragment();
+      for (var i = 0; i < 26; i++) {
+        var s = document.createElement('div');
+        s.className = 'fx-star';
+        var sz = (Math.random() * 1.6 + 0.8).toFixed(1);
+        s.style.cssText =
+          'left:' + (Math.random() * 100).toFixed(2) + '%;' +
+          'top:' + (Math.random() * 100).toFixed(2) + '%;' +
+          'width:' + sz + 'px;height:' + sz + 'px;' +
+          '--delay:' + (Math.random() * 6).toFixed(2) + 's;' +
+          '--dur:' + (3 + Math.random() * 4).toFixed(2) + 's;' +
+          '--maxo:' + (0.25 + Math.random() * 0.5).toFixed(2) + ';';
+        frag.appendChild(s);
+      }
+      el.appendChild(frag);
     })();
   </script>
 </body>
