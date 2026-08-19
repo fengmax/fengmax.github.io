@@ -6,15 +6,14 @@
    ============================================================ */
 (function () {
   // ---- 可配置 ----
+  // 只保留主流科技媒体（无博客/论坛/不知名站点）
   // 国外源直连（优先）；国内源标记 proxy:true 走代理（失败自动跳过）
   var SOURCES = [
-    // JSON API（Hacker News，官方 API 明确带 CORS: *）
-    { name: 'Hacker News', url: 'https://hn.algolia.com/api/v1/search_by_date?tags=story&hitsPerPage=30', json: true },
-    // XML RSS / Atom（直连）
-    { name: 'Reddit 科技', url: 'https://www.reddit.com/r/technology/top/.rss?limit=20' },
-    { name: 'DEV.to', url: 'https://dev.to/feed' },
-    { name: 'NASA', url: 'https://www.nasa.gov/rss/dyn/breaking_news.rss' },
-    // 国内源走代理（无 CORS，代理失败则跳过该源）
+    // 国际主流科技媒体（直连，失败自动跳过）
+    { name: 'NASA',       url: 'https://www.nasa.gov/rss/dyn/breaking_news.rss' },
+    { name: 'TechCrunch', url: 'https://techcrunch.com/feed/' },
+    { name: 'The Verge',  url: 'https://www.theverge.com/rss/index.xml' },
+    // 国内主流科技媒体（无 CORS，走代理链）
     { name: 'IT之家', url: 'https://www.ithome.com/rss/', proxy: true },
     { name: '36氪', url: 'https://36kr.com/feed', proxy: true },
     { name: 'cnBeta', url: 'https://www.cnbeta.com.tw/backend.php', proxy: true }
@@ -53,18 +52,6 @@
   }
 
   // --- 解析 JSON 源（Hacker News 等） ---
-  function parseJson(src, data) {
-    var hits = (data && data.hits) || [];
-    var out = [];
-    for (var i = 0; i < hits.length; i++) {
-      var h = hits[i];
-      var t = h.title || h.story_title || '';
-      var l = h.url || h.story_url || ('https://news.ycombinator.com/item?id=' + h.objectID);
-      if (t && l) out.push({ title: t.trim(), link: l, date: h.created_at, source: src.name });
-    }
-    return out;
-  }
-
   // --- 解析 XML 源（RSS item / Atom entry） ---
   function parseXml(src, xmlText) {
     var doc = new DOMParser().parseFromString(xmlText, 'text/xml');
@@ -87,15 +74,8 @@
     return out;
   }
 
-  // 抓取单个源：JSON 直连 / XML 直连 / 国内源走代理链
+  // 抓取单个源：国外源直连 / 国内源走代理链
   function fetchSource(src) {
-    if (src.json) {
-      return fetch(src.url).then(function (r) { return r.json(); }).then(function (d) {
-        var out = parseJson(src, d);
-        if (!out.length) throw new Error('empty json');
-        return out;
-      });
-    }
     if (src.proxy) {
       var attempt = 0;
       function tryNext() {
