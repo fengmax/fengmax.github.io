@@ -1,0 +1,168 @@
+/* ============================================================
+   行星数据模块
+   物理/显示参数，纯数据无依赖
+   挂载到全局: PLANETS, PlanetDist
+   ============================================================ */
+var PLANETS = [{
+  key: 'sun',
+  label: '太阳',
+  color: '#fdb813',
+  au: 0,
+  diameter: 1392000,
+  desc: '太阳系的中心恒星，占太阳系总质量的99.86%。主要成分为氢和氦，核心温度约1500万℃，通过核聚变释放能量。',
+  earthAU: '约1.496亿公里',
+  temp: '表面 5500℃ / 核心 1500万℃',
+  orb: '—',
+  rot: '25.4天(赤道)',
+  per: '—',
+  diamTxt: '直径 139.2万 km'
+}, {
+  key: 'mercury',
+  label: '水星',
+  color: '#9c9c9c',
+  au: 0.39,
+  diameter: 4879,
+  desc: '太阳系最小的行星，离太阳最近。表面布满陨石坑，昼夜温差极大(白天430℃,夜间-180℃)，几乎没有大气层。',
+  earthAU: '约0.61 AU',
+  temp: '平均 167℃',
+  orb: '47.9 km/s',
+  rot: '58.6天',
+  per: '88天',
+  diamTxt: '直径 4879 km',
+  selfrot: 1407.6,
+  selfdir: 1
+}, {
+  key: 'venus',
+  label: '金星',
+  color: '#e8c47d',
+  au: 0.72,
+  diameter: 12104,
+  desc: '太阳系最热的行星，被称为地球的"姊妹星"。浓厚二氧化碳大气层产生失控温室效应，地表温度高达465℃。自转逆行。',
+  earthAU: '约0.28 AU',
+  temp: '平均 464℃',
+  orb: '35.0 km/s',
+  rot: '243天(逆行)',
+  per: '225天',
+  diamTxt: '直径 12104 km',
+  selfrot: 5832,
+  selfdir: -1
+}, {
+  key: 'earth',
+  label: '地球',
+  color: '#3a86ff',
+  au: 1.00,
+  diameter: 12742,
+  desc: '我们的家园，目前已知唯一孕育生命的星球。表面71%被液态水覆盖，拥有适宜的大气层和强大的磁场。',
+  earthAU: '1.0 AU',
+  temp: '平均 15℃',
+  orb: '29.8 km/s',
+  rot: '23.9小时',
+  per: '365.25天',
+  diamTxt: '直径 12742 km',
+  selfrot: 23.9,
+  selfdir: 1
+}, {
+  key: 'moon',
+  label: '月球',
+  color: '#c9c9c9',
+  au: 0.072,
+  diameter: 3475,
+  desc: '地球唯一的天然卫星，人类唯一踏足过的外星体。因潮汐锁定总是同一面朝向地球，表面布满陨石坑。',
+  earthAU: '约 38.4 万 km',
+  temp: '白天 127℃ / 夜间 -173℃',
+  orb: '绕地球 1.02 km/s',
+  rot: '27.3天(潮汐锁定)',
+  per: '27.3天(恒星月)',
+  diamTxt: '直径 3475 km',
+  selfrot: 0,
+  selfdir: 1
+}, {
+  key: 'mars',
+  label: '火星',
+  color: '#e05d3f',
+  au: 1.52,
+  diameter: 6779,
+  desc: '红色星球，表面富含氧化铁呈现锈红色。拥有太阳系最高的火山(奥林帕斯山,高2.2万米)和最大的峡谷。',
+  earthAU: '约0.52 AU',
+  temp: '平均 -63℃',
+  orb: '24.1 km/s',
+  rot: '24.6小时',
+  per: '687天',
+  diamTxt: '直径 6779 km',
+  selfrot: 24.6,
+  selfdir: 1
+}, {
+  key: 'jupiter',
+  label: '木星',
+  color: '#d8a06a',
+  au: 5.20,
+  diameter: 139820,
+  desc: '太阳系最大的行星，质量是其他行星总和的2.5倍。大红斑是持续数百年的巨型风暴。拥有79颗已知卫星。',
+  earthAU: '约4.2 AU',
+  temp: '平均 -108℃',
+  orb: '13.1 km/s',
+  rot: '9.9小时(最快)',
+  per: '11.9年',
+  diamTxt: '直径 139820 km',
+  selfrot: 9.9,
+  selfdir: 1
+}, {
+  key: 'saturn',
+  label: '土星',
+  color: '#e6c98a',
+  au: 9.58,
+  diameter: 116460,
+  desc: '以壮观的光环闻名，由无数冰块和岩石碎片组成。密度极低，比水还轻，是太阳系"最轻"的行星。',
+  earthAU: '约8.6 AU',
+  temp: '平均 -139℃',
+  orb: '9.7 km/s',
+  rot: '10.7小时',
+  per: '29.5年',
+  diamTxt: '直径 116460 km',
+  selfrot: 10.7,
+  selfdir: 1
+}, {
+  key: 'uranus',
+  label: '天王星',
+  color: '#7fd6d8',
+  au: 19.2,
+  diameter: 50724,
+  desc: '冰巨星，自转轴几乎"躺平"(倾斜98°)，四季极长且极端。呈蓝绿色，大气含甲烷吸收红光。',
+  earthAU: '约18.2 AU',
+  temp: '平均 -195℃',
+  orb: '6.8 km/s',
+  rot: '17.2小时(逆行)',
+  per: '84年',
+  diamTxt: '直径 50724 km',
+  selfrot: 17.2,
+  selfdir: -1
+}, {
+  key: 'neptune',
+  label: '海王星',
+  color: '#4a6fe0',
+  au: 30.1,
+  diameter: 49244,
+  desc: '离太阳最远的行星，深蓝色外观因大气中的甲烷。拥有太阳系最快的风速(可达2100km/h)。',
+  earthAU: '约29.1 AU',
+  temp: '平均 -201℃',
+  orb: '5.4 km/s',
+  rot: '16.1小时',
+  per: '164.8年',
+  diamTxt: '直径 49244 km',
+  selfrot: 16.1,
+  selfdir: 1
+}];
+
+// 聚焦距离（相机到行星的世界单位距离）
+var PlanetDist = {
+  sun: 100,
+  mercury: 35,
+  venus: 45,
+  earth: 15,    // 压迫感镜头: 拉近后行星占画面更大(月球轨道环部分在屏外属正常)
+  moon: 4,
+  mars: 40,
+  jupiter: 85,
+  saturn: 80,
+  uranus: 65,
+  neptune: 65
+};
