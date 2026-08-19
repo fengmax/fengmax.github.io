@@ -813,34 +813,100 @@
       // 保留原 sprite mesh(scale/position/renderOrder), 只换 material.map
       // 换成程序生成的干净白核: 纯白内核 + 极短柔光(暖白偏冷, 0 黄偏, 0 十字光芒)
       try {
-        // 此时 window.THREE 还未设(window.THREE = Spacekit.THREE 在下方第 946 行),
-        // 直接用 Spacekit.THREE, 与 enhancePlanets/enhanceSky 同源
         var TSun = (window.THREE || Spacekit.THREE);
-        if (objects.sun && objects.sun._object3js && objects.sun._object3js.material) {
-          var sunSprite = objects.sun._object3js;
-          var sc2 = document.createElement('canvas');
-          sc2.width = sc2.height = 256;
-          var sctx2 = sc2.getContext('2d');
-          var ccx2 = 128, ccy2 = 128;
-          // 外层柔光: 极短半径, 暖白偏冷(避开黄偏)
-          var g1b = sctx2.createRadialGradient(ccx2, ccy2, 0, ccx2, ccy2, 56);
-          g1b.addColorStop(0,    'rgba(255, 250, 240, 0.90)');
-          g1b.addColorStop(0.50, 'rgba(255, 245, 232, 0.30)');
-          g1b.addColorStop(1,    'rgba(255, 240, 220, 0)');
-          sctx2.fillStyle = g1b; sctx2.fillRect(0, 0, 256, 256);
-          // 内核: 100% 纯白, 紧凑饱满
-          var g2b = sctx2.createRadialGradient(ccx2, ccy2, 0, ccx2, ccy2, 22);
-          g2b.addColorStop(0, 'rgba(255, 255, 255, 1)');
-          g2b.addColorStop(1, 'rgba(255, 255, 250, 0)');
-          sctx2.fillStyle = g2b; sctx2.fillRect(0, 0, 256, 256);
-          var newSunTex = new TSun.CanvasTexture(sc2);
-          newSunTex.encoding = TSun.sRGBEncoding;
-          if (sunSprite.material.map) sunSprite.material.map.dispose();
-          sunSprite.material.map = newSunTex;
-          sunSprite.material.color.set(0xffffff);
-          sunSprite.material.needsUpdate = true;
+        if (objects.sun && objects.sun._object3js && TSun) {
+          // === 关键: 先完整建好新对象, 任何步骤失败都保持旧 mesh 在位 ===
+          // 阶段 1: 创建新 mesh (内部抛错也安全, 旧 mesh 仍挂在 scene)
+          // 半径选择: home 远景相机 dist≈335, fov 45° 视高≈277 世界单位.
+          //   SUN_RADIUS=2.0 直径=4 单位 -> home 远景占 13px 直径 (黄球+光晕清晰可见)
+          //   用户 zoom 进来时太阳会自然变大, 颗粒纹理也能看清
+          var SUN_RADIUS = 2.0;
+          var SCAN_SIZE = 512;
+          var sunCanvas = document.createElement('canvas');
+          sunCanvas.width = sunCanvas.height = SCAN_SIZE;
+          var sctx = sunCanvas.getContext('2d');
+          var cx = SCAN_SIZE / 2, cy = SCAN_SIZE / 2;
+          var baseGrd = sctx.createRadialGradient(cx, cy, 0, cx, cy, SCAN_SIZE / 2);
+          baseGrd.addColorStop(0,    '#FFE848');
+          baseGrd.addColorStop(0.55, '#FFD400');
+          baseGrd.addColorStop(0.9,  '#FFB000');
+          baseGrd.addColorStop(1,    '#FF9000');
+          sctx.fillStyle = baseGrd;
+          sctx.fillRect(0, 0, SCAN_SIZE, SCAN_SIZE);
+          for (var i = 0; i < 280; i++) {
+            var dx = Math.random() * SCAN_SIZE, dy = Math.random() * SCAN_SIZE;
+            var dr = 4 + Math.random() * 14;
+            var da = (0.05 + Math.random() * 0.10).toFixed(2);
+            sctx.fillStyle = 'rgba(190, 110, 0, ' + da + ')';
+            sctx.beginPath(); sctx.arc(dx, dy, dr, 0, Math.PI * 2); sctx.fill();
+          }
+          for (var j = 0; j < 480; j++) {
+            var lx = Math.random() * SCAN_SIZE, ly = Math.random() * SCAN_SIZE;
+            var lr = 1.5 + Math.random() * 4;
+            var la = (0.08 + Math.random() * 0.16).toFixed(2);
+            sctx.fillStyle = 'rgba(255, 252, 200, ' + la + ')';
+            sctx.beginPath(); sctx.arc(lx, ly, lr, 0, Math.PI * 2); sctx.fill();
+          }
+          for (var k = 0; k < 3; k++) {
+            var sx = 100 + Math.random() * 312, sy = 100 + Math.random() * 312;
+            var sr = 8 + Math.random() * 6;
+            var spotGrd = sctx.createRadialGradient(sx, sy, 0, sx, sy, sr);
+            spotGrd.addColorStop(0, 'rgba(80, 40, 0, 0.75)');
+            spotGrd.addColorStop(1, 'rgba(80, 40, 0, 0)');
+            sctx.fillStyle = spotGrd;
+            sctx.beginPath(); sctx.arc(sx, sy, sr, 0, Math.PI * 2); sctx.fill();
+          }
+          var sunTex = new TSun.CanvasTexture(sunCanvas);
+          sunTex.encoding = TSun.sRGBEncoding;
+          var sunCoreGeo = new TSun.SphereGeometry(SUN_RADIUS, 64, 64);
+          var sunCoreMat = new TSun.MeshBasicMaterial({ map: sunTex });
+          var sunCore = new TSun.Mesh(sunCoreGeo, sunCoreMat);
+
+          var GLOW_SCALE = SUN_RADIUS * 2 * 1.4;
+          var glowCanvas = document.createElement('canvas');
+          glowCanvas.width = glowCanvas.height = 256;
+          var gctx = glowCanvas.getContext('2d');
+          var gcx = 128, gcy = 128;
+          var glowGrd = gctx.createRadialGradient(gcx, gcy, 0, gcx, gcy, 128);
+          glowGrd.addColorStop(0,    'rgba(255, 220, 100, 0.80)');
+          glowGrd.addColorStop(0.35, 'rgba(255, 200, 60, 0.42)');
+          glowGrd.addColorStop(0.7,  'rgba(255, 180, 30, 0.16)');
+          glowGrd.addColorStop(1,    'rgba(255, 160, 0, 0)');
+          gctx.fillStyle = glowGrd;
+          gctx.fillRect(0, 0, 256, 256);
+          var glowTex = new TSun.CanvasTexture(glowCanvas);
+          glowTex.encoding = TSun.sRGBEncoding;
+          var glowMat = new TSun.SpriteMaterial({
+            map: glowTex, color: 0xffffff,
+            blending: TSun.AdditiveBlending,
+            depthWrite: false, transparent: true
+          });
+          var sunGlow = new TSun.Sprite(glowMat);
+          sunGlow.scale.set(GLOW_SCALE, GLOW_SCALE, 1);
+
+          var sunGroup = new TSun.Group();
+          sunGroup.add(sunCore);
+          sunGroup.add(sunGlow);
+          sunGroup.position.set(0, 0, 0);
+          sunGroup.renderOrder = -1;
+
+          // 阶段 2: 新对象已就绪, 现在安全挂到 scene 并接管引用
+          viz.getScene().add(sunGroup);
+          var oldSunMesh = objects.sun._object3js;
+          objects.sun._object3js = sunGroup;  // 接管
+
+          // 阶段 3: 清理旧 mesh (单独 try, 失败也不影响新 mesh)
+          if (oldSunMesh && oldSunMesh.parent) {
+            try { oldSunMesh.parent.remove(oldSunMesh); } catch (e) {}
+          }
+          if (oldSunMesh && oldSunMesh.material) {
+            try { oldSunMesh.material.dispose(); } catch (e) {}
+          }
+          if (oldSunMesh && oldSunMesh.material && oldSunMesh.material.map) {
+            try { oldSunMesh.material.map.dispose(); } catch (e) {}
+          }
         }
-      } catch (e) { console.warn('替换 SUN 精灵贴图失败:', e && e.message); }
+      } catch (e) { console.warn('太阳 3D 化失败:', e && e.message); }
 
       // 银河天空盒：SpaceKit 内置 createSkybox(equirect 全景球)。
       // 预设与 assets/skybox/ 下 3 张图一一对应(ESO_GIGAGALAXY→eso_milkyway)，
