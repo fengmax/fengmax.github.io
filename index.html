@@ -785,6 +785,156 @@
       try { viz.setJdPerSecond(1 / 86400); } catch (e) {}
       window.THREE = Spacekit.THREE;
 
+      // ===== 行星视觉增强：法线贴图 + 地球云层 + 大气辉光 =====
+      // 仅依赖已暴露的 window.THREE, 不改动 SpaceKit 任何内部逻辑
+      function enhancePlanets() {
+        var T = window.THREE;
+        if (!T || !viz || !objects) return;
+        var loader = new T.TextureLoader();
+
+        // 有大气的行星 -> 加 Fresnel 辉光(颜色/强度/放大比)
+        var ATM = {
+          earth:   { color: 0x5b9bff, power: 3.2, coeff: 0.88, scale: 1.025 },
+          venus:   { color: 0xe8c27a, power: 3.0, coeff: 0.88, scale: 1.030 },
+          mars:    { color: 0xff7a4a, power: 4.0, coeff: 0.82, scale: 1.030 },
+          jupiter: { color: 0xd8b48a, power: 3.6, coeff: 0.85, scale: 1.020 },
+          saturn:  { color: 0xe8d6a8, power: 3.6, coeff: 0.85, scale: 1.020 },
+          uranus:  { color: 0x9fe6e6, power: 3.6, coeff: 0.85, scale: 1.030 },
+          neptune: { color: 0x5a7bff, power: 3.6, coeff: 0.85, scale: 1.030 }
+        };
+
+        function getMesh(key) {
+          try {
+            var o = objects[key];
+            if (!o) return null;
+            var arr = o.get3jsObjects ? o.get3jsObjects() :
+                      (o.get3jsObject ? [o.get3jsObject()] : null);
+            if (arr && arr[0]) return arr[0];
+          } catch (e) {}
+          return null;
+        }
+
+        function loadTex(url, cb) {
+          loader.load(url, function (tex) {
+            try { cb(tex); } catch (e) {}
+          }, undefined, function () {});
+        }
+
+        function makeAtmosphere(radius, opt) {
+          var geo = new T.SphereGeometry(radius * opt.scale, 48, 32);
+          var mat = new T.ShaderMaterial({
+            uniforms: {
+              glowColor: { value: new T.Color(opt.color) },
+              coefficient: { value: opt.coeff },
+              power: { value: opt.power }
+            },
+            vertexShader: [
+              'varying vec3 vNormal;',
+              'varying vec3 vView;',
+              'void main() {',
+              '  vNormal = normalize(normalMatrix * normal);',
+              '  vec4 mv = modelViewMatrix * vec4(position, 1.0);',
+              '  vView = -mv.xyz;',
+              '  gl_Position = projectionMatrix * mv;',
+              '}'
+            ].join('\n'),
+            fragmentShader: [
+              'uniform vec3 glowColor;',
+              'uniform float coefficient;',
+              'uniform float power;',
+              'varying vec3 vNormal;',
+              'varying vec3 vView;',
+              'void main() {',
+              '  vec3 viewDir = normalize(vView);',
+              '  float d = dot(normalize(vNormal), viewDir);',
+              '  float intensity = pow(max(coefficient - d, 0.0), power);',
+              '  gl_FragColor = vec4(glowColor, 1.0) * intensity;',
+              '}'
+            ].join('\n'),
+            side: T.FrontSide,
+            blending: T.AdditiveBlending,
+            transparent: true,
+            depthWrite: false
+          });
+          return new T.Mesh(geo, mat);
+        }
+
+        Object.keys(objects).forEach(function (key) {
+          if (key === 'sun') return;
+          var mesh = getMesh(key);
+          if (!mesh || !mesh.material) return;
+          var mat = mesh.material;
+          if (!mesh.geometry) return;
+          if (!mesh.geometry.boundingSphere) mesh.geometry.computeBoundingSphere();
+          var radius = (mesh.geometry.boundingSphere && mesh.geometry.boundingSphere.radius) ||
+                       (mesh.geometry.parameters && mesh.geometry.parameters.radius) || 0.01;
+
+          // 1) 法线贴图(所有行星)
+          if (mat.normalMap !== undefined) {
+            loadTex('./assets/textures/' + key + '-normal.jpg', function (tex) {
+              try {
+                if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
+                else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
+                mat.normalMap = tex;
+                if (mat.normalScale && mat.normalScale.set) mat.normalScale.set(0.85, 0.85);
+                mat.needsUpdate = true;
+              } catch (e) {}
+            });
+          }
+
+          // 2) 地球专属: 云层 + 海洋高光
+          if (key === 'earth') {
+            if (mat.specularMap !== undefined) {
+              loadTex('./assets/textures/earth-specular.jpg', function (tex) {
+                try {
+                  if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
+                  else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
+                  mat.specularMap = tex;
+                  if (mat.specular && mat.specular.setHex) mat.specular.setHex(0x335577);
+                  if (mat.shininess !== undefined) mat.shininess = 18;
+                  mat.needsUpdate = true;
+                } catch (e) {}
+              });
+            }
+            try {
+              var cloudGeo = new T.SphereGeometry(radius * 1.012, 48, 32);
+              var cloudMat = new T.MeshPhongMaterial({
+                color: 0xffffff, transparent: true, depthWrite: false, opacity: 0.9
+              });
+              loadTex('./assets/textures/earth-clouds.png', function (tex) {
+                try {
+                  if (T.SRGBColorSpace) tex.colorSpace = T.SRGBColorSpace;
+                  cloudMat.alphaMap = tex;   // 白=云, 黑=透明
+                  cloudMat.needsUpdate = true;
+                } catch (e) {}
+              });
+              var cloudMesh = new T.Mesh(cloudGeo, cloudMat);
+              cloudMesh.name = 'earth-clouds';
+              mesh.add(cloudMesh);
+              window.__cloudMesh = cloudMesh;
+            } catch (e) {}
+          }
+
+          // 3) 大气辉光
+          if (ATM[key]) {
+            try {
+              var atm = makeAtmosphere(radius, ATM[key]);
+              atm.name = key + '-atmosphere';
+              mesh.add(atm);
+            } catch (e) {}
+          }
+        });
+
+        // 云层缓慢自转(独立 rAF, 不影响 SpaceKit 主循环)
+        if (window.__cloudMesh) {
+          (function spin() {
+            try { if (window.__cloudMesh) window.__cloudMesh.rotation.y += 0.0006; } catch (e) {}
+            requestAnimationFrame(spin);
+          })();
+        }
+      }
+      try { enhancePlanets(); } catch (e) { console.error('enhancePlanets failed:', e); }
+
     } catch (err) {
       console.error('3D初始化失败:', err);
       hideLoading();
