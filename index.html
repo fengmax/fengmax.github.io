@@ -866,10 +866,11 @@
           var gctx = glowCanvas.getContext('2d');
           var gcx = 128, gcy = 128;
           var glowGrd = gctx.createRadialGradient(gcx, gcy, 0, gcx, gcy, 128);
-          glowGrd.addColorStop(0,    'rgba(255, 220, 100, 1.00)');
-          glowGrd.addColorStop(0.20, 'rgba(255, 200, 60, 0.85)');
-          glowGrd.addColorStop(0.45, 'rgba(255, 180, 30, 0.60)');
-          glowGrd.addColorStop(0.70, 'rgba(255, 160, 0, 0.30)');
+          // 亮度翻倍(尺寸 3.0x 不变): 0-0.45 区间 alpha 全 cap 到 1.00, 0.70 处 0.60
+          glowGrd.addColorStop(0,    'rgba(255, 230, 120, 1.00)');
+          glowGrd.addColorStop(0.20, 'rgba(255, 215, 85, 1.00)');
+          glowGrd.addColorStop(0.45, 'rgba(255, 195, 50, 1.00)');
+          glowGrd.addColorStop(0.70, 'rgba(255, 175, 25, 0.60)');
           glowGrd.addColorStop(1,    'rgba(255, 160, 0, 0)');
           gctx.fillStyle = glowGrd;
           gctx.fillRect(0, 0, 256, 256);
@@ -958,7 +959,7 @@
             // Create moon as simple sphere WITHOUT ephemeris - orbit will be managed by updateMoonOrbit().
             // 不传 labelText,也不挂 HTML overlay —— 月球不带任何名字标签(按需求移除)。
             obj = viz.createSphere(p.key, {
-              textureUrl: './assets/textures/moon.jpg',
+              textureUrl: './assets/textures/moon-hi.jpg',  // 2K 高清(风格统一 + 细节/亮度提升)
               radius: moonR,
             });
             // 初始位置留 0 — updateMoonOrbit 在第一个 tick 立即接管,不会出现 (12,0,0) 闪烁
@@ -976,7 +977,7 @@
         } else {
           try {
             var sphereOpts = {
-              textureUrl: './assets/textures/' + p.key + '.jpg',
+              textureUrl: './assets/textures/' + p.key + '-hi.jpg',  // 2K 高清统一(细节+亮度基准一致)
               radius: radiusToPass,
               ephem: preset.ephem,
               levelsOfDetail: [{ radii: 0, segments: 48 }, { radii: 40, segments: 24 }, { radii: 80, segments: 12 }],
@@ -1032,6 +1033,7 @@
           'uniform float useSpec;',
           'uniform float specStrength;',
           'uniform float shininess;',
+          'uniform float ambientLight;',
           'uniform float cloudDrift;',
           'uniform float bandAmpl;',
           'varying vec2 vUv;',
@@ -1062,7 +1064,9 @@
           '    float shear = 1.0 - abs(vUv.y - 0.5) * 2.0;',
           '    texUv.x = fract(vUv.x + cloudDrift * shear);',
           '  }',
-          '  vec3 color = texture2D(sphereTexture, texUv).rgb * lambertian;',
+          // 全局环境光: 夜面不再全黑, 所有行星统一亮度基准(风格统一的关键)
+          // ambientLight=0.15 -> 夜面最低 15% 亮度, 昼面 100%
+          '  vec3 color = texture2D(sphereTexture, texUv).rgb * (ambientLight + (1.0 - ambientLight) * lambertian);',
           '  if (abs(bandAmpl) > 0.0001) {',
           '    float band = 0.5 + 0.5 * sin(vUv.y * 30.0 + cloudDrift * 8.0);',
           '    color *= 1.0 - bandAmpl * 0.5 + bandAmpl * band;',
@@ -1104,7 +1108,8 @@
                              undefined, function () {});
         }
 
-        var driftTargets = [];
+        // 云带漂移已移除(按用户反馈): 木星/金星表面不再流动
+        // 原 driftTargets 收集 + drift rAF 一并删除, cloudDrift uniform 恒 0 无副作用
 
         Object.keys(objects).forEach(function (key) {
           if (key === 'sun') return;
@@ -1129,6 +1134,8 @@
                 mat.uniforms.useSpec = { value: 0 };
                 mat.uniforms.specStrength = { value: 0.35 };
                 mat.uniforms.shininess = { value: 20.0 };
+                // 全局环境光: 所有行星统一, 夜面最低 15% 亮度(风格统一)
+                mat.uniforms.ambientLight = { value: 0.15 };
                 mat.uniforms.cloudDrift = { value: 0.0 };
                 mat.uniforms.bandAmpl = { value: 0.0 };
                 mat.fragmentShader = AUG_FRAG;
@@ -1177,29 +1184,10 @@
             });
           }
 
-          // 云带漂移(木星差动自转 / 金星云带流动): 收集 cloudDrift uniform 供 rAF 累加
-          if (key === 'jupiter' || key === 'venus') {
-            meshes.forEach(function (mesh) {
-              var m = mesh.material;
-              if (m && m.uniforms && m.uniforms.cloudDrift !== undefined) {
-                if (key === 'venus') m.uniforms.bandAmpl.value = 0.16;   // 金星云带明暗
-                driftTargets.push(m.uniforms.cloudDrift);
-              }
-            });
-          }
+          // 云带漂移已移除(按用户反馈): 不再给 jupiter/venus 设 cloudDrift/bandAmpl
         });
 
-        // 云带漂移独立 rAF: 表面纹理经度方向缓慢流动(赤道快两极慢)
-        if (driftTargets.length) {
-          (function drift() {
-            try {
-              for (var i = 0; i < driftTargets.length; i++) {
-                if (driftTargets[i]) driftTargets[i].value = (driftTargets[i].value + 0.0018) % 2.0;
-              }
-            } catch (e) {}
-            requestAnimationFrame(drift);
-          })();
-        }
+      // 云带漂移 rAF 已移除(按用户反馈): 木星/金星表面不再流动
       }
 
       // ===== 天空氛围: 银河星尘(淡色粒子, 增加太空纵深, 不眩目) =====
