@@ -729,6 +729,7 @@
 
       // 官方大气语法: atmosphere = { enable, color } 由 SpaceKit renderFullAtmosphere() 自动渲染
       var ATM = {
+        mercury: { color: 0xb8b8c0, outer: 0.05 },   // 水星: 极稀薄外逸层, 淡色薄层
         earth:   { color: 0x5b9bff },
         venus:   { color: 0xe8c27a },
         mars:    { color: 0xff7a4a },
@@ -785,9 +786,11 @@
               levelsOfDetail: [{ radii: 0, segments: 48 }, { radii: 40, segments: 24 }, { radii: 80, segments: 12 }],
               labelText: p.label
             };
-            // 官方大气: 有大气行星在创建时启用(颜色取自 ATM)
+            // 官方大气: 有大气行星在创建时启用(颜色取自 ATM, 可微调内外层比例)
             if (ATM[p.key]) {
               sphereOpts.atmosphere = { enable: true, color: ATM[p.key].color };
+              if (ATM[p.key].inner) sphereOpts.atmosphere.innerSizeRatio = ATM[p.key].inner;
+              if (ATM[p.key].outer) sphereOpts.atmosphere.outerSizeRatio = ATM[p.key].outer;
             }
             obj = viz.createSphere(p.key, sphereOpts);
           } catch (e) {
@@ -822,10 +825,6 @@
           'uniform float useSpec;',
           'uniform float specStrength;',
           'uniform float shininess;',
-          'uniform sampler2D cloudMap;',
-          'uniform float useCloud;',
-          'uniform float cloudOpacity;',
-          'uniform float cloudAngle;',
           'varying vec2 vUv;',
           'varying vec3 vViewPosition;',
           'varying vec3 vViewLightPos;',
@@ -857,12 +856,6 @@
           '    float s = pow(max(dot(N, H), 0.0), shininess) * specStrength * specMask;',
           '    color += vec3(s);',
           '  }',
-          '  if (useCloud > 0.5) {',
-          '    vec2 cloudUv = vec2(fract(vUv.x - cloudAngle), vUv.y);',
-          '    float cloudA = texture2D(cloudMap, cloudUv).r * cloudOpacity;',
-          '    vec3 cloudCol = vec3(0.95, 0.97, 1.0) * max(lambertian, 0.02);',
-          '    color = mix(color, cloudCol, cloudA);',
-          '  }',
           '  gl_FragColor = vec4(color, 1.0);',
           '}'
         ].join('\n');
@@ -872,8 +865,6 @@
         dummyNormal.needsUpdate = true;
         var dummySpec = new T.DataTexture(new Uint8Array([0,0,0,255]), 1, 1, T.RGBAFormat);
         dummySpec.needsUpdate = true;
-        var dummyCloud = new T.DataTexture(new Uint8Array([0,0,0,255]), 1, 1, T.RGBAFormat);
-        dummyCloud.needsUpdate = true;
 
         // get3jsObjects()[0] 是 LOD/group, 不是带材质的网格 -> 用 traverse 收集真实网格
         function getRoot(key) {
@@ -894,8 +885,6 @@
           loader.load(url, function (tex) { try { cb(tex); } catch (e) {} },
                              undefined, function () {});
         }
-
-        var cloudAngles = [];
 
         Object.keys(objects).forEach(function (key) {
           if (key === 'sun') return;
@@ -920,10 +909,6 @@
                 mat.uniforms.useSpec = { value: 0 };
                 mat.uniforms.specStrength = { value: 0.35 };
                 mat.uniforms.shininess = { value: 20.0 };
-                mat.uniforms.cloudMap = { value: dummyCloud };
-                mat.uniforms.useCloud = { value: 0 };
-                mat.uniforms.cloudOpacity = { value: 0.0 };
-                mat.uniforms.cloudAngle = { value: 0.0 };
                 mat.fragmentShader = AUG_FRAG;
                 mat.extensions = Object.assign({}, mat.extensions, { derivatives: true });
                 mat.needsUpdate = true;
@@ -949,9 +934,8 @@
             });
           });
 
-          // 地球专属: 海洋镜面高光 + 云层(云层直接叠加进地球自身着色器, 同一颗球, 无第二个球体)
+          // 地球专属: 海洋镜面高光(云层已按要求移除)
           if (key === 'earth') {
-            var cloudTexLoaded = null;
             meshes.forEach(function (mesh) {
               var m = mesh.material;
               if (m && m.uniforms && m.uniforms.specularMap) {
@@ -968,50 +952,9 @@
                   } catch (e) {}
                 });
               }
-              // 云层: 同一 Lambert 着色器内叠加, 云层亮度当密度, UV 经度偏移实现独立转动
-              if (m && m.uniforms && m.uniforms.cloudMap) {
-                m.uniforms.useCloud.value = 1;
-                m.uniforms.cloudOpacity.value = 0.5;
-                m.uniforms.cloudAngle.value = 0.0;
-                if (cloudTexLoaded) {
-                  m.uniforms.cloudMap.value = cloudTexLoaded;
-                } else {
-                  loadTex('./assets/textures/earth-clouds.png', function (tex) {
-                    try {
-                      tex.wrapS = T.RepeatWrapping;
-                      tex.wrapT = T.ClampToEdgeWrapping;
-                      if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
-                      else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
-                      cloudTexLoaded = tex;
-                      meshes.forEach(function (mm2) {
-                        try {
-                          var m2 = mm2.material;
-                          if (m2 && m2.uniforms && m2.uniforms.cloudMap) {
-                            m2.uniforms.cloudMap.value = tex;
-                            m2.needsUpdate = true;
-                          }
-                        } catch (e) {}
-                      });
-                    } catch (e) {}
-                  });
-                }
-                cloudAngles.push(m.uniforms.cloudAngle);
-              }
             });
           }
         });
-
-        // 云层经度偏移独立自转(叠加在地球同一球体上, 比地表转得快一点)
-        if (cloudAngles.length) {
-          (function spin() {
-            try {
-              for (var i = 0; i < cloudAngles.length; i++) {
-                if (cloudAngles[i]) cloudAngles[i].value = (cloudAngles[i].value + 0.0012) % 1.0;
-              }
-            } catch (e) {}
-            requestAnimationFrame(spin);
-          })();
-        }
       }
       try { enhancePlanets(); } catch (e) { console.error('enhancePlanets failed:', e); }
 
