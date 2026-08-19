@@ -7,7 +7,7 @@
 (function () {
   // ---- 可配置 ----
   var NEWS_URL = './data/news.json';  // 本地 JSON（Actions 定时生成）
-  var MAX_ITEMS = 12;               // 最多显示条数
+  var MAX_ITEMS = 15;               // 最多显示条数（5 家 × 3 条配额）
   var REFRESH_MS = 10 * 60 * 1000;  // 10 分钟重新读取一次（看有没有新数据）
   var SCROLL_MS = 80000;            // 滚动一圈时长（ms）—— 放慢一倍，方便阅读
   var MIN_SCROLL = 6;               // 少于该条数则静态展示

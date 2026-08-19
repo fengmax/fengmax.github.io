@@ -1,8 +1,8 @@
 /* ============================================================
    GitHub Actions 新闻抓取脚本（方案 B）
    Node 原生实现，零第三方依赖（Node 18+ 全局 fetch）
-   抓 6 家主流科技媒体 RSS/Atom → 生成 data/news.json
-   配额制：每家最多 2 条（QUOTA_PER_SOURCE），共 12 条，防止高频源霸榜
+   抓 5 家主流科技媒体 RSS/Atom → 生成 data/news.json
+   配额制：每家最多 3 条（QUOTA_PER_SOURCE），共 15 条，防止高频源霸榜
    由 .github/workflows/fetch-news.yml 定时执行
 
    用法: node .github/scripts/fetch-news.mjs
@@ -15,8 +15,8 @@ import { dirname, join } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUT = join(__dirname, '..', '..', 'data', 'news.json');
 const MAX_PER_SOURCE = 15;       // 每家抓取时最多取 15 条
-const QUOTA_PER_SOURCE = 2;      // 最终结果每家最多 2 条（配额制，防止高频源霸榜）
-const MAX_TOTAL = 12;            // 总条数上限（6 家 × 2 = 12，正好是前端显示窗口）
+const QUOTA_PER_SOURCE = 3;      // 最终结果每家最多 3 条（配额制，防止高频源霸榜）
+const MAX_TOTAL = 15;            // 总条数上限（5 家 × 3 = 15，与前端 MAX_ITEMS 一致）
 
 // ---- 源列表（科技/航天/科学气质，与前端 news-feed.js 保持一致） ----
 const SOURCES = [

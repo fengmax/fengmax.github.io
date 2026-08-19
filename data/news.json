@@ -1,6 +1,6 @@
 {
- "updated": "2026-08-19T21:36:30.473Z",
- "count": 8,
+ "updated": "2026-08-19T21:38:57.012Z",
+ "count": 12,
  "items": [
   {
    "title": "Private mission to save NASA's Swift space telescope fails",
@@ -27,15 +27,33 @@
    "source": "The Verge"
   },
   {
+   "title": "'The Mandalorian and Grogu' finally blasts onto Disney+ next month",
+   "link": "https://www.space.com/entertainment/space-movies-shows/the-mandalorian-and-grogu-finally-blasts-onto-disney-next-month",
+   "date": "2026-08-19T19:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
    "title": "Google Gemini is getting a dedicated student hub",
    "link": "https://www.theverge.com/ai-artificial-intelligence/982425/google-gemini-student-hub",
    "date": "2026-08-19T19:00:00.000Z",
    "source": "The Verge"
   },
   {
+   "title": "Watch Valve set up the Steam Frame in its own leaked videos",
+   "link": "https://www.theverge.com/games/982406/valve-steam-frame-setup-unboxing-leaked-videos",
+   "date": "2026-08-19T18:16:27.000Z",
+   "source": "The Verge"
+  },
+  {
    "title": "NASA Updates Next Steps for Commercial Swift Boost Mission",
    "link": "https://www.nasa.gov/news-release/nasa-updates-next-steps-for-commercial-swift-boost-mission/",
    "date": "2026-08-19T18:08:25.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Human-Related Microbes May Survive Moon’s South Pole, NASA Finds",
+   "link": "https://science.nasa.gov/humans-in-space/human-related-microbes-may-survive-moons-south-pole-nasa-finds/",
+   "date": "2026-08-19T18:02:40.000Z",
    "source": "NASA"
   },
   {
@@ -48,6 +66,12 @@
    "title": "《漫威斗魂》PC 版发售 11 天即遭破解，玩家称破解版明显更流畅",
    "link": "https://www.ithome.com/0/991/864.htm",
    "date": "2026-08-19T15:40:40.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "赵长江详解智界 RX 智能环抱座椅：98 个压力传感器 +27 个气袋，能做到“千人千面”",
+   "link": "https://www.ithome.com/0/991/863.htm",
+   "date": "2026-08-19T15:39:52.000Z",
    "source": "IT之家"
   }
  ]
