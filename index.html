@@ -1039,17 +1039,17 @@
             var SUN_R = 60;   // 与行星尺寸计算同源的太阳半径
             var sp1 = new T.Sprite(new T.SpriteMaterial({
               map: glowTex, blending: T.AdditiveBlending,
-              transparent: true, depthWrite: false, opacity: 0.95
+              transparent: true, depthWrite: false, opacity: 0.9
             }));
             sp1.name = 'sun-corona-inner';
-            sp1.scale.set(SUN_R * 2.6, SUN_R * 2.6, 1);
+            sp1.scale.set(SUN_R * 1.15, SUN_R * 1.15, 1);
             sunRoot.add(sp1);
             var sp2 = new T.Sprite(new T.SpriteMaterial({
               map: glowTex, blending: T.AdditiveBlending,
-              transparent: true, depthWrite: false, opacity: 0.28
+              transparent: true, depthWrite: false, opacity: 0.18
             }));
             sp2.name = 'sun-corona-outer';
-            sp2.scale.set(SUN_R * 5.5, SUN_R * 5.5, 1);
+            sp2.scale.set(SUN_R * 1.4, SUN_R * 1.4, 1);
             sunRoot.add(sp2);
           }
         } catch (e) {}
