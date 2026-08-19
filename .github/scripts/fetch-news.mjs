@@ -22,7 +22,6 @@ const MAX_TOTAL = 12;            // 总条数上限（6 家 × 2 = 12，正好�
 const SOURCES = [
   { name: 'NASA',       url: 'https://www.nasa.gov/rss/dyn/breaking_news.rss' },
   { name: 'Space.com',  url: 'https://www.space.com/feeds/all' },
-  { name: 'Phys.org',   url: 'https://phys.org/rss-feed/' },
   { name: 'The Verge',  url: 'https://www.theverge.com/rss/index.xml' },
   { name: 'IT之家',     url: 'https://www.ithome.com/rss/' },
   { name: 'cnBeta',     url: 'https://www.cnbeta.com.tw/backend.php' }
