@@ -792,8 +792,8 @@
         if (!T || !viz || !objects) return;
         var loader = new T.TextureLoader();
 
-        // 1x 法线强度
-        var NSTR = 0.85;
+        // 法线强度分行星(岩石星立体感强, 气态星顺滑弱)
+        var NSTR = { moon: 1.2, mercury: 1.0, mars: 1.0, venus: 0.6, earth: 0.85, jupiter: 0.4, saturn: 0.4, uranus: 0.4, neptune: 0.4 };
 
         // 有大气的行星 -> 加 Fresnel 辉光(颜色/强度/放大比)
         var ATM = {
@@ -855,7 +855,7 @@
           '  if (useCloud > 0.5) {',
           '    vec2 cloudUv = vec2(fract(vUv.x - cloudAngle), vUv.y);',
           '    float cloudA = texture2D(cloudMap, cloudUv).r * cloudOpacity;',
-          '    vec3 cloudCol = vec3(1.0) * max(lambertian, 0.08);',
+          '    vec3 cloudCol = vec3(0.95, 0.97, 1.0) * max(lambertian, 0.02);',
           '    color = mix(color, cloudCol, cloudA);',
           '  }',
           '  gl_FragColor = vec4(color, 1.0);',
@@ -949,7 +949,7 @@
               try {
                 mat.uniforms.normalMap = { value: dummyNormal };
                 mat.uniforms.useNormal = { value: 0 };
-                mat.uniforms.normalScale = { value: NSTR };
+                mat.uniforms.normalScale = { value: (NSTR[key] || 0.85) };
                 mat.uniforms.specularMap = { value: dummySpec };
                 mat.uniforms.useSpec = { value: 0 };
                 mat.uniforms.specStrength = { value: 0.35 };
@@ -1014,7 +1014,7 @@
               // 云层: 同一 Lambert 着色器内叠加, 云层亮度当密度, UV 经度偏移实现独立转动
               if (m && m.uniforms && m.uniforms.cloudMap) {
                 m.uniforms.useCloud.value = 1;
-                m.uniforms.cloudOpacity.value = 0.9;
+                m.uniforms.cloudOpacity.value = 0.5;
                 m.uniforms.cloudAngle.value = 0.0;
                 if (cloudTexLoaded) {
                   m.uniforms.cloudMap.value = cloudTexLoaded;
