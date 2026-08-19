@@ -4,13 +4,28 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>太阳系沙盒 · 3D Solar System</title>
-  <style>
-    html,
-    body {
+    <style>
+    :root {
+      --bg: #05070d;
+      --glass: rgba(13, 18, 32, .72);
+      --glass-strong: rgba(10, 14, 26, .9);
+      --border: rgba(120, 160, 255, .16);
+      --txt: #e8eef7;
+      --txt-dim: #8a9bb5;
+      --accent: #4a8cf0;
+      --accent-2: #7fb2ff;
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    html, body {
       margin: 0;
+      padding: 0;
+      height: 100%;
       overflow: hidden;
-      font-family: "Helvetica Neue", Arial, "PingFang SC", sans-serif;
-      background: #000;
+      background: var(--bg);
+      font-family: "PingFang SC", "Microsoft YaHei", -apple-system, "Helvetica Neue", Arial, sans-serif;
+      color: var(--txt);
+      -webkit-font-smoothing: antialiased;
     }
     #main-container {
       width: 100vw;
@@ -22,340 +37,326 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #000;
+      background: var(--bg);
       color: #9aa4b5;
-      font-size: 18px;
+      font-size: 16px;
+      letter-spacing: 3px;
       z-index: 999;
-      letter-spacing: 2px;
     }
+    /* 顶部标题：低调角标 */
     #title {
       position: fixed;
       top: 14px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
-      font-size: 18px;
-      font-weight: 300;
-      letter-spacing: 4px;
+      left: 16px;
       z-index: 10;
-      text-shadow: 0 0 14px rgba(120, 180, 255, .55);
+      color: #cdd8ec;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 3px;
+      opacity: .7;
       pointer-events: none;
-      white-space: nowrap;
+      text-shadow: 0 0 12px rgba(120, 180, 255, .4);
     }
+    /* 操作提示：底部居中，数秒后淡出 */
     #hint {
       position: fixed;
-      bottom: 52px;
       left: 50%;
+      bottom: 64px;
       transform: translateX(-50%);
-      color: #667;
-      font-size: 12px;
-      letter-spacing: 1px;
-      z-index: 10;
+      color: #5d6b85;
+      font-size: 11px;
+      letter-spacing: .5px;
+      z-index: 9;
       pointer-events: none;
       text-align: center;
       white-space: nowrap;
+      animation: fadeHint 1s ease 6s forwards;
     }
-    #hint b {
-      color: #aac;
-    }
+    #hint b { color: #8aa0c8; font-weight: 600; }
+    @keyframes fadeHint { to { opacity: 0; } }
 
+    /* 3D 内行星名字标签（JS 依赖，保留可点） */
     .spacekit__object-label {
       position: absolute;
-      font-family: Arial, "PingFang SC", sans-serif;
-      font-size: 13px;
+      font-family: "PingFang SC", Arial, sans-serif;
+      font-size: 12px;
       color: #fff;
-      background: rgba(0, 0, 0, .72);
-      padding: 3px 8px;
-      border-radius: 4px;
+      background: rgba(8, 12, 22, .75);
+      padding: 3px 9px;
+      border-radius: 6px;
       white-space: nowrap;
-      border: 1px solid rgba(160, 200, 255, .55);
-      box-shadow: 0 0 8px rgba(0, 0, 0, .6);
-      text-shadow: 0 0 6px rgba(100, 160, 255, .8);
-      z-index: 15;
-      visibility: visible !important;
-      pointer-events: auto !important;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .5);
       cursor: pointer;
-      min-height: 18px;
-      line-height: 1.3;
+      z-index: 15;
     }
     .spacekit__object-label:hover {
-      background: #2850a0 !important;
-      border-color: #7fb2ff !important;
+      background: var(--accent) !important;
+      border-color: var(--accent-2) !important;
     }
-    .spacekit__object-label>div {
-      pointer-events: none;
-    }
+    .spacekit__object-label > div { pointer-events: none; }
 
-    /* 月球专用 HTML overlay label:纯文字「月球」,不带任何 emoji(emoji 是擅自加的,已移除)。
-       跟随月球 mesh 的屏幕投影,固定偏移到月球上方。*/
+    /* 月球专用 HTML overlay label（JS 依赖，保留） */
     .moon-overlay-label {
       position: fixed;
       z-index: 16;
       pointer-events: auto;
       cursor: pointer;
-      font-family: Arial, "PingFang SC", sans-serif;
-      font-size: 13px;
+      font-family: "PingFang SC", Arial, sans-serif;
+      font-size: 12px;
       color: #fff;
-      background: rgba(0, 0, 0, .72);
-      padding: 3px 8px;
-      border-radius: 4px;
+      background: rgba(8, 12, 22, .75);
+      padding: 3px 9px;
+      border-radius: 6px;
       white-space: nowrap;
-      border: 1px solid rgba(160, 200, 255, .55);
-      box-shadow: 0 0 8px rgba(0, 0, 0, .6);
-      text-shadow: 0 0 6px rgba(100, 160, 255, .8);
-      transform: translate(-50%, -100%);                /* 锚点在月球上方,label 居于月球上方 */
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 12px rgba(0, 0, 0, .5);
+      transform: translate(-50%, -100%);
       transition: opacity .18s, left .08s, top .08s;
       user-select: none;
     }
     .moon-overlay-label:hover {
-      background: #2850a0 !important;
-      border-color: #7fb2ff !important;
+      background: var(--accent) !important;
+      border-color: var(--accent-2) !important;
     }
-    .moon-overlay-label.hidden {
-      opacity: 0;
-      pointer-events: none;
+    .moon-overlay-label.hidden { opacity: 0; pointer-events: none; }
+
+    /* 通用玻璃面板 */
+    .panel {
+      background: var(--glass);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, .45);
     }
 
+    /* 底部行星栏：横向滚动，触控友好 */
     #planet-bar {
       position: fixed;
-      bottom: 0;
       left: 0;
       right: 0;
+      bottom: 0;
       z-index: 30;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      gap: 8px;
       align-items: center;
-      gap: 6px;
-      padding: 8px 10px;
-      background: linear-gradient(transparent, rgba(0, 0, 0, .8));
+      padding: 10px 14px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      background: linear-gradient(to top, rgba(5, 7, 13, .92), rgba(5, 7, 13, 0));
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
     }
+    #planet-bar::-webkit-scrollbar { display: none; }
     #planet-bar .pb-btn {
-      color: #cdd8ec;
-      background: rgba(30, 45, 80, .7);
-      border: 1px solid rgba(120, 160, 255, .35);
-      padding: 5px 12px;
-      border-radius: 16px;
+      flex: 0 0 auto;
+      color: var(--txt-dim);
+      background: rgba(30, 42, 72, .55);
+      border: 1px solid var(--border);
+      padding: 7px 14px;
+      border-radius: 20px;
       cursor: pointer;
-      font-size: 12.5px;
+      font-size: 13px;
       letter-spacing: .5px;
-      transition: all .15s;
+      transition: .15s;
       user-select: none;
-      backdrop-filter: blur(2px);
+      white-space: nowrap;
     }
     #planet-bar .pb-btn:hover,
     #planet-bar .pb-btn.active {
-      background: #2b62bd;
       color: #fff;
-      border-color: #8fc0ff;
-      box-shadow: 0 0 10px rgba(80, 140, 255, .5);
+      background: var(--accent);
+      border-color: var(--accent-2);
+      box-shadow: 0 0 12px rgba(74, 140, 240, .5);
     }
     #planethome {
+      flex: 0 0 auto;
       color: #dde6f4;
-      background: rgba(70, 90, 140, .55);
-      border: 1px solid rgba(140, 180, 255, .5);
-      padding: 5px 14px;
-      border-radius: 16px;
+      background: rgba(70, 90, 140, .5);
+      border: 1px solid var(--border);
+      padding: 7px 16px;
+      border-radius: 20px;
       cursor: pointer;
-      font-size: 12.5px;
+      font-size: 13px;
       letter-spacing: .5px;
-      transition: all .15s;
+      transition: .15s;
       user-select: none;
-      margin-left: 4px;
-      backdrop-filter: blur(2px);
+      white-space: nowrap;
     }
-    #planethome:hover {
-      background: #3a76d0;
-      color: #fff;
-      border-color: #9cc4ff;
-    }
+    #planethome:hover { background: #3a76d0; color: #fff; }
 
+    /* 时间控制面板（桌面常驻左上） */
     #time-ctl {
       position: fixed;
-      top: 60px;
-      left: 18px;
+      top: 54px;
+      left: 16px;
       z-index: 40;
-      width: 210px;
-      background: rgba(10, 15, 30, .9);
-      border: 1px solid rgba(100, 150, 255, .4);
-      border-radius: 10px;
-      padding: 12px 14px;
-      color: #e8eef7;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, .5);
-      backdrop-filter: blur(6px);
+      width: 220px;
+      padding: 14px 16px;
+      color: var(--txt);
       user-select: none;
     }
     #time-ctl .ttl {
-      font-size: 12px;
-      color: #7a89a3;
+      font-size: 11px;
+      color: var(--txt-dim);
       letter-spacing: 2px;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
       display: flex;
       align-items: center;
       gap: 6px;
     }
-    #time-ctl .ttl .clock {
-      font-size: 13px;
-    }
+    #time-ctl .ttl .clock { font-size: 14px; }
     #time-date {
       font-size: 12px;
       color: #c8d6e8;
-      background: rgba(255, 255, 255, .06);
+      background: rgba(255, 255, 255, .05);
+      border-left: 2px solid var(--accent);
       border-radius: 6px;
-      padding: 5px 8px;
-      margin-bottom: 8px;
-      letter-spacing: .3px;
+      padding: 6px 10px;
+      margin-bottom: 10px;
       font-variant-numeric: tabular-nums;
-      border-left: 2px solid #4a8cf0;
     }
-    #time-btns {
-      display: flex;
-      gap: 6px;
-      margin-bottom: 8px;
-    }
+    #time-btns { display: flex; gap: 8px; margin-bottom: 10px; }
     #time-btns button {
       flex: 1;
-      color: #cdd8ec;
-      background: rgba(30, 45, 80, .7);
-      border: 1px solid rgba(120, 160, 255, .35);
-      padding: 6px 0;
-      border-radius: 8px;
+      color: var(--txt-dim);
+      background: rgba(30, 42, 72, .55);
+      border: 1px solid var(--border);
+      padding: 7px 0;
+      border-radius: 9px;
       cursor: pointer;
       font-size: 12px;
-      transition: all .15s;
+      transition: .15s;
     }
-    #time-btns button.on {
-      background: #2b62bd;
-      color: #fff;
-      border-color: #8fc0ff;
-      box-shadow: 0 0 8px rgba(80, 140, 255, .5);
-    }
-    #time-btns button:hover {
-      background: #3a76d0;
-      color: #fff;
-    }
-    .t-row {
-      display: flex;
+    #time-btns button.on { background: var(--accent); color: #fff; border-color: var(--accent-2); }
+    #time-btns button:hover { color: #fff; }
+    .t-row { display: flex; align-items: center; gap: 8px; margin-top: 4px; }
+    .t-row label { font-size: 11px; color: var(--txt-dim); min-width: 32px; }
+    .t-row input[type=range] { flex: 1; accent-color: var(--accent); height: 4px; }
+    .t-row .t-val { font-size: 11px; color: #9fe2c0; font-weight: 600; min-width: 62px; text-align: right; }
+
+    /* 移动端时间开关按钮（桌面隐藏） */
+    #time-toggle {
+      display: none;
+      position: fixed;
+      top: 14px;
+      right: 16px;
+      z-index: 41;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
       align-items: center;
-      gap: 8px;
-      margin-top: 4px;
-    }
-    .t-row label {
-      font-size: 11px;
-      color: #89a;
-      min-width: 34px;
-    }
-    .t-row input[type=range] {
-      flex: 1;
-      accent-color: #4a8cf0;
-      height: 4px;
-    }
-    .t-row .t-val {
-      font-size: 11px;
-      color: #9fe2c0;
-      font-weight: 600;
-      min-width: 64px;
-      text-align: right;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      cursor: pointer;
     }
 
+    /* 信息面板（桌面右侧） */
     #info-panel {
       position: fixed;
-      top: 60px;
-      right: 18px;
+      top: 54px;
+      right: 16px;
       z-index: 40;
-      width: 240px;
-      max-height: calc(100vh - 140px);
+      width: 250px;
+      max-height: calc(100vh - 130px);
       overflow-y: auto;
-      background: rgba(10, 15, 30, .92);
-      border: 1px solid rgba(100, 150, 255, .4);
-      border-radius: 10px;
-      padding: 14px 16px;
-      color: #e8eef7;
-      box-shadow: 0 4px 24px rgba(0, 0, 0, .5);
-      backdrop-filter: blur(6px);
+      padding: 16px 18px;
+      color: var(--txt);
       display: none;
     }
     #info-panel .ip-name {
-      font-size: 20px;
+      font-size: 19px;
       font-weight: 600;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       color: #fff;
       display: flex;
       align-items: center;
       gap: 8px;
     }
     #info-panel .ip-dot {
-      width: 14px;
-      height: 14px;
+      width: 13px;
+      height: 13px;
       border-radius: 50%;
       display: inline-block;
       box-shadow: 0 0 8px currentColor;
     }
     #info-panel .ip-desc {
       font-size: 12.5px;
-      color: #aab6c9;
-      line-height: 1.6;
-      margin: 8px 0 10px;
+      color: var(--txt-dim);
+      line-height: 1.65;
+      margin: 8px 0 12px;
     }
     #info-panel .ip-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px 10px;
+      gap: 8px 10px;
     }
     #info-panel .ip-cell {
       background: rgba(255, 255, 255, .04);
-      border-radius: 6px;
-      padding: 6px 8px;
+      border-radius: 8px;
+      padding: 8px 10px;
     }
-    #info-panel .ip-cell .k {
-      font-size: 10.5px;
-      color: #7a89a3;
-      letter-spacing: .5px;
-    }
-    #info-panel .ip-cell .v {
-      font-size: 13px;
-      color: #9fe2c0;
-      font-weight: 600;
-      margin-top: 1px;
-    }
+    #info-panel .ip-cell .k { font-size: 10px; color: var(--txt-dim); letter-spacing: .5px; }
+    #info-panel .ip-cell .v { font-size: 13px; color: #9fe2c0; font-weight: 600; margin-top: 2px; }
     #info-close {
       position: absolute;
-      top: 8px;
-      right: 12px;
+      top: 10px;
+      right: 14px;
       cursor: pointer;
       color: #889;
-      font-size: 16px;
+      font-size: 18px;
       background: none;
       border: none;
       line-height: 1;
       z-index: 1;
     }
-    #info-close:hover {
-      color: #fff;
-    }
-    @media (max-width:600px) {
-      #title {
-        font-size: 14px;
-      }
+    #info-close:hover { color: #fff; }
+
+    /* ===== 移动端适配（≤768px） ===== */
+    @media (max-width: 768px) {
+      #hint { bottom: 62px; font-size: 10px; }
+      #time-toggle { display: flex; }
+      #time-ctl { display: none; top: 64px; left: 12px; right: 12px; width: auto; }
+      #time-ctl.open { display: block; animation: dropIn .22s ease; }
       #info-panel {
-        width: 200px;
-        right: 8px;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 62px;
+        width: auto;
+        max-height: 60vh;
+        border-radius: 18px 18px 0 0;
+        border-bottom: none;
+        animation: sheetUp .28s ease;
       }
-      #hint {
-        font-size: 10px;
-      }
+      #planet-bar { padding: 9px 12px; gap: 6px; }
+      #planet-bar .pb-btn, #planethome { padding: 8px 12px; font-size: 12px; }
+      #title { font-size: 12px; }
+    }
+    @keyframes sheetUp {
+      from { transform: translateY(100%); opacity: .6; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    @keyframes dropIn {
+      from { transform: translateY(-12px); opacity: .5; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
 <body>
   <div id="loading">🌌 太阳系沙盒加载中…</div>
-  <div id="title">SOLAR SYSTEM · 3D 太阳系沙盒</div>
-  <div id="hint"><b>拖动</b>旋转 · <b>滚轮</b>缩放 · <b>点击行星/名字</b>查看信息</div>
   <div id="main-container"></div>
-  <div class="moon-overlay-label hidden" id="moon-overlay-label" title="点击聚焦月球">月球</div>
-  <div id="planet-bar"><button id="planethome" title="回到全景">🌌 全景</button></div>
 
-  <div id="time-ctl">
+  <div id="title">SOLAR SYSTEM · 太阳系</div>
+  <div id="hint"><b>拖动</b>旋转 · <b>滚轮</b>缩放 · <b>点击</b>行星查看信息</div>
+
+  <!-- 移动端：时间控制开关 -->
+  <button id="time-toggle" class="panel" title="时间控制">⏱</button>
+
+  <!-- 时间控制面板 -->
+  <div id="time-ctl" class="panel">
     <div class="ttl"><span class="clock">⏱</span> 模拟时间</div>
     <div id="time-date">⏳ 加载中…</div>
     <div id="time-btns">
@@ -367,10 +368,10 @@
       <input type="range" id="t-slider" min="0" max="100" value="0" />
       <span class="t-val" id="t-val">实时</span>
     </div>
-    <!-- 移除时间源状态显示 -->
   </div>
 
-  <div id="info-panel">
+  <!-- 信息面板 -->
+  <div id="info-panel" class="panel">
     <button id="info-close" title="关闭">✕</button>
     <div class="ip-name"><span class="ip-dot" id="ip-dot"></span><span id="ip-name">-</span></div>
     <div class="ip-desc" id="ip-desc">-</div>
@@ -383,6 +384,10 @@
       <div class="ip-cell"><div class="k">公转周期</div><div class="v" id="ip-per">-</div></div>
     </div>
   </div>
+
+  <div class="moon-overlay-label hidden" id="moon-overlay-label" title="点击聚焦月球">月球</div>
+
+  <div id="planet-bar"><button id="planethome" title="回到全景">🌌 全景</button></div>
 
   <script src="./build/spacekit.js"></script>
   <script>
@@ -1609,6 +1614,24 @@
     }
 
     setTimeout(iface, 500);
+  </script>
+  <script>
+    // 移动端：时间控制面板开合（不改动上方 3D 逻辑）
+    (function () {
+      var t = document.getElementById('time-toggle');
+      var c = document.getElementById('time-ctl');
+      if (t && c) {
+        t.addEventListener('click', function (e) {
+          e.stopPropagation();
+          c.classList.toggle('open');
+        });
+        document.addEventListener('click', function (e) {
+          if (window.innerWidth <= 768 && c.classList.contains('open')) {
+            if (!c.contains(e.target) && e.target !== t) c.classList.remove('open');
+          }
+        });
+      }
+    })();
   </script>
 </body>
 </html>
