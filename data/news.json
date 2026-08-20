@@ -1,7 +1,13 @@
 {
- "updated": "2026-08-20T17:55:00.492Z",
- "count": 12,
+ "updated": "2026-08-20T18:28:41.472Z",
+ "count": 15,
  "items": [
+  {
+   "title": "A weather satellite 22,000 miles above Earth saved my 2026 total solar eclipse cruise on the Mediterranean Sea",
+   "link": "https://www.space.com/stargazing/solar-eclipses/a-weather-satellite-22-000-miles-above-earth-saved-my-2026-total-solar-eclipse-cruise-on-the-mediterranean-sea",
+   "date": "2026-08-20T18:00:00.000Z",
+   "source": "Space.com"
+  },
   {
    "title": "Australia says Roblox hasn&#8217;t fixed its child predator problem",
    "link": "https://www.theverge.com/games/982885/roblox-australia-safety-regulator-child-safety",
@@ -69,10 +75,22 @@
    "source": "IT之家"
   },
   {
-   "title": "Try not to be hypnotized by the 'Eye of Africa' | Space photo of the day for Aug. 20, 2026",
-   "link": "https://www.space.com/astronomy/earth/try-not-to-be-hypnotized-by-the-eye-of-africa-space-photo-of-the-day-for-aug-20-2026",
-   "date": "2026-08-20T14:00:00.000Z",
-   "source": "Space.com"
+   "title": "Artemis Mission Patches",
+   "link": "https://www.nasa.gov/image-article/artemis-mission-patches/",
+   "date": "2026-08-20T15:13:51.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA Selects University Teams to Help Advance Aviation Research",
+   "link": "https://www.nasa.gov/aeronautics/nasa-selects-university-teams-to-help-advance-aviation-research/",
+   "date": "2026-08-20T14:57:01.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "The View from Above: The Gemini Visual Acuity Experiments",
+   "link": "https://www.nasa.gov/history/the-view-from-above-the-gemini-visual-acuity-experiments/",
+   "date": "2026-08-20T14:30:00.000Z",
+   "source": "NASA"
   }
  ]
 }
