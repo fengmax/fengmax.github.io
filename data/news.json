@@ -1,7 +1,19 @@
 {
- "updated": "2026-08-20T17:21:55.014Z",
- "count": 15,
+ "updated": "2026-08-20T17:55:00.492Z",
+ "count": 12,
  "items": [
+  {
+   "title": "Australia says Roblox hasn&#8217;t fixed its child predator problem",
+   "link": "https://www.theverge.com/games/982885/roblox-australia-safety-regulator-child-safety",
+   "date": "2026-08-20T17:42:34.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "FCC officially decides gigabit speeds are too good for you",
+   "link": "https://www.theverge.com/policy/982863/fcc-kills-gigabit-goal",
+   "date": "2026-08-20T17:38:30.000Z",
+   "source": "The Verge"
+  },
   {
    "title": "Framework says it&#8217;s addressing a BIOS update that bricked some of its older laptops",
    "link": "https://www.theverge.com/gadgets/982800/framework-laptop-13-amd-7040-bios-320-bricking-warranty",
@@ -45,12 +57,6 @@
    "source": "IT之家"
   },
   {
-   "title": "It’s Greg Brockman’s OpenAI now",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/982774/greg-brockman-openai-role-expansion",
-   "date": "2026-08-20T15:45:55.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "《007：初露锋芒》达成新里程碑：不到 3 个月，销量突破 400 万份",
    "link": "https://www.ithome.com/0/992/408.htm",
    "date": "2026-08-20T15:44:13.000Z",
@@ -61,30 +67,6 @@
    "link": "https://www.ithome.com/0/992/407.htm",
    "date": "2026-08-20T15:41:07.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "This app makes the Pixel 11&#8217;s HiLight feature actually useful",
-   "link": "https://www.theverge.com/tech/982791/this-app-makes-the-pixel-11s-hilight-feature-actually-useful",
-   "date": "2026-08-20T15:30:34.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Artemis Mission Patches",
-   "link": "https://www.nasa.gov/image-article/artemis-mission-patches/",
-   "date": "2026-08-20T15:13:51.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Selects University Teams to Help Advance Aviation Research",
-   "link": "https://www.nasa.gov/aeronautics/nasa-selects-university-teams-to-help-advance-aviation-research/",
-   "date": "2026-08-20T14:57:01.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "The View from Above: The Gemini Visual Acuity Experiments",
-   "link": "https://www.nasa.gov/history/the-view-from-above-the-gemini-visual-acuity-experiments/",
-   "date": "2026-08-20T14:30:00.000Z",
-   "source": "NASA"
   },
   {
    "title": "Try not to be hypnotized by the 'Eye of Africa' | Space photo of the day for Aug. 20, 2026",
