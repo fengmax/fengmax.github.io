@@ -1,7 +1,25 @@
 {
- "updated": "2026-08-21T19:45:56.200Z",
- "count": 12,
+ "updated": "2026-08-21T20:17:43.614Z",
+ "count": 15,
  "items": [
+  {
+   "title": "Trump signs new national space policy to enable 1,000 US rocket launches per year",
+   "link": "https://www.space.com/space-exploration/trump-signs-new-national-space-policy-to-enable-1-000-us-rocket-launches-per-year",
+   "date": "2026-08-21T20:00:46.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "'Star Trek: Strange New Worlds' cast talks losing sleep, living up to their character's legacy, and learning to ride a horse for season 4 (interview)",
+   "link": "https://www.space.com/entertainment/space-movies-shows/star-trek-strange-new-worlds-cast-talks-losing-sleep-living-up-to-their-characters-legacy-and-learning-to-ride-a-horse-for-season-4-interview",
+   "date": "2026-08-21T20:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Apple is laying off staffers working on the Vision Pro and Siri",
+   "link": "https://www.theverge.com/tech/983451/apple-layoffs-vision-pro-siri",
+   "date": "2026-08-21T19:44:55.000Z",
+   "source": "The Verge"
+  },
   {
    "title": "Trump to award NASA's Artemis II astronauts the Congressional Space Medal of Honor",
    "link": "https://www.space.com/space-exploration/artemis/trump-to-award-nasas-artemis-ii-astronauts-the-congressional-space-medal-of-honor",
@@ -9,10 +27,10 @@
    "source": "Space.com"
   },
   {
-   "title": "Japan unveils Mars moon sample-return spacecraft ahead of Oct. 19 launch (photos)",
-   "link": "https://www.space.com/astronomy/mars/japan-unveils-mars-moon-sample-return-spacecraft-ahead-of-oct-19-launch-photos",
-   "date": "2026-08-21T18:00:00.000Z",
-   "source": "Space.com"
+   "title": "NASA Shares Views of August Solar Eclipse from Ground, Air, Space",
+   "link": "https://science.nasa.gov/science-research/heliophysics/nasa-shares-views-of-august-solar-eclipse-from-ground-air-space/",
+   "date": "2026-08-21T18:43:40.000Z",
+   "source": "NASA"
   },
   {
    "title": "$100 Best Buy gift cards will be $60 at stores Saturday",
@@ -21,15 +39,21 @@
    "source": "The Verge"
   },
   {
+   "title": "TB 26-04 Updates and Modernization of NASA’s Chemical Equilibrium with Applications (CEA) Code",
+   "link": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-04-updates-and-modernization-of-nasas-chemical-equilibrium-with-applications-cea-code/",
+   "date": "2026-08-21T17:41:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Webb Opens Treasure Chest",
+   "link": "https://www.nasa.gov/image-article/webb-opens-treasure-chest/",
+   "date": "2026-08-21T17:35:11.000Z",
+   "source": "NASA"
+  },
+  {
    "title": "Walmart is finally adding Apple Pay and Google Pay",
    "link": "https://www.theverge.com/tech/983336/walmart-apple-google-pay-launch",
    "date": "2026-08-21T17:01:59.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Microsoft and Discord subpoenaed over GTA VI gameplay leaks",
-   "link": "https://www.theverge.com/games/983323/grand-theft-auto-vi-gta-leaks-microsoft-discord-subpoenaed",
-   "date": "2026-08-21T16:52:56.000Z",
    "source": "The Verge"
   },
   {
@@ -37,12 +61,6 @@
    "link": "https://www.cnbeta.com.tw/articles/tech/1574396.htm",
    "date": "2026-08-21T16:15:40.000Z",
    "source": "cnBeta"
-  },
-  {
-   "title": "SpaceX fires up Starship ahead of megarocket’s 1st orbital flight (video)",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-fires-up-starship-ahead-of-megarockets-1st-orbital-flight-video",
-   "date": "2026-08-21T16:00:00.000Z",
-   "source": "Space.com"
   },
   {
    "title": "东风日产王骞谈“速成车”：快消式造车是行业最大风险",
