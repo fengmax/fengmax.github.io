@@ -1,29 +1,41 @@
 {
- "updated": "2026-08-21T02:20:45.318Z",
- "count": 15,
+ "updated": "2026-08-21T03:28:51.966Z",
+ "count": 12,
  "items": [
   {
-   "title": "火星南部高地新影像曝光，37 亿年前水流塑造地貌",
-   "link": "https://www.ithome.com/0/992/479.htm",
-   "date": "2026-08-21T02:18:22.000Z",
+   "title": "消息称某厂子系骁龙 8E6 超级版小平板搭载方形 Deco、风扇，预计为 iQOO 旗下",
+   "link": "https://www.ithome.com/0/992/563.htm",
+   "date": "2026-08-21T03:26:34.000Z",
    "source": "IT之家"
   },
   {
-   "title": "smart 精灵 3 号型动竞速版上市：限时权益价 19.49 万元起，可选装碳纤维运动尾翼",
-   "link": "https://www.ithome.com/0/992/472.htm",
-   "date": "2026-08-21T02:14:42.000Z",
+   "title": "搬运洗稿、AI 转写批量炮制小米负面文章，山西晋中网安破获新型网络水军案",
+   "link": "https://www.ithome.com/0/992/562.htm",
+   "date": "2026-08-21T03:26:11.000Z",
    "source": "IT之家"
   },
   {
-   "title": "东风风神 L8Y 纯电 SUV 上市，超值福利价 9.19 万元起",
-   "link": "https://www.ithome.com/0/992/464.htm",
-   "date": "2026-08-21T02:09:58.000Z",
+   "title": "显卡品牌同德面向全球发布数字大使形象 RiTONA",
+   "link": "https://www.ithome.com/0/992/553.htm",
+   "date": "2026-08-21T03:21:26.000Z",
    "source": "IT之家"
   },
   {
-   "title": "微软悄然隐藏Windows 11强制安装的新版OneDrive应用 而其仍驻留于系统中",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1574320.htm",
-   "date": "2026-08-21T02:04:48.000Z",
+   "title": "美国7月游戏硬件销量暴跌39% 实体游戏销量创历史新低",
+   "link": "https://www.cnbeta.com.tw/articles/game/1574326.htm",
+   "date": "2026-08-21T02:57:56.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "中国专利申请量领先全球 AI等核心专利位居第一",
+   "link": "https://www.cnbeta.com.tw/articles/science/1574324.htm",
+   "date": "2026-08-21T02:57:13.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Counterpoint：三星有望重夺智能手机市场领先地位",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574322.htm",
+   "date": "2026-08-21T02:56:42.000Z",
    "source": "cnBeta"
   },
   {
@@ -31,18 +43,6 @@
    "link": "https://www.theverge.com/tech/981536/genki-manta-wireless-customizable-controller-tmr-screen",
    "date": "2026-08-21T02:00:00.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "许多西方开发者计划2028年前进军中国市场 但普遍缺乏本土认知",
-   "link": "https://www.cnbeta.com.tw/articles/game/1574318.htm",
-   "date": "2026-08-21T01:59:54.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "《GTA 6》泄密黑客“人肉”曝光 论坛发言成关键线索",
-   "link": "https://www.cnbeta.com.tw/articles/game/1574316.htm",
-   "date": "2026-08-21T01:58:12.000Z",
-   "source": "cnBeta"
   },
   {
    "title": "Google Discover is getting an AI chatbot-tuned feed",
@@ -63,12 +63,6 @@
    "source": "Space.com"
   },
   {
-   "title": "SmallSat 2026",
-   "link": "https://science.nasa.gov/earth/smallsat-2026/",
-   "date": "2026-08-20T20:05:41.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "Microbes from Earth may survive on the moon, scientists find",
    "link": "https://www.space.com/astronomy/moon/microbes-from-earth-may-survive-on-the-moon-scientists-find",
    "date": "2026-08-20T20:00:00.000Z",
@@ -79,18 +73,6 @@
    "link": "https://www.theverge.com/games/982986/riot-games-league-of-legends-fighting-game-2xko-end-development",
    "date": "2026-08-20T19:59:09.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "Artemis Mission Patches",
-   "link": "https://www.nasa.gov/image-article/artemis-mission-patches/",
-   "date": "2026-08-20T15:13:51.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Selects University Teams to Help Advance Aviation Research",
-   "link": "https://www.nasa.gov/aeronautics/nasa-selects-university-teams-to-help-advance-aviation-research/",
-   "date": "2026-08-20T14:57:01.000Z",
-   "source": "NASA"
   }
  ]
 }
