@@ -1,42 +1,54 @@
 {
- "updated": "2026-08-21T10:01:20.260Z",
- "count": 12,
+ "updated": "2026-08-21T10:56:08.580Z",
+ "count": 15,
  "items": [
   {
-   "title": "中兴通讯 2026 年半年度归母净利润 27.53 亿元，同比下降 45.57%",
-   "link": "https://www.ithome.com/0/992/763.htm",
-   "date": "2026-08-21T09:59:39.000Z",
+   "title": "代码显示三星正准备为 Galaxy Z Flip8/Fold8 手机引入 AI 小组件功能，基于谷歌“Create My Widget”技术",
+   "link": "https://www.ithome.com/0/992/821.htm",
+   "date": "2026-08-21T10:43:15.000Z",
    "source": "IT之家"
   },
   {
-   "title": "罗永浩公关复盘西贝预制菜事件始末：曾劝西贝“以死相谏”拦住贾国龙",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1574366.htm",
-   "date": "2026-08-21T09:47:12.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "特斯拉官网更新：中国被移出FSD可使用地区",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1574364.htm",
-   "date": "2026-08-21T09:46:45.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "消息称日本经产省将为支持 Rapidus 再编列 1500 亿日元预算",
-   "link": "https://www.ithome.com/0/992/760.htm",
-   "date": "2026-08-21T09:44:57.000Z",
+   "title": "消息称微软 Xbox Series X 主机 25 周年纪念版 11 月上市，899 美元",
+   "link": "https://www.ithome.com/0/992/820.htm",
+   "date": "2026-08-21T10:42:26.000Z",
    "source": "IT之家"
   },
   {
-   "title": "市场监管总局：将具身智能机器人、固态动力电池等纳入质量强链二期攻关方向",
-   "link": "https://www.ithome.com/0/992/759.htm",
-   "date": "2026-08-21T09:44:37.000Z",
+   "title": "中际旭创 2026 上半年归母净利润 136.51 亿元，同比增长 241.7%",
+   "link": "https://www.ithome.com/0/992/819.htm",
+   "date": "2026-08-21T10:42:02.000Z",
    "source": "IT之家"
   },
   {
-   "title": "Google在Android 17中引入更严格的限制机制 应用吃太多内存将被杀掉进程",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1574362.htm",
-   "date": "2026-08-21T08:40:22.000Z",
+   "title": "三星芯片代工涨价 任天堂Switch2也跟着遭殃？",
+   "link": "https://www.cnbeta.com.tw/articles/game/1574372.htm",
+   "date": "2026-08-21T10:39:41.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "多家车企集中召回 超427万辆车涉及同一安全隐患",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574370.htm",
+   "date": "2026-08-21T10:38:12.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "DeepSeek-V4-Flash-Vision-Exp上线DeepSeek API平台",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574368.htm",
+   "date": "2026-08-21T10:37:43.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Could 'dark photons' explain dark matter?",
+   "link": "https://www.space.com/astronomy/dark-universe/could-dark-photons-explain-dark-matter",
+   "date": "2026-08-21T10:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Europe’s Scorching Summer",
+   "link": "https://science.nasa.gov/earth/europes-scorching-summer/",
+   "date": "2026-08-21T04:01:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Genki’s new customizable controller has a big screen and adjustable buttons",
@@ -63,16 +75,22 @@
    "source": "Space.com"
   },
   {
-   "title": "Microbes from Earth may survive on the moon, scientists find",
-   "link": "https://www.space.com/astronomy/moon/microbes-from-earth-may-survive-on-the-moon-scientists-find",
-   "date": "2026-08-20T20:00:00.000Z",
-   "source": "Space.com"
+   "title": "SmallSat 2026",
+   "link": "https://science.nasa.gov/earth/smallsat-2026/",
+   "date": "2026-08-20T20:05:41.000Z",
+   "source": "NASA"
   },
   {
    "title": "Riot is ending development on its League of Legends fighting game",
    "link": "https://www.theverge.com/games/982986/riot-games-league-of-legends-fighting-game-2xko-end-development",
    "date": "2026-08-20T19:59:09.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "Artemis Mission Patches",
+   "link": "https://www.nasa.gov/image-article/artemis-mission-patches/",
+   "date": "2026-08-20T15:13:51.000Z",
+   "source": "NASA"
   }
  ]
 }
