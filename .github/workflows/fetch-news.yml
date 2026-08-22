@@ -1,6 +1,6 @@
 # ============================================================
 # 新闻抓取定时任务（方案 B）
-# 每 30 分钟抓一次科技新闻 → data/news.json → 自动提交
+# 每 5 小时抓一次科技新闻 → data/news.json → 自动提交
 # 支持手动触发（Actions 页面点 Run workflow）
 # 需要仓库权限: Settings → Actions → General →
 #   Workflow permissions → Read and write permissions
@@ -9,7 +9,7 @@ name: fetch-news
 
 on:
   schedule:
-    - cron: '*/30 * * * *'   # 每 30 分钟
+    - cron: '0 */5 * * *'    # 每 5 小时（0/5/10/15/20/25 点整各跑一次）
   workflow_dispatch:          # 支持手动触发
 
 permissions:
