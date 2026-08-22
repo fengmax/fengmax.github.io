@@ -1,78 +1,96 @@
 {
- "updated": "2026-08-19T21:38:57.012Z",
- "count": 12,
+ "updated": "2026-08-22T14:45:41.745Z",
+ "count": 15,
  "items": [
   {
-   "title": "Private mission to save NASA's Swift space telescope fails",
-   "link": "https://www.space.com/space-exploration/missions/private-mission-to-save-nasas-swift-space-telescope-fails",
-   "date": "2026-08-19T20:15:01.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Scientists create 'laundry gun' for astronauts to clean their clothes by shooting out plasma",
-   "link": "https://www.space.com/space-exploration/human-spaceflight/scientists-create-laundry-gun-for-astronauts-to-clean-their-clothes-by-shooting-out-plasma",
-   "date": "2026-08-19T20:05:26.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "NASA TechLeap Prize: Orbital Clarity Challenge",
-   "link": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/nasa-techleap-prize-orbital-clarity-challenge/",
-   "date": "2026-08-19T19:57:48.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Nielsen is leaning more on wearables to hear what people are watching",
-   "link": "https://www.theverge.com/entertainment/982358/nielsen-ratings-ppm-smart-watch-cowatching-big-data",
-   "date": "2026-08-19T19:53:09.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "'The Mandalorian and Grogu' finally blasts onto Disney+ next month",
-   "link": "https://www.space.com/entertainment/space-movies-shows/the-mandalorian-and-grogu-finally-blasts-onto-disney-next-month",
-   "date": "2026-08-19T19:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Google Gemini is getting a dedicated student hub",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/982425/google-gemini-student-hub",
-   "date": "2026-08-19T19:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Watch Valve set up the Steam Frame in its own leaked videos",
-   "link": "https://www.theverge.com/games/982406/valve-steam-frame-setup-unboxing-leaked-videos",
-   "date": "2026-08-19T18:16:27.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "NASA Updates Next Steps for Commercial Swift Boost Mission",
-   "link": "https://www.nasa.gov/news-release/nasa-updates-next-steps-for-commercial-swift-boost-mission/",
-   "date": "2026-08-19T18:08:25.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Human-Related Microbes May Survive Moon’s South Pole, NASA Finds",
-   "link": "https://science.nasa.gov/humans-in-space/human-related-microbes-may-survive-moons-south-pole-nasa-finds/",
-   "date": "2026-08-19T18:02:40.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "特斯拉过度宣传智驾遭反噬：Robotaxi 撞穿路障后继续行驶，此前高管宣称安全记录“无可挑剔”",
-   "link": "https://www.ithome.com/0/991/865.htm",
-   "date": "2026-08-19T16:14:35.000Z",
+   "title": "利用 AI 合成虚假影像骚扰他人，四川一男子被行拘",
+   "link": "https://www.ithome.com/0/993/110.htm",
+   "date": "2026-08-22T14:44:19.000Z",
    "source": "IT之家"
   },
   {
-   "title": "《漫威斗魂》PC 版发售 11 天即遭破解，玩家称破解版明显更流畅",
-   "link": "https://www.ithome.com/0/991/864.htm",
-   "date": "2026-08-19T15:40:40.000Z",
+   "title": "国家卫健委：白血病不再是“不治之症”，中国造血干细胞移植技术处于世界前沿",
+   "link": "https://www.ithome.com/0/993/109.htm",
+   "date": "2026-08-22T14:34:16.000Z",
    "source": "IT之家"
   },
   {
-   "title": "赵长江详解智界 RX 智能环抱座椅：98 个压力传感器 +27 个气袋，能做到“千人千面”",
-   "link": "https://www.ithome.com/0/991/863.htm",
-   "date": "2026-08-19T15:39:52.000Z",
+   "title": "中诚华隆 HL200 推理芯片发布：能效比 5.12 TFLOPS/W、集群最高可扩展至万卡",
+   "link": "https://www.ithome.com/0/993/108.htm",
+   "date": "2026-08-22T14:32:32.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "'We Want to Believe' book explores the reality of UFOs: 'It's always going to be more likely that someone is wrong about what they saw' (interview)",
+   "link": "https://www.space.com/entertainment/we-want-to-believe-book-explores-the-reality-of-ufos-its-always-going-to-be-more-likely-that-someone-is-wrong-about-what-they-saw-interview",
+   "date": "2026-08-22T14:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Amazon just hiked the prices for Echo, Fire TV, and Kindle products by up to 60 percent",
+   "link": "https://www.theverge.com/tech/983598/amazon-price-increase-echo-kindle-fire-tv",
+   "date": "2026-08-22T13:41:01.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "This Week In Space podcast: Episode 224 — The Science of Artemis",
+   "link": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-224-the-science-of-artemis",
+   "date": "2026-08-22T13:24:12.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "An okay laptop with 16GB of RAM is better than a nice laptop with 8GB, and this $520 HP OmniBook proves it",
+   "link": "https://www.theverge.com/tech/983554/hp-omnibook-3-16-snapdragon-laptop-review",
+   "date": "2026-08-22T13:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "迈阿密大学与NOAA收集的30年飓风数据揭示风暴增强的四大预警信号",
+   "link": "https://www.cnbeta.com.tw/articles/science/1574476.htm",
+   "date": "2026-08-22T12:43:39.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "曼哈顿大小的巨大冰岛从格陵兰岛断裂脱落",
+   "link": "https://www.cnbeta.com.tw/articles/science/1574474.htm",
+   "date": "2026-08-22T12:38:39.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "SpaceX sends 27 Starlink satellites to orbit on 100th Falcon rocket launch of the year (photos)",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-starlink-satellite-launch-group-15-20",
+   "date": "2026-08-22T12:23:59.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Two great new repairable gadgets",
+   "link": "https://www.theverge.com/tech/983375/fairphone-6-plus-framework-12-laptop-mutiny-mortal-shell-2",
+   "date": "2026-08-22T12:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "苹果Vision Pro差点被命名为“Reality Pro” 旧代号痕迹仍留存于内部系统",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574472.htm",
+   "date": "2026-08-22T09:56:31.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "APOD: 2026 August 22 – Mostly Perseids",
+   "link": "https://science.nasa.gov/image-article/apod/apod-2026-august-22-mostly-perseids/",
+   "date": "2026-08-22T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA Shares Views of August Solar Eclipse from Ground, Air, Space",
+   "link": "https://science.nasa.gov/science-research/heliophysics/nasa-shares-views-of-august-solar-eclipse-from-ground-air-space/",
+   "date": "2026-08-21T18:43:40.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "TB 26-04 Updates and Modernization of NASA’s Chemical Equilibrium with Applications (CEA) Code",
+   "link": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-04-updates-and-modernization-of-nasas-chemical-equilibrium-with-applications-cea-code/",
+   "date": "2026-08-21T17:41:00.000Z",
+   "source": "NASA"
   }
  ]
 }
