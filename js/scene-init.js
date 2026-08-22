@@ -15,8 +15,8 @@ function hideLoading() {
   // 触发 UI 淡入 + 星芒层显现
   document.body.classList.add('loaded');
 }
-setTimeout(hideLoading, 600);
-setTimeout(hideLoading, 2000);
+// 不再用固定 600ms/2000ms 计时器隐藏加载层（慢网下 spacekit.js 还没下完就露出空白黑页，像卡死）；
+// 改为 viz 创建完成、渲染首帧后再隐藏；window.load 兜底
 window.addEventListener('load', hideLoading);
 
 try {
@@ -215,6 +215,9 @@ try {
   try { viz.setJdPerSecond(1 / 86400); } catch (e) {}
   window.THREE = Spacekit.THREE;
 
+  // 场景结构已就绪（太阳/行星球体/轨道线），渲染首帧后隐藏加载层，避免慢网下长时间空白页
+  requestAnimationFrame(function () { try { hideLoading(); } catch (e) {} });
+
   // ===== 行星视觉增强：法线贴图 + 地球云层 + 大气辉光 =====
   // 仅依赖已暴露的 window.THREE, 不改动 SpaceKit 任何内部逻辑
   function enhancePlanets() {
@@ -309,6 +312,9 @@ try {
       loader.load(url, function (tex) { try { cb(tex); } catch (e) {} },
                          undefined, function () {});
     }
+    // 法线/镜面贴图延迟加载：给行星主贴图(-hi, 决定"看得见纹理")留 ~1s 带宽先行窗口；
+    // 法线/镜面是视觉增强，晚一点加载不影响行星出现。用固定 setTimeout（requestIdleCallback 在下载期主线程 idle 会立即触发，等于没延迟）
+    var deferLoad = function (fn) { setTimeout(fn, 1000); };
 
     Object.keys(objects).forEach(function (key) {
       if (key === 'sun') return;
@@ -342,22 +348,24 @@ try {
           } catch (e) {}
         }
 
-        // B) 法线贴图(异步加载, 两种材质路径都覆盖)
-        loadTex('./assets/textures/' + key + '-normal.webp', function (tex) {
-          try {
-            if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
-            else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
-            var m = mesh.material;
-            if (m && m.uniforms && m.uniforms.normalMap) {
-              m.uniforms.normalMap.value = tex;
-              m.uniforms.useNormal.value = 1;
-              m.needsUpdate = true;
-            } else if (m && m.normalMap !== undefined) {
-              m.normalMap = tex;
-              if (m.normalScale && m.normalScale.set) m.normalScale.set(NSTR, NSTR);
-              m.needsUpdate = true;
-            }
-          } catch (e) {}
+        // B) 法线贴图(延迟加载: 给 -hi 主贴图留 ~1s 带宽先行窗口, 法线是增强项晚一点不影响行星出现)
+        deferLoad(function () {
+          loadTex('./assets/textures/' + key + '-normal.webp', function (tex) {
+            try {
+              if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
+              else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
+              var m = mesh.material;
+              if (m && m.uniforms && m.uniforms.normalMap) {
+                m.uniforms.normalMap.value = tex;
+                m.uniforms.useNormal.value = 1;
+                m.needsUpdate = true;
+              } else if (m && m.normalMap !== undefined) {
+                m.normalMap = tex;
+                if (m.normalScale && m.normalScale.set) m.normalScale.set(NSTR[key] || 0.85, NSTR[key] || 0.85);
+                m.needsUpdate = true;
+              }
+            } catch (e) {}
+          });
         });
       });
 
