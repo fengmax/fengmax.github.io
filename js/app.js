@@ -297,19 +297,7 @@ function iface() {
     // 纹理切换 (远低清/近高清)
     var texCache = {};
 
-    function preloadTextures() {
-      try {
-        var loader = new THREE.TextureLoader();
-        PLANETS.forEach(function(p) {
-          if (p.key === 'sun') return;
-          var url = './assets/textures/' + p.key + '.jpg';
-          if (texCache[url]) return;
-          loader.load(url, function(tex) { tex.anisotropy = 4;
-            texCache[url] = tex; });
-        });
-      } catch (e) {}
-    }
-    preloadTextures();
+    // 低清贴图由 scene-init 启动时直接加载({key}.webp)，不再单独预加载(避免双倍下载)
 
     function setTexture(key, url, onDone) {
       var obj = objects[key];
@@ -348,10 +336,12 @@ function iface() {
     }
 
     var texLoaded = {};
+    // 启动时 scene-init 已给所有行星加载低清 {key}.webp，标记为 LO 避免首帧 checkTextures 重复拉取
+    PLANETS.forEach(function (p) { if (p.key !== 'sun') texLoaded[p.key] = './assets/textures/' + p.key + '.webp'; });
 
     function forceHiRes(key) {
       if (key === 'sun') return;
-      var HI = './assets/textures/' + key + '-hi.jpg';
+      var HI = './assets/textures/' + key + '-hi.webp';
       setTexture(key, HI, function() { texLoaded[key] = HI; });
     }
 
@@ -368,8 +358,8 @@ function iface() {
         if (!pos) return;
         var d = camPos.distanceTo(pos);
         var r = planetRadius(p.key);
-        var HI = './assets/textures/' + p.key + '-hi.jpg';
-        var LO = './assets/textures/' + p.key + '.jpg';
+        var HI = './assets/textures/' + p.key + '-hi.webp';
+        var LO = './assets/textures/' + p.key + '.webp';
         var hiThresh = Math.max(40, r * 20);
         if (d < hiThresh && texLoaded[p.key] !== HI) {
           setTexture(p.key, HI, function() { texLoaded[p.key] = HI; });

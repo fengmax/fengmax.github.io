@@ -166,7 +166,7 @@ try {
         var moonRadiusScaled = (earthFinal / 100) * (3475 / 12742);
         var moonR = Math.max(moonRadiusScaled, 0.003);
         obj = viz.createSphere(p.key, {
-          textureUrl: './assets/textures/moon-hi.webp',
+          textureUrl: './assets/textures/moon.webp',
           radius: moonR,
         });
         if (obj) {
@@ -183,7 +183,7 @@ try {
     } else {
       try {
         var sphereOpts = {
-          textureUrl: './assets/textures/' + p.key + '-hi.webp',
+          textureUrl: './assets/textures/' + p.key + '.webp',
           radius: radiusToPass,
           ephem: preset.ephem,
           levelsOfDetail: [{ radii: 0, segments: 48 }, { radii: 40, segments: 24 }, { radii: 80, segments: 12 }],
