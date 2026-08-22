@@ -127,7 +127,7 @@ try {
   // 银河天空盒：SpaceKit 内置 createSkybox(equirect 全景球)。
   try {
     viz.createSkybox({
-      textureUrl: './assets/skybox/eso_milkyway.jpg',
+      textureUrl: './assets/skybox/eso_milkyway.webp',
       longitudeOffsetDeg: 180,
       mirrorLongitude: true
     });
@@ -166,7 +166,7 @@ try {
         var moonRadiusScaled = (earthFinal / 100) * (3475 / 12742);
         var moonR = Math.max(moonRadiusScaled, 0.003);
         obj = viz.createSphere(p.key, {
-          textureUrl: './assets/textures/moon-hi.jpg',
+          textureUrl: './assets/textures/moon-hi.webp',
           radius: moonR,
         });
         if (obj) {
@@ -183,7 +183,7 @@ try {
     } else {
       try {
         var sphereOpts = {
-          textureUrl: './assets/textures/' + p.key + '-hi.jpg',
+          textureUrl: './assets/textures/' + p.key + '-hi.webp',
           radius: radiusToPass,
           ephem: preset.ephem,
           levelsOfDetail: [{ radii: 0, segments: 48 }, { radii: 40, segments: 24 }, { radii: 80, segments: 12 }],
@@ -343,7 +343,7 @@ try {
         }
 
         // B) 法线贴图(异步加载, 两种材质路径都覆盖)
-        loadTex('./assets/textures/' + key + '-normal.jpg', function (tex) {
+        loadTex('./assets/textures/' + key + '-normal.webp', function (tex) {
           try {
             if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
             else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
@@ -366,7 +366,7 @@ try {
         meshes.forEach(function (mesh) {
           var m = mesh.material;
           if (m && m.uniforms && m.uniforms.specularMap) {
-            loadTex('./assets/textures/earth-specular.jpg', function (tex) {
+            loadTex('./assets/textures/earth-specular.webp', function (tex) {
               try {
                 if (T.NoColorSpace) tex.colorSpace = T.NoColorSpace;
                 else if (T.LinearSRGBColorSpace) tex.colorSpace = T.LinearSRGBColorSpace;
