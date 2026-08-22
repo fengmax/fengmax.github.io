@@ -1,42 +1,48 @@
 {
- "updated": "2026-08-22T08:55:32.546Z",
- "count": 12,
+ "updated": "2026-08-22T09:21:07.100Z",
+ "count": 15,
  "items": [
   {
-   "title": "英伟达否认年底前推出中国特供 AI 芯片：路线图中无此产品",
-   "link": "https://www.ithome.com/0/993/033.htm",
-   "date": "2026-08-22T08:55:25.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "HMD 移动电源 PowerBank P10 系列曝光，提供 Qi2 磁吸充电版本",
-   "link": "https://www.ithome.com/0/993/032.htm",
-   "date": "2026-08-22T08:53:42.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "苹果官网上架 Bellroy Cinch 邮差包：12L 容量，可收纳 MacBook、AirTag，849 元",
-   "link": "https://www.ithome.com/0/993/031.htm",
-   "date": "2026-08-22T08:46:53.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "T2要求法院传唤微软和Discord 以追查《GTA6》泄密者",
-   "link": "https://www.cnbeta.com.tw/articles/game/1574446.htm",
-   "date": "2026-08-22T02:43:05.000Z",
+   "title": "旅客买票占座放零食一事有定论 购票后未上车视为放弃使用权",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574462.htm",
+   "date": "2026-08-22T09:16:34.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "GTA6开发团队受持续泄露事件困扰 士气低迷身心俱疲",
-   "link": "https://www.cnbeta.com.tw/articles/game/1574444.htm",
-   "date": "2026-08-22T02:42:49.000Z",
+   "title": "女子55元捡漏买下1.41万项链：理解商家接受5元补偿金",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574460.htm",
+   "date": "2026-08-22T09:16:16.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "比特币单周飙升逾22%创三年最大涨幅 政策利好与逼空行情共振",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1574442.htm",
-   "date": "2026-08-22T02:00:12.000Z",
+   "title": "Xbox 25周年透明绿限量版主机被曝售价高达900美元",
+   "link": "https://www.cnbeta.com.tw/articles/game/1574458.htm",
+   "date": "2026-08-22T09:15:41.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "瓦尔基里“索珥”主题 VK87 MAX V2 THOR 机械键盘及 VK M5 Max THOR 电竞鼠标发售，325.55 元 / 299 元",
+   "link": "https://www.ithome.com/0/993/044.htm",
+   "date": "2026-08-22T09:14:59.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "微软发布 Windows 备份 PowerShell 脚本，IT 管理员可直接删除备份数据",
+   "link": "https://www.ithome.com/0/993/043.htm",
+   "date": "2026-08-22T09:12:10.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "蓝狐 Aura A1 手机将于 8 月 29 日发布：4.7 英寸 90Hz 面板、提供粉白黑三色可选",
+   "link": "https://www.ithome.com/0/993/042.htm",
+   "date": "2026-08-22T09:07:00.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "APOD: 2026 August 22 – Mostly Perseids",
+   "link": "https://science.nasa.gov/image-article/apod/apod-2026-august-22-mostly-perseids/",
+   "date": "2026-08-22T04:05:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "HoverAir’s transforming modular drone has already been halted in the US",
@@ -73,6 +79,18 @@
    "link": "https://www.space.com/entertainment/space-movies-shows/star-trek-strange-new-worlds-cast-talks-losing-sleep-living-up-to-their-characters-legacy-and-learning-to-ride-a-horse-for-season-4-interview",
    "date": "2026-08-21T20:00:00.000Z",
    "source": "Space.com"
+  },
+  {
+   "title": "NASA Shares Views of August Solar Eclipse from Ground, Air, Space",
+   "link": "https://science.nasa.gov/science-research/heliophysics/nasa-shares-views-of-august-solar-eclipse-from-ground-air-space/",
+   "date": "2026-08-21T18:43:40.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "TB 26-04 Updates and Modernization of NASA’s Chemical Equilibrium with Applications (CEA) Code",
+   "link": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-04-updates-and-modernization-of-nasas-chemical-equilibrium-with-applications-cea-code/",
+   "date": "2026-08-21T17:41:00.000Z",
+   "source": "NASA"
   }
  ]
 }
