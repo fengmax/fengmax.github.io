@@ -541,98 +541,73 @@ body.loaded #info-panel {
   opacity: 1;
 }
 
-/* ===== 科技新闻滚动框（右下角常驻，玻璃风与面板一致） ===== */
+/* ===== 科技新闻：单条快照卡 + 进度环（右下角，方案 C） ===== */
 #news-panel {
   position: fixed;
   right: 16px;
   bottom: 16px;
   z-index: 35;
-  width: 272px;
-  padding: 12px 14px 10px;
+  width: 304px;
+  padding: 0;
   color: var(--txt);
+  overflow: hidden;
 }
-.news-head {
-  font-size: 11px;
-  color: var(--txt-dim);
-  letter-spacing: 2px;
-  margin-bottom: 8px;
+.news-card { padding: 12px 14px 11px; }
+.nc-top {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 9px;
+}
+.nc-src {
   display: flex;
   align-items: center;
   gap: 6px;
+  font-size: 11px;
+  color: var(--txt-dim);
+  letter-spacing: .5px;
+  font-weight: 500;
 }
-/* 实时状态点：加载成功后变绿 */
-.news-dot {
+.nc-dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: #5a6678;
   box-shadow: 0 0 6px rgba(90, 102, 120, .6);
-  transition: background .3s;
+  transition: background .3s, box-shadow .3s;
 }
-.news-dot.on {
-  background: #3ddc84;
-  box-shadow: 0 0 8px rgba(61, 220, 132, .7);
-}
-#news-list {
-  position: relative;
-  height: 252px;
-  overflow: hidden;
-}
-.news-track {
-  animation: newsScroll 40s linear infinite;
-}
-.news-track:hover {
-  animation-play-state: paused;
-}
-#news-list .news-item {
-  display: block;
-  padding: 8px 2px;
-  border-bottom: 1px solid rgba(120, 160, 255, .1);
-  text-decoration: none;
-  transition: background .15s;
-}
-#news-list .news-item:hover {
-  background: rgba(74, 140, 240, .12);
-}
-.news-title {
-  font-size: 12px;
-  color: #cdd8ec;
-  line-height: 1.5;
+.nc-time { margin-left: auto; font-size: 11px; color: var(--txt-dim); }
+.nc-title {
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #cdd8ec;
+  text-decoration: none;
+  min-height: 39px;
+  transition: color .15s;
+  word-break: break-word;
 }
-#news-list .news-item:hover .news-title {
-  color: #fff;
+.nc-title:hover { color: #fff; }
+.nc-bot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
 }
-.news-meta {
-  font-size: 10px;
-  color: var(--txt-dim);
-  margin-top: 3px;
-  letter-spacing: .5px;
-}
-.news-empty {
-  font-size: 12px;
-  color: var(--txt-dim);
-  text-align: center;
-  padding: 44px 0;
-}
-@keyframes newsScroll {
-  from { transform: translateY(0); }
-  to { transform: translateY(-50%); }
-}
+.nc-count { font-size: 11px; color: var(--txt-dim); letter-spacing: .5px; }
+.nc-ring { display: block; }
+.nc-ring-bg { stroke: rgba(120, 160, 255, .16); }
+.nc-ring-fg { stroke: var(--accent); transition: stroke .3s; }
+@keyframes ncFade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.nc-title.in { animation: ncFade .42s ease; }
 
-/* 移动端：新闻框收窄，避免遮挡 */
+/* 移动端：新闻卡收窄 */
 @media (max-width: 768px) {
-  #news-panel {
-    width: 200px;
-    padding: 10px 12px 8px;
-    right: 12px;
-    bottom: 12px;
-  }
-  #news-list { height: 200px; }
-  .news-title { font-size: 11px; }
+  #news-panel { width: 232px; right: 12px; bottom: 12px; }
+  .nc-title { font-size: 12px; min-height: 36px; }
 }
 
 /* 新闻框：收起按钮 + 收起状态 + 展开胶囊 */

@@ -61,10 +61,23 @@
   <!-- 行星列表（垂直卡片，默认收起） -->
   <div id="planet-bar" class="panel"><button id="planethome" title="回到全景">🌌 全景</button></div>
 
-  <!-- 科技新闻滚动框（右下角，可收起） -->
+  <!-- 科技新闻：单条快照卡 + 进度环（右下角，方案 C） -->
   <div id="news-panel" class="panel">
-    <div class="news-head"><span class="news-dot" id="news-dot"></span>科技资讯<button id="news-collapse" title="收起">✕</button></div>
-    <div id="news-list"></div>
+    <div class="news-card" id="news-card">
+      <div class="nc-top">
+        <span class="nc-src"><span class="nc-dot" id="nc-dot"></span><span id="nc-src">科技资讯</span></span>
+        <span class="nc-time" id="nc-time"></span>
+        <button id="news-collapse" title="收起">✕</button>
+      </div>
+      <a class="nc-title" id="nc-title" href="#" target="_blank" rel="noopener">加载中…</a>
+      <div class="nc-bot">
+        <span class="nc-count" id="nc-count">0 / 0</span>
+        <svg class="nc-ring" viewBox="0 0 36 36" width="30" height="30" aria-hidden="true">
+          <circle class="nc-ring-bg" cx="18" cy="18" r="15" fill="none" stroke-width="2.5"/>
+          <circle class="nc-ring-fg" id="nc-ring-fg" cx="18" cy="18" r="15" fill="none" stroke-width="2.5" stroke-linecap="round" transform="rotate(-90 18 18)"/>
+        </svg>
+      </div>
+    </div>
   </div>
   <!-- 收起后的展开按钮（默认隐藏） -->
   <button id="news-toggle" title="展开科技资讯">新闻</button>
