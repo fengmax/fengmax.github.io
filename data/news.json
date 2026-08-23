@@ -1,11 +1,41 @@
 {
- "updated": "2026-08-23T15:09:29.978Z",
- "count": 12,
+ "updated": "2026-08-23T20:07:39.900Z",
+ "count": 15,
  "items": [
   {
-   "title": "古尔曼：iPhone 18 系列计划涨价，苹果将自行消化一部分成本",
-   "link": "https://www.ithome.com/0/993/312.htm",
-   "date": "2026-08-23T15:00:38.000Z",
+   "title": "GTA VI: all the news on Rockstar’s next entry in the Grand Theft Auto series",
+   "link": "https://www.theverge.com/23987993/gta-6-news-trailers-rockstar-games",
+   "date": "2026-08-23T19:14:37.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "苹果M6 iMac预计将于2026年底前发布 或迎超短生命周期",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574566.htm",
+   "date": "2026-08-23T17:17:16.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "New 'Star Trek' documentary featuring William Shatner hits theaters this fall, celebrating 60 years of Trek",
+   "link": "https://www.space.com/entertainment/space-movies-shows/new-star-trek-documentary-featuring-william-shatner-hits-theaters-this-fall-celebrating-60-years-of-trek",
+   "date": "2026-08-23T16:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "玩家抵制 PlayStation 行动升级：一周 → 无限期，直至索尼为取消实体光盘认错",
+   "link": "https://www.ithome.com/0/993/318.htm",
+   "date": "2026-08-23T15:57:18.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "古尔曼：苹果今秋计划大幅调整零售店布局，或为带屏 HomePod 铺路",
+   "link": "https://www.ithome.com/0/993/317.htm",
+   "date": "2026-08-23T15:24:10.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "揭秘苹果摄像头版 AirPods 为何泄露：可能是测试新功能时合并错误",
+   "link": "https://www.ithome.com/0/993/316.htm",
+   "date": "2026-08-23T15:22:40.000Z",
    "source": "IT之家"
   },
   {
@@ -13,18 +43,6 @@
    "link": "https://www.theverge.com/entertainment/983177/jane-schoenbrun-were-all-going-to-the-worlds-fair-horror-movie-review",
    "date": "2026-08-23T15:00:00.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "消息称苹果外部已有人体验过折叠屏 iPhone：屏幕铰链评价积极，但缺少长焦镜头",
-   "link": "https://www.ithome.com/0/993/311.htm",
-   "date": "2026-08-23T14:55:30.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "2 分 21 秒 63，天卓队使用天工 Ultra 夺得人形机器人 1500 米冠军",
-   "link": "https://www.ithome.com/0/993/310.htm",
-   "date": "2026-08-23T14:38:51.000Z",
-   "source": "IT之家"
   },
   {
    "title": "How a huge fleet of 17 spacecraft discovered something surprising about solar eruptions",
@@ -39,10 +57,16 @@
    "source": "Space.com"
   },
   {
-   "title": "Launching 10,000 tiny 'femtosats' to Saturn? NASA funds 18 futuristic spaceflight ideas",
-   "link": "https://www.space.com/technology/launching-10-000-tiny-femtosats-to-saturn-nasa-funds-18-futuristic-spaceflight-ideas",
-   "date": "2026-08-23T12:00:00.000Z",
-   "source": "Space.com"
+   "title": "DeepSeek宣布周末全天谷价 以后周末上班更划算？",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574564.htm",
+   "date": "2026-08-23T12:03:22.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "荣耀机器人打破400米人类纪录 获马斯克转发点赞",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574562.htm",
+   "date": "2026-08-23T12:02:08.000Z",
+   "source": "cnBeta"
   },
   {
    "title": "Grand Theft Auto VI exists in its own universe",
@@ -55,12 +79,6 @@
    "link": "https://science.nasa.gov/blog/curiosity-blog-sols-4982-4987-back-to-our-regularly-scheduled-programming/",
    "date": "2026-08-23T07:39:28.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "Doodle generative compositions in your browser with Musical Spirograph",
-   "link": "https://www.theverge.com/entertainment/983322/musical-spirograph-generative-composition",
-   "date": "2026-08-22T17:00:00.000Z",
-   "source": "The Verge"
   },
   {
    "title": "APOD: 2026 August 22 – Mostly Perseids",
