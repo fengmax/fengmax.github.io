@@ -1,7 +1,43 @@
 {
- "updated": "2026-08-23T20:07:39.900Z",
- "count": 15,
+ "updated": "2026-08-24T00:28:06.241Z",
+ "count": 12,
  "items": [
+  {
+   "title": "华为出行护航功能适配车型和版本更新，手机端最低要求 HarmonyOS 5.0.1.120 系统",
+   "link": "https://www.ithome.com/0/993/338.htm",
+   "date": "2026-08-24T00:27:14.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "中国电竞俱乐部登顶世界第一，法国总统马克龙为 AG.AL 颁发 2026 EWC 冠军奖杯",
+   "link": "https://www.ithome.com/0/993/337.htm",
+   "date": "2026-08-24T00:20:15.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "美国得州州长阿博特：AI 数据中心遭民众反对实属咎由自取",
+   "link": "https://www.ithome.com/0/993/336.htm",
+   "date": "2026-08-24T00:07:43.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "OpenAI CEO萨姆·奥特曼：担忧AI被少数巨头垄断 但过度防范无异于“以自由换安全”",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574624.htm",
+   "date": "2026-08-23T23:16:47.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Windows 11固态硬盘游戏性能实测 SATA与NVMe表现或出人意料",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574622.htm",
+   "date": "2026-08-23T23:16:11.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "诺兰电影推动《刺客信条：奥德赛》成该系列评价最高",
+   "link": "https://www.cnbeta.com.tw/articles/game/1574620.htm",
+   "date": "2026-08-23T22:49:03.000Z",
+   "source": "cnBeta"
+  },
   {
    "title": "GTA VI: all the news on Rockstar’s next entry in the Grand Theft Auto series",
    "link": "https://www.theverge.com/23987993/gta-6-news-trailers-rockstar-games",
@@ -9,34 +45,10 @@
    "source": "The Verge"
   },
   {
-   "title": "苹果M6 iMac预计将于2026年底前发布 或迎超短生命周期",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1574566.htm",
-   "date": "2026-08-23T17:17:16.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "New 'Star Trek' documentary featuring William Shatner hits theaters this fall, celebrating 60 years of Trek",
    "link": "https://www.space.com/entertainment/space-movies-shows/new-star-trek-documentary-featuring-william-shatner-hits-theaters-this-fall-celebrating-60-years-of-trek",
    "date": "2026-08-23T16:00:00.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "玩家抵制 PlayStation 行动升级：一周 → 无限期，直至索尼为取消实体光盘认错",
-   "link": "https://www.ithome.com/0/993/318.htm",
-   "date": "2026-08-23T15:57:18.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "古尔曼：苹果今秋计划大幅调整零售店布局，或为带屏 HomePod 铺路",
-   "link": "https://www.ithome.com/0/993/317.htm",
-   "date": "2026-08-23T15:24:10.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "揭秘苹果摄像头版 AirPods 为何泄露：可能是测试新功能时合并错误",
-   "link": "https://www.ithome.com/0/993/316.htm",
-   "date": "2026-08-23T15:22:40.000Z",
-   "source": "IT之家"
   },
   {
    "title": "We’re All Going to the World’s Fair is an intimate coming-of-age horror film",
@@ -57,40 +69,10 @@
    "source": "Space.com"
   },
   {
-   "title": "DeepSeek宣布周末全天谷价 以后周末上班更划算？",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1574564.htm",
-   "date": "2026-08-23T12:03:22.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "荣耀机器人打破400米人类纪录 获马斯克转发点赞",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1574562.htm",
-   "date": "2026-08-23T12:02:08.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "Grand Theft Auto VI exists in its own universe",
    "link": "https://www.theverge.com/column/983410/grand-theft-auto-vi-exists-in-its-own-universe",
    "date": "2026-08-23T12:00:00.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "Curiosity Blog, Sols 4982–4987: Back to Our Regularly Scheduled Programming",
-   "link": "https://science.nasa.gov/blog/curiosity-blog-sols-4982-4987-back-to-our-regularly-scheduled-programming/",
-   "date": "2026-08-23T07:39:28.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "APOD: 2026 August 22 – Mostly Perseids",
-   "link": "https://science.nasa.gov/image-article/apod/apod-2026-august-22-mostly-perseids/",
-   "date": "2026-08-22T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Shares Views of August Solar Eclipse from Ground, Air, Space",
-   "link": "https://science.nasa.gov/science-research/heliophysics/nasa-shares-views-of-august-solar-eclipse-from-ground-air-space/",
-   "date": "2026-08-21T18:43:40.000Z",
-   "source": "NASA"
   }
  ]
 }
