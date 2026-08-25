@@ -1,72 +1,84 @@
 {
- "updated": "2026-08-25T10:18:18.063Z",
+ "updated": "2026-08-25T15:31:02.234Z",
  "count": 15,
  "items": [
   {
-   "title": "PocketBook Q 迷你电纸书阅读器发布：5.84 英寸 E-ink 屏幕，RK3566 芯片",
-   "link": "https://www.ithome.com/0/994/147.htm",
-   "date": "2026-08-25T10:17:43.000Z",
+   "title": "NVIDIA DLSS 4.5 光线重建更新实测：提升游戏画面质感的“大杀器”",
+   "link": "https://www.ithome.com/0/994/261.htm",
+   "date": "2026-08-25T15:30:14.000Z",
    "source": "IT之家"
   },
   {
-   "title": "七彩虹 iGame Z890M ULTRA W 主板发售：白化设计，1599 元",
-   "link": "https://www.ithome.com/0/994/146.htm",
-   "date": "2026-08-25T10:15:34.000Z",
+   "title": "苹果妙控键盘美式英语版悄悄更新：Tab、CapsLock、Return 等按键取消文字，改为符号",
+   "link": "https://www.ithome.com/0/994/260.htm",
+   "date": "2026-08-25T15:27:29.000Z",
    "source": "IT之家"
   },
   {
-   "title": "华为余承东：智界 V9 汽车 7 月高端 MPV 市场零售占有率达到 68%",
-   "link": "https://www.ithome.com/0/994/145.htm",
-   "date": "2026-08-25T10:12:32.000Z",
+   "title": "庆祝宝可梦系列诞生 30 周年，闪迪推出纪念款 U 盘和便携 SSD",
+   "link": "https://www.ithome.com/0/994/259.htm",
+   "date": "2026-08-25T15:26:29.000Z",
    "source": "IT之家"
   },
   {
-   "title": "英特尔拿下SK海力士：EMIB先进封装有望导入下一代HBM产品",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1574894.htm",
-   "date": "2026-08-25T08:49:20.000Z",
+   "title": "苹果悄然更新妙控键盘 多个按键改用符号标识",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574948.htm",
+   "date": "2026-08-25T15:14:26.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Google为Android 17推出“Motion Assist”功能 用动态圆点缓解乘车晕动症",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1574892.htm",
-   "date": "2026-08-25T08:48:26.000Z",
+   "title": "OpenAI&quot;Jalapeño&quot;芯片跑分公开 推理性能超越英伟达旗舰GPU",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574946.htm",
+   "date": "2026-08-25T15:13:33.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Android is getting its own weird dots to cure car sickness",
-   "link": "https://www.theverge.com/tech/984226/google-motion-assist-anti-nausea-car-sickness-cure",
-   "date": "2026-08-25T08:36:27.000Z",
+   "title": "苹果新款擦布悄然降价10美元 产品本身与旧款并无差异",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1574944.htm",
+   "date": "2026-08-25T15:11:09.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Astronauts Anil Menon and Sophie Adenot on Spacewalk",
+   "link": "https://www.nasa.gov/image-article/astronauts-anil-menon-and-sophie-adenot-on-spacewalk/",
+   "date": "2026-08-25T14:57:26.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Sun fires powerful M6.9 solar flare and CME toward Earth — could it boost northern lights chances this week?",
+   "link": "https://www.space.com/stargazing/auroras/sun-fires-powerful-m6-9-solar-flare-and-cme-toward-earth-could-it-boost-northern-lights-chances-this-week",
+   "date": "2026-08-25T14:50:50.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Apple&#8217;s ‘new’ polishing cloth is the same except $10 cheaper",
+   "link": "https://www.theverge.com/tech/984353/apple-polishing-cloth-cheaper",
+   "date": "2026-08-25T14:25:52.000Z",
    "source": "The Verge"
   },
   {
-   "title": "澳大利亚将禁止纯AI生成音乐进入官方排行榜单",
-   "link": "https://www.cnbeta.com.tw/articles/music/1574890.htm",
-   "date": "2026-08-25T07:24:21.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "What time is the partial lunar eclipse on Aug. 27-28? Here's when to see the 96% 'blood moon'",
-   "link": "https://www.space.com/stargazing/lunar-eclipses/what-time-is-the-partial-lunar-eclipse-on-aug-27-28-heres-when-to-see-the-96-percent-blood-moon",
-   "date": "2026-08-25T07:00:00.000Z",
+   "title": "On this day in space! Aug. 25, 1997: NASA launches Advanced Composition Explorer to track solar wind and so much more",
+   "link": "https://www.space.com/space-exploration/on-this-day-in-space-august-25-2026",
+   "date": "2026-08-25T14:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "Watch 2 astronauts replace failed ISS antenna during spacewalk today",
-   "link": "https://www.space.com/space-exploration/international-space-station/watch-2-astronauts-replace-failed-iss-antenna-during-spacewalk-today",
-   "date": "2026-08-25T04:01:00.000Z",
+   "title": "Astronauts make history repairing the ISS | Space photo of the day for Aug. 25, 2026",
+   "link": "https://www.space.com/space-exploration/human-spaceflight/astronauts-make-history-repairing-the-iss-space-photo-of-the-day-for-aug-25-2026",
+   "date": "2026-08-25T14:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "Lenovo confirms Legion Go issues after gamers report bricked devices",
-   "link": "https://www.theverge.com/games/983457/lenovo-bad-legion-go-bios-update-bricked",
-   "date": "2026-08-24T23:38:10.000Z",
+   "title": "OpenAI says its Jalapeño chip can power faster AI responses than the competition",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/984290/openai-jalapeno-ai-chip-benchmarks",
+   "date": "2026-08-25T14:00:00.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Pluto losing its planet status may be the best thing that ever happened to solar system diversity",
-   "link": "https://www.space.com/astronomy/pluto/pluto-losing-its-planet-status-may-be-the-best-thing-that-ever-happened-to-solar-system-diversity",
-   "date": "2026-08-24T21:00:00.000Z",
-   "source": "Space.com"
+   "title": "Where to preorder the updated Mac Mini and Mac Studio",
+   "link": "https://www.theverge.com/gadgets/984096/mac-mini-mac-studio-m5-m6-ultra-preorder",
+   "date": "2026-08-25T13:02:18.000Z",
+   "source": "The Verge"
   },
   {
    "title": "NASA Sets Coverage for Roman Space Telescope Launch from Florida",
@@ -75,21 +87,9 @@
    "source": "NASA"
   },
   {
-   "title": "The cat-and-mouse game over 3D-printed guns has begun",
-   "link": "https://www.theverge.com/tech/983244/3d-printed-guns-hashes-hochul",
-   "date": "2026-08-24T19:50:00.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "Perseverance Captures Another Phobos Transit",
    "link": "https://science.nasa.gov/photojournal/perseverance-captures-another-phobos-transit/",
    "date": "2026-08-24T17:56:49.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Starstruck: NASA Research Shows How Sun’s Ancient History Shaped Earth",
-   "link": "https://science.nasa.gov/solar-system/starstruck-nasa-research-shows-how-suns-ancient-history-shaped-earth/",
-   "date": "2026-08-24T17:53:57.000Z",
    "source": "NASA"
   }
  ]
