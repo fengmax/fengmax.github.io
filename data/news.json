@@ -1,7 +1,43 @@
 {
- "updated": "2026-08-24T20:14:56.011Z",
+ "updated": "2026-08-25T00:27:51.856Z",
  "count": 15,
  "items": [
+  {
+   "title": "微软 AI 智能体系统 Aion 曝光：以 Copilot 为核心、重塑桌面体验",
+   "link": "https://www.ithome.com/0/993/798.htm",
+   "date": "2026-08-25T00:20:52.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "特斯拉 Semi 内华达新工厂下月举行投产仪式，年产能达 5 万辆",
+   "link": "https://www.ithome.com/0/993/797.htm",
+   "date": "2026-08-25T00:13:35.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "马斯克：SpaceX 计划明年第四季度发射搭载英伟达芯片的 AI 卫星",
+   "link": "https://www.ithome.com/0/993/796.htm",
+   "date": "2026-08-25T00:01:53.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Lenovo confirms Legion Go issues after gamers report bricked devices",
+   "link": "https://www.theverge.com/games/983457/lenovo-bad-legion-go-bios-update-bricked",
+   "date": "2026-08-24T23:38:10.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Pluto losing its planet status may be the best thing that ever happened to solar system diversity",
+   "link": "https://www.space.com/astronomy/pluto/pluto-losing-its-planet-status-may-be-the-best-thing-that-ever-happened-to-solar-system-diversity",
+   "date": "2026-08-24T21:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "NASA Sets Coverage for Roman Space Telescope Launch from Florida",
+   "link": "https://www.nasa.gov/news-release/nasa-sets-coverage-for-roman-space-telescope-launch-from-florida/",
+   "date": "2026-08-24T20:44:58.000Z",
+   "source": "NASA"
+  },
   {
    "title": "'Ghosts of Mars' at 25: Are we any closer to living on the Red Planet? We asked the experts",
    "link": "https://www.space.com/entertainment/space-movies-shows/ghosts-of-mars-at-25-are-we-any-closer-to-living-on-the-red-planet-we-asked-the-experts",
@@ -39,12 +75,6 @@
    "source": "Space.com"
   },
   {
-   "title": "Goodbye, Falcon 9: SpaceX planning to retire workhorse launcher when Starship is up and running",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/goodbye-falcon-9-spacex-planning-to-retire-workhorse-launcher-when-starship-is-up-and-running",
-   "date": "2026-08-24T18:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
    "title": "Perseverance Captures Another Phobos Transit",
    "link": "https://science.nasa.gov/photojournal/perseverance-captures-another-phobos-transit/",
    "date": "2026-08-24T17:56:49.000Z",
@@ -57,39 +87,9 @@
    "source": "NASA"
   },
   {
-   "title": "苹果 watchOS 27.0 开发者预览版 Beta 7 发布",
-   "link": "https://www.ithome.com/0/993/763.htm",
-   "date": "2026-08-24T17:53:16.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "苹果 visionOS 27.0 开发者预览版 Beta 7 发布",
-   "link": "https://www.ithome.com/0/993/762.htm",
-   "date": "2026-08-24T17:53:15.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "苹果 macOS 27.0 开发者预览版 Beta 7 发布",
-   "link": "https://www.ithome.com/0/993/761.htm",
-   "date": "2026-08-24T17:53:15.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "NASA Astronaut Reid Wiseman at Freedom 250 Grand Prix",
-   "link": "https://www.nasa.gov/image-article/nasa-astronaut-reid-wiseman-at-freedom-250-grand-prix/",
-   "date": "2026-08-24T17:34:09.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "Zillow and Redfin settle FTC antitrust case over their rental listings partnership",
    "link": "https://www.theverge.com/policy/983864/zillow-redfin-ftc-settlement",
    "date": "2026-08-24T17:01:05.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Robotaxis are real now — so is the pushback",
-   "link": "https://www.theverge.com/transportation/983765/robotaxi-waymo-zoox-tesla-rules-pushback-nhtsa",
-   "date": "2026-08-24T16:42:37.000Z",
    "source": "The Verge"
   }
  ]
