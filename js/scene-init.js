@@ -34,6 +34,33 @@ try {
   viz.createLight([0, 0, 0], 0xfff2df);  // 太阳主光: G2V 暖白(非纯白), 行星受光更自然
   objects.sun = viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
 
+  // 去掉官方 lensflare0.png 的黄色光晕+十字光芒: 保留官方 sprite(scale/blending/position), 只替换 material.map
+  // 官方默认 scale=[1,1,1] 换贴图后会变得极小, 故同步把 sprite 放大到 [3,3,1] 让白核有可见大小
+  setTimeout(function () {
+    try {
+      var TSun = (window.THREE || Spacekit.THREE);
+      var sunSprite = objects.sun && objects.sun._object3js;
+      if (!sunSprite || !sunSprite.material) return;
+      sunSprite.scale.set(3, 3, 1);
+      var SZ = 128;
+      var cv = document.createElement('canvas');
+      cv.width = cv.height = SZ;
+      var cc = cv.getContext('2d');
+      var g = cc.createRadialGradient(SZ/2, SZ/2, 0, SZ/2, SZ/2, SZ/2);
+      g.addColorStop(0,    'rgba(255,255,255,1.00)');
+      g.addColorStop(0.20, 'rgba(255,255,255,0.80)');
+      g.addColorStop(0.40, 'rgba(255,255,255,0.20)');
+      g.addColorStop(0.70, 'rgba(255,255,255,0.03)');
+      g.addColorStop(1,    'rgba(255,255,255,0)');
+      cc.fillStyle = g;
+      cc.fillRect(0, 0, SZ, SZ);
+      var tex = new TSun.CanvasTexture(cv);
+      if (TSun.sRGBEncoding) tex.encoding = TSun.sRGBEncoding;
+      sunSprite.material.map = tex;
+      sunSprite.material.needsUpdate = true;
+    } catch (e) {}
+  }, 0);
+
   // 银河天空盒：SpaceKit 内置 createSkybox(equirect 全景球)。
   try {
     viz.createSkybox({
