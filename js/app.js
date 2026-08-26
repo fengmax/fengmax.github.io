@@ -336,13 +336,15 @@ function iface() {
     }
 
     var texLoaded = {};
+    // 高清一旦加载过就保持高清(浏览器已缓存 -hi.webp)，拉远无需降级回低清；只有从未加载过高清才允许降级
+    var texEverHi = {};
     // 启动时 scene-init 已给所有行星加载低清 {key}.webp，标记为 LO 避免首帧 checkTextures 重复拉取
     PLANETS.forEach(function (p) { if (p.key !== 'sun') texLoaded[p.key] = './assets/textures/' + p.key + '.webp'; });
 
     function forceHiRes(key) {
       if (key === 'sun') return;
       var HI = './assets/textures/' + key + '-hi.webp';
-      setTexture(key, HI, function() { texLoaded[key] = HI; });
+      setTexture(key, HI, function() { texLoaded[key] = HI; texEverHi[key] = true; });
     }
 
     function checkTextures() {
@@ -362,8 +364,8 @@ function iface() {
         var LO = './assets/textures/' + p.key + '.webp';
         var hiThresh = Math.max(40, r * 20);
         if (d < hiThresh && texLoaded[p.key] !== HI) {
-          setTexture(p.key, HI, function() { texLoaded[p.key] = HI; });
-        } else if (d >= hiThresh && texLoaded[p.key] !== LO) {
+          setTexture(p.key, HI, function() { texLoaded[p.key] = HI; texEverHi[p.key] = true; });
+        } else if (d >= hiThresh && texLoaded[p.key] !== LO && !texEverHi[p.key]) {
           setTexture(p.key, LO, function() { texLoaded[p.key] = LO; });
         }
       });
