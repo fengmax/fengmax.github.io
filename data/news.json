@@ -1,78 +1,96 @@
 {
- "updated": "2026-08-26T16:07:21.213Z",
- "count": 12,
+ "updated": "2026-08-26T22:32:04.583Z",
+ "count": 15,
  "items": [
   {
-   "title": "苹果发出 9 月 9 日发布会邀请函 &gt;&gt;",
-   "link": "https://www.ithome.com/0/994/787.htm",
-   "date": "2026-08-26T16:06:30.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Apple announces September iPhone launch event",
-   "link": "https://www.theverge.com/tech/983407/apple-iphone-launch-event-2026-date",
-   "date": "2026-08-26T16:03:49.000Z",
+   "title": "Nvidia is about to be a hundred-billion-dollar-a-quarter company",
+   "link": "https://www.theverge.com/tech/985387/nvidia-hundred-billion-dollar-quarterly-revenue",
+   "date": "2026-08-26T21:40:53.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Massive space mirrors could be 40 times brighter than the full moon, astronomers warn. 'It will be worse than big cities like London'",
-   "link": "https://www.space.com/space-exploration/satellites/massive-space-mirrors-could-be-40-times-brighter-than-the-full-moon-astronomers-warn-it-will-be-worse-than-big-cities-like-london",
-   "date": "2026-08-26T16:00:00.000Z",
+   "title": "OpenAI’s rogue AI model incident was worse than we thought",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/985385/openais-rogue-ai-model-hugging-face-cybersecurity-incident-reports-metr",
+   "date": "2026-08-26T21:36:06.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "From spy satellite to space telescope: The unlikely origins of NASA's Roman Space Telescope",
+   "link": "https://www.space.com/astronomy/from-spy-satellite-to-space-telescope-the-unlikely-origins-of-nasas-roman-space-telescope",
+   "date": "2026-08-26T21:00:00.000Z",
    "source": "Space.com"
+  },
+  {
+   "title": "惠普 2026 财年第三财季归母净利润 6.61 亿美元，同比下降 13%",
+   "link": "https://www.ithome.com/0/994/789.htm",
+   "date": "2026-08-26T20:22:33.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "All the ways Instagram and Facebook are changing for teens",
+   "link": "https://www.theverge.com/tech/985329/instagram-facebook-meta-settlement-changes",
+   "date": "2026-08-26T20:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "三星Galaxy S27 CAD渲染图曝光：外观与前代高度相似 或升级4900mAh电池",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575130.htm",
+   "date": "2026-08-26T19:49:29.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "传闻称苹果iPhone Ultra或推出红色版本 但消息真实性存疑",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575128.htm",
+   "date": "2026-08-26T19:48:43.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Google推出Gemini 3.5 Transcribe 语音转文字准确度进一步提升",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575126.htm",
+   "date": "2026-08-26T19:47:56.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Building Foresight for Earth Science, featuring Lindsey Jacobson",
+   "link": "https://www.nasa.gov/earth/earth-visualization-mapping/building-foresight-for-earth-science-featuring-lindsey-jacobson/",
+   "date": "2026-08-26T19:14:15.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Roman Space Telescope Travels to SpaceX Hangar",
+   "link": "https://www.nasa.gov/image-article/roman-space-telescope-travels-to-spacex-hangar/",
+   "date": "2026-08-26T18:40:19.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Astronomers discover hot watery exoplanet destined to be swallowed by its star",
+   "link": "https://www.space.com/astronomy/exoplanets/astronomers-discover-hot-watery-exoplanet-destined-to-be-swallowed-by-its-star",
+   "date": "2026-08-26T18:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "NASA Johnson Pilots Chase Moon’s Shadow for Eclipse Science",
+   "link": "https://www.nasa.gov/centers-and-facilities/johnson/nasa-johnson-pilots-chase-moons-shadow-for-eclipse-science/",
+   "date": "2026-08-26T17:33:05.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "A black star in a false Spanish twilight: Here's the story of my 1st total solar eclipse",
+   "link": "https://www.space.com/stargazing/solar-eclipses/a-black-star-in-a-false-spanish-twilight-heres-the-story-of-my-1st-total-solar-eclipse",
+   "date": "2026-08-26T17:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "开启 iPhone 18 Pro / Ultra 系列新篇章，苹果发布会官宣定档 9 月 10 日",
+   "link": "https://www.ithome.com/0/994/787.htm",
+   "date": "2026-08-26T16:06:30.000Z",
+   "source": "IT之家"
   },
   {
    "title": "微软 Win11 新功能曝光：未来将支持手机远程操控关机、重启电脑",
    "link": "https://www.ithome.com/0/994/785.htm",
    "date": "2026-08-26T15:59:55.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "Waymo：我们的无人驾驶出租车严重事故发生率仅有人驾的 1/16",
-   "link": "https://www.ithome.com/0/994/784.htm",
-   "date": "2026-08-26T15:50:22.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Volvo’s cars will warn one another about hazards in the road",
-   "link": "https://www.theverge.com/transportation/985070/volvo-connected-safety-hazard-alert-animal-cyclist",
-   "date": "2026-08-26T15:28:14.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Chance gaze at old Hubble Telescope image leads to discovery that could reveal dark matter's secrets",
-   "link": "https://www.space.com/astronomy/hubble-space-telescope/chance-gaze-at-old-hubble-telescope-image-leads-to-discovery-that-could-reveal-dark-matters-secrets",
-   "date": "2026-08-26T15:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Xbox announces disc-to-digital feature that digitizes your physical games",
-   "link": "https://www.theverge.com/tech/984936/xbox-disc-to-digital-feature-official",
-   "date": "2026-08-26T14:30:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "NASA Sets Spacewalk for Station Maintenance, Live Coverage Planned",
-   "link": "https://www.nasa.gov/news-release/nasa-sets-spacewalk-for-station-maintenance-live-coverage-planned/",
-   "date": "2026-08-26T14:16:29.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Heat shield under fire | Space photo of the day for Aug. 26, 2026",
-   "link": "https://www.space.com/technology/heat-shield-under-fire-space-photo-of-the-day-for-aug-26-2026",
-   "date": "2026-08-26T14:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "NASA Begins Moon Mission Plume-Surface Interaction Tests",
-   "link": "https://www.nasa.gov/missions/artemis/nasa-begins-moon-mission-plume-surface-interaction-tests/",
-   "date": "2026-08-26T13:58:04.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Contractor to Civil Servant: NASA Welcomes Jeret Howard",
-   "link": "https://www.nasa.gov/centers-and-facilities/stennis/contractor-to-civil-servant-jeret-howard/",
-   "date": "2026-08-26T13:32:28.000Z",
-   "source": "NASA"
   }
  ]
 }
