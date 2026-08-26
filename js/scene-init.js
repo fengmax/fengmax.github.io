@@ -30,8 +30,8 @@ try {
     startDate: startDate,
   });
 
-  viz.createAmbientLight();
-  viz.createLight([0, 0, 0]);
+  viz.createAmbientLight(0x2a3340);      // 冷灰蓝环境光: 背光面贴合太空冷调(官方只支持颜色)
+  viz.createLight([0, 0, 0], 0xfff2df);  // 太阳主光: G2V 暖白(非纯白), 行星受光更自然
   objects.sun = viz.createObject('sun', Spacekit.SpaceObjectPresets.SUN);
 
   // 替换默认 SUN 精灵贴图 (Spacekit 内置 lensflare0.png 带放射光芒+大黄光晕, 偏黄外圈突兀)
@@ -138,14 +138,14 @@ try {
 
   // 官方大气语法: atmosphere = { enable, color } 由 SpaceKit renderFullAtmosphere() 自动渲染
   var ATM = {
-    mercury: { color: 0xb8b8c0, outer: 0.05 },   // 水星: 极稀薄外逸层, 淡色薄层
-    earth:   { color: 0x5b9bff },
-    venus:   { color: 0xe8c27a },
-    mars:    { color: 0xff7a4a },
-    jupiter: { color: 0xd8b48a },
-    saturn:  { color: 0xe8d6a8 },
-    uranus:  { color: 0x9fe6e6 },
-    neptune: { color: 0x5a7bff }
+    mercury: { color: 0xb8b8c0, inner: 0.010, outer: 0.05 },  // 水星: 极稀薄外逸层, 最薄
+    venus:   { color: 0xe8c27a, inner: 0.060, outer: 0.30 },  // 金星: 浓密硫酸云, 最厚
+    earth:   { color: 0x5b9bff, inner: 0.025, outer: 0.15 },  // 地球: 中等大气
+    mars:    { color: 0xff7a4a, inner: 0.015, outer: 0.08 },  // 火星: 稀薄大气
+    jupiter: { color: 0xd8b48a, inner: 0.040, outer: 0.22 },  // 木星: 厚气态
+    saturn:  { color: 0xe8d6a8, inner: 0.040, outer: 0.20 },  // 土星: 厚气态
+    uranus:  { color: 0x9fe6e6, inner: 0.035, outer: 0.18 },  // 天王星: 冰巨星
+    neptune: { color: 0x5a7bff, inner: 0.035, outer: 0.18 }   // 海王星: 冰巨星
   };
 
   var SUN_DIAMETER_KM = 1392000,
