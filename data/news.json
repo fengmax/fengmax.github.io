@@ -1,78 +1,96 @@
 {
- "updated": "2026-08-28T07:11:44.071Z",
- "count": 12,
+ "updated": "2026-08-28T21:02:58.229Z",
+ "count": 15,
  "items": [
   {
-   "title": "网友成功退回摩拜单车299元押金 美团客服回应：不影响免押骑行",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575390.htm",
-   "date": "2026-08-28T07:09:41.000Z",
+   "title": "NASA Awards First Prize in Phase 2 of Agency&#8217;s LunaRecycle Challenge",
+   "link": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/centennial-challenges/nasa-awards-first-prize-in-phase-2-of-agencys-lunarecycle-challenge/",
+   "date": "2026-08-28T20:30:52.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "微软弃用Edge Drop 便捷的文件分享功能将彻底消失",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575444.htm",
+   "date": "2026-08-28T20:23:41.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "中国一汽捐赠款物 500 万元驰援西藏吉隆灾区",
-   "link": "https://www.ithome.com/0/995/595.htm",
-   "date": "2026-08-28T07:08:48.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Pro 和 Flash 系列“冰火两重天”，曝谷歌内部开始测试 Gemini 3.8 Flash 模型",
-   "link": "https://www.ithome.com/0/995/594.htm",
-   "date": "2026-08-28T07:06:34.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "东风日产 NX8 全新外观色“喜柿”发布，限时上新价 2000 元",
-   "link": "https://www.ithome.com/0/995/593.htm",
-   "date": "2026-08-28T07:01:28.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "韩国将对“黄牛”倒票行为处以最高50倍罚款",
-   "link": "https://www.cnbeta.com.tw/articles/movie/1575388.htm",
-   "date": "2026-08-28T05:53:02.000Z",
+   "title": "史蒂夫·乔布斯八年级科学项目拍卖成交价34375美元",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575442.htm",
+   "date": "2026-08-28T20:21:13.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "英特尔高端U价格腰斩 270K Plus性价比反超i9",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575386.htm",
-   "date": "2026-08-28T05:52:17.000Z",
+   "title": "Our choice as one of the best budget telescopes now has 17% off — this telescope deal is worth grabbing fast",
+   "link": "https://www.space.com/stargazing/skywatching-kit/our-choice-as-one-of-the-best-budget-telescopes-now-has-17-percent-off-this-telescope-deal-is-worth-grabbing-fast",
+   "date": "2026-08-28T20:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "The night we nearly saw a 'blood moon' (and why I love near-misses in astronomy)",
+   "link": "https://www.space.com/stargazing/the-night-we-nearly-saw-a-blood-moon-and-why-i-love-near-misses-in-astronomy",
+   "date": "2026-08-28T19:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "苹果上调美国市场Apple TV和Apple One订阅价格",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575440.htm",
+   "date": "2026-08-28T18:58:05.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Anthropic was illegally blacklisted by the Trump administration, court rules",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/985947/anthropic-supply-chain-risk-lawsuit-judge-ruling",
-   "date": "2026-08-28T03:14:06.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "The GTA VI ‘extended look’ is now streaming on YouTube",
-   "link": "https://www.theverge.com/games/985910/grand-theft-auto-gta-vi-extended-look-youtube-netflix-stream",
-   "date": "2026-08-28T01:05:18.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "The biggest video game of all time looks like a movie",
-   "link": "https://www.theverge.com/games/985891/grand-theft-auto-vi-gta-6-netflix-youtube-extended-look-game-movie",
-   "date": "2026-08-27T23:20:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "James Webb Space Telescope observes 72 stars and finds planet formation is a race against time",
-   "link": "https://www.space.com/astronomy/james-webb-space-telescope/james-webb-space-telescope-observes-72-stars-and-finds-planet-formation-is-a-race-against-time",
-   "date": "2026-08-27T21:00:00.000Z",
+   "title": "'It's going to be beautiful': President Trump signs order to create US Space Academy",
+   "link": "https://www.space.com/space-exploration/its-going-to-be-beautiful-president-trump-signs-order-to-create-us-space-academy",
+   "date": "2026-08-28T18:44:34.000Z",
    "source": "Space.com"
   },
   {
-   "title": "Astronaut Jonny Kim leaves NASA, will return to active military duty",
-   "link": "https://www.space.com/space-exploration/human-spaceflight/astronaut-jonny-kim-leaves-nasa-will-return-to-active-military-duty",
-   "date": "2026-08-27T19:02:45.000Z",
-   "source": "Space.com"
+   "title": "President Honors NASA’s Artemis II Crew with Highest US Space Award",
+   "link": "https://www.nasa.gov/news-release/president-honors-nasas-artemis-ii-crew-with-highest-us-space-award/",
+   "date": "2026-08-28T17:37:01.000Z",
+   "source": "NASA"
   },
   {
-   "title": "After failure of private rescue mission, NASA's Swift space telescope will crash back to Earth. But when and where?",
-   "link": "https://www.space.com/space-exploration/missions/after-failure-of-private-rescue-mission-nasas-swift-space-telescope-will-crash-back-to-earth-but-when-and-where",
-   "date": "2026-08-27T18:00:00.000Z",
-   "source": "Space.com"
+   "title": "President Trump Signs Executive Order to Create US Space Academy",
+   "link": "https://www.nasa.gov/news-release/president-trump-signs-executive-order-to-create-us-space-academy/",
+   "date": "2026-08-28T17:21:04.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Save hundreds on a TCL mini-LED TV with quantum dots and high refresh rate",
+   "link": "https://www.theverge.com/gadgets/985741/tcl-qm7l-belkin-thunderbolt-dock-deal-sale",
+   "date": "2026-08-28T17:03:07.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Trump’s EPA wants to let data centers hide their air pollution",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/986176/data-center-pollution-epa-rule-change-air-permit",
+   "date": "2026-08-28T16:28:40.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "DLSS 5 leaked and modders are putting Nvidia&#8217;s AI effects on everything",
+   "link": "https://www.theverge.com/games/986197/nvidia-dlss-5-leak-ai",
+   "date": "2026-08-28T16:22:16.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "微软试图安抚内部员工：数据中心能对社会产生积极影响",
+   "link": "https://www.ithome.com/0/995/822.htm",
+   "date": "2026-08-28T16:18:17.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "泄露文件催生民间开发，英伟达 DLSS 5 成功移植至 RTX 40 系列",
+   "link": "https://www.ithome.com/0/995/821.htm",
+   "date": "2026-08-28T16:02:23.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "OpenAI 开发“持久模式”智能体，Codex 将能够主动、长时间干活",
+   "link": "https://www.ithome.com/0/995/818.htm",
+   "date": "2026-08-28T15:53:34.000Z",
+   "source": "IT之家"
   }
  ]
 }
