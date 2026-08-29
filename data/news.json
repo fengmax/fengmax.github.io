@@ -1,29 +1,47 @@
 {
- "updated": "2026-08-29T04:23:46.216Z",
- "count": 12,
+ "updated": "2026-08-29T11:23:04.299Z",
+ "count": 15,
  "items": [
   {
-   "title": "理想汽车：飞碟轮毂针对新一代 MEGA 重新设计开发，老款 MEGA 车型也可安装、10 月开放选购",
-   "link": "https://www.ithome.com/0/995/894.htm",
-   "date": "2026-08-29T04:19:12.000Z",
+   "title": "玩家获取 Root 权限后发现小米首款 NAS 智能存储自带 Docker 环境，OpenClaw 已跑通",
+   "link": "https://www.ithome.com/0/996/019.htm",
+   "date": "2026-08-29T11:21:18.000Z",
    "source": "IT之家"
   },
   {
-   "title": "国家数据局：全国已建成高质量数据集超 12.6 万个，总体量超 1815PB",
-   "link": "https://www.ithome.com/0/995/893.htm",
-   "date": "2026-08-29T03:59:25.000Z",
+   "title": "EA《钢铁侠》游戏泄露后，官方作出回应",
+   "link": "https://www.ithome.com/0/996/017.htm",
+   "date": "2026-08-29T11:16:01.000Z",
    "source": "IT之家"
   },
   {
-   "title": "常州为星宇离职学生办专场招聘会，最高年薪 24 万",
-   "link": "https://www.ithome.com/0/995/892.htm",
-   "date": "2026-08-29T03:49:47.000Z",
+   "title": "莲花持续发力混动，全新超跑 Esprit 将提供 V6 引擎、强调轻量化",
+   "link": "https://www.ithome.com/0/996/016.htm",
+   "date": "2026-08-29T11:14:04.000Z",
    "source": "IT之家"
   },
   {
-   "title": "Google进一步将搜索结果固定在AI模式之下 自动展开摘要",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575448.htm",
-   "date": "2026-08-28T23:31:10.000Z",
+   "title": "MacBook Pro用户为了免费换电池试图将电池健康度降至79% 却以失败告终",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575496.htm",
+   "date": "2026-08-29T11:09:58.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Who was Nancy Grace Roman? NASA's next big space telescope is named after the 'Mother of Hubble'",
+   "link": "https://www.space.com/space-exploration/who-was-nancy-grace-roman-nasas-next-big-space-telescope-is-named-after-the-mother-of-hubble",
+   "date": "2026-08-29T10:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "超越折纸：新算法设计出可展开的三维晶格结构",
+   "link": "https://www.cnbeta.com.tw/articles/science/1575494.htm",
+   "date": "2026-08-29T08:30:07.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Windows用户发起集体行动 呼吁拒绝捆绑授权并向计算机制造商申请退款",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575492.htm",
+   "date": "2026-08-29T08:29:23.000Z",
    "source": "cnBeta"
   },
   {
@@ -39,22 +57,22 @@
    "source": "Space.com"
   },
   {
+   "title": "NASA&#8217;s Artemis II Crew Receives Congressional Space Medal of Honor",
+   "link": "https://www.nasa.gov/image-article/nasas-artemis-ii-crew-receives-congressional-space-medal-of-honor/",
+   "date": "2026-08-28T22:21:31.000Z",
+   "source": "NASA"
+  },
+  {
    "title": "Xbox CEO calls Project Helix a ‘family of devices’",
    "link": "https://www.theverge.com/games/986337/xbox-ceo-asha-sharma-project-helix-family-of-devices",
    "date": "2026-08-28T22:03:13.000Z",
    "source": "The Verge"
   },
   {
-   "title": "特朗普签署行政令设立“太空学院” 旨在培养航天人才",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575446.htm",
-   "date": "2026-08-28T21:19:05.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "微软弃用Edge Drop 便捷的文件分享功能将彻底消失",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575444.htm",
-   "date": "2026-08-28T20:23:41.000Z",
-   "source": "cnBeta"
+   "title": "NASA Awards First Prize in Phase 2 of Agency&#8217;s LunaRecycle Challenge",
+   "link": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/centennial-challenges/nasa-awards-first-prize-in-phase-2-of-agencys-lunarecycle-challenge/",
+   "date": "2026-08-28T20:30:52.000Z",
+   "source": "NASA"
   },
   {
    "title": "Our choice as one of the best budget telescopes now has 17% off — this telescope deal is worth grabbing fast",
@@ -63,10 +81,10 @@
    "source": "Space.com"
   },
   {
-   "title": "The night we nearly saw a 'blood moon' (and why I love near-misses in astronomy)",
-   "link": "https://www.space.com/stargazing/the-night-we-nearly-saw-a-blood-moon-and-why-i-love-near-misses-in-astronomy",
-   "date": "2026-08-28T19:00:00.000Z",
-   "source": "Space.com"
+   "title": "President Honors NASA’s Artemis II Crew with Highest US Space Award",
+   "link": "https://www.nasa.gov/news-release/president-honors-nasas-artemis-ii-crew-with-highest-us-space-award/",
+   "date": "2026-08-28T17:37:01.000Z",
+   "source": "NASA"
   },
   {
    "title": "Save hundreds on a TCL mini-LED TV with quantum dots and high refresh rate",
