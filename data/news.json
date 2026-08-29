@@ -1,29 +1,41 @@
 {
- "updated": "2026-08-29T17:56:45.368Z",
- "count": 12,
+ "updated": "2026-08-29T22:03:00.882Z",
+ "count": 15,
  "items": [
   {
-   "title": "美光员工以罢工相威胁 要求分享AI热潮红利",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575514.htm",
-   "date": "2026-08-29T16:48:19.000Z",
+   "title": "Vicariously hike the Appalachian in the gorgeous A Trail Tale",
+   "link": "https://www.theverge.com/entertainment/986461/hike-appalachian-trail-pixel-art-a-trail-tale",
+   "date": "2026-08-29T20:59:26.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "英特尔确认Nova Lake-S处理器将采用LGA1954插槽",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575526.htm",
+   "date": "2026-08-29T20:55:16.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "韩国拟向全民免费开放生成式AI服务 不设词元使用上限",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575512.htm",
-   "date": "2026-08-29T16:47:05.000Z",
+   "title": "下一代Xbox“Project Helix”将不再是单一主机 而是设备家族",
+   "link": "https://www.cnbeta.com.tw/articles/game/1575524.htm",
+   "date": "2026-08-29T20:54:34.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "东芝S300 AI系列硬盘开售  8TB 2949元起",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575510.htm",
-   "date": "2026-08-29T16:38:23.000Z",
+   "title": "Alt-right troll Milo Yiannopoulos has been deported",
+   "link": "https://www.theverge.com/policy/986456/milo-yiannopoulos-deported-ice",
+   "date": "2026-08-29T19:49:59.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Cloudflare通过五项Rust代码优化释放约100TB内存 未增一台服务器",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575522.htm",
+   "date": "2026-08-29T18:55:12.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Distraction-free writing gadget BYOK is adding custom extensions",
-   "link": "https://www.theverge.com/gadgets/986427/distraction-free-writing-gadget-byok-scripts-extensions",
-   "date": "2026-08-29T16:01:13.000Z",
+   "title": "Sony Music and Warner Chappell are suing Anthropic",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/986438/sony-music-warner-chappell-anthropic-lawsuit-copyright",
+   "date": "2026-08-29T18:19:53.000Z",
    "source": "The Verge"
   },
   {
@@ -57,22 +69,28 @@
    "source": "Space.com"
   },
   {
-   "title": "Welcome to Night Vale cocreator Joseph Fink learned storytelling from Grim Fandango",
-   "link": "https://www.theverge.com/entertainment/983448/welcome-to-night-vale-cocreator-joseph-fink-learned-storytelling-from-grim-fandango",
-   "date": "2026-08-29T15:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "On this day in space! Aug. 29, 1965: NASA's Gemini 5 breaks spaceflight duration record after 2 astronauts spent '8 days in a garbage can'",
    "link": "https://www.space.com/space-exploration/on-this-day-in-space-august-29-2026",
    "date": "2026-08-29T14:14:12.000Z",
    "source": "Space.com"
   },
   {
-   "title": "The Galaxy Z Flip 8 is at its best when there’s friction",
-   "link": "https://www.theverge.com/tech/986033/samsung-galaxy-z-flip-8-review",
-   "date": "2026-08-29T13:00:00.000Z",
-   "source": "The Verge"
+   "title": "NASA&#8217;s Artemis II Crew Receives Congressional Space Medal of Honor",
+   "link": "https://www.nasa.gov/image-article/nasas-artemis-ii-crew-receives-congressional-space-medal-of-honor/",
+   "date": "2026-08-28T22:21:31.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA Awards First Prize in Phase 2 of Agency&#8217;s LunaRecycle Challenge",
+   "link": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/centennial-challenges/nasa-awards-first-prize-in-phase-2-of-agencys-lunarecycle-challenge/",
+   "date": "2026-08-28T20:30:52.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "President Honors NASA’s Artemis II Crew with Highest US Space Award",
+   "link": "https://www.nasa.gov/news-release/president-honors-nasas-artemis-ii-crew-with-highest-us-space-award/",
+   "date": "2026-08-28T17:37:01.000Z",
+   "source": "NASA"
   }
  ]
 }
