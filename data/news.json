@@ -1,95 +1,77 @@
 {
- "updated": "2026-08-29T11:23:04.299Z",
- "count": 15,
+ "updated": "2026-08-29T17:56:45.368Z",
+ "count": 12,
  "items": [
   {
-   "title": "玩家获取 Root 权限后发现小米首款 NAS 智能存储自带 Docker 环境，OpenClaw 已跑通",
-   "link": "https://www.ithome.com/0/996/019.htm",
-   "date": "2026-08-29T11:21:18.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "EA《钢铁侠》游戏泄露后，官方作出回应",
-   "link": "https://www.ithome.com/0/996/017.htm",
-   "date": "2026-08-29T11:16:01.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "莲花持续发力混动，全新超跑 Esprit 将提供 V6 引擎、强调轻量化",
-   "link": "https://www.ithome.com/0/996/016.htm",
-   "date": "2026-08-29T11:14:04.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "MacBook Pro用户为了免费换电池试图将电池健康度降至79% 却以失败告终",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575496.htm",
-   "date": "2026-08-29T11:09:58.000Z",
+   "title": "美光员工以罢工相威胁 要求分享AI热潮红利",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575514.htm",
+   "date": "2026-08-29T16:48:19.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Who was Nancy Grace Roman? NASA's next big space telescope is named after the 'Mother of Hubble'",
-   "link": "https://www.space.com/space-exploration/who-was-nancy-grace-roman-nasas-next-big-space-telescope-is-named-after-the-mother-of-hubble",
-   "date": "2026-08-29T10:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "超越折纸：新算法设计出可展开的三维晶格结构",
-   "link": "https://www.cnbeta.com.tw/articles/science/1575494.htm",
-   "date": "2026-08-29T08:30:07.000Z",
+   "title": "韩国拟向全民免费开放生成式AI服务 不设词元使用上限",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575512.htm",
+   "date": "2026-08-29T16:47:05.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Windows用户发起集体行动 呼吁拒绝捆绑授权并向计算机制造商申请退款",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575492.htm",
-   "date": "2026-08-29T08:29:23.000Z",
+   "title": "东芝S300 AI系列硬盘开售  8TB 2949元起",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575510.htm",
+   "date": "2026-08-29T16:38:23.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Google further buries search results under AI mode",
-   "link": "https://www.theverge.com/tech/986364/google-search-ai-overviews-auto-expand",
-   "date": "2026-08-28T22:48:11.000Z",
+   "title": "Distraction-free writing gadget BYOK is adding custom extensions",
+   "link": "https://www.theverge.com/gadgets/986427/distraction-free-writing-gadget-byok-scripts-extensions",
+   "date": "2026-08-29T16:01:13.000Z",
    "source": "The Verge"
   },
   {
-   "title": "What time will SpaceX launch NASA's Roman Space Telscope on Aug. 30? (Full mission timeline)",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-roman-space-telescope-falcon-heavy-launch-what-time",
-   "date": "2026-08-28T22:31:45.000Z",
+   "title": "宝马摩托车 CEO 弗拉施：寻求与中国、印度同行开展合作",
+   "link": "https://www.ithome.com/0/996/052.htm",
+   "date": "2026-08-29T15:40:06.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "黑客攻击柏林市政府系统并以 5.79TB 数据发起勒索，市长重申不会屈服",
+   "link": "https://www.ithome.com/0/996/051.htm",
+   "date": "2026-08-29T15:15:33.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "韩国政府计划向全体国民提供免费 AI 服务",
+   "link": "https://www.ithome.com/0/996/050.htm",
+   "date": "2026-08-29T15:13:23.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "This Week In Space podcast: Episode 225 — Get a Grip!",
+   "link": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-225-get-a-grip",
+   "date": "2026-08-29T15:03:54.000Z",
    "source": "Space.com"
   },
   {
-   "title": "NASA&#8217;s Artemis II Crew Receives Congressional Space Medal of Honor",
-   "link": "https://www.nasa.gov/image-article/nasas-artemis-ii-crew-receives-congressional-space-medal-of-honor/",
-   "date": "2026-08-28T22:21:31.000Z",
-   "source": "NASA"
+   "title": "When is the next lunar eclipse?",
+   "link": "https://www.space.com/stargazing/lunar-eclipses/when-is-the-next-lunar-eclipse",
+   "date": "2026-08-29T15:00:00.000Z",
+   "source": "Space.com"
   },
   {
-   "title": "Xbox CEO calls Project Helix a ‘family of devices’",
-   "link": "https://www.theverge.com/games/986337/xbox-ceo-asha-sharma-project-helix-family-of-devices",
-   "date": "2026-08-28T22:03:13.000Z",
+   "title": "Welcome to Night Vale cocreator Joseph Fink learned storytelling from Grim Fandango",
+   "link": "https://www.theverge.com/entertainment/983448/welcome-to-night-vale-cocreator-joseph-fink-learned-storytelling-from-grim-fandango",
+   "date": "2026-08-29T15:00:00.000Z",
    "source": "The Verge"
   },
   {
-   "title": "NASA Awards First Prize in Phase 2 of Agency&#8217;s LunaRecycle Challenge",
-   "link": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/centennial-challenges/nasa-awards-first-prize-in-phase-2-of-agencys-lunarecycle-challenge/",
-   "date": "2026-08-28T20:30:52.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Our choice as one of the best budget telescopes now has 17% off — this telescope deal is worth grabbing fast",
-   "link": "https://www.space.com/stargazing/skywatching-kit/our-choice-as-one-of-the-best-budget-telescopes-now-has-17-percent-off-this-telescope-deal-is-worth-grabbing-fast",
-   "date": "2026-08-28T20:00:00.000Z",
+   "title": "On this day in space! Aug. 29, 1965: NASA's Gemini 5 breaks spaceflight duration record after 2 astronauts spent '8 days in a garbage can'",
+   "link": "https://www.space.com/space-exploration/on-this-day-in-space-august-29-2026",
+   "date": "2026-08-29T14:14:12.000Z",
    "source": "Space.com"
   },
   {
-   "title": "President Honors NASA’s Artemis II Crew with Highest US Space Award",
-   "link": "https://www.nasa.gov/news-release/president-honors-nasas-artemis-ii-crew-with-highest-us-space-award/",
-   "date": "2026-08-28T17:37:01.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Save hundreds on a TCL mini-LED TV with quantum dots and high refresh rate",
-   "link": "https://www.theverge.com/gadgets/985741/tcl-qm7l-belkin-thunderbolt-dock-deal-sale",
-   "date": "2026-08-28T17:03:07.000Z",
+   "title": "The Galaxy Z Flip 8 is at its best when there’s friction",
+   "link": "https://www.theverge.com/tech/986033/samsung-galaxy-z-flip-8-review",
+   "date": "2026-08-29T13:00:00.000Z",
    "source": "The Verge"
   }
  ]
