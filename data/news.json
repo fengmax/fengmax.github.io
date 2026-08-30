@@ -1,7 +1,37 @@
 {
- "updated": "2026-08-29T22:03:00.882Z",
+ "updated": "2026-08-30T01:51:11.911Z",
  "count": 15,
  "items": [
+  {
+   "title": "好莱坞明星扎堆入局微短剧，美国市场今年收入预计达 15 亿美元",
+   "link": "https://www.ithome.com/0/996/082.htm",
+   "date": "2026-08-30T01:39:20.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "谷歌确认开发 WSL 支持：Antigravity 将直连 Win11 Linux 环境",
+   "link": "https://www.ithome.com/0/996/081.htm",
+   "date": "2026-08-30T01:37:59.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "荣耀 Magic9 系列手机“三杯”入网，消息称主要在坪山自有工厂生产",
+   "link": "https://www.ithome.com/0/996/080.htm",
+   "date": "2026-08-30T01:27:20.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "NASA's Roman Space Telescope is ready for launch aboard SpaceX Falcon Heavy rocket",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/nasas-roman-space-telescope-is-ready-for-launch-aboard-spacex-falcon-heavy-rocket",
+   "date": "2026-08-29T22:44:18.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "NASA新型空间望远镜将以哈勃般清晰度绘制全天空地图",
+   "link": "https://www.cnbeta.com.tw/articles/science/1575528.htm",
+   "date": "2026-08-29T22:21:56.000Z",
+   "source": "cnBeta"
+  },
   {
    "title": "Vicariously hike the Appalachian in the gorgeous A Trail Tale",
    "link": "https://www.theverge.com/entertainment/986461/hike-appalachian-trail-pixel-art-a-trail-tale",
@@ -27,34 +57,10 @@
    "source": "The Verge"
   },
   {
-   "title": "Cloudflare通过五项Rust代码优化释放约100TB内存 未增一台服务器",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575522.htm",
-   "date": "2026-08-29T18:55:12.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "Sony Music and Warner Chappell are suing Anthropic",
    "link": "https://www.theverge.com/ai-artificial-intelligence/986438/sony-music-warner-chappell-anthropic-lawsuit-copyright",
    "date": "2026-08-29T18:19:53.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "宝马摩托车 CEO 弗拉施：寻求与中国、印度同行开展合作",
-   "link": "https://www.ithome.com/0/996/052.htm",
-   "date": "2026-08-29T15:40:06.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "黑客攻击柏林市政府系统并以 5.79TB 数据发起勒索，市长重申不会屈服",
-   "link": "https://www.ithome.com/0/996/051.htm",
-   "date": "2026-08-29T15:15:33.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "韩国政府计划向全体国民提供免费 AI 服务",
-   "link": "https://www.ithome.com/0/996/050.htm",
-   "date": "2026-08-29T15:13:23.000Z",
-   "source": "IT之家"
   },
   {
    "title": "This Week In Space podcast: Episode 225 — Get a Grip!",
@@ -66,12 +72,6 @@
    "title": "When is the next lunar eclipse?",
    "link": "https://www.space.com/stargazing/lunar-eclipses/when-is-the-next-lunar-eclipse",
    "date": "2026-08-29T15:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "On this day in space! Aug. 29, 1965: NASA's Gemini 5 breaks spaceflight duration record after 2 astronauts spent '8 days in a garbage can'",
-   "link": "https://www.space.com/space-exploration/on-this-day-in-space-august-29-2026",
-   "date": "2026-08-29T14:14:12.000Z",
    "source": "Space.com"
   },
   {
