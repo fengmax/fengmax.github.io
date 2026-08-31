@@ -1,78 +1,96 @@
 {
- "updated": "2026-08-31T11:11:28.479Z",
- "count": 12,
+ "updated": "2026-08-31T20:25:43.913Z",
+ "count": 15,
  "items": [
   {
-   "title": "芝奇推出 Flare X5X 系列 DDR5 内存，支持 AMD EXPO-ULL 技术",
-   "link": "https://www.ithome.com/0/996/627.htm",
-   "date": "2026-08-31T11:00:26.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "智谱 2026 年上半年归母亏损 20.71 亿元，同比亏损收窄 12.1%",
-   "link": "https://www.ithome.com/0/996/626.htm",
-   "date": "2026-08-31T11:00:16.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "网易云音乐官方回应鸿蒙版 App 尝鲜上架，称更多功能还有待完善",
-   "link": "https://www.ithome.com/0/996/623.htm",
-   "date": "2026-08-31T10:52:48.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "极越官方呼吁不要破解车机 以免影响车辆安全及自身质保权益",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575716.htm",
-   "date": "2026-08-31T08:47:02.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Anthropic发布安全警报：恶意软件已窃取部分用户Claude会话",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575714.htm",
-   "date": "2026-08-31T08:46:53.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "罗永浩：年底前或推出“老人友好型”智能电视",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1575712.htm",
-   "date": "2026-08-31T08:46:22.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Watch Rocket Lab launch Japanese radar satellite to orbit early on Sept. 1",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/watch-rocket-lab-launch-japanese-radar-satellite-to-orbit-early-aug-31",
-   "date": "2026-08-31T04:05:00.000Z",
+   "title": "'No guts, no glory': How I captured NASA's Roman Space Telescope cross the sun on a picture-perfect SpaceX Falcon Heavy launch",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/no-guts-no-glory-how-i-captured-nasas-roman-space-telescope-cross-the-sun-on-a-picture-perfect-spacex-falcon-heavy-launch",
+   "date": "2026-08-31T19:48:16.000Z",
    "source": "Space.com"
   },
   {
-   "title": "Professor Murder Rides the Subway is a forgotten slice of dance punk perfection",
-   "link": "https://www.theverge.com/entertainment/986564/professor-murder-rides-the-subway-dance-punk-perfection-review",
-   "date": "2026-08-30T21:18:59.000Z",
+   "title": "September 2026 Satellite Puzzler",
+   "link": "https://science.nasa.gov/earth/earth-observatory/september-2026-satellite-puzzler/",
+   "date": "2026-08-31T19:37:57.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Alienware’s budget-friendly QD-OLED is discounted for the first time",
+   "link": "https://www.theverge.com/gadgets/986901/alienware-qdoled-2726dm-deal-sale",
+   "date": "2026-08-31T19:31:59.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Enormous 12TB Steam leak includes abandoned Half-Life 2: Episode 3 assets",
-   "link": "https://www.theverge.com/games/986552/12tb-steam-leak-half-life-2-episode-3",
-   "date": "2026-08-30T19:14:08.000Z",
+   "title": "配备摄像头的AirPods或将进一步提升空间音频头部追踪效果",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575796.htm",
+   "date": "2026-08-31T19:10:10.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Windows 95任务栏并非源自乔布斯的NeXT Dock 前微软副总裁揭示真正来源",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575794.htm",
+   "date": "2026-08-31T19:09:47.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "特朗普称反对数据中心的社区将“落后且贫穷”",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1575792.htm",
+   "date": "2026-08-31T19:08:20.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "华为、小米、荣耀手机今日集体调价",
+   "link": "https://www.ithome.com/0/996/694.htm",
+   "date": "2026-08-31T17:54:32.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "苹果 watchOS 27.0 开发者预览版 Beta 8 发布",
+   "link": "https://www.ithome.com/0/996/693.htm",
+   "date": "2026-08-31T17:30:07.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "苹果 visionOS 27.0 开发者预览版 Beta 8 发布",
+   "link": "https://www.ithome.com/0/996/692.htm",
+   "date": "2026-08-31T17:30:07.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Car owners want tech they can ignore",
+   "link": "https://www.theverge.com/news/986721/car-tech-survey-jd-power-smart-ignition",
+   "date": "2026-08-31T17:11:17.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Trump calls in to NASA press conference to celebrate launch of Roman Space Telescope, a mission he tried to cancel",
-   "link": "https://www.space.com/space-exploration/trump-calls-in-to-nasa-press-conference-to-celebrate-launch-of-roman-space-telescope-a-mission-he-tried-to-cancel",
-   "date": "2026-08-30T19:00:00.000Z",
+   "title": "Phil Schiller is leaving his biggest jobs at Apple",
+   "link": "https://www.theverge.com/tech/986869/apple-phil-schiller-stepping-down",
+   "date": "2026-08-31T16:54:07.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "What's next for Roman Space Telescope? Here's how NASA's flagship observatory will open up the universe",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/nancy-grace-roman-space-telescope-next-steps-commissioning",
+   "date": "2026-08-31T16:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "'What a glorious dawn launch': Why the Roman Space Telescope's picture-perfect liftoff beyond Earth is such a big deal",
-   "link": "https://www.space.com/astronomy/what-a-glorious-dawn-launch-why-the-roman-space-telescopes-picture-perfect-liftoff-beyond-earth-is-such-a-big-deal",
-   "date": "2026-08-30T18:44:59.000Z",
+   "title": "SpaceX, NASA delay next astronaut launch to ISS due to leak on Dragon spacecraft",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-nasa-delay-next-astronaut-launch-to-iss-due-to-leak-on-dragon-spacecraft",
+   "date": "2026-08-31T15:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "The Nancy Grace Roman Space Telescope launches to study dark matter and dark energy",
-   "link": "https://www.theverge.com/science/986544/nancy-grace-roman-space-telescope-launch",
-   "date": "2026-08-30T16:36:39.000Z",
-   "source": "The Verge"
+   "title": "NASA&#8217;s Nancy Grace Roman Space Telescope Launches",
+   "link": "https://www.nasa.gov/image-article/nasas-nancy-grace-roman-space-telescope-launches/",
+   "date": "2026-08-31T14:10:31.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Roman Commissioning",
+   "link": "https://science.nasa.gov/missions/roman-space-telescope/roman-commissioning/",
+   "date": "2026-08-31T12:16:53.000Z",
+   "source": "NASA"
   }
  ]
 }
