@@ -1,29 +1,47 @@
 {
- "updated": "2026-09-01T09:37:52.715Z",
- "count": 12,
+ "updated": "2026-09-01T14:20:52.701Z",
+ "count": 9,
  "items": [
   {
-   "title": "三星电子：V10 BV-NAND 有望支持未来 PCIe Gen7 固态硬盘",
-   "link": "https://www.ithome.com/0/997/058.htm",
-   "date": "2026-09-01T09:37:06.000Z",
+   "title": "消息称三星已锁定约 70% 存储芯片产能至 2031 年，HBM 长协价仅为现货五分之一",
+   "link": "https://www.ithome.com/0/997/167.htm",
+   "date": "2026-09-01T14:11:45.000Z",
    "source": "IT之家"
   },
   {
-   "title": "2026 年 8 月“AI 魔改”视频治理成果公布：共清理违规视频近 14000 条、处置违规账号 30 余个",
-   "link": "https://www.ithome.com/0/997/051.htm",
-   "date": "2026-09-01T09:33:12.000Z",
+   "title": "英伟达 DLSS 5 将于 9 月 4 日上线：支持 RTX 50 系显卡，首发支持《NBA 2K27》游戏",
+   "link": "https://www.ithome.com/0/997/166.htm",
+   "date": "2026-09-01T14:11:17.000Z",
    "source": "IT之家"
   },
   {
-   "title": "雷克萨斯新款 NX 全球首发：全新混动系统加持，换装悬浮中控大屏",
-   "link": "https://www.ithome.com/0/997/049.htm",
-   "date": "2026-09-01T09:32:15.000Z",
+   "title": "小米海外推出 POCO F9 Ultra 手机：为 REDMI K100 Pro Max“套娃机”、换用 8050mAh 电池",
+   "link": "https://www.ithome.com/0/997/165.htm",
+   "date": "2026-09-01T14:03:37.000Z",
    "source": "IT之家"
   },
   {
-   "title": "Dyson made a camera-equipped toothbrush that flosses for you",
-   "link": "https://www.theverge.com/tech/986737/dyson-camerajet-smart-toothbrush-live-camera-flosser-pricing-availability",
-   "date": "2026-09-01T09:30:00.000Z",
+   "title": "Repairing the ISS 250 miles above Earth | Space photo of the day for Sept. 1, 2026",
+   "link": "https://www.space.com/space-exploration/international-space-station/repairing-the-iss-250-miles-above-earth-space-photo-of-the-day-for-sept-1-2026",
+   "date": "2026-09-01T14:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Tim Cook’s legacy isn’t just phones, it’s politics",
+   "link": "https://www.theverge.com/policy/987356/tim-cook-apple-trump-xi",
+   "date": "2026-09-01T13:51:02.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "John Ternus takes over as Apple&#8217;s new CEO",
+   "link": "https://www.theverge.com/tech/915272/apple-john-ternus-tim-cook",
+   "date": "2026-09-01T13:28:43.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Florida blocks Flock cams on state highways",
+   "link": "https://www.theverge.com/tech/987353/florida-flock-cam-ban-state-highways",
+   "date": "2026-09-01T13:17:36.000Z",
    "source": "The Verge"
   },
   {
@@ -33,45 +51,9 @@
    "source": "Space.com"
   },
   {
-   "title": "APOD: 2026 September 1 – A Plane Lunar Eclipse",
-   "link": "https://science.nasa.gov/image-article/apod-2026-september-1-a-plane-lunar-eclipse/",
-   "date": "2026-09-01T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "Watch 2 astronauts take 6th-ever all-female spacewalk today",
    "link": "https://www.space.com/space-exploration/international-space-station/watch-2-astronauts-take-6th-ever-all-female-spacewalk-today",
    "date": "2026-09-01T04:05:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Ice Island Survives Run-In With Joe Island",
-   "link": "https://science.nasa.gov/earth/earth-observatory/iceberg-from-petermann-glacier-speeds-away/",
-   "date": "2026-09-01T04:00:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "The Google TV Streamer now costs $50 more",
-   "link": "https://www.theverge.com/tech/987032/google-tv-streamer-price-increase",
-   "date": "2026-08-31T22:32:51.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "JMGO’s very bright all-in-one projector looks ideal for gamers and sports",
-   "link": "https://www.theverge.com/tech/985986/jmgo-4k-gaming-projector-price-specs",
-   "date": "2026-08-31T22:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "NASA Welcomes Türkiye as Newest Artemis Accords Signatory",
-   "link": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-welcomes-turkiye-as-newest-artemis-accords-signatory/",
-   "date": "2026-08-31T21:14:12.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA's doomed Swift space telescope restarts science work after rescue mission fails",
-   "link": "https://www.space.com/space-exploration/missions/nasas-doomed-swift-space-telescope-restarts-science-work-after-rescue-mission-fails",
-   "date": "2026-08-31T21:00:00.000Z",
    "source": "Space.com"
   }
  ]
