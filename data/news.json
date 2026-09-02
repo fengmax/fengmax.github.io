@@ -1,54 +1,84 @@
 {
- "updated": "2026-09-02T18:09:51.996Z",
+ "updated": "2026-09-02T22:03:30.218Z",
  "count": 15,
  "items": [
   {
-   "title": "2 spacecraft headed to Mercury are about to begin their long-awaited arrival for Europe and Japan — watch it live on Sept. 3",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/bepicolombo-mission-begins-mercury-arrival-phase-esa-jaxa",
-   "date": "2026-09-02T18:00:00.000Z",
+   "title": "Astronomers discover mysterious 10-sided cloud structure at Saturn's south pole",
+   "link": "https://www.space.com/astronomy/saturn/astronomers-discover-mysterious-10-sided-cloud-structure-at-saturns-south-pole",
+   "date": "2026-09-02T21:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "Amazon’s AI assistant can now spot fake emails from the company",
-   "link": "https://www.theverge.com/tech/988518/amazon-alexa-for-shopping-verify-emails",
-   "date": "2026-09-02T17:52:56.000Z",
+   "title": "博通 2026 财年第三财季归母净利润 130.88 亿美元，同比增长 216%",
+   "link": "https://www.ithome.com/0/997/713.htm",
+   "date": "2026-09-02T20:30:01.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Google says its new Gemini 3.8 Flash model ‘works harder’ but might cost more",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/988742/google-gemini-3-8-flash",
+   "date": "2026-09-02T20:11:40.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Range Rover’s new EV looks just like a regular Range Rover — that’s refreshing",
-   "link": "https://www.theverge.com/transportation/988232/range-rover-electric-range-battery-specs",
-   "date": "2026-09-02T17:01:08.000Z",
-   "source": "The Verge"
+   "title": "慧与 2026 财年半年报归母净利润 25.29 亿美元",
+   "link": "https://www.ithome.com/0/997/712.htm",
+   "date": "2026-09-02T20:11:14.000Z",
+   "source": "IT之家"
   },
   {
-   "title": "Blue Origin wins $700 million contract to build NASA's next Mars orbiter",
-   "link": "https://www.space.com/space-exploration/missions/blue-origin-wins-usd700-million-contract-to-build-nasas-next-mars-orbiter",
-   "date": "2026-09-02T17:00:00.000Z",
+   "title": "China's private, reusable Pallas-1 rocket aces debut launch (video)",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/chinas-private-reusable-pallas-1-rocket-aces-debut-launch-video",
+   "date": "2026-09-02T20:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "The best tech and gadgets announced at IFA so far",
-   "link": "https://www.theverge.com/tech/986867/ifa-2026-smart-home-lights-laptop-robot-vacuum-ai-headphones",
-   "date": "2026-09-02T16:43:50.000Z",
+   "title": "特朗普提议将霍尔木兹海峡更名为“特朗普海峡”",
+   "link": "https://www.cnbeta.com.tw/articles/funny/1576138.htm",
+   "date": "2026-09-02T19:52:27.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Linux内核每个版本修复漏洞数量或将突破2000个 AI“除虫”让维护者不堪重负",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1576136.htm",
+   "date": "2026-09-02T19:28:30.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "X宣布美国创作者收益全面转由X Money发放",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1576134.htm",
+   "date": "2026-09-02T19:27:22.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "NASA Revamps Challenge Linking Community College Studies to Aerospace Careers",
+   "link": "https://www.nasa.gov/learning-resources/linking-community-college-studies-to-aerospace-careers/",
+   "date": "2026-09-02T19:01:05.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "This was always the way: 'The Mandalorian and Grogu' is finally on Disney+",
+   "link": "https://www.space.com/entertainment/space-movies-shows/this-was-always-the-way-the-mandalorian-and-grogu-is-finally-on-disney",
+   "date": "2026-09-02T19:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Here are some of REI’s best Labor Day sale deals",
+   "link": "https://www.theverge.com/gadgets/988398/rei-labor-day-sale-deal-2026",
+   "date": "2026-09-02T18:56:59.000Z",
    "source": "The Verge"
   },
   {
-   "title": "美国陆军向Palantir与Anduril发出1.92亿美元合同 采购8套TITAN移动地面站",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576118.htm",
-   "date": "2026-09-02T16:27:55.000Z",
-   "source": "cnBeta"
+   "title": "1Password wades into a right-wing mess after funding a Linux project",
+   "link": "https://www.theverge.com/tech/988536/1password-dhh-linux-controversy",
+   "date": "2026-09-02T18:48:14.000Z",
+   "source": "The Verge"
   },
   {
-   "title": "AMD RDNA 5 GPU IP首次现身 三星2纳米Exynos 2700 SoC搭载Xclipse 970",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576116.htm",
-   "date": "2026-09-02T16:26:04.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "印度首富押注云电脑 Reliance Jio试图让老旧设备具备AI能力",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576114.htm",
-   "date": "2026-09-02T16:25:42.000Z",
-   "source": "cnBeta"
+   "title": "NASA’s Hubble Tracks New Decagon Encircling Saturn’s South Pole",
+   "link": "https://science.nasa.gov/missions/hubble/nasas-hubble-tracks-new-decagon-encircling-saturns-south-pole/",
+   "date": "2026-09-02T18:00:37.000Z",
+   "source": "NASA"
   },
   {
    "title": "谷歌推出 Gemini 3.8 Flash Cyber 模型，内部已全面部署用于代码安全防护",
@@ -57,39 +87,9 @@
    "source": "IT之家"
   },
   {
-   "title": "'You’re going to feel exposed, vulnerable, and very isolated' — 'Alien Isolation 2' creative director talks upping the scare factor for the sequel (interview)",
-   "link": "https://www.space.com/entertainment/space-games/youre-going-to-feel-exposed-vulnerable-and-very-isolated-alien-isolation-2-creative-director-talks-upping-the-scare-factor-for-the-sequel-interview",
-   "date": "2026-09-02T16:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "森海塞尔 MOMENTUM 真无线 5 代蓝牙耳机国行版首销，2399 元",
-   "link": "https://www.ithome.com/0/997/707.htm",
-   "date": "2026-09-02T15:58:05.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "抛弃红帽生态，欧洲核子研究组织（CERN）转投 Debian 系统",
-   "link": "https://www.ithome.com/0/997/706.htm",
-   "date": "2026-09-02T15:53:54.000Z",
-   "source": "IT之家"
-  },
-  {
    "title": "Rising Over Louisiana",
    "link": "https://www.nasa.gov/image-article/rising-over-louisiana/",
    "date": "2026-09-02T15:38:50.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Rocket Takes First Multi-Point Look Inside Radio-Disrupting Clouds",
-   "link": "https://science.nasa.gov/science-research/heliophysics/nasa-rocket-takes-first-multi-point-look-inside-radio-disrupting-clouds/",
-   "date": "2026-09-02T14:53:54.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Selects Blue Origin as Mars Telecommunications Network Provider",
-   "link": "https://www.nasa.gov/news-release/nasa-selects-blue-origin-as-mars-telecommunications-network-provider/",
-   "date": "2026-09-01T21:08:37.000Z",
    "source": "NASA"
   }
  ]
