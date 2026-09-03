@@ -1,42 +1,84 @@
 {
- "updated": "2026-09-03T09:15:35.081Z",
- "count": 9,
+ "updated": "2026-09-03T13:57:38.523Z",
+ "count": 15,
  "items": [
   {
-   "title": "8 月国产车保值率首次超越日系，跃居第一",
-   "link": "https://www.ithome.com/0/998/041.htm",
-   "date": "2026-09-03T09:12:24.000Z",
+   "title": "一天一更：网易云音乐鸿蒙尝鲜内测版 App 获 9.5.83 升级，修复频繁出现跨应用权限申请弹窗",
+   "link": "https://www.ithome.com/0/998/162.htm",
+   "date": "2026-09-03T13:56:22.000Z",
    "source": "IT之家"
   },
   {
-   "title": "消息称大众计划最迟 2029 年底前淘汰西雅特品牌，聚焦 Cupra 发展",
-   "link": "https://www.ithome.com/0/998/040.htm",
-   "date": "2026-09-03T09:12:08.000Z",
+   "title": "OpenAI 将召集约 300 名安全领域负责人，筹备网络安全相关公告",
+   "link": "https://www.ithome.com/0/998/161.htm",
+   "date": "2026-09-03T13:54:58.000Z",
    "source": "IT之家"
   },
   {
-   "title": "小米平板 9 Pro Max 亮相：首发玄戒 O3 芯片，9 月 7 日发布",
-   "link": "https://www.ithome.com/0/998/038.htm",
-   "date": "2026-09-03T09:10:01.000Z",
+   "title": "《漫威金刚狼》游戏新预告片公布，9 月 15 日登陆 PS5",
+   "link": "https://www.ithome.com/0/998/160.htm",
+   "date": "2026-09-03T13:47:51.000Z",
    "source": "IT之家"
   },
   {
-   "title": "Here’s the first 4K 120Hz UST projector with optical lens shift",
-   "link": "https://www.theverge.com/gadgets/986005/awol-visions-4k-120hz-ust-projector-is-first-with-optical-lens-shift",
-   "date": "2026-09-03T08:30:00.000Z",
+   "title": "黄仁勋解释NVIDIA为何豪掷近130亿美元收购Hugging Face",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1576288.htm",
+   "date": "2026-09-03T13:17:09.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "DJI’s new robovac can climb obstacles, vacuum quietly, and claims much improved privacy",
+   "link": "https://www.theverge.com/tech/989295/dji-romo-2-p2-a2-robovac-legs-vacuuming-local-data-mode-ifa",
+   "date": "2026-09-03T13:06:10.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Belkin’s first trackers come ready to attach to your gear.",
-   "link": "https://www.theverge.com/tech/987565/belkin-tracker-apple-find-my-google-find-hub-surefind-wallet-card-spot-tag",
-   "date": "2026-09-03T08:00:00.000Z",
+   "title": "A20 Pro芯片焊点图曝光 iPhone 18 Pro或迎图形性能与内存带宽大幅升级",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1576286.htm",
+   "date": "2026-09-03T12:17:12.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "贝佐斯公司互相挖角 蓝色起源招募47名亚马逊工程师开发卫星网络",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1576284.htm",
+   "date": "2026-09-03T12:14:44.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Nvidia is buying Hugging Face for almost $13 billion",
+   "link": "https://www.theverge.com/tech/985474/nvidia-buying-hugging-face-deal",
+   "date": "2026-09-03T12:12:06.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Belkin introduces its first longer-lasting semi-solid-state power banks",
-   "link": "https://www.theverge.com/tech/988248/belkin-ultracharge-pro-boostsolid-cell-power-bank-battery-safer",
-   "date": "2026-09-03T08:00:00.000Z",
+   "title": "Watch India launch its 1st geosynchronous Earth-imaging satellite today",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/gslv-mark-ii-eos-05-launch-first-indian-geo-earth-observing-satellite",
+   "date": "2026-09-03T12:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "TCL’s new Nxtpaper phone offers both e-reader and OLED",
+   "link": "https://www.theverge.com/tech/988059/tcls-new-nxtpaper-phone-offers-both-e-reader-and-oled",
+   "date": "2026-09-03T12:00:00.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "Rocket issues delay 1st-ever private mission to Venus: 'We are awaiting Neutron readiness'",
+   "link": "https://www.space.com/astronomy/venus/rocket-issues-delay-1st-ever-private-mission-to-venus-we-are-awaiting-neutron-readiness",
+   "date": "2026-09-03T10:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "APOD: 2026 September 3 – The Eclipse and the Stork",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-3-the-eclipse-and-the-stork/",
+   "date": "2026-09-03T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Peatland Fires Darken Skies in Indonesia",
+   "link": "https://science.nasa.gov/missions/aqua/peatland-fires-darken-skies-in-indonesia/",
+   "date": "2026-09-03T04:01:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Astronomers discover mysterious 10-sided cloud structure at Saturn's south pole",
@@ -45,16 +87,10 @@
    "source": "Space.com"
   },
   {
-   "title": "China's private, reusable Pallas-1 rocket aces debut launch (video)",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/chinas-private-reusable-pallas-1-rocket-aces-debut-launch-video",
-   "date": "2026-09-02T20:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "This was always the way: 'The Mandalorian and Grogu' is finally on Disney+",
-   "link": "https://www.space.com/entertainment/space-movies-shows/this-was-always-the-way-the-mandalorian-and-grogu-is-finally-on-disney",
-   "date": "2026-09-02T19:00:00.000Z",
-   "source": "Space.com"
+   "title": "NASA Revamps Challenge Linking Community College Studies to Aerospace Careers",
+   "link": "https://www.nasa.gov/learning-resources/linking-community-college-studies-to-aerospace-careers/",
+   "date": "2026-09-02T19:01:05.000Z",
+   "source": "NASA"
   }
  ]
 }
