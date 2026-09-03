@@ -1,95 +1,77 @@
 {
- "updated": "2026-09-03T13:57:38.523Z",
- "count": 15,
+ "updated": "2026-09-03T18:09:00.312Z",
+ "count": 12,
  "items": [
   {
-   "title": "一天一更：网易云音乐鸿蒙尝鲜内测版 App 获 9.5.83 升级，修复频繁出现跨应用权限申请弹窗",
-   "link": "https://www.ithome.com/0/998/162.htm",
-   "date": "2026-09-03T13:56:22.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "OpenAI 将召集约 300 名安全领域负责人，筹备网络安全相关公告",
-   "link": "https://www.ithome.com/0/998/161.htm",
-   "date": "2026-09-03T13:54:58.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "《漫威金刚狼》游戏新预告片公布，9 月 15 日登陆 PS5",
-   "link": "https://www.ithome.com/0/998/160.htm",
-   "date": "2026-09-03T13:47:51.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "黄仁勋解释NVIDIA为何豪掷近130亿美元收购Hugging Face",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576288.htm",
-   "date": "2026-09-03T13:17:09.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "DJI’s new robovac can climb obstacles, vacuum quietly, and claims much improved privacy",
-   "link": "https://www.theverge.com/tech/989295/dji-romo-2-p2-a2-robovac-legs-vacuuming-local-data-mode-ifa",
-   "date": "2026-09-03T13:06:10.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "A20 Pro芯片焊点图曝光 iPhone 18 Pro或迎图形性能与内存带宽大幅升级",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576286.htm",
-   "date": "2026-09-03T12:17:12.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "贝佐斯公司互相挖角 蓝色起源招募47名亚马逊工程师开发卫星网络",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576284.htm",
-   "date": "2026-09-03T12:14:44.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Nvidia is buying Hugging Face for almost $13 billion",
-   "link": "https://www.theverge.com/tech/985474/nvidia-buying-hugging-face-deal",
-   "date": "2026-09-03T12:12:06.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Watch India launch its 1st geosynchronous Earth-imaging satellite today",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/gslv-mark-ii-eos-05-launch-first-indian-geo-earth-observing-satellite",
-   "date": "2026-09-03T12:00:00.000Z",
+   "title": "2 spacecraft will soon reach Mercury after 8 years in space. Here's what BepiColombo can do",
+   "link": "https://www.space.com/astronomy/mercury/2-spacecraft-will-soon-reach-mercury-after-8-years-in-space-heres-what-bepicolombo-can-do",
+   "date": "2026-09-03T18:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "TCL’s new Nxtpaper phone offers both e-reader and OLED",
-   "link": "https://www.theverge.com/tech/988059/tcls-new-nxtpaper-phone-offers-both-e-reader-and-oled",
-   "date": "2026-09-03T12:00:00.000Z",
+   "title": "OpenAI’s next big AI model has ‘entered the AGI era’",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/989601/openai-gpt-6-astra-release",
+   "date": "2026-09-03T18:00:00.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Rocket issues delay 1st-ever private mission to Venus: 'We are awaiting Neutron readiness'",
-   "link": "https://www.space.com/astronomy/venus/rocket-issues-delay-1st-ever-private-mission-to-venus-we-are-awaiting-neutron-readiness",
-   "date": "2026-09-03T10:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "APOD: 2026 September 3 – The Eclipse and the Stork",
-   "link": "https://science.nasa.gov/image-article/apod-2026-september-3-the-eclipse-and-the-stork/",
-   "date": "2026-09-03T04:05:00.000Z",
+   "title": "NASA to Cover Progress 96 Spacecraft Launch, Docking",
+   "link": "https://www.nasa.gov/news-release/nasa-to-cover-progress-96-spacecraft-launch-docking/",
+   "date": "2026-09-03T17:06:00.000Z",
    "source": "NASA"
   },
   {
-   "title": "Peatland Fires Darken Skies in Indonesia",
-   "link": "https://science.nasa.gov/missions/aqua/peatland-fires-darken-skies-in-indonesia/",
-   "date": "2026-09-03T04:01:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Astronomers discover mysterious 10-sided cloud structure at Saturn's south pole",
-   "link": "https://www.space.com/astronomy/saturn/astronomers-discover-mysterious-10-sided-cloud-structure-at-saturns-south-pole",
-   "date": "2026-09-02T21:00:00.000Z",
+   "title": "'Strange New Worlds'' latest episode is a soap opera spoof, but hasn't 'Star Trek' always been a soap opera in space?",
+   "link": "https://www.space.com/entertainment/space-movies-shows/strange-new-worlds-latest-episode-is-a-soap-opera-spoof-but-hasnt-star-trek-always-been-a-soap-opera-in-space-anyway",
+   "date": "2026-09-03T17:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "NASA Revamps Challenge Linking Community College Studies to Aerospace Careers",
-   "link": "https://www.nasa.gov/learning-resources/linking-community-college-studies-to-aerospace-careers/",
-   "date": "2026-09-02T19:01:05.000Z",
+   "title": "Microsoft slashes Xbox Cloud Gaming to just 15 hours a month for Ultimate subscribers",
+   "link": "https://www.theverge.com/news/989166/microsoft-xbox-cloud-gaming-hourly-limits-changes",
+   "date": "2026-09-03T17:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Microsoft opens up Xbox Cloud Gaming with new pay-as-you-go option",
+   "link": "https://www.theverge.com/news/989211/microsoft-xbox-cloud-gaming-pay-as-you-go-option",
+   "date": "2026-09-03T17:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "'A new mission starting today': 8 years after launch, BepiColombo begins Mercury arrival",
+   "link": "https://www.space.com/space-exploration/missions/a-new-mission-starting-today-8-years-after-launch-bepicolombo-begins-mercury-arrival",
+   "date": "2026-09-03T16:25:20.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "英伟达 RTX Spark 紧凑型 Win PC 主机下月上市，含宏碁、联想等 6 家 OEM 厂商产品",
+   "link": "https://www.ithome.com/0/998/202.htm",
+   "date": "2026-09-03T16:00:06.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Curiosity Blog, Sols 4988-4994: More New Tricks for an Old Dog",
+   "link": "https://science.nasa.gov/blog/curiosity-blog-sols-4988-4994-more-new-tricks-for-an-old-dog/",
+   "date": "2026-09-03T15:59:48.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "徕卡发布 Summicron-M 66mm f/2 镜头：1.09 万美元，全球限量 660 枚",
+   "link": "https://www.ithome.com/0/998/201.htm",
+   "date": "2026-09-03T15:53:01.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "准系统 2399 元：铭凡推出 UM750 Neo 迷你主机，锐龙 Z1 处理器、16GB 板载内存",
+   "link": "https://www.ithome.com/0/998/200.htm",
+   "date": "2026-09-03T15:27:11.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Igniting Roman&#8217;s Journey",
+   "link": "https://www.nasa.gov/image-article/igniting-romans-journey/",
+   "date": "2026-09-03T14:24:23.000Z",
    "source": "NASA"
   }
  ]
