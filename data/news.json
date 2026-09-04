@@ -1,96 +1,78 @@
 {
- "updated": "2026-09-04T09:08:38.802Z",
- "count": 15,
+ "updated": "2026-09-04T13:49:44.685Z",
+ "count": 12,
  "items": [
   {
-   "title": "打击“缺斤短两”“作弊秤”，电子计价秤计量监管将在河北、浙江、福建试点",
-   "link": "https://www.ithome.com/0/998/529.htm",
-   "date": "2026-09-04T09:08:04.000Z",
+   "title": "微软与 TCL 达成合作，电视将变身 XBOX“云游戏机”",
+   "link": "https://www.ithome.com/0/998/602.htm",
+   "date": "2026-09-04T13:46:20.000Z",
    "source": "IT之家"
   },
   {
-   "title": "一加 40W 超级冰点磁吸散热器一加杯 26 限定款开售：红金配色，249 元",
-   "link": "https://www.ithome.com/0/998/522.htm",
-   "date": "2026-09-04T09:06:01.000Z",
+   "title": "推进系统突发氧化剂泄漏 NASA与SpaceX推迟下一批宇航员发射任务",
+   "link": "https://www.cnbeta.com.tw/articles/science/1576466.htm",
+   "date": "2026-09-04T13:37:58.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "比亚迪腾势 N8L 纯电版 9 月 14 日上市，搭载 208L 电动前备箱",
+   "link": "https://www.ithome.com/0/998/601.htm",
+   "date": "2026-09-04T13:34:34.000Z",
    "source": "IT之家"
   },
   {
-   "title": "联合国将表决“更真实世界地图”方案 非洲国家推动逐步告别墨卡托投影",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576436.htm",
-   "date": "2026-09-04T09:05:51.000Z",
-   "source": "cnBeta"
+   "title": "Oh good, looks like yet another swarm of rogue AI agents from OpenAI",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/990149/openai-rogue-agents-german-wiki",
+   "date": "2026-09-04T13:34:12.000Z",
+   "source": "The Verge"
   },
   {
-   "title": "京东物流 CFO 换人：吴昊担任京东集团新职务，茆俊接任",
-   "link": "https://www.ithome.com/0/998/513.htm",
-   "date": "2026-09-04T09:04:44.000Z",
+   "title": "Tesla Cybercab is barely real and it’s already under investigation",
+   "link": "https://www.theverge.com/transportation/990130/tesla-cybercab-nhtsa-investigation-fmvss-certify",
+   "date": "2026-09-04T13:33:38.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "因苹果对质量要求极其严格，消息称折叠屏 iPhone Ultra 日产量截至上月底仅数百部",
+   "link": "https://www.ithome.com/0/998/600.htm",
+   "date": "2026-09-04T13:28:30.000Z",
    "source": "IT之家"
   },
   {
-   "title": "大众汽车计划到2030年累计裁减约10万个岗位 德国四家工厂2031年后前景待定",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576434.htm",
-   "date": "2026-09-04T08:13:55.000Z",
+   "title": "Xbox app is coming to TCL TVs just as Microsoft rolls out pay-as-you-go cloud gaming",
+   "link": "https://www.theverge.com/news/990132/microsoft-xbox-tv-app-tcl-smart-tvs",
+   "date": "2026-09-04T13:25:09.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "英国军方测试脚踏式动力滑翔伞 探索隐蔽投送部队的新方式",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1576464.htm",
+   "date": "2026-09-04T13:12:56.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "三星电子工会负责人因窃取员工信息建立“黑名单”接受调查",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576432.htm",
-   "date": "2026-09-04T07:30:08.000Z",
+   "title": "We played 'Exodus', a sci-fi RPG that should please 'Mass Effect' fans, even if you can't romance the talking octopus",
+   "link": "https://www.space.com/entertainment/space-games/we-played-exodus-and-this-sci-fi-rpg-should-please-mass-effect-fans-even-if-you-cant-romance-the-talking-octopus",
+   "date": "2026-09-04T13:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "How did the infant sun form? Scientists get surprising new insights from 4.6-billion-year-old space dust",
+   "link": "https://www.space.com/astronomy/solar-system/how-did-the-infant-sun-form-scientists-get-surprising-new-insights-from-4-6-billion-year-old-space-dust",
+   "date": "2026-09-04T13:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "纽约市公立学校暂禁学生使用生成式AI 覆盖幼儿园至八年级",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1576462.htm",
+   "date": "2026-09-04T12:30:24.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Lexar’s Muse is an ultra-slim portable SSD that’s less than 4mm thick",
-   "link": "https://www.theverge.com/tech/986960/lexar-muse-ultra-thin-ssd-storage-drive-proprietary-cable",
-   "date": "2026-09-04T07:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Aqara goes all in on smart lighting",
-   "link": "https://www.theverge.com/tech/989581/aqara-smart-lighting-ifa-2026",
-   "date": "2026-09-04T07:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "This rugged phone’s removable camera can survive and capture your extreme adventures",
-   "link": "https://www.theverge.com/tech/989657/rugone-xsnap-7-pro-smartphone-removable-action-camera-rugged-waterproof",
-   "date": "2026-09-04T07:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "A Trio of Tropical Cyclones in the Pacific",
-   "link": "https://science.nasa.gov/earth/earth-observatory/a-trio-of-tropical-cyclones-in-the-pacific/",
-   "date": "2026-09-04T04:01:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "'Alien: Isolation 2': Facing a ruthless and evolved Xenomorph in our Gamescom hands-on preview",
-   "link": "https://www.space.com/entertainment/space-games/alien-isolation-2-facing-a-ruthless-and-evolved-xenomorph-in-our-gamescom-hands-on-preview",
-   "date": "2026-09-03T20:00:00.000Z",
+   "title": "Scientists watch a comet being born 3 billion miles away",
+   "link": "https://www.space.com/astronomy/comets/scientists-watch-a-comet-being-born-3-billion-miles-away",
+   "date": "2026-09-04T10:00:00.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "2 spacecraft will soon reach Mercury after 8 years in space. Here's what BepiColombo can do",
-   "link": "https://www.space.com/astronomy/mercury/2-spacecraft-will-soon-reach-mercury-after-8-years-in-space-heres-what-bepicolombo-can-do",
-   "date": "2026-09-03T18:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "NASA to Cover Progress 96 Spacecraft Launch, Docking",
-   "link": "https://www.nasa.gov/news-release/nasa-to-cover-progress-96-spacecraft-launch-docking/",
-   "date": "2026-09-03T17:06:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "'Strange New Worlds'' latest episode is a soap opera spoof, but hasn't 'Star Trek' always been a soap opera in space?",
-   "link": "https://www.space.com/entertainment/space-movies-shows/strange-new-worlds-latest-episode-is-a-soap-opera-spoof-but-hasnt-star-trek-always-been-a-soap-opera-in-space-anyway",
-   "date": "2026-09-03T17:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Curiosity Blog, Sols 4988-4994: More New Tricks for an Old Dog",
-   "link": "https://science.nasa.gov/blog/curiosity-blog-sols-4988-4994-more-new-tricks-for-an-old-dog/",
-   "date": "2026-09-03T15:59:48.000Z",
-   "source": "NASA"
   }
  ]
 }
