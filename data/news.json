@@ -1,48 +1,66 @@
 {
- "updated": "2026-09-03T21:57:06.630Z",
+ "updated": "2026-09-04T01:30:00.904Z",
  "count": 15,
  "items": [
   {
-   "title": "Dungeons &#038; Dragons is getting a &#8216;Ravenloft&#8217; live-action Netflix series",
-   "link": "https://www.theverge.com/entertainment/989880/dungeons-and-dragons-ravenloft-netflix",
-   "date": "2026-09-03T20:48:05.000Z",
+   "title": "明基推出 Mac 桌面配件品牌 INFTYLAB，带来鼠标、显示器支架、桌垫",
+   "link": "https://www.ithome.com/0/998/262.htm",
+   "date": "2026-09-04T01:28:26.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Circular Ring 3 系列智能戒指发布：Pro 版新增支持房颤检测，明年初上市",
+   "link": "https://www.ithome.com/0/998/261.htm",
+   "date": "2026-09-04T01:27:10.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "荣耀 Magic 9 系列前瞻：双 2 亿像素 + 阿莱联名，新增主动散热风扇版本",
+   "link": "https://www.ithome.com/0/998/259.htm",
+   "date": "2026-09-04T01:22:21.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "The unusually muted Tesla Cybercab launch",
+   "link": "https://www.theverge.com/transportation/989501/tesla-cybercab-launch-robotaxi-austin-musk",
+   "date": "2026-09-04T00:25:06.000Z",
    "source": "The Verge"
   },
   {
-   "title": "苹果Face ID技术再遭侵权指控 德国化工巨头巴斯夫提起专利诉讼",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576322.htm",
-   "date": "2026-09-03T20:02:37.000Z",
+   "title": "Steve Ballmer got suspended by the NBA because of a podcast and a jumbotron corruption scandal",
+   "link": "https://www.theverge.com/entertainment/989962/steve-ballmer-kawhi-leonard-pablo-torre-finds-out",
+   "date": "2026-09-03T23:37:37.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "剑桥科学家开发新技术捕捉黑洞碰撞后的微弱“泛音”",
+   "link": "https://www.cnbeta.com.tw/articles/science/1576328.htm",
+   "date": "2026-09-03T22:13:05.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "科学家揭秘2024年5月特大超级地磁暴背后的主导驱动力量",
+   "link": "https://www.cnbeta.com.tw/articles/science/1576326.htm",
+   "date": "2026-09-03T22:12:06.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "韦伯望远镜捕捉到关键影像 超大质量黑洞“进食悖论”终获破解",
+   "link": "https://www.cnbeta.com.tw/articles/science/1576324.htm",
+   "date": "2026-09-03T22:11:09.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "You can watch the coolant flow inside Ugreen’s liquid-cooled power bank",
+   "link": "https://www.theverge.com/tech/988648/ugreen-magflow-pro-magnetic-wireless-power-bank-10k-liquid-cooling",
+   "date": "2026-09-03T22:00:00.000Z",
+   "source": "The Verge"
   },
   {
    "title": "'Alien: Isolation 2': Facing a ruthless and evolved Xenomorph in our Gamescom hands-on preview",
    "link": "https://www.space.com/entertainment/space-games/alien-isolation-2-facing-a-ruthless-and-evolved-xenomorph-in-our-gamescom-hands-on-preview",
    "date": "2026-09-03T20:00:00.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "Congressman says TikTok backed out of a meeting to avoid child safety questions",
-   "link": "https://www.theverge.com/policy/989769/tiktok-house-committee-china-kids-online-safety",
-   "date": "2026-09-03T18:37:57.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "OpenAI正式发布GPT-6 Astra 号称操作电脑水平超越人类",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576320.htm",
-   "date": "2026-09-03T18:28:11.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "英伟达公布RTX Spark“N1X”芯片规格 20核与18核双版本",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1576318.htm",
-   "date": "2026-09-03T18:22:41.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Samsung&#8217;s beloved Q Series sound system is hundreds off for Labor Day",
-   "link": "https://www.theverge.com/gadgets/989499/samsung-q-series-soundbar-dbrand-killswitch-2-deal-sale",
-   "date": "2026-09-03T18:14:07.000Z",
-   "source": "The Verge"
   },
   {
    "title": "2 spacecraft will soon reach Mercury after 8 years in space. Here's what BepiColombo can do",
@@ -63,28 +81,10 @@
    "source": "Space.com"
   },
   {
-   "title": "英伟达 RTX Spark 紧凑型 Win PC 主机下月上市，含宏碁、联想等 6 家 OEM 厂商产品",
-   "link": "https://www.ithome.com/0/998/202.htm",
-   "date": "2026-09-03T16:00:06.000Z",
-   "source": "IT之家"
-  },
-  {
    "title": "Curiosity Blog, Sols 4988-4994: More New Tricks for an Old Dog",
    "link": "https://science.nasa.gov/blog/curiosity-blog-sols-4988-4994-more-new-tricks-for-an-old-dog/",
    "date": "2026-09-03T15:59:48.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "徕卡发布 Summicron-M 66mm f/2 镜头：1.09 万美元，全球限量 660 枚",
-   "link": "https://www.ithome.com/0/998/201.htm",
-   "date": "2026-09-03T15:53:01.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "准系统 2399 元：铭凡推出 UM750 Neo 迷你主机，锐龙 Z1 处理器、16GB 板载内存",
-   "link": "https://www.ithome.com/0/998/200.htm",
-   "date": "2026-09-03T15:27:11.000Z",
-   "source": "IT之家"
   },
   {
    "title": "Igniting Roman&#8217;s Journey",
