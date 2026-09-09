@@ -1,24 +1,42 @@
 {
- "updated": "2026-09-09T01:41:30.805Z",
- "count": 15,
+ "updated": "2026-09-09T09:15:51.099Z",
+ "count": 12,
  "items": [
   {
-   "title": "长安 UNI-V 蓝鲸超擎混动汽车 9 月 12 日发布：城区油耗低至 3.39L，标配电动尾翼",
-   "link": "https://www.ithome.com/1/000/004.htm",
-   "date": "2026-09-09T01:39:46.000Z",
+   "title": "行业首个开放世界全天候商业交付级具身智能架构，万勋科技发布 NOVA2.0 柔性具身大脑",
+   "link": "https://www.ithome.com/1/000/335.htm",
+   "date": "2026-09-09T09:12:18.000Z",
    "source": "IT之家"
   },
   {
-   "title": "拳头宣布为《英雄联盟》引入全队语音聊天功能，还将推出全新“语音皮肤”",
-   "link": "https://www.ithome.com/1/000/003.htm",
-   "date": "2026-09-09T01:37:41.000Z",
+   "title": "京东七鲜小厨智能移动餐车亮相服贸会，搭载 3 台炒菜机器人",
+   "link": "https://www.ithome.com/1/000/334.htm",
+   "date": "2026-09-09T09:11:13.000Z",
    "source": "IT之家"
   },
   {
-   "title": "华为自研 Wi-Fi 7+ 芯片级协同技术支持设备上新，Mate XT 2 非凡大师、Pura X View 手机确认在列",
-   "link": "https://www.ithome.com/1/000/002.htm",
-   "date": "2026-09-09T01:36:46.000Z",
+   "title": "颂拓推出 Suunto Run 2 智能运动手表：12 通道心率传感器、双频多星定位，2499 元起",
+   "link": "https://www.ithome.com/1/000/333.htm",
+   "date": "2026-09-09T09:08:48.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "Curiosity Blog, Sols 4995-5001: 5,000 (Martian) Days on Mars",
+   "link": "https://science.nasa.gov/blog/curiosity-blog-sols-4995-5001-5000-martian-days-on-mars/",
+   "date": "2026-09-09T06:20:49.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Apple’s foldable ‘iPhone Duo’ will reportedly start at $2,000",
+   "link": "https://www.theverge.com/tech/991884/apple-iphone-duo-rumor-foldable",
+   "date": "2026-09-09T05:26:53.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Anak Krakatau Rumbles Again",
+   "link": "https://science.nasa.gov/earth/earth-observatory/anak-krakatau-rumbles-again/",
+   "date": "2026-09-09T04:01:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Sony isn’t phasing out discs quite as quickly as we thought",
@@ -39,39 +57,9 @@
    "source": "The Verge"
   },
   {
-   "title": "Rivian spinout Also apologizes for delays in shipping futuristic e-bikes",
-   "link": "https://www.theverge.com/transportation/991707/rivian-also-tmb-ebike-delay-apology",
-   "date": "2026-09-08T20:46:56.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "From the Corps to the Cosmos, featuring Jaden Caradine",
    "link": "https://www.nasa.gov/general/from-the-corps-to-the-cosmos-featuring-jaden-caradine/",
    "date": "2026-09-08T20:29:59.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Google联手Nevoya在德州部署25辆电动重卡 推动零排放货运市场扩张",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577036.htm",
-   "date": "2026-09-08T20:29:32.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "澳洲玩家车库里意外翻出近2TB DDR4内存 估算价值或超1.2万美元",
-   "link": "https://www.cnbeta.com.tw/articles/science/1577034.htm",
-   "date": "2026-09-08T20:28:07.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "OpenAI推出ChatGPT Images 2.5 新增草图生图功能",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577032.htm",
-   "date": "2026-09-08T20:26:41.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "NASA Calls for Proposals to Accelerate Lunar Surface Technologies",
-   "link": "https://www.nasa.gov/news-release/nasa-calls-for-proposals-to-accelerate-lunar-surface-technologies/",
-   "date": "2026-09-08T20:16:16.000Z",
    "source": "NASA"
   },
   {
@@ -85,12 +73,6 @@
    "link": "https://www.space.com/entertainment/space-movies-shows/star-trek-imagined-strange-new-worlds-60-years-ago-but-are-real-exoplanets-even-stranger",
    "date": "2026-09-08T19:00:00.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "Superbubble in the Large Magellanic Cloud",
-   "link": "https://www.nasa.gov/image-article/superbubble-in-the-large-magellanic-cloud/",
-   "date": "2026-09-08T16:49:15.000Z",
-   "source": "NASA"
   }
  ]
 }
