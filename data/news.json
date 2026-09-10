@@ -1,78 +1,60 @@
 {
- "updated": "2026-09-10T13:54:46.608Z",
- "count": 12,
+ "updated": "2026-09-10T17:55:27.135Z",
+ "count": 9,
  "items": [
   {
-   "title": "新研究：少数电芯老化或致整个电动汽车电池包提前退役，最高浪费近三成潜在能量",
-   "link": "https://www.ithome.com/1/001/007.htm",
-   "date": "2026-09-10T13:50:00.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "业内首款，思特威推出集成 SerDes 与片上 ISP 车载 CMOS 图像传感器",
-   "link": "https://www.ithome.com/1/001/006.htm",
-   "date": "2026-09-10T13:49:10.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "给地球大气做“CT”有了统一标准，市场监管总局发布四项掩星探测国标",
-   "link": "https://www.ithome.com/1/001/005.htm",
-   "date": "2026-09-10T13:35:48.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Snapchat makes it easier to plan events and meetups",
-   "link": "https://www.theverge.com/tech/993184/snapchat-makes-it-easier-to-plan-events-and-meetups",
-   "date": "2026-09-10T13:00:00.000Z",
+   "title": "Amazon’s Fire TV Stick 4K is over half off at under $20",
+   "link": "https://www.theverge.com/gadgets/993455/fire-tv-stick-4k-resident-evil-requiem-deal-sale",
+   "date": "2026-09-10T16:58:44.000Z",
    "source": "The Verge"
   },
   {
-   "title": "What comes after the moon? Artemis II commander and pilot shift to 'emeritus' status at NASA",
-   "link": "https://www.space.com/space-exploration/artemis/what-comes-after-the-moon-artemis-ii-commander-and-pilot-shift-to-emeritus-status-at-nasa",
-   "date": "2026-09-10T12:00:00.000Z",
+   "title": "Scientists study 3,000 supernovas and discover that dark energy may be evolving",
+   "link": "https://www.space.com/astronomy/dark-universe/scientists-study-3-000-supernovas-and-discover-that-dark-energy-may-be-evolving",
+   "date": "2026-09-10T16:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "Mathematicians want proof OpenAI didn’t use their work",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/993263/where-does-openai-get-mathematics-training-data",
-   "date": "2026-09-10T11:00:57.000Z",
+   "title": "Electric air taxis get the green light for test flights in Texas",
+   "link": "https://www.theverge.com/transportation/993341/evtol-air-taxi-aviation-eipp-texas",
+   "date": "2026-09-10T16:00:00.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Strange 'fast radio bursts' across the universe could help solve major cosmic mysteries: 'It's only the beginning'",
-   "link": "https://www.space.com/astronomy/black-holes/strange-fast-radio-bursts-across-the-universe-could-help-solve-major-cosmic-mysteries-its-only-the-beginning",
-   "date": "2026-09-10T10:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "The variable aperture isn’t the cool part of the iPhone 18 Pro’s camera",
-   "link": "https://www.theverge.com/tech/993155/variable-aperture-iphone-18-pro-photography",
-   "date": "2026-09-10T10:00:00.000Z",
+   "title": "Universal Music is launching an AI music platform with ElevenLabs",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/993465/universal-music-elevenlabs-ai",
+   "date": "2026-09-10T15:38:19.000Z",
    "source": "The Verge"
   },
   {
-   "title": "APOD: 2026 September 10 – LDN 1295: The Giraffe Nebula",
-   "link": "https://science.nasa.gov/image-article/apod-2026-september-10-ldn-1295-the-giraffe-nebula/",
-   "date": "2026-09-10T04:05:00.000Z",
-   "source": "NASA"
+   "title": "法国总统马克龙呼吁欧洲大力发展自主载人航天，力争 10 年内送宇航员上太空",
+   "link": "https://www.ithome.com/1/001/043.htm",
+   "date": "2026-09-10T15:38:03.000Z",
+   "source": "IT之家"
   },
   {
-   "title": "Watch SpaceX launch classified mission for the US Space Force today",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-launch-classified-space-force-mission-ussf-153",
-   "date": "2026-09-10T04:05:00.000Z",
+   "title": "智谱启动杭州全城 Coding 计划，个人用户购季卡减免 44%、年卡减免 51%",
+   "link": "https://www.ithome.com/1/001/042.htm",
+   "date": "2026-09-10T15:29:03.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "苹果推出全新腕带配件：iPhone 18 Pro 系列同款配色，229 元",
+   "link": "https://www.ithome.com/1/001/041.htm",
+   "date": "2026-09-10T15:28:59.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "The next 'Star Trek' movie will be inspired by 'Crimson Tide', and 'Strange New Worlds' latest episode just showed them how to do it",
+   "link": "https://www.space.com/entertainment/space-movies-shows/the-next-star-trek-movie-will-be-inspired-by-crimson-tide-and-strange-new-worlds-latest-episode-just-showed-them-how-to-do-it",
+   "date": "2026-09-10T15:15:51.000Z",
    "source": "Space.com"
   },
   {
-   "title": "Dust Storm Sweeps Over Mali",
-   "link": "https://science.nasa.gov/earth/earth-observatory/dust-storm-sweeps-over-mali/",
-   "date": "2026-09-10T04:00:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Adds Relativity Space’s Terran R to Launch Services Contract",
-   "link": "https://www.nasa.gov/news-release/nasa-adds-relativity-spaces-terran-r-to-launch-services-contract/",
-   "date": "2026-09-09T20:11:58.000Z",
-   "source": "NASA"
+   "title": "Mercury is shrinking faster than we thought. What's going on inside of it?",
+   "link": "https://www.space.com/astronomy/mercury/mercury-is-shrinking-faster-than-we-thought-whats-going-on-inside-of-it",
+   "date": "2026-09-10T15:00:00.000Z",
+   "source": "Space.com"
   }
  ]
 }
