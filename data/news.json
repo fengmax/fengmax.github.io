@@ -1,54 +1,84 @@
 {
- "updated": "2026-09-10T01:36:09.473Z",
+ "updated": "2026-09-10T09:14:18.107Z",
  "count": 15,
  "items": [
   {
-   "title": "美国电信运营商 Verizon 与康宁达成 8000 万英里光纤供应协议",
-   "link": "https://www.ithome.com/1/000/584.htm",
-   "date": "2026-09-10T01:33:31.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "腾讯《王者万象棋》正式开服：85 位英雄 18 位棋手首日登场，安卓最低骁龙 625、华为鸿蒙需麒麟 9000S",
-   "link": "https://www.ithome.com/1/000/583.htm",
-   "date": "2026-09-10T01:29:44.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "摩托罗拉预热 signature 27 智能手机，有望引入施华洛世奇水晶装饰",
-   "link": "https://www.ithome.com/1/000/580.htm",
-   "date": "2026-09-10T01:20:48.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "There aren’t AirPods with cameras yet and I hope it stays that way",
-   "link": "https://www.theverge.com/tech/993064/no-airpods-with-cameras-apple-event",
-   "date": "2026-09-09T23:00:04.000Z",
+   "title": "The Trump phone just got a $250 price hike",
+   "link": "https://www.theverge.com/gadgets/993242/trump-phone-t1-price-hike",
+   "date": "2026-09-10T09:13:04.000Z",
    "source": "The Verge"
   },
   {
-   "title": "The black iPhone Pro returns",
-   "link": "https://www.theverge.com/tech/993048/iphone-18-pro-black-color",
-   "date": "2026-09-09T22:37:51.000Z",
+   "title": "不止 Anthropic 的 Mythos 5，欧盟机构已获准访问 OpenAI GPT-6 Astra 模型",
+   "link": "https://www.ithome.com/1/000/898.htm",
+   "date": "2026-09-10T09:11:03.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "可检测身边的人是否戴着 Meta 智能眼镜，波兰开发者打造“Zuckoff”应用",
+   "link": "https://www.ithome.com/1/000/896.htm",
+   "date": "2026-09-10T09:09:06.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "集邦咨询：苹果首款折叠机带动供应链升级，预估今年 iPhone Duo 市占近 25%",
+   "link": "https://www.ithome.com/1/000/895.htm",
+   "date": "2026-09-10T09:08:51.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Nintendo’s latest Switch 2 update adds VRR support in TV mode",
+   "link": "https://www.theverge.com/news/993231/nintendo-switch-2-vrr-support-firmware-update",
+   "date": "2026-09-10T09:07:00.000Z",
    "source": "The Verge"
   },
   {
-   "title": "The incomplete history of Duo devices",
-   "link": "https://www.theverge.com/tech/992755/apple-iphone-duo-history-of-devices",
-   "date": "2026-09-09T22:23:35.000Z",
+   "title": "摄影棚里的寒冬：ST华谊已资不抵债 光线传媒“一夜回到解放前” 北京文化电影业务入账不足22万元",
+   "link": "https://www.cnbeta.com.tw/articles/movie/1577312.htm",
+   "date": "2026-09-10T08:31:13.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "OpenAI据悉限制Adobe等在ChatGPT投放AI竞品广告",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1577310.htm",
+   "date": "2026-09-10T08:28:23.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "美国国家运输安全委员会：亚马逊货运飞机失事坠毁前曾尝试复飞",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1577308.htm",
+   "date": "2026-09-10T08:26:53.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Xbox picks up Kojima&#8217;s Physint after PlayStation dropped it",
+   "link": "https://www.theverge.com/games/993205/physint-hideo-kojima-sony-playstation-microsoft-xbox",
+   "date": "2026-09-10T08:22:40.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "APOD: 2026 September 10 – LDN 1295: The Giraffe Nebula",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-10-ldn-1295-the-giraffe-nebula/",
+   "date": "2026-09-10T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Watch SpaceX launch classified mission for the US Space Force today",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-launch-classified-space-force-mission-ussf-153",
+   "date": "2026-09-10T04:05:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Dust Storm Sweeps Over Mali",
+   "link": "https://science.nasa.gov/earth/earth-observatory/dust-storm-sweeps-over-mali/",
+   "date": "2026-09-10T04:00:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "This 'impossible' black hole merger may be explained by a warp in spacetime",
    "link": "https://www.space.com/astronomy/black-holes/this-impossible-black-hole-merger-may-be-explained-by-a-warp-in-spacetime",
    "date": "2026-09-09T21:00:00.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "三星发文讥讽苹果iPhone Duo是“热别人剩下的剩菜”",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577238.htm",
-   "date": "2026-09-09T20:58:44.000Z",
-   "source": "cnBeta"
   },
   {
    "title": "NASA Adds Relativity Space’s Terran R to Launch Services Contract",
@@ -61,36 +91,6 @@
    "link": "https://www.space.com/space-exploration/international-space-station-astronaut-gives-out-of-this-world-tribute-to-honor-star-treks-60th-anniversary",
    "date": "2026-09-09T20:00:00.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "苹果为iPhone Duo推出专属保护壳与带支架保护套 支持MagSafe充电",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577236.htm",
-   "date": "2026-09-09T19:15:46.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "iPhone 17 Pro保护壳可完美用在iPhone 18 Pro",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577234.htm",
-   "date": "2026-09-09T19:15:15.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Astronomers discover two stars that joined together to form a binary system just 60 years ago",
-   "link": "https://www.space.com/astronomy/stars/astronomers-discover-two-stars-that-joined-together-to-form-a-binary-system-just-60-years-ago",
-   "date": "2026-09-09T19:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "NASA’s Chandra Unveils Mysterious X-Ray Objects",
-   "link": "https://science.nasa.gov/missions/chandra/nasas-chandra-unveils-mysterious-x-ray-objects/",
-   "date": "2026-09-09T18:11:24.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "How 2 US, European Satellites Are Studying Hurricanes During El Niño",
-   "link": "https://www.nasa.gov/missions/jason-cs-sentinel-6/how-2-us-european-satellites-are-studying-hurricanes-during-el-nino/",
-   "date": "2026-09-09T16:00:00.000Z",
-   "source": "NASA"
   }
  ]
 }
