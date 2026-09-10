@@ -1,59 +1,53 @@
 {
- "updated": "2026-09-10T09:14:18.107Z",
- "count": 15,
+ "updated": "2026-09-10T13:54:46.608Z",
+ "count": 12,
  "items": [
   {
-   "title": "The Trump phone just got a $250 price hike",
-   "link": "https://www.theverge.com/gadgets/993242/trump-phone-t1-price-hike",
-   "date": "2026-09-10T09:13:04.000Z",
+   "title": "新研究：少数电芯老化或致整个电动汽车电池包提前退役，最高浪费近三成潜在能量",
+   "link": "https://www.ithome.com/1/001/007.htm",
+   "date": "2026-09-10T13:50:00.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "业内首款，思特威推出集成 SerDes 与片上 ISP 车载 CMOS 图像传感器",
+   "link": "https://www.ithome.com/1/001/006.htm",
+   "date": "2026-09-10T13:49:10.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "给地球大气做“CT”有了统一标准，市场监管总局发布四项掩星探测国标",
+   "link": "https://www.ithome.com/1/001/005.htm",
+   "date": "2026-09-10T13:35:48.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Snapchat makes it easier to plan events and meetups",
+   "link": "https://www.theverge.com/tech/993184/snapchat-makes-it-easier-to-plan-events-and-meetups",
+   "date": "2026-09-10T13:00:00.000Z",
    "source": "The Verge"
   },
   {
-   "title": "不止 Anthropic 的 Mythos 5，欧盟机构已获准访问 OpenAI GPT-6 Astra 模型",
-   "link": "https://www.ithome.com/1/000/898.htm",
-   "date": "2026-09-10T09:11:03.000Z",
-   "source": "IT之家"
+   "title": "What comes after the moon? Artemis II commander and pilot shift to 'emeritus' status at NASA",
+   "link": "https://www.space.com/space-exploration/artemis/what-comes-after-the-moon-artemis-ii-commander-and-pilot-shift-to-emeritus-status-at-nasa",
+   "date": "2026-09-10T12:00:00.000Z",
+   "source": "Space.com"
   },
   {
-   "title": "可检测身边的人是否戴着 Meta 智能眼镜，波兰开发者打造“Zuckoff”应用",
-   "link": "https://www.ithome.com/1/000/896.htm",
-   "date": "2026-09-10T09:09:06.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "集邦咨询：苹果首款折叠机带动供应链升级，预估今年 iPhone Duo 市占近 25%",
-   "link": "https://www.ithome.com/1/000/895.htm",
-   "date": "2026-09-10T09:08:51.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Nintendo’s latest Switch 2 update adds VRR support in TV mode",
-   "link": "https://www.theverge.com/news/993231/nintendo-switch-2-vrr-support-firmware-update",
-   "date": "2026-09-10T09:07:00.000Z",
+   "title": "Mathematicians want proof OpenAI didn’t use their work",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/993263/where-does-openai-get-mathematics-training-data",
+   "date": "2026-09-10T11:00:57.000Z",
    "source": "The Verge"
   },
   {
-   "title": "摄影棚里的寒冬：ST华谊已资不抵债 光线传媒“一夜回到解放前” 北京文化电影业务入账不足22万元",
-   "link": "https://www.cnbeta.com.tw/articles/movie/1577312.htm",
-   "date": "2026-09-10T08:31:13.000Z",
-   "source": "cnBeta"
+   "title": "Strange 'fast radio bursts' across the universe could help solve major cosmic mysteries: 'It's only the beginning'",
+   "link": "https://www.space.com/astronomy/black-holes/strange-fast-radio-bursts-across-the-universe-could-help-solve-major-cosmic-mysteries-its-only-the-beginning",
+   "date": "2026-09-10T10:00:00.000Z",
+   "source": "Space.com"
   },
   {
-   "title": "OpenAI据悉限制Adobe等在ChatGPT投放AI竞品广告",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577310.htm",
-   "date": "2026-09-10T08:28:23.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "美国国家运输安全委员会：亚马逊货运飞机失事坠毁前曾尝试复飞",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577308.htm",
-   "date": "2026-09-10T08:26:53.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Xbox picks up Kojima&#8217;s Physint after PlayStation dropped it",
-   "link": "https://www.theverge.com/games/993205/physint-hideo-kojima-sony-playstation-microsoft-xbox",
-   "date": "2026-09-10T08:22:40.000Z",
+   "title": "The variable aperture isn’t the cool part of the iPhone 18 Pro’s camera",
+   "link": "https://www.theverge.com/tech/993155/variable-aperture-iphone-18-pro-photography",
+   "date": "2026-09-10T10:00:00.000Z",
    "source": "The Verge"
   },
   {
@@ -75,22 +69,10 @@
    "source": "NASA"
   },
   {
-   "title": "This 'impossible' black hole merger may be explained by a warp in spacetime",
-   "link": "https://www.space.com/astronomy/black-holes/this-impossible-black-hole-merger-may-be-explained-by-a-warp-in-spacetime",
-   "date": "2026-09-09T21:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
    "title": "NASA Adds Relativity Space’s Terran R to Launch Services Contract",
    "link": "https://www.nasa.gov/news-release/nasa-adds-relativity-spaces-terran-r-to-launch-services-contract/",
    "date": "2026-09-09T20:11:58.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "International Space Station astronaut gives out of this world tribute to honor Star Trek’s 60th anniversary",
-   "link": "https://www.space.com/space-exploration/international-space-station-astronaut-gives-out-of-this-world-tribute-to-honor-star-treks-60th-anniversary",
-   "date": "2026-09-09T20:00:00.000Z",
-   "source": "Space.com"
   }
  ]
 }
