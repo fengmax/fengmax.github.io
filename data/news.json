@@ -1,29 +1,83 @@
 {
- "updated": "2026-09-10T17:55:27.135Z",
- "count": 9,
+ "updated": "2026-09-10T21:59:51.066Z",
+ "count": 15,
  "items": [
+  {
+   "title": "Slack can now vibe-code interactive charts and reports inside chats",
+   "link": "https://www.theverge.com/tech/989853/slackforce-surfaces-launch",
+   "date": "2026-09-10T21:25:21.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "NASA Invites Media to Djibouti Artemis Accords Signing Ceremony",
+   "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-djibouti-artemis-accords-signing-ceremony/",
+   "date": "2026-09-10T21:11:32.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA Answers President’s Call to Establish United States Space Academy",
+   "link": "https://www.nasa.gov/news-release/nasa-answers-presidents-call-to-establish-united-states-space-academy/",
+   "date": "2026-09-10T20:26:52.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "甲骨文 2027 财年第一财季归母净利润 46.79 亿美元，同比增长 60%",
+   "link": "https://www.ithome.com/1/001/052.htm",
+   "date": "2026-09-10T20:20:44.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "NASA&#8217;s Life-Saving Technology Where Cell Signals Can&#8217;t Go",
+   "link": "https://www.nasa.gov/technology/tech-transfer-spinoffs/nasas-life-saving-technology-where-cell-signals-cant-go/",
+   "date": "2026-09-10T20:12:39.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "The Summer Triangle — 3 stars, 1 seasonal mystery",
+   "link": "https://www.space.com/stargazing/the-summer-triangle-3-stars-1-seasonal-mystery",
+   "date": "2026-09-10T20:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Schools are catching on to Big Tech’s playbook",
+   "link": "https://www.theverge.com/policy/993308/computer-science-ai-education-coding-kids",
+   "date": "2026-09-10T19:44:20.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "On this day in space! Sept. 10, 2011: NASA launches GRAIL probes to the moon to map lumpy lunar gravity",
+   "link": "https://www.space.com/space-exploration/on-this-day-in-space-september-10-2026",
+   "date": "2026-09-10T18:01:18.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "LINK spacecraft gets close to NASA's Swift Observatory, but not close enough to save it",
+   "link": "https://www.space.com/space-exploration/missions/link-spacecraft-gets-close-to-nasas-swift-observatory-but-not-close-enough-to-save-it",
+   "date": "2026-09-10T18:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "“风暴”威力远超预期 超级黑洞能量影响范围可达30万光年",
+   "link": "https://www.cnbeta.com.tw/articles/science/1577368.htm",
+   "date": "2026-09-10T17:21:40.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Google简化Android密码管理器迁移流程 密码和通行密钥均可直接转移",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1577366.htm",
+   "date": "2026-09-10T17:20:53.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "苹果明年或带来20周年特别版 全面屏、曲面玻璃和A21芯片成最大看点",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1577364.htm",
+   "date": "2026-09-10T17:19:27.000Z",
+   "source": "cnBeta"
+  },
   {
    "title": "Amazon’s Fire TV Stick 4K is over half off at under $20",
    "link": "https://www.theverge.com/gadgets/993455/fire-tv-stick-4k-resident-evil-requiem-deal-sale",
    "date": "2026-09-10T16:58:44.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Scientists study 3,000 supernovas and discover that dark energy may be evolving",
-   "link": "https://www.space.com/astronomy/dark-universe/scientists-study-3-000-supernovas-and-discover-that-dark-energy-may-be-evolving",
-   "date": "2026-09-10T16:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Electric air taxis get the green light for test flights in Texas",
-   "link": "https://www.theverge.com/transportation/993341/evtol-air-taxi-aviation-eipp-texas",
-   "date": "2026-09-10T16:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Universal Music is launching an AI music platform with ElevenLabs",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/993465/universal-music-elevenlabs-ai",
-   "date": "2026-09-10T15:38:19.000Z",
    "source": "The Verge"
   },
   {
@@ -37,24 +91,6 @@
    "link": "https://www.ithome.com/1/001/042.htm",
    "date": "2026-09-10T15:29:03.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "苹果推出全新腕带配件：iPhone 18 Pro 系列同款配色，229 元",
-   "link": "https://www.ithome.com/1/001/041.htm",
-   "date": "2026-09-10T15:28:59.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "The next 'Star Trek' movie will be inspired by 'Crimson Tide', and 'Strange New Worlds' latest episode just showed them how to do it",
-   "link": "https://www.space.com/entertainment/space-movies-shows/the-next-star-trek-movie-will-be-inspired-by-crimson-tide-and-strange-new-worlds-latest-episode-just-showed-them-how-to-do-it",
-   "date": "2026-09-10T15:15:51.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Mercury is shrinking faster than we thought. What's going on inside of it?",
-   "link": "https://www.space.com/astronomy/mercury/mercury-is-shrinking-faster-than-we-thought-whats-going-on-inside-of-it",
-   "date": "2026-09-10T15:00:00.000Z",
-   "source": "Space.com"
   }
  ]
 }
