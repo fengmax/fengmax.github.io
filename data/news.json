@@ -1,7 +1,55 @@
 {
- "updated": "2026-09-11T17:57:55.563Z",
- "count": 12,
+ "updated": "2026-09-11T22:02:29.177Z",
+ "count": 15,
  "items": [
+  {
+   "title": "I've chased the 'false dawn' for years — this is the week to find and photograph it",
+   "link": "https://www.space.com/stargazing/ive-chased-the-false-dawn-for-years-this-is-the-week-to-find-and-photograph-it",
+   "date": "2026-09-11T21:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Lawyer fined $5K over AI-hallucinated witnesses in a murder case",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/994207/chatgpt-new-mexico-lawyer-fined-murder-appeal",
+   "date": "2026-09-11T20:44:02.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "A star is exploding 45 million light-years away — here's how you can see it",
+   "link": "https://www.space.com/stargazing/a-star-is-exploding-45-million-light-years-away-heres-how-you-can-see-it",
+   "date": "2026-09-11T20:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Help Refine Data from Space Telescopes with Artifact InSPECtor",
+   "link": "https://science.nasa.gov/get-involved/citizen-science/help-refine-data-from-space-telescopes-with-artifact-inspector/",
+   "date": "2026-09-11T19:48:09.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "数据显示实体游戏依然占据索尼第一方独占游戏的显著营收份额",
+   "link": "https://www.cnbeta.com.tw/articles/game/1577550.htm",
+   "date": "2026-09-11T19:10:33.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Rocket Lab launches mystery satellite to orbit for secret customer (photo)",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/rocket-lab-launches-mystery-satellite-to-orbit-for-secret-customer-photo",
+   "date": "2026-09-11T19:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "传台积电计划到2028年将CoWoS先进封装产能再翻倍",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1577548.htm",
+   "date": "2026-09-11T18:41:11.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "英伟达RTX 5090在德国市场遭遇空前涨价狂潮 八个月暴涨73%突破5000欧元大关",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1577546.htm",
+   "date": "2026-09-11T18:27:12.000Z",
+   "source": "cnBeta"
+  },
   {
    "title": "NASA&#8217;s Chandra Spots Galactic Gem",
    "link": "https://www.nasa.gov/image-article/nasas-chandra-spots-galactic-gem/",
@@ -9,7 +57,7 @@
    "source": "NASA"
   },
   {
-   "title": "Matt Mullenweg reportedly returns as Automattic CEO two days after getting booted",
+   "title": "Matt Mullenweg returns as Automattic CEO two days after getting booted",
    "link": "https://www.theverge.com/tech/994087/matt-mullenweg-automattic-ceo-return",
    "date": "2026-09-11T17:16:59.000Z",
    "source": "The Verge"
@@ -19,18 +67,6 @@
    "link": "https://www.theverge.com/podcast/994016/iphone-duo-vergecast-apple-watch-mac-llms",
    "date": "2026-09-11T16:22:24.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "The White House calls Truth Social the ‘most powerful and popular’ social media platform",
-   "link": "https://www.theverge.com/policy/994072/white-house-truth-social-popular-powerful",
-   "date": "2026-09-11T16:21:19.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "The sun may once have swallowed a super-Earth planet and could still be hiding the evidence",
-   "link": "https://www.space.com/astronomy/sun/the-sun-may-once-have-swallowed-a-super-earth-planet-and-could-still-be-hiding-the-evidence",
-   "date": "2026-09-11T16:00:00.000Z",
-   "source": "Space.com"
   },
   {
    "title": "高盛：总是盯着“AI 泡沫会不会破”不放，反而可能会低估 AI 创造的价值",
@@ -55,24 +91,6 @@
    "link": "https://www.nasa.gov/news-release/nasas-spacex-crew-12-to-discuss-station-mission-upcoming-return/",
    "date": "2026-09-11T15:05:20.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "60 years of Star Trek uniforms: Looking back at the everchanging wardrobe of Starfleet",
-   "link": "https://www.space.com/entertainment/space-movies-shows/60-years-of-star-trek-uniforms-looking-back-at-the-everchanging-wardrobe-of-starfleet",
-   "date": "2026-09-11T15:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "NASA Boosts Open Science, Data Sharing with Artemis Accords",
-   "link": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-boosts-open-science-data-sharing-with-artemis-accords/",
-   "date": "2026-09-11T14:56:25.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "On this day in space! Sept. 11, 1985: The International Cometary Explorer makes 1st comet flyby in history for NASA and Europe",
-   "link": "https://www.space.com/space-exploration/on-this-day-in-space-sept-11-1985-the-international-cometary-explorer-makes-1st-comet-flyby-in-history-for-nasa-and-europe",
-   "date": "2026-09-11T14:00:00.000Z",
-   "source": "Space.com"
   }
  ]
 }
