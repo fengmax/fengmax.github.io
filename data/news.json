@@ -1,60 +1,60 @@
 {
- "updated": "2026-09-12T13:11:30.443Z",
+ "updated": "2026-09-12T17:28:21.686Z",
  "count": 12,
  "items": [
   {
-   "title": "一句话加油、买电影票，理想汽车联合支付宝升级智舱全场景生态服务",
-   "link": "https://www.ithome.com/1/001/642.htm",
-   "date": "2026-09-12T13:09:11.000Z",
+   "title": "Sylvan Esso think you should splurge on good-quality yogurt",
+   "link": "https://www.theverge.com/entertainment/994340/sylvan-esso-ow-infinity-interview-music",
+   "date": "2026-09-12T16:35:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Anthropic CEO says it’s time to pump the brakes on AI",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/994337/anthropic-ceo-slow-down-ai-development",
+   "date": "2026-09-12T16:23:40.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "LG 再次回应“电视待机状态会录音”：不会持续记录或传输用户对话",
+   "link": "https://www.ithome.com/1/001/659.htm",
+   "date": "2026-09-12T15:38:55.000Z",
    "source": "IT之家"
   },
   {
-   "title": "英伟达发起《NBA 2K27》DLSS 5 截图挑战，将送出 4 张 RTX 5090 显卡",
-   "link": "https://www.ithome.com/1/001/641.htm",
-   "date": "2026-09-12T13:05:13.000Z",
+   "title": "惠普星 Desk Mini 迷你主机上架：Ultra 5 325/7 356H，9599 元起",
+   "link": "https://www.ithome.com/1/001/658.htm",
+   "date": "2026-09-12T15:27:16.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "LG responds to TV spying allegations",
+   "link": "https://www.theverge.com/tech/994333/lg-responds-to-tv-spying-allegations",
+   "date": "2026-09-12T15:19:44.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "荣耀公布 SmallRig 专业视频拓展套件：适配 Magic9 Pro Max，9 月 28 日发布",
+   "link": "https://www.ithome.com/1/001/657.htm",
+   "date": "2026-09-12T15:17:55.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Trump is proposing a US Space Academy — if created, it could blur the lines between NASA and the military (op-ed)",
+   "link": "https://www.space.com/space-exploration/trump-is-proposing-a-us-space-academy-if-created-it-could-blur-the-lines-between-nasa-and-the-military-op-ed",
+   "date": "2026-09-12T14:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "On this day in space! NASA astronaut Mae Jemison makes history as the 1st Black woman in space",
+   "link": "https://www.space.com/space-exploration/on-this-day-in-space-september-12-2026",
+   "date": "2026-09-12T14:00:00.000Z",
+   "source": "Space.com"
   },
   {
    "title": "This Week In Space podcast: Episode 227 — Trekmania",
    "link": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-227-trekmania",
    "date": "2026-09-12T13:04:50.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "The best 'Star Trek' spaceships: 14 classic vessels from the Federation and beyond",
-   "link": "https://www.space.com/entertainment/space-movies-shows/the-best-star-trek-spaceships-14-classic-vessels-from-the-federation-and-beyond",
-   "date": "2026-09-12T13:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Laika’s stop-motion fantasy Wildwood looks so smooth",
-   "link": "https://www.theverge.com/entertainment/994314/tiff-2026-wildwood-stuffed-julian",
-   "date": "2026-09-12T13:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Counterpoint 预测：2026-2030 年折叠屏手机面板出货将增长 74%",
-   "link": "https://www.ithome.com/1/001/639.htm",
-   "date": "2026-09-12T12:46:23.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Perseid meteors meet mesmerizing star trails over Egypt's Western Desert",
-   "link": "https://www.space.com/stargazing/astrophotography/perseid-meteors-meet-mesmerizing-star-trails-over-egypts-western-desert",
-   "date": "2026-09-12T12:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Where to preorder the iPhone 18 Pro and Pro Max",
-   "link": "https://www.theverge.com/gadgets/988337/iphone-18-pro-max-preorder-buy",
-   "date": "2026-09-12T12:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "OpenAI just wants to win",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/994255/openai-millennium-prize-problem-tristan-buckmaster-competition",
-   "date": "2026-09-12T11:00:00.000Z",
-   "source": "The Verge"
   },
   {
    "title": "Help Refine Data from Space Telescopes with Artifact InSPECtor",
