@@ -1,24 +1,48 @@
 {
- "updated": "2026-09-13T13:56:53.333Z",
+ "updated": "2026-09-13T17:45:16.819Z",
  "count": 12,
  "items": [
   {
-   "title": "安全性能位居全球第一梯队，中核集团华龙一号 2.0 版创新成果亮相",
-   "link": "https://www.ithome.com/1/001/854.htm",
-   "date": "2026-09-13T13:45:44.000Z",
+   "title": "The Units’ Digital Stimulation is synthpunk perfection",
+   "link": "https://www.theverge.com/entertainment/994415/the-units-digital-stimulation-synthpunk-review",
+   "date": "2026-09-13T17:36:10.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "中国移动已支持国行 iPhone 18 Pro / Duo 的 eSIM 业务办理",
+   "link": "https://www.ithome.com/1/001/868.htm",
+   "date": "2026-09-13T15:45:27.000Z",
    "source": "IT之家"
   },
   {
-   "title": "前行者推出 VX02 头戴耳机：重约 270g，首发 189.55 元",
-   "link": "https://www.ithome.com/1/001/853.htm",
-   "date": "2026-09-13T13:43:12.000Z",
+   "title": "The 10 best underground sci-fi movies to dig into now that 'Silo' season 3 has ended",
+   "link": "https://www.space.com/entertainment/best-underground-sci-fi-movies",
+   "date": "2026-09-13T15:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "创全球最低传输损耗新纪录，长飞反谐振空芯光纤衰减突破至 0.032dB / km",
+   "link": "https://www.ithome.com/1/001/867.htm",
+   "date": "2026-09-13T14:48:45.000Z",
    "source": "IT之家"
   },
   {
-   "title": "专为缓解程序员视疲劳设计，英特尔保留 One Mono 开源字体项目",
-   "link": "https://www.ithome.com/1/001/852.htm",
-   "date": "2026-09-13T13:29:51.000Z",
+   "title": "消息称富士通最早 2027 年开始向海外销售 FUJITSU-MONAKA 处理器",
+   "link": "https://www.ithome.com/1/001/866.htm",
+   "date": "2026-09-13T14:47:37.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "Waymo pulls over, calls cops on riders with a ghost gun",
+   "link": "https://www.theverge.com/transportation/994405/waymo-pulls-over-calls-cops-on-riders-with-a-ghost-gun",
+   "date": "2026-09-13T14:28:12.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "NASA astronaut Jessica Meir shares zero-G curly hair tips from the ISS (video)",
+   "link": "https://www.space.com/space-exploration/international-space-station/nasa-astronaut-jessica-meir-shares-zero-g-curly-hair-tips-from-the-iss-video",
+   "date": "2026-09-13T14:00:00.000Z",
+   "source": "Space.com"
   },
   {
    "title": "James Webb Space Telescope discovers the rings of tiny solar system body Chariklo are changing",
@@ -33,34 +57,10 @@
    "source": "The Verge"
   },
   {
-   "title": "Your car is selling your data",
-   "link": "https://www.theverge.com/column/994172/your-car-is-selling-your-data",
-   "date": "2026-09-13T12:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Apple’s new phones are here",
-   "link": "https://www.theverge.com/tech/994218/apple-iphone-18-pro-airpods-5-meta-muse-ai-sony-headphones",
-   "date": "2026-09-13T12:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Don't miss Venus shine beside the crescent moon at sunset tonight",
-   "link": "https://www.space.com/stargazing/dont-miss-venus-shine-beside-the-crescent-moon-at-sunset-tonight",
-   "date": "2026-09-13T10:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
    "title": "APOD: 2026 September 13 – Comet NEOWISE Rising over the Adriatic Sea",
    "link": "https://science.nasa.gov/image-article/apod-2026-september-13-comet-neowise-rising-over-the-adriatic-sea/",
    "date": "2026-09-13T04:05:00.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "Trump is proposing a US Space Academy — if created, it could blur the lines between NASA and the military (op-ed)",
-   "link": "https://www.space.com/space-exploration/trump-is-proposing-a-us-space-academy-if-created-it-could-blur-the-lines-between-nasa-and-the-military-op-ed",
-   "date": "2026-09-12T14:00:00.000Z",
-   "source": "Space.com"
   },
   {
    "title": "Help Refine Data from Space Telescopes with Artifact InSPECtor",
