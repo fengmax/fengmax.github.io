@@ -1,95 +1,77 @@
 {
- "updated": "2026-09-14T10:09:49.409Z",
- "count": 15,
+ "updated": "2026-09-14T19:38:38.706Z",
+ "count": 12,
  "items": [
   {
-   "title": "从 6 月至 8 月底，消息称追觅离职与被裁员工在 1 万人左右",
-   "link": "https://www.ithome.com/1/002/234.htm",
-   "date": "2026-09-14T10:02:24.000Z",
-   "source": "IT之家"
+   "title": "The best deals from Nintendo’s ‘customer appreciation’ sale",
+   "link": "https://www.theverge.com/gadgets/994892/nintendo-customer-appreciation-tariff-refund-deal-sale",
+   "date": "2026-09-14T19:30:58.000Z",
+   "source": "The Verge"
   },
   {
-   "title": "James Webb Space Telescope and Hubble discover 27 puzzling new objects orbiting the sun far beyond Neptune",
-   "link": "https://www.space.com/astronomy/james-webb-space-telescope/james-webb-space-telescope-and-hubble-discover-27-puzzling-new-objects-orbiting-the-sun-far-beyond-neptune",
-   "date": "2026-09-14T10:00:00.000Z",
+   "title": "Interstellar comet 3I/ATLAS likely formed where its star's light couldn't touch it",
+   "link": "https://www.space.com/astronomy/comets/interstellar-comet-3i-atlas-likely-formed-where-its-stars-light-couldnt-touch-it",
+   "date": "2026-09-14T19:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "消息称三星电机与高通合作开发基于有机桥片的 2.1D 先进封装",
-   "link": "https://www.ithome.com/1/002/233.htm",
-   "date": "2026-09-14T09:56:19.000Z",
+   "title": "苹果 watchOS 27.0 正式版发布",
+   "link": "https://www.ithome.com/1/002/332.htm",
+   "date": "2026-09-14T18:26:12.000Z",
    "source": "IT之家"
   },
   {
-   "title": "smart 精灵 2 号两座纯电小车早鸟计划开启，订金 298 元",
-   "link": "https://www.ithome.com/1/002/232.htm",
-   "date": "2026-09-14T09:53:10.000Z",
+   "title": "苹果 visionOS 27.0 正式版发布",
+   "link": "https://www.ithome.com/1/002/331.htm",
+   "date": "2026-09-14T18:26:11.000Z",
    "source": "IT之家"
   },
   {
-   "title": "150辆新能源网约车被拍卖：均价2.93万元 拆车利润比卖车高",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577878.htm",
-   "date": "2026-09-14T09:30:55.000Z",
-   "source": "cnBeta"
+   "title": "苹果 macOS 27.0 正式版发布",
+   "link": "https://www.ithome.com/1/002/330.htm",
+   "date": "2026-09-14T18:26:11.000Z",
+   "source": "IT之家"
   },
   {
-   "title": "奥特曼：控制AI开发不等于停止 美国竞争压力再大也不能鲁莽行事",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577876.htm",
-   "date": "2026-09-14T09:28:09.000Z",
-   "source": "cnBeta"
+   "title": "2 European Earth-observing satellites launching to orbit from South America tonight: Watch it live",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/vega-rocket-launch-europe-flex-sentinel-3c-earth-observation-satellites",
+   "date": "2026-09-14T18:00:00.000Z",
+   "source": "Space.com"
   },
   {
-   "title": "各大科技公司CEO联合呼吁放缓AI发展 AI板块应声下挫",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577874.htm",
-   "date": "2026-09-14T09:24:42.000Z",
-   "source": "cnBeta"
+   "title": "TIFF 2026: The latest movie reviews from Toronto",
+   "link": "https://www.theverge.com/entertainment/994834/tiff-2026-movie-reviews",
+   "date": "2026-09-14T17:30:00.000Z",
+   "source": "The Verge"
   },
   {
-   "title": "APOD: 2026 September 14 – Where Your Elements Came From",
-   "link": "https://science.nasa.gov/image-article/apod-2026-september-14-where-your-elements-came-from/",
-   "date": "2026-09-14T04:05:00.000Z",
+   "title": "macOS 27 is available now",
+   "link": "https://www.theverge.com/tech/994818/apple-macos-27-golden-gate-available-now",
+   "date": "2026-09-14T17:10:13.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "The US government is 'sincere in its efforts to understand UAP', new White House council chair says",
+   "link": "https://www.space.com/space-exploration/search-for-life/the-us-government-is-sincere-in-its-efforts-to-understand-uap-new-white-house-council-chair-says",
+   "date": "2026-09-14T17:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "NASA Welcomes Djibouti as Newest Artemis Accords Signatory",
+   "link": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-welcomes-djibouti-as-newest-artemis-accords-signatory/",
+   "date": "2026-09-14T16:46:07.000Z",
    "source": "NASA"
   },
   {
-   "title": "An Early Look at Fall Color in Canada",
-   "link": "https://science.nasa.gov/earth/earth-observatory/an-early-look-at-fall-color-in-canada/",
-   "date": "2026-09-14T04:00:00.000Z",
+   "title": "NASA Kicks Off Inspiration Tour with Steelers vs. Falcons Game",
+   "link": "https://www.nasa.gov/image-article/nasa-kicks-off-inspiration-tour-with-steelers-vs-falcons-game/",
+   "date": "2026-09-14T16:00:11.000Z",
    "source": "NASA"
   },
   {
-   "title": "SpaceX launches 3 telecom satellites to orbit on 700th Falcon mission of all time (video)",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-launches-3-telecom-satellites-to-orbit-on-700th-falcon-mission-of-all-time-video",
-   "date": "2026-09-13T21:41:26.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Trump and Mike Johnson think the AI industry is overreacting",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/994441/trump-mike-johnson-ai-industry-overreacting",
-   "date": "2026-09-13T19:41:48.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Apple is reportedly working on iPhone game controllers",
-   "link": "https://www.theverge.com/tech/994426/apple-iphone-game-controllers",
-   "date": "2026-09-13T18:30:16.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "On this day in space! Sept. 13, 2007: Japan launches Kaguya spacecraft to the moon to map the lunar surface in HD",
-   "link": "https://www.space.com/space-exploration/on-this-day-in-space-september-13-2026",
-   "date": "2026-09-13T17:45:21.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "The Units’ Digital Stimulation is synthpunk perfection",
-   "link": "https://www.theverge.com/entertainment/994415/the-units-digital-stimulation-synthpunk-review",
-   "date": "2026-09-13T17:36:10.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "APOD: 2026 September 13 – Comet NEOWISE Rising over the Adriatic Sea",
-   "link": "https://science.nasa.gov/image-article/apod-2026-september-13-comet-neowise-rising-over-the-adriatic-sea/",
-   "date": "2026-09-13T04:05:00.000Z",
+   "title": "Summer Training: Catching Up With NASA’s Astronaut Candidates",
+   "link": "https://www.nasa.gov/centers-and-facilities/johnson/summer-training-catching-up-with-nasas-astronaut-candidates/",
+   "date": "2026-09-14T15:00:00.000Z",
    "source": "NASA"
   }
  ]
