@@ -1,7 +1,37 @@
 {
- "updated": "2026-09-13T21:50:18.745Z",
- "count": 12,
+ "updated": "2026-09-14T01:50:19.689Z",
+ "count": 15,
  "items": [
+  {
+   "title": "iQOO 16 手机屏幕核心规格公布：安卓首发 M16 发光材料、10000nits 局部峰值亮度等",
+   "link": "https://www.ithome.com/1/001/929.htm",
+   "date": "2026-09-14T01:49:52.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "银昕推出双层反向风扇 FHS80Z-D，80×80×80 (mm) 尺寸",
+   "link": "https://www.ithome.com/1/001/928.htm",
+   "date": "2026-09-14T01:49:48.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "小米米家充气宝 3 开启众筹：内置 5000mAh 锂电池，新增泄压阀设计，179 元",
+   "link": "https://www.ithome.com/1/001/926.htm",
+   "date": "2026-09-14T01:45:16.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "任天堂《塞尔达传说》40周年Switch 2遭黄牛炒作 未发货已被挂到1700美元",
+   "link": "https://www.cnbeta.com.tw/articles/game/1577770.htm",
+   "date": "2026-09-13T22:39:39.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "科学家让细菌与真菌合作提升数倍沙地储水能力 未来或可在荒漠种植农作物",
+   "link": "https://www.cnbeta.com.tw/articles/science/1577768.htm",
+   "date": "2026-09-13T22:37:25.000Z",
+   "source": "cnBeta"
+  },
   {
    "title": "SpaceX launches 3 telecom satellites to orbit on 700th Falcon mission of all time (video)",
    "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-launches-3-telecom-satellites-to-orbit-on-700th-falcon-mission-of-all-time-video",
@@ -19,12 +49,6 @@
    "link": "https://www.theverge.com/ai-artificial-intelligence/994441/trump-mike-johnson-ai-industry-overreacting",
    "date": "2026-09-13T19:41:48.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "传苹果正完善iPhone对第三方游戏手柄的支持",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577764.htm",
-   "date": "2026-09-13T18:47:13.000Z",
-   "source": "cnBeta"
   },
   {
    "title": "Apple is reportedly working on iPhone game controllers",
@@ -45,34 +69,28 @@
    "source": "The Verge"
   },
   {
-   "title": "Anthropic敲定纳斯达克上市计划",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577762.htm",
-   "date": "2026-09-13T16:47:55.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "中国移动已支持国行 iPhone 18 Pro / Duo 的 eSIM 业务办理",
-   "link": "https://www.ithome.com/1/001/868.htm",
-   "date": "2026-09-13T15:45:27.000Z",
-   "source": "IT之家"
-  },
-  {
    "title": "The 10 best underground sci-fi movies to dig into now that 'Silo' season 3 has ended",
    "link": "https://www.space.com/entertainment/best-underground-sci-fi-movies",
    "date": "2026-09-13T15:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "创全球最低传输损耗新纪录，长飞反谐振空芯光纤衰减突破至 0.032dB / km",
-   "link": "https://www.ithome.com/1/001/867.htm",
-   "date": "2026-09-13T14:48:45.000Z",
-   "source": "IT之家"
+   "title": "APOD: 2026 September 13 – Comet NEOWISE Rising over the Adriatic Sea",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-13-comet-neowise-rising-over-the-adriatic-sea/",
+   "date": "2026-09-13T04:05:00.000Z",
+   "source": "NASA"
   },
   {
-   "title": "消息称富士通最早 2027 年开始向海外销售 FUJITSU-MONAKA 处理器",
-   "link": "https://www.ithome.com/1/001/866.htm",
-   "date": "2026-09-13T14:47:37.000Z",
-   "source": "IT之家"
+   "title": "Help Refine Data from Space Telescopes with Artifact InSPECtor",
+   "link": "https://science.nasa.gov/get-involved/citizen-science/help-refine-data-from-space-telescopes-with-artifact-inspector/",
+   "date": "2026-09-11T19:48:09.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA&#8217;s Chandra Spots Galactic Gem",
+   "link": "https://www.nasa.gov/image-article/nasas-chandra-spots-galactic-gem/",
+   "date": "2026-09-11T17:19:47.000Z",
+   "source": "NASA"
   }
  ]
 }
