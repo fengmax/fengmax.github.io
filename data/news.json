@@ -1,12 +1,78 @@
 {
- "updated": "2026-09-14T19:38:38.706Z",
- "count": 12,
+ "updated": "2026-09-14T22:47:46.696Z",
+ "count": 15,
  "items": [
   {
-   "title": "The best deals from Nintendo’s ‘customer appreciation’ sale",
-   "link": "https://www.theverge.com/gadgets/994892/nintendo-customer-appreciation-tariff-refund-deal-sale",
-   "date": "2026-09-14T19:30:58.000Z",
+   "title": "OpenAI 联合创始人布罗克曼：人类已迈入通用人工智能时代",
+   "link": "https://www.ithome.com/1/002/341.htm",
+   "date": "2026-09-14T22:45:38.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "育碧宣布游戏《雷曼传奇：重制版》延期至 12 月 3 日推出，游戏已完成开发并进入至“压盘”状态",
+   "link": "https://www.ithome.com/1/002/340.htm",
+   "date": "2026-09-14T22:44:40.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "《红霞岛》前创意总监反思项目：服务型游戏并非工作室专长、将从中汲取经验",
+   "link": "https://www.ithome.com/1/002/339.htm",
+   "date": "2026-09-14T22:37:39.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "苹果Siri AI历经延期后正式开放测试",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1577978.htm",
+   "date": "2026-09-14T22:28:26.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "高通骁龙8 Elite Gen 6或重启双代工格局 由三星分担制造",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1577976.htm",
+   "date": "2026-09-14T22:26:24.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "测试固件显示苹果正加速测试首款OLED屏MacBook Pro",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1577974.htm",
+   "date": "2026-09-14T22:25:28.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Webinar 9/23: NASA CSDA Program Update 2026",
+   "link": "https://science.nasa.gov/science-research/earth-science/webinar-9-23-nasa-csda-program-update-2026/",
+   "date": "2026-09-14T21:04:04.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Trump throws out power plant climate pollution rules",
+   "link": "https://www.theverge.com/news/995051/epa-power-plant-climate-pollution-rollback-ai-data-centers",
+   "date": "2026-09-14T20:45:00.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "Jensen Huang puts Trump on speakerphone onstage to announce robots won’t take over the world",
+   "link": "https://www.theverge.com/tech/995079/president-donald-trump-calls-nvidia-ceo-jensen-huang-all-in-summit",
+   "date": "2026-09-14T20:03:37.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "The warmest summer on record: 2026 hit a scorching new high in the US",
+   "link": "https://www.space.com/science/climate-change/the-warmest-summer-on-record-2026-hit-a-scorching-new-high-in-the-us",
+   "date": "2026-09-14T20:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Valve&#8217;s virtual reality plans hit actual reality",
+   "link": "https://www.theverge.com/tech/995055/valve-steam-frame-price-ram-impact",
+   "date": "2026-09-14T19:48:06.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "New Crops, Health Research Proposals to Help NASA Advance Exploration",
+   "link": "https://science.nasa.gov/science-research/biological-physical-sciences/new-crops-health-research-proposals-to-help-nasa-advance-exploration/",
+   "date": "2026-09-14T19:00:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Interstellar comet 3I/ATLAS likely formed where its star's light couldn't touch it",
@@ -15,63 +81,15 @@
    "source": "Space.com"
   },
   {
-   "title": "苹果 watchOS 27.0 正式版发布",
-   "link": "https://www.ithome.com/1/002/332.htm",
-   "date": "2026-09-14T18:26:12.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "苹果 visionOS 27.0 正式版发布",
-   "link": "https://www.ithome.com/1/002/331.htm",
-   "date": "2026-09-14T18:26:11.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "苹果 macOS 27.0 正式版发布",
-   "link": "https://www.ithome.com/1/002/330.htm",
-   "date": "2026-09-14T18:26:11.000Z",
-   "source": "IT之家"
-  },
-  {
    "title": "2 European Earth-observing satellites launching to orbit from South America tonight: Watch it live",
    "link": "https://www.space.com/space-exploration/launches-spacecraft/vega-rocket-launch-europe-flex-sentinel-3c-earth-observation-satellites",
    "date": "2026-09-14T18:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "TIFF 2026: The latest movie reviews from Toronto",
-   "link": "https://www.theverge.com/entertainment/994834/tiff-2026-movie-reviews",
-   "date": "2026-09-14T17:30:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "macOS 27 is available now",
-   "link": "https://www.theverge.com/tech/994818/apple-macos-27-golden-gate-available-now",
-   "date": "2026-09-14T17:10:13.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "The US government is 'sincere in its efforts to understand UAP', new White House council chair says",
-   "link": "https://www.space.com/space-exploration/search-for-life/the-us-government-is-sincere-in-its-efforts-to-understand-uap-new-white-house-council-chair-says",
-   "date": "2026-09-14T17:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
    "title": "NASA Welcomes Djibouti as Newest Artemis Accords Signatory",
    "link": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-welcomes-djibouti-as-newest-artemis-accords-signatory/",
    "date": "2026-09-14T16:46:07.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Kicks Off Inspiration Tour with Steelers vs. Falcons Game",
-   "link": "https://www.nasa.gov/image-article/nasa-kicks-off-inspiration-tour-with-steelers-vs-falcons-game/",
-   "date": "2026-09-14T16:00:11.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Summer Training: Catching Up With NASA’s Astronaut Candidates",
-   "link": "https://www.nasa.gov/centers-and-facilities/johnson/summer-training-catching-up-with-nasas-astronaut-candidates/",
-   "date": "2026-09-14T15:00:00.000Z",
    "source": "NASA"
   }
  ]
