@@ -1,41 +1,71 @@
 {
- "updated": "2026-09-15T18:32:21.950Z",
+ "updated": "2026-09-15T22:28:37.253Z",
  "count": 15,
  "items": [
   {
-   "title": "One of the best 3D printers for beginners is almost $100 off",
-   "link": "https://www.theverge.com/gadgets/995518/elegoo-3d-printer-switch-joy-con-deal-sale",
-   "date": "2026-09-15T18:02:30.000Z",
+   "title": "OpenAI首席执行官Altman“有信心”AI行业能够自行保障安全",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578160.htm",
+   "date": "2026-09-15T22:17:00.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "微软定于10月7日举行特别发布会 Surface新品与Windows AI生态或迎重要更新",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578158.htm",
+   "date": "2026-09-15T22:16:21.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "传三星计划上调DRAM与NAND闪存报价",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578156.htm",
+   "date": "2026-09-15T22:15:02.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "携程集团 2026 财年上半年归母净利润 0.41 亿元同比下降 99.55%，Q2 受 52 亿元反垄断罚款影响净亏损 24.58 亿元",
+   "link": "https://www.ithome.com/1/002/825.htm",
+   "date": "2026-09-15T22:12:58.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "22 years of science! NASA's Roman Space Telescope doubles its lifetime with super-precise engine burn",
+   "link": "https://www.space.com/astronomy/22-years-of-science-nasas-roman-space-telescope-doubles-its-lifetime-with-super-precise-engine-burn",
+   "date": "2026-09-15T21:24:37.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Microsoft announces Windows and Surface event for October 7th",
+   "link": "https://www.theverge.com/news/994714/microsoft-windows-surface-event-october-7-san-francisco",
+   "date": "2026-09-15T20:36:59.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Microscopic alien technology may be hidden in moon dust, scientists say",
-   "link": "https://www.space.com/space-exploration/search-for-life/microscopic-alien-technology-may-be-hidden-in-moon-dust-scientists-say",
-   "date": "2026-09-15T18:00:00.000Z",
+   "title": "What if social media isn’t hurting kids?",
+   "link": "https://www.theverge.com/policy/995704/peter-gray-restoring-childhood-jonathan-haidt",
+   "date": "2026-09-15T20:13:30.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "New 'StarCraft' game announced, but it's a grim open-world shooter and it's not coming until 2030",
+   "link": "https://www.space.com/entertainment/space-games/new-starcraft-game-announced-but-its-a-grim-open-world-shooter-and-its-not-coming-until-2030",
+   "date": "2026-09-15T20:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "Fedora 45 Beta发布：引入KMSCON、GNOME 51及多项安全与系统改进",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578130.htm",
-   "date": "2026-09-15T17:23:41.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "中国存储芯片技术加速追赶全球领先水平 韩国产业协会称部分领域差距已缩小至1至3年",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578128.htm",
-   "date": "2026-09-15T17:22:59.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "'Captain EO' at 40: Michael Jackson's wild sci-fi movie that you could only watch at Disney theme parks",
-   "link": "https://www.space.com/entertainment/space-movies-shows/captain-eo-at-40-michael-jacksons-wild-sci-fi-movie-that-you-could-only-watch-at-disney-theme-parks",
-   "date": "2026-09-15T17:00:00.000Z",
+   "title": "US Space Force says it operates weapons in orbit: 'Our aim is deterrence'",
+   "link": "https://www.space.com/space-exploration/satellites/us-space-force-says-it-operates-weapons-in-orbit-our-aim-is-deterrence",
+   "date": "2026-09-15T19:54:56.000Z",
    "source": "Space.com"
   },
   {
-   "title": "How The Oregon Trail became a generational icon",
-   "link": "https://www.theverge.com/podcast/995432/how-the-oregon-trail-became-a-generational-icon",
-   "date": "2026-09-15T16:18:10.000Z",
+   "title": "NASA Invites Media to International Observe the Moon Night",
+   "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-international-observe-the-moon-night/",
+   "date": "2026-09-15T18:55:33.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Kia’s electric van lineup is getting more interesting with reveal of PV7",
+   "link": "https://www.theverge.com/transportation/995608/kia-pv7-electric-van-specs-sale",
+   "date": "2026-09-15T18:39:44.000Z",
    "source": "The Verge"
   },
   {
@@ -51,18 +81,6 @@
    "source": "NASA"
   },
   {
-   "title": "Making rocket fuel out of Mars' thin air: New breakthrough could make it happen",
-   "link": "https://www.space.com/astronomy/mars/making-rocket-fuel-out-of-mars-thin-air-new-breakthrough-could-make-it-happen",
-   "date": "2026-09-15T16:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Vintage Violence is an absurdist crime thriller for phone addicts",
-   "link": "https://www.theverge.com/entertainment/995472/tiff-2026-vintage-violence-the-devils-gentle-monster",
-   "date": "2026-09-15T16:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "Meta One 订阅服务上线：专为“AI 重度用户”、创作者、商业用户准备，最高档每月 499 美元",
    "link": "https://www.ithome.com/1/002/818.htm",
    "date": "2026-09-15T15:57:09.000Z",
@@ -73,24 +91,6 @@
    "link": "https://www.ithome.com/1/002/817.htm",
    "date": "2026-09-15T15:54:12.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "戴尔科技股价涨超 6% 再创历史新高，年内累计大涨约 355%",
-   "link": "https://www.ithome.com/1/002/816.htm",
-   "date": "2026-09-15T15:49:54.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Meta拟整合全系订阅服务推出“Meta One”",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578126.htm",
-   "date": "2026-09-15T15:09:59.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "NASA’s Webb Reveals Dynamic Panorama of Star Formation",
-   "link": "https://science.nasa.gov/missions/webb/nasas-webb-reveals-dynamic-panorama-of-star-formation/",
-   "date": "2026-09-15T14:00:00.000Z",
-   "source": "NASA"
   }
  ]
 }
