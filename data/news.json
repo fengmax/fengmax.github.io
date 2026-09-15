@@ -1,60 +1,48 @@
 {
- "updated": "2026-09-15T01:59:48.249Z",
- "count": 15,
+ "updated": "2026-09-15T09:39:43.609Z",
+ "count": 12,
  "items": [
   {
-   "title": "消息称欧盟计划 9 月 17 日公布《儿童法案》，限制 15 岁以下未成年人访问社媒与视频平台",
-   "link": "https://www.ithome.com/1/002/412.htm",
-   "date": "2026-09-15T01:59:21.000Z",
+   "title": "消息称原鸿蒙智行部分店面将划归赛力斯，只陈列和销售问界车型",
+   "link": "https://www.ithome.com/1/002/694.htm",
+   "date": "2026-09-15T09:30:30.000Z",
    "source": "IT之家"
   },
   {
-   "title": "白宫科技顾问抨击 Anthropic 和 OpenAI：你们要自己制造安全产品，别老想着靠政府干预",
-   "link": "https://www.ithome.com/1/002/409.htm",
-   "date": "2026-09-15T01:52:25.000Z",
+   "title": "为优化性能表现，《007：First Light》Switch 2 版延期至明年 3 月发售",
+   "link": "https://www.ithome.com/1/002/693.htm",
+   "date": "2026-09-15T09:30:09.000Z",
    "source": "IT之家"
   },
   {
-   "title": "苹果为 AppleTV 推送 tvOS 27.0 正式版系统更新：全新播客应用、Apple Music 新增高解析度无损音频",
-   "link": "https://www.ithome.com/1/002/408.htm",
-   "date": "2026-09-15T01:49:52.000Z",
+   "title": "吉利银河战舰 700“AI 全地形硬核 SUV”预售：19.98 万-26.98 万元，还有 38.98 万的陆地方舟版",
+   "link": "https://www.ithome.com/1/002/692.htm",
+   "date": "2026-09-15T09:29:27.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "Microsoft issues emergency Windows 11 update to fix its record-breaking patch",
+   "link": "https://www.theverge.com/news/995302/microsoft-out-of-band-windows-11-update-fix-issues",
+   "date": "2026-09-15T08:54:48.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Volvo’s plug-in hybrid XC60 and XC90 can really go the distance",
+   "link": "https://www.theverge.com/transportation/994792/volvo-xc60-xc90-phev-longest-electric-range",
+   "date": "2026-09-15T07:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "APOD: 2026 September 15 – A Daytime Eclipse: Moon Occults Venus",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-15-a-daytime-eclipse-moon-occults-venus/",
+   "date": "2026-09-15T04:05:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Valve is still figuring out ‘how and when’ to do Steam Deck 2",
    "link": "https://www.theverge.com/games/995256/valve-steam-deck-2-how-and-when",
    "date": "2026-09-15T00:13:47.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "Is Big Tech’s AI slowdown a safety pact or a cartel?",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/995186/is-big-techs-ai-slowdown-a-safety-pact-or-a-cartel",
-   "date": "2026-09-14T22:59:41.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Apple Home’s new security camera features cost as much as $60 a month",
-   "link": "https://www.theverge.com/tech/994949/apple-intelligence-apple-home-icloud-plus-cost-subscription",
-   "date": "2026-09-14T22:28:52.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "苹果Siri AI历经延期后正式开放测试",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577978.htm",
-   "date": "2026-09-14T22:28:26.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "高通骁龙8 Elite Gen 6或重启双代工格局 由三星分担制造",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577976.htm",
-   "date": "2026-09-14T22:26:24.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "测试固件显示苹果正加速测试首款OLED屏MacBook Pro",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1577974.htm",
-   "date": "2026-09-14T22:25:28.000Z",
-   "source": "cnBeta"
   },
   {
    "title": "Webinar 9/23: NASA CSDA Program Update 2026",
@@ -85,12 +73,6 @@
    "link": "https://www.space.com/space-exploration/launches-spacecraft/vega-rocket-launch-europe-flex-sentinel-3c-earth-observation-satellites",
    "date": "2026-09-14T18:00:00.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "NASA Welcomes Djibouti as Newest Artemis Accords Signatory",
-   "link": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-welcomes-djibouti-as-newest-artemis-accords-signatory/",
-   "date": "2026-09-14T16:46:07.000Z",
-   "source": "NASA"
   }
  ]
 }
