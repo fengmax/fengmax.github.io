@@ -1,24 +1,60 @@
 {
- "updated": "2026-09-16T01:50:38.103Z",
- "count": 12,
+ "updated": "2026-09-16T09:33:34.511Z",
+ "count": 15,
  "items": [
   {
-   "title": "努比亚 LiveClip 2 耳夹耳机开售：11mm 复合钛膜、透明 + RGB 设计耳机仓，首发 289 元",
-   "link": "https://www.ithome.com/1/002/884.htm",
-   "date": "2026-09-16T01:49:09.000Z",
+   "title": "迈凯伦计划未来 6 年在英国投资 5 亿英镑，创造 1000 个就业岗位",
+   "link": "https://www.ithome.com/1/003/215.htm",
+   "date": "2026-09-16T09:33:13.000Z",
    "source": "IT之家"
   },
   {
-   "title": "空客在华第二条总装线顺利交付首架飞机 A320neo，由中国东航接收运营",
-   "link": "https://www.ithome.com/1/002/879.htm",
-   "date": "2026-09-16T01:41:58.000Z",
+   "title": "消息称苹果 iPhone 18 Pro 系列首销“卖爆”：Pro Max 销量最高、勃艮第酒红色选配 TOP1",
+   "link": "https://www.ithome.com/1/003/214.htm",
+   "date": "2026-09-16T09:32:08.000Z",
    "source": "IT之家"
   },
   {
-   "title": "惠普发布 ZBook Ultra G3a 16 移动工作站：支持本地运行 300B LLM",
-   "link": "https://www.ithome.com/1/002/877.htm",
-   "date": "2026-09-16T01:39:38.000Z",
+   "title": "荣耀 Magic9 Pro Max 手机现身 Geekbench，骁龙 8 Elite Gen6 Pro（SM8975）芯片",
+   "link": "https://www.ithome.com/1/003/207.htm",
+   "date": "2026-09-16T09:27:39.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "内存荒持续至2027年 中小手机笔记本厂商开始花式自救",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578270.htm",
+   "date": "2026-09-16T09:08:49.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "华为吸血赛力斯？KOL们快打起来了",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578268.htm",
+   "date": "2026-09-16T09:08:31.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "欧盟提议加拿大成为欧盟首个“准成员国”",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578266.htm",
+   "date": "2026-09-16T09:07:15.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Meta is reportedly ready to launch less pervy smart glasses",
+   "link": "https://www.theverge.com/tech/996138/meta-luna-ray-ban-smart-glasses-camera-free-connect",
+   "date": "2026-09-16T08:54:46.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "APOD: 2026 September 16 – Webb’s View of M64",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-16-webbs-view-of-m64/",
+   "date": "2026-09-16T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "The Boox Palma 3 gets stylus support and a sleek redesign",
+   "link": "https://www.theverge.com/tech/995826/boox-palma-3-e-ink-reader-pocket-smartphone-android-16",
+   "date": "2026-09-16T02:00:00.000Z",
+   "source": "The Verge"
   },
   {
    "title": "The EOS R8 Mark II is Canon’s lightest full-frame camera with stabilization",
@@ -27,40 +63,16 @@
    "source": "The Verge"
   },
   {
-   "title": "AI and data centers are incredibly unpopular in every poll",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/995917/data-center-nyt-midterm-poll-september",
-   "date": "2026-09-15T23:34:25.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "OpenAI首席执行官Altman“有信心”AI行业能够自行保障安全",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578160.htm",
-   "date": "2026-09-15T22:17:00.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "微软定于10月7日举行特别发布会 Surface新品与Windows AI生态或迎重要更新",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578158.htm",
-   "date": "2026-09-15T22:16:21.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "传三星计划上调DRAM与NAND闪存报价",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578156.htm",
-   "date": "2026-09-15T22:15:02.000Z",
-   "source": "cnBeta"
+   "title": "NASA Ames Stars of the Month: September 2026",
+   "link": "https://www.nasa.gov/general/nasa-ames-stars-of-the-month-september-2026/",
+   "date": "2026-09-15T23:46:11.000Z",
+   "source": "NASA"
   },
   {
    "title": "22 years of science! NASA's Roman Space Telescope doubles its lifetime with super-precise engine burn",
    "link": "https://www.space.com/astronomy/22-years-of-science-nasas-roman-space-telescope-doubles-its-lifetime-with-super-precise-engine-burn",
    "date": "2026-09-15T21:24:37.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "Microsoft announces Windows and Surface event for October 7th",
-   "link": "https://www.theverge.com/news/994714/microsoft-windows-surface-event-october-7-san-francisco",
-   "date": "2026-09-15T20:36:59.000Z",
-   "source": "The Verge"
   },
   {
    "title": "New 'StarCraft' game announced, but it's a grim open-world shooter and it's not coming until 2030",
@@ -73,6 +85,12 @@
    "link": "https://www.space.com/space-exploration/satellites/us-space-force-says-it-operates-weapons-in-orbit-our-aim-is-deterrence",
    "date": "2026-09-15T19:54:56.000Z",
    "source": "Space.com"
+  },
+  {
+   "title": "NASA Invites Media to International Observe the Moon Night",
+   "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-international-observe-the-moon-night/",
+   "date": "2026-09-15T18:55:33.000Z",
+   "source": "NASA"
   }
  ]
 }
