@@ -1,47 +1,77 @@
 {
- "updated": "2026-09-16T09:33:34.511Z",
+ "updated": "2026-09-16T14:24:21.406Z",
  "count": 15,
  "items": [
   {
-   "title": "迈凯伦计划未来 6 年在英国投资 5 亿英镑，创造 1000 个就业岗位",
-   "link": "https://www.ithome.com/1/003/215.htm",
-   "date": "2026-09-16T09:33:13.000Z",
+   "title": "微软 AI 负责人苏莱曼向 Anthropic 开炮：别让 Claude 去模仿人类意识",
+   "link": "https://www.ithome.com/1/003/313.htm",
+   "date": "2026-09-16T14:19:26.000Z",
    "source": "IT之家"
   },
   {
-   "title": "消息称苹果 iPhone 18 Pro 系列首销“卖爆”：Pro Max 销量最高、勃艮第酒红色选配 TOP1",
-   "link": "https://www.ithome.com/1/003/214.htm",
-   "date": "2026-09-16T09:32:08.000Z",
+   "title": "华为发布《智能世界 2035》最新报告，预测到 2035 年全球年度 Token 消耗量将增长 10 万倍",
+   "link": "https://www.ithome.com/1/003/312.htm",
+   "date": "2026-09-16T14:15:07.000Z",
    "source": "IT之家"
   },
   {
-   "title": "荣耀 Magic9 Pro Max 手机现身 Geekbench，骁龙 8 Elite Gen6 Pro（SM8975）芯片",
-   "link": "https://www.ithome.com/1/003/207.htm",
-   "date": "2026-09-16T09:27:39.000Z",
+   "title": "诺和诺德与 Anthropic 达成合作，用 Claude 大模型加速新药研发",
+   "link": "https://www.ithome.com/1/003/311.htm",
+   "date": "2026-09-16T14:12:33.000Z",
    "source": "IT之家"
   },
   {
-   "title": "内存荒持续至2027年 中小手机笔记本厂商开始花式自救",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578270.htm",
-   "date": "2026-09-16T09:08:49.000Z",
+   "title": "德勤调查发现英国雇员正在背着老板偷偷使用AI",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578290.htm",
+   "date": "2026-09-16T14:11:58.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "华为吸血赛力斯？KOL们快打起来了",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578268.htm",
-   "date": "2026-09-16T09:08:31.000Z",
+   "title": "Chrome与Firefox本月合力修复115项系统漏洞与安全隐患",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578288.htm",
+   "date": "2026-09-16T14:07:34.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "欧盟提议加拿大成为欧盟首个“准成员国”",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578266.htm",
-   "date": "2026-09-16T09:07:15.000Z",
+   "title": "Colossal cosmic cloud revealed in insane new image from the James Webb Space Telescope | Space photo of the day for Sept. 16, 2026",
+   "link": "https://www.space.com/astronomy/james-webb-space-telescope/colossal-cosmic-cloud-revealed-in-insane-new-image-from-the-james-webb-space-telescope-space-photo-of-the-day-for-sept-16-2026",
+   "date": "2026-09-16T14:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "'Lost in Space': Celebrity astrophysicist Neil deGrasse Tyson on his lavish new encyclopedia of the cosmos (interview)",
+   "link": "https://www.space.com/entertainment/space-books/lost-in-space-celebrity-astrophysicist-neil-degrasse-tyson-on-his-lavish-new-encyclopedia-of-the-cosmos-interview",
+   "date": "2026-09-16T14:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "男子拆毁警方3D打印假监控设备后遭三项重罪指控",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578286.htm",
+   "date": "2026-09-16T13:51:04.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Meta is reportedly ready to launch less pervy smart glasses",
-   "link": "https://www.theverge.com/tech/996138/meta-luna-ray-ban-smart-glasses-camera-free-connect",
-   "date": "2026-09-16T08:54:46.000Z",
+   "title": "Steven Spielberg's alien conspiracy movie 'Disclosure Day' finally hits a streaming service in October",
+   "link": "https://www.space.com/entertainment/space-movies-shows/steven-spielbergs-alien-conspiracy-movie-disclosure-day-finally-hits-streaming-service-in-october",
+   "date": "2026-09-16T13:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "A brief history of AI executives calling for regulation",
+   "link": "https://www.theverge.com/policy/995534/a-brief-history-of-ai-executives-calling-for-regulation",
+   "date": "2026-09-16T12:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Nintendo opens up Fire Emblem with the gigantic Fortune’s Weave",
+   "link": "https://www.theverge.com/games/995539/fire-emblem-fortunes-weave-switch-2-review",
+   "date": "2026-09-16T12:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "The iPhone 18 Pro’s big camera update is all about the small gains",
+   "link": "https://www.theverge.com/tech/995945/iphone-18-pro-max-review-camera-aperture",
+   "date": "2026-09-16T12:00:00.000Z",
    "source": "The Verge"
   },
   {
@@ -51,40 +81,10 @@
    "source": "NASA"
   },
   {
-   "title": "The Boox Palma 3 gets stylus support and a sleek redesign",
-   "link": "https://www.theverge.com/tech/995826/boox-palma-3-e-ink-reader-pocket-smartphone-android-16",
-   "date": "2026-09-16T02:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "The EOS R8 Mark II is Canon’s lightest full-frame camera with stabilization",
-   "link": "https://www.theverge.com/tech/995430/canon-eos-r8-mark-11-full-frame-digital-camera-pricing-availability",
-   "date": "2026-09-16T01:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "NASA Ames Stars of the Month: September 2026",
    "link": "https://www.nasa.gov/general/nasa-ames-stars-of-the-month-september-2026/",
    "date": "2026-09-15T23:46:11.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "22 years of science! NASA's Roman Space Telescope doubles its lifetime with super-precise engine burn",
-   "link": "https://www.space.com/astronomy/22-years-of-science-nasas-roman-space-telescope-doubles-its-lifetime-with-super-precise-engine-burn",
-   "date": "2026-09-15T21:24:37.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "New 'StarCraft' game announced, but it's a grim open-world shooter and it's not coming until 2030",
-   "link": "https://www.space.com/entertainment/space-games/new-starcraft-game-announced-but-its-a-grim-open-world-shooter-and-its-not-coming-until-2030",
-   "date": "2026-09-15T20:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "US Space Force says it operates weapons in orbit: 'Our aim is deterrence'",
-   "link": "https://www.space.com/space-exploration/satellites/us-space-force-says-it-operates-weapons-in-orbit-our-aim-is-deterrence",
-   "date": "2026-09-15T19:54:56.000Z",
-   "source": "Space.com"
   },
   {
    "title": "NASA Invites Media to International Observe the Moon Night",
