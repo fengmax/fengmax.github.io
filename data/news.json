@@ -1,12 +1,60 @@
 {
- "updated": "2026-09-17T18:38:34.037Z",
+ "updated": "2026-09-17T22:28:42.603Z",
  "count": 12,
  "items": [
   {
-   "title": "大众ID.3系列迎来GTI高性能化升级 326马力后驱电动",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578458.htm",
-   "date": "2026-09-17T18:19:49.000Z",
+   "title": "欧盟拟全面禁止13岁以下儿童使用社交媒体",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578470.htm",
+   "date": "2026-09-17T22:24:53.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "苹果在美国纽约举办摄影展，展示利用 iPhone 18 Pro 手机拍摄的作品",
+   "link": "https://www.ithome.com/1/003/877.htm",
+   "date": "2026-09-17T22:21:23.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "新型安卓恶意木马 RatHat 现身：引入 AI 识别能力，可帮助黑客快速分析 / 操作受感染设备",
+   "link": "https://www.ithome.com/1/003/876.htm",
+   "date": "2026-09-17T22:15:33.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "联合国携手Google重构全球统计数据库 更加适应AI工具和自然语言交互环境",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578468.htm",
+   "date": "2026-09-17T22:08:31.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "三星电子将不再自行扩产传统DDR5模组 新增产能全部转向外包",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578466.htm",
+   "date": "2026-09-17T22:05:55.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "NASA Awards Launch Services for StarBurst Gamma-Ray Detector",
+   "link": "https://www.nasa.gov/news-release/nasa-awards-launch-services-for-starburst-gamma-ray-detector/",
+   "date": "2026-09-17T20:37:09.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "The AI Superintelligence Slowdown",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/996923/ai-safety-slow-openai-anthropic",
+   "date": "2026-09-17T19:28:24.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Claude Code relaunches Projects to manage multiple AI agents in the cloud",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/997134/anthropic-claude-code-projects",
+   "date": "2026-09-17T18:58:05.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "NASA Invites Media to SpaceX’s 35th Resupply Launch to Space Station",
+   "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-spacexs-35th-resupply-launch-to-space-station/",
+   "date": "2026-09-17T18:32:30.000Z",
+   "source": "NASA"
   },
   {
    "title": "Save $30 or more on a refurbished Apple TV 4K",
@@ -15,63 +63,15 @@
    "source": "The Verge"
   },
   {
-   "title": "罗技未发布新品X3 Superstrike鼠标提前流入买家手中",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578456.htm",
-   "date": "2026-09-17T17:13:57.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "英国国王召集峰会聚焦AI风险 黄仁勋称不够安全的产品应推迟推出",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578454.htm",
-   "date": "2026-09-17T16:44:51.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "苹果 Apple Watch Series 12 与 Ultra 4 今日开售，2999/6499 元起",
    "link": "https://www.ithome.com/1/003/874.htm",
    "date": "2026-09-17T16:00:15.000Z",
    "source": "IT之家"
   },
   {
-   "title": "苹果 AirPods 5 耳机今日正式开售：999 元起标配主动降噪，部分地区可享国补",
-   "link": "https://www.ithome.com/1/003/873.htm",
-   "date": "2026-09-17T16:00:14.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "苹果 iPhone 18 Pro/Max 系列今日正式开售，国行 9999 元起",
-   "link": "https://www.ithome.com/1/003/872.htm",
-   "date": "2026-09-17T16:00:14.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Xbox’s clever disc-to-digital feature was 15 years in the making",
-   "link": "https://www.theverge.com/tech/996826/microsoft-xbox-disc-to-digital-history-notepad",
-   "date": "2026-09-17T16:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "NASA Unveils Enterprise, the First Space Shuttle",
    "link": "https://www.nasa.gov/image-article/nasa-unveils-enterprise-the-first-space-shuttle/",
    "date": "2026-09-17T15:22:42.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Camp Snap’s 110D gives slim retro film cameras a digital upgrade",
-   "link": "https://www.theverge.com/tech/996453/camp-snap-110d-digital-camera-retro-horizontal-kodak-100-film",
-   "date": "2026-09-17T15:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "APOD: 2026 September 17 – A Treasure Chest in the Carina Nebula",
-   "link": "https://science.nasa.gov/image-article/apod-2026-september-17-a-treasure-chest-in-the-carina-nebula/",
-   "date": "2026-09-17T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Summer Goes Out With a Heat Dome",
-   "link": "https://science.nasa.gov/earth/earth-observatory/summer-goes-out-with-a-heat-dome/",
-   "date": "2026-09-17T04:01:00.000Z",
    "source": "NASA"
   }
  ]
