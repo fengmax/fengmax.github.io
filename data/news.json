@@ -1,42 +1,60 @@
 {
- "updated": "2026-09-18T01:41:49.654Z",
- "count": 9,
+ "updated": "2026-09-18T09:15:10.260Z",
+ "count": 12,
  "items": [
   {
-   "title": "飞利浦 Evnia 34M2C8600P 显示器发布：RGB 条纹子像素 QD-OLED，1800R UWQHD 280Hz",
-   "link": "https://www.ithome.com/1/003/932.htm",
-   "date": "2026-09-18T01:41:09.000Z",
+   "title": "国家邮政局：快递业务收入增速连续跑赢业务量，突破万亿元较去年提前一个月",
+   "link": "https://www.ithome.com/1/004/231.htm",
+   "date": "2026-09-18T09:12:28.000Z",
    "source": "IT之家"
   },
   {
-   "title": "Steam 喜加一：原价 29 元太空即时战略游戏《Space Menace》免费领",
-   "link": "https://www.ithome.com/1/003/931.htm",
-   "date": "2026-09-18T01:40:03.000Z",
+   "title": "国内号码也可能是境外诈骗，安徽警方查获 40 多万张手机卡",
+   "link": "https://www.ithome.com/1/004/215.htm",
+   "date": "2026-09-18T09:03:24.000Z",
    "source": "IT之家"
   },
   {
-   "title": "国产大飞机 C919 两款研制新机型模型亮相，C929 正在稳步设计阶段",
-   "link": "https://www.ithome.com/1/003/930.htm",
-   "date": "2026-09-18T01:36:18.000Z",
+   "title": "又一家车企听劝了：沃尔沃将恢复更多车内实体按键",
+   "link": "https://www.ithome.com/1/004/214.htm",
+   "date": "2026-09-18T08:59:39.000Z",
    "source": "IT之家"
   },
   {
-   "title": "欧盟拟全面禁止13岁以下儿童使用社交媒体",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578470.htm",
-   "date": "2026-09-17T22:24:53.000Z",
+   "title": "三个月后的AI有多猛 连顶尖研究员都不敢预测了",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578560.htm",
+   "date": "2026-09-18T07:49:25.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "联合国携手Google重构全球统计数据库 更加适应AI工具和自然语言交互环境",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578468.htm",
-   "date": "2026-09-17T22:08:31.000Z",
+   "title": "微软：Windows 11变快用户已能感受到",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578558.htm",
+   "date": "2026-09-18T07:48:51.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "三星电子将不再自行扩产传统DDR5模组 新增产能全部转向外包",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578466.htm",
-   "date": "2026-09-17T22:05:55.000Z",
+   "title": "美民主党议员称若中期选举获胜将调查特朗普家族及马斯克",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578556.htm",
+   "date": "2026-09-18T07:47:50.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "APOD: 2026 September 18 – Messier 33: The Triangulum Galaxy",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-18-messier-33-the-triangulum-galaxy/",
+   "date": "2026-09-18T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Waymo says Singapore will be its next international robotaxi city",
+   "link": "https://www.theverge.com/transportation/997091/waymo-singapore-robotaxi-launch-2027",
+   "date": "2026-09-18T02:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "NASA Awards Launch Services for StarBurst Gamma-Ray Detector",
+   "link": "https://www.nasa.gov/news-release/nasa-awards-launch-services-for-starburst-gamma-ray-detector/",
+   "date": "2026-09-17T20:37:09.000Z",
+   "source": "NASA"
   },
   {
    "title": "The AI Superintelligence Slowdown",
@@ -51,10 +69,10 @@
    "source": "The Verge"
   },
   {
-   "title": "Save $30 or more on a refurbished Apple TV 4K",
-   "link": "https://www.theverge.com/gadgets/997009/refurbished-apple-tv-4k-ring-doorbell-deal-sale",
-   "date": "2026-09-17T17:14:07.000Z",
-   "source": "The Verge"
+   "title": "NASA Invites Media to SpaceX’s 35th Resupply Launch to Space Station",
+   "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-spacexs-35th-resupply-launch-to-space-station/",
+   "date": "2026-09-17T18:32:30.000Z",
+   "source": "NASA"
   }
  ]
 }
