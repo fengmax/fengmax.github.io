@@ -1,24 +1,30 @@
 {
- "updated": "2026-09-17T22:28:42.603Z",
- "count": 12,
+ "updated": "2026-09-18T01:41:49.654Z",
+ "count": 9,
  "items": [
+  {
+   "title": "飞利浦 Evnia 34M2C8600P 显示器发布：RGB 条纹子像素 QD-OLED，1800R UWQHD 280Hz",
+   "link": "https://www.ithome.com/1/003/932.htm",
+   "date": "2026-09-18T01:41:09.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Steam 喜加一：原价 29 元太空即时战略游戏《Space Menace》免费领",
+   "link": "https://www.ithome.com/1/003/931.htm",
+   "date": "2026-09-18T01:40:03.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "国产大飞机 C919 两款研制新机型模型亮相，C929 正在稳步设计阶段",
+   "link": "https://www.ithome.com/1/003/930.htm",
+   "date": "2026-09-18T01:36:18.000Z",
+   "source": "IT之家"
+  },
   {
    "title": "欧盟拟全面禁止13岁以下儿童使用社交媒体",
    "link": "https://www.cnbeta.com.tw/articles/tech/1578470.htm",
    "date": "2026-09-17T22:24:53.000Z",
    "source": "cnBeta"
-  },
-  {
-   "title": "苹果在美国纽约举办摄影展，展示利用 iPhone 18 Pro 手机拍摄的作品",
-   "link": "https://www.ithome.com/1/003/877.htm",
-   "date": "2026-09-17T22:21:23.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "新型安卓恶意木马 RatHat 现身：引入 AI 识别能力，可帮助黑客快速分析 / 操作受感染设备",
-   "link": "https://www.ithome.com/1/003/876.htm",
-   "date": "2026-09-17T22:15:33.000Z",
-   "source": "IT之家"
   },
   {
    "title": "联合国携手Google重构全球统计数据库 更加适应AI工具和自然语言交互环境",
@@ -33,12 +39,6 @@
    "source": "cnBeta"
   },
   {
-   "title": "NASA Awards Launch Services for StarBurst Gamma-Ray Detector",
-   "link": "https://www.nasa.gov/news-release/nasa-awards-launch-services-for-starburst-gamma-ray-detector/",
-   "date": "2026-09-17T20:37:09.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "The AI Superintelligence Slowdown",
    "link": "https://www.theverge.com/ai-artificial-intelligence/996923/ai-safety-slow-openai-anthropic",
    "date": "2026-09-17T19:28:24.000Z",
@@ -51,28 +51,10 @@
    "source": "The Verge"
   },
   {
-   "title": "NASA Invites Media to SpaceX’s 35th Resupply Launch to Space Station",
-   "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-spacexs-35th-resupply-launch-to-space-station/",
-   "date": "2026-09-17T18:32:30.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "Save $30 or more on a refurbished Apple TV 4K",
    "link": "https://www.theverge.com/gadgets/997009/refurbished-apple-tv-4k-ring-doorbell-deal-sale",
    "date": "2026-09-17T17:14:07.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "苹果 Apple Watch Series 12 与 Ultra 4 今日开售，2999/6499 元起",
-   "link": "https://www.ithome.com/1/003/874.htm",
-   "date": "2026-09-17T16:00:15.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "NASA Unveils Enterprise, the First Space Shuttle",
-   "link": "https://www.nasa.gov/image-article/nasa-unveils-enterprise-the-first-space-shuttle/",
-   "date": "2026-09-17T15:22:42.000Z",
-   "source": "NASA"
   }
  ]
 }
