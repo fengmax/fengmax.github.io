@@ -1,42 +1,54 @@
 {
- "updated": "2026-09-18T09:15:10.260Z",
+ "updated": "2026-09-18T13:55:30.208Z",
  "count": 12,
  "items": [
   {
-   "title": "国家邮政局：快递业务收入增速连续跑赢业务量，突破万亿元较去年提前一个月",
-   "link": "https://www.ithome.com/1/004/231.htm",
-   "date": "2026-09-18T09:12:28.000Z",
+   "title": "印度半导体新政出台两个月，吸引最高 120 亿美元投资承诺",
+   "link": "https://www.ithome.com/1/004/332.htm",
+   "date": "2026-09-18T13:51:05.000Z",
    "source": "IT之家"
   },
   {
-   "title": "国内号码也可能是境外诈骗，安徽警方查获 40 多万张手机卡",
-   "link": "https://www.ithome.com/1/004/215.htm",
-   "date": "2026-09-18T09:03:24.000Z",
+   "title": "vivo X300 Ultra 手机全版本调价：涨 500-2000 元，7499 元起",
+   "link": "https://www.ithome.com/1/004/331.htm",
+   "date": "2026-09-18T13:45:14.000Z",
    "source": "IT之家"
   },
   {
-   "title": "又一家车企听劝了：沃尔沃将恢复更多车内实体按键",
-   "link": "https://www.ithome.com/1/004/214.htm",
-   "date": "2026-09-18T08:59:39.000Z",
+   "title": "“AI 教父”辛顿参与联署公开信：科技巨头应保证第三方评估人员工作无干预、受保护",
+   "link": "https://www.ithome.com/1/004/330.htm",
+   "date": "2026-09-18T13:39:52.000Z",
    "source": "IT之家"
   },
   {
-   "title": "三个月后的AI有多猛 连顶尖研究员都不敢预测了",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578560.htm",
-   "date": "2026-09-18T07:49:25.000Z",
+   "title": "无CCC标识充电宝纳入禁售目录 市场监管总局开展为期3个月集中整治",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578610.htm",
+   "date": "2026-09-18T13:38:26.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "微软：Windows 11变快用户已能感受到",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578558.htm",
-   "date": "2026-09-18T07:48:51.000Z",
+   "title": "NASA’s Hubble Spots an Out-of-Sync Galaxy",
+   "link": "https://science.nasa.gov/uncategorized/nasas-hubble-spots-an-out-of-sync-galaxy/",
+   "date": "2026-09-18T13:38:12.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "智谱ZCode就代码库数据上传致歉：已修复 将开源代码库接受第三方审查",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578608.htm",
+   "date": "2026-09-18T13:37:21.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "美民主党议员称若中期选举获胜将调查特朗普家族及马斯克",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578556.htm",
-   "date": "2026-09-18T07:47:50.000Z",
+   "title": "Ubuntu 26.10调整内存耗尽应对机制 关键桌面服务将获得更高保护",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578606.htm",
+   "date": "2026-09-18T13:18:55.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "Flash floods can strike without warning — this new technology could change that",
+   "link": "https://www.theverge.com/science/997083/flash-flood-warning-tacls-satellite-machine-learning",
+   "date": "2026-09-18T11:00:00.000Z",
+   "source": "The Verge"
   },
   {
    "title": "APOD: 2026 September 18 – Messier 33: The Triangulum Galaxy",
@@ -61,18 +73,6 @@
    "link": "https://www.theverge.com/ai-artificial-intelligence/996923/ai-safety-slow-openai-anthropic",
    "date": "2026-09-17T19:28:24.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "Claude Code relaunches Projects to manage multiple AI agents in the cloud",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/997134/anthropic-claude-code-projects",
-   "date": "2026-09-17T18:58:05.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "NASA Invites Media to SpaceX’s 35th Resupply Launch to Space Station",
-   "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-spacexs-35th-resupply-launch-to-space-station/",
-   "date": "2026-09-17T18:32:30.000Z",
-   "source": "NASA"
   }
  ]
 }
