@@ -1,24 +1,48 @@
 {
- "updated": "2026-09-18T17:55:51.267Z",
+ "updated": "2026-09-18T21:58:16.666Z",
  "count": 12,
  "items": [
   {
-   "title": "Joby完成横跨美国3100英里自主飞行 全程无人接管",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578644.htm",
-   "date": "2026-09-18T17:29:02.000Z",
+   "title": "格芯与美满电子深化合作 加速硅光子技术在大规模数据中心落地",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578660.htm",
+   "date": "2026-09-18T20:35:29.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "比特币升破8万美元 投资者消化美国加密货币法案受挫及美联储加息",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578642.htm",
-   "date": "2026-09-18T17:28:28.000Z",
+   "title": "NASA Invites Media to Albania Artemis Accords Signing Ceremony",
+   "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-albania-artemis-accords-signing-ceremony/",
+   "date": "2026-09-18T19:56:08.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "美版iPhone 18 Pro Max确认搭载高通Snapdragon X80基带",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578658.htm",
+   "date": "2026-09-18T19:45:15.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "创业公司Crusoe融资39亿美元打造“Spark”模块化数据中心",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578640.htm",
-   "date": "2026-09-18T17:09:21.000Z",
+   "title": "欧盟首个全规模二氧化碳封存项目投入运营 首期年处理能力40万吨",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578656.htm",
+   "date": "2026-09-18T19:33:56.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "Virginia governor creates an AI task force and moves to restrain data centers",
+   "link": "https://www.theverge.com/policy/997573/virginia-governor-spanberger-data-center-ai-task-force",
+   "date": "2026-09-18T18:29:17.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Disney’s first CTO is Character.AI’s former CEO",
+   "link": "https://www.theverge.com/entertainment/997555/karandeep-anand-disney-character-ai",
+   "date": "2026-09-18T18:27:04.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "NASA-JAXA XRISM Mission Sees Pulsar Gathering Companion’s ‘Wind’",
+   "link": "https://science.nasa.gov/missions/xrism/xrism-sees-pulsar-gathering-companions-wind/",
+   "date": "2026-09-18T18:02:53.000Z",
+   "source": "NASA"
   },
   {
    "title": "The real story of the iPhone 18 Pro&#8217;s camera",
@@ -27,27 +51,9 @@
    "source": "The Verge"
   },
   {
-   "title": "Gavin Newsom is pushing for an AI kill switch",
-   "link": "https://www.theverge.com/policy/997516/california-governor-newsom-ai-kill-switch",
-   "date": "2026-09-18T17:04:51.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "What Hollywood thinks about existential AI warnings",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/997358/what-hollywood-thinks-about-existential-ai-warnings",
-   "date": "2026-09-18T16:35:19.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "NASA Awards SpaceX Three Crew Flights to Space Station",
    "link": "https://www.nasa.gov/missions/station/commercial-crew/nasa-awards-spacex-three-crew-flights-to-space-station/",
    "date": "2026-09-18T16:02:31.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "COSI Telescope Comes Together",
-   "link": "https://www.nasa.gov/image-article/cosi-telescope-comes-together/",
-   "date": "2026-09-18T15:45:03.000Z",
    "source": "NASA"
   },
   {
@@ -67,12 +73,6 @@
    "link": "https://www.ithome.com/1/004/340.htm",
    "date": "2026-09-18T15:09:55.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "NASA’s Hubble Spots an Out-of-Sync Galaxy",
-   "link": "https://science.nasa.gov/uncategorized/nasas-hubble-spots-an-out-of-sync-galaxy/",
-   "date": "2026-09-18T13:38:12.000Z",
-   "source": "NASA"
   }
  ]
 }
