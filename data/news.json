@@ -1,30 +1,36 @@
 {
- "updated": "2026-09-19T17:30:39.954Z",
- "count": 12,
+ "updated": "2026-09-19T21:49:10.691Z",
+ "count": 9,
  "items": [
+  {
+   "title": "Meta’s Muse is creepy, but maybe not for the reasons you think",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/997833/meta-muse-creepy",
+   "date": "2026-09-19T20:44:40.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "液氮极冷测试揭示A20 Pro结合新型蒸发腔散热系统的巅峰性能",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578766.htm",
+   "date": "2026-09-19T18:11:41.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "研究发现过多RNA积累或导致线粒体受损并耗尽细胞能量",
+   "link": "https://www.cnbeta.com.tw/articles/science/1578764.htm",
+   "date": "2026-09-19T18:02:38.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "AMD发布EPYC Venice性能白皮书 宣称较英伟达Vera最高快2.24倍",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578762.htm",
+   "date": "2026-09-19T18:02:02.000Z",
+   "source": "cnBeta"
+  },
   {
    "title": "Trump treads further on free speech with new journalist bans",
    "link": "https://www.theverge.com/policy/997805/trump-cnn-msnow-politico-ban",
    "date": "2026-09-19T17:10:21.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "科学家证实自然酶可精准读取并转录八字母DNA",
-   "link": "https://www.cnbeta.com.tw/articles/science/1578756.htm",
-   "date": "2026-09-19T15:55:50.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "台积电高管：AI无法独立设计1.4纳米级先进制程 人类工程师仍不可替代",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578754.htm",
-   "date": "2026-09-19T15:54:18.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "华硕版Googlebook发布前再度曝光 Google新一代笔记本生态渐近",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578752.htm",
-   "date": "2026-09-19T15:51:13.000Z",
-   "source": "cnBeta"
   },
   {
    "title": "消息称索尼延续谨慎供货策略，PS5 Pro 直到明年年初都将供不应求",
@@ -45,34 +51,10 @@
    "source": "The Verge"
   },
   {
-   "title": "Anamanaguchi has ‘too goddamn many’ browser tabs open right now",
-   "link": "https://www.theverge.com/entertainment/996855/anamanaguchi-anyway-yeah-i-guess-interview-music",
-   "date": "2026-09-19T15:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "美联邦航空管理局斥资 8.75 亿美元打造 AI 空管系统，治理空中交通问题",
    "link": "https://www.ithome.com/1/004/569.htm",
    "date": "2026-09-19T14:55:04.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "APOD: 2026 September 19 – A Zodiacal Night",
-   "link": "https://science.nasa.gov/image-article/apod-2026-september-19-a-zodiacal-night/",
-   "date": "2026-09-19T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Invites Media to Albania Artemis Accords Signing Ceremony",
-   "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-albania-artemis-accords-signing-ceremony/",
-   "date": "2026-09-18T19:56:08.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA-JAXA XRISM Mission Sees Pulsar Gathering Companion’s ‘Wind’",
-   "link": "https://science.nasa.gov/missions/xrism/xrism-sees-pulsar-gathering-companions-wind/",
-   "date": "2026-09-18T18:02:53.000Z",
-   "source": "NASA"
   }
  ]
 }
