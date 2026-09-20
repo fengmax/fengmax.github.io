@@ -1,30 +1,48 @@
 {
- "updated": "2026-09-19T21:49:10.691Z",
- "count": 9,
+ "updated": "2026-09-20T01:48:42.972Z",
+ "count": 12,
  "items": [
+  {
+   "title": "鸿蒙智行智界 RX 轿跑 SUV 新增 81 度电池版本：保留最核心操控体验，预售价 26.98 万元起",
+   "link": "https://www.ithome.com/1/004/658.htm",
+   "date": "2026-09-20T01:47:47.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "荣耀 Magic9 系列手机搭载第三代自研射频增强芯片 C3，支持 356 个频段组合智能切换",
+   "link": "https://www.ithome.com/1/004/645.htm",
+   "date": "2026-09-20T01:42:29.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "QQ 鸿蒙版 App 获 9.2.70 邀测升级，新增设置仅聊天的好友等功能",
+   "link": "https://www.ithome.com/1/004/638.htm",
+   "date": "2026-09-20T01:40:53.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "微软紧急发布补丁解决Windows Defender虚假停用提示缺陷",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1578776.htm",
+   "date": "2026-09-19T22:35:20.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "研究人员发现耳机“远程窃听”新方式：最远30米外可还原音频内容",
+   "link": "https://www.cnbeta.com.tw/articles/science/1578774.htm",
+   "date": "2026-09-19T22:34:54.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "科学家实现在熔融状态下精准改写玻璃化学特性",
+   "link": "https://www.cnbeta.com.tw/articles/science/1578772.htm",
+   "date": "2026-09-19T22:34:13.000Z",
+   "source": "cnBeta"
+  },
   {
    "title": "Meta’s Muse is creepy, but maybe not for the reasons you think",
    "link": "https://www.theverge.com/ai-artificial-intelligence/997833/meta-muse-creepy",
    "date": "2026-09-19T20:44:40.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "液氮极冷测试揭示A20 Pro结合新型蒸发腔散热系统的巅峰性能",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578766.htm",
-   "date": "2026-09-19T18:11:41.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "研究发现过多RNA积累或导致线粒体受损并耗尽细胞能量",
-   "link": "https://www.cnbeta.com.tw/articles/science/1578764.htm",
-   "date": "2026-09-19T18:02:38.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "AMD发布EPYC Venice性能白皮书 宣称较英伟达Vera最高快2.24倍",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1578762.htm",
-   "date": "2026-09-19T18:02:02.000Z",
-   "source": "cnBeta"
   },
   {
    "title": "Trump treads further on free speech with new journalist bans",
@@ -33,28 +51,28 @@
    "source": "The Verge"
   },
   {
-   "title": "消息称索尼延续谨慎供货策略，PS5 Pro 直到明年年初都将供不应求",
-   "link": "https://www.ithome.com/1/004/572.htm",
-   "date": "2026-09-19T15:48:49.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "迪士尼首次任命首席技术官：挖来原 Character.AI 首席执行官阿南德，强化 AI 布局",
-   "link": "https://www.ithome.com/1/004/570.htm",
-   "date": "2026-09-19T15:31:54.000Z",
-   "source": "IT之家"
-  },
-  {
    "title": "Gemini went rogue, hacked three companies, and Google hid it",
    "link": "https://www.theverge.com/ai-artificial-intelligence/997795/google-gemini-rogue-ai-hack",
    "date": "2026-09-19T15:25:03.000Z",
    "source": "The Verge"
   },
   {
-   "title": "美联邦航空管理局斥资 8.75 亿美元打造 AI 空管系统，治理空中交通问题",
-   "link": "https://www.ithome.com/1/004/569.htm",
-   "date": "2026-09-19T14:55:04.000Z",
-   "source": "IT之家"
+   "title": "APOD: 2026 September 19 – A Zodiacal Night",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-19-a-zodiacal-night/",
+   "date": "2026-09-19T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA Invites Media to Albania Artemis Accords Signing Ceremony",
+   "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-albania-artemis-accords-signing-ceremony/",
+   "date": "2026-09-18T19:56:08.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA-JAXA XRISM Mission Sees Pulsar Gathering Companion’s ‘Wind’",
+   "link": "https://science.nasa.gov/missions/xrism/xrism-sees-pulsar-gathering-companions-wind/",
+   "date": "2026-09-18T18:02:53.000Z",
+   "source": "NASA"
   }
  ]
 }
