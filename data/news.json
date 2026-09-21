@@ -1,60 +1,78 @@
 {
- "updated": "2026-09-21T10:15:12.987Z",
- "count": 9,
+ "updated": "2026-09-21T19:46:15.778Z",
+ "count": 12,
  "items": [
   {
-   "title": "英伟达黄仁勋回应加州“亿万富翁 5% 税”提案：交税越多越开心，我不怕交税就怕贫穷",
-   "link": "https://www.ithome.com/1/005/384.htm",
-   "date": "2026-09-21T10:14:17.000Z",
-   "source": "IT之家"
+   "title": "NASA Astronaut Reid Wiseman Attends Ravens vs. Saints Game",
+   "link": "https://www.nasa.gov/image-article/nasa-astronaut-reid-wiseman-attends-ravens-vs-saints-game/",
+   "date": "2026-09-21T18:43:13.000Z",
+   "source": "NASA"
   },
   {
-   "title": "理想汽车总裁马东辉：马赫芯片、碳化硅模块可外供",
-   "link": "https://www.ithome.com/1/005/381.htm",
-   "date": "2026-09-21T10:01:49.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "华为云码道上线鸿蒙编码大模型，千行代码错误率降低 80% 以上",
-   "link": "https://www.ithome.com/1/005/375.htm",
-   "date": "2026-09-21T09:51:55.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "《帝国时代3：决定版》推出大型更新 新增地图与革命路线",
-   "link": "https://www.cnbeta.com.tw/articles/game/1579016.htm",
-   "date": "2026-09-21T09:39:36.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "东京电玩展2026举行《守望先锋》角色魅力投票 雾子超千票夺冠",
-   "link": "https://www.cnbeta.com.tw/articles/game/1579014.htm",
-   "date": "2026-09-21T09:39:30.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "《黑神话：悟空》全球音乐会台北站落幕 安可演奏《黑神话：钟馗》小曲",
-   "link": "https://www.cnbeta.com.tw/articles/music/1579012.htm",
-   "date": "2026-09-21T09:38:33.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Amazon doesn’t trust Meta’s Muse AI agent",
-   "link": "https://www.theverge.com/tech/998078/amazon-blocks-meta-muse-ai-agent-shopping",
-   "date": "2026-09-21T09:21:47.000Z",
+   "title": "GM can’t ‘bring back’ Apple CarPlay because it never left",
+   "link": "https://www.theverge.com/transportation/998259/gm-apple-carplay-android-auto-phone-mirror-google",
+   "date": "2026-09-21T17:47:54.000Z",
    "source": "The Verge"
   },
   {
-   "title": "No Dogs in Space is back to feed your need for obsessive music history",
-   "link": "https://www.theverge.com/report/997948/no-dogs-in-space-is-back-punk-2-0-music-history-podcast",
-   "date": "2026-09-20T20:51:57.000Z",
+   "title": "Paramount settles lawsuit blocking $110 billion Warner Bros. merger",
+   "link": "https://www.theverge.com/entertainment/998302/paramount-warner-bros-discovery-merger-settlement",
+   "date": "2026-09-21T17:42:15.000Z",
    "source": "The Verge"
   },
   {
-   "title": "No one is surprised that Nvidia’s Jensen Huang thinks AI fears are overblown",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/997936/nvidia-jensen-huang-ai-fears-overblown",
-   "date": "2026-09-20T18:50:18.000Z",
+   "title": "苹果 watchOS 27.2 开发者预览版 Beta 2 发布",
+   "link": "https://www.ithome.com/1/005/486.htm",
+   "date": "2026-09-21T17:36:13.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "苹果 visionOS 27.2 开发者预览版 Beta 2 发布",
+   "link": "https://www.ithome.com/1/005/485.htm",
+   "date": "2026-09-21T17:36:13.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "苹果 macOS 27.2 开发者预览版 Beta 2 发布",
+   "link": "https://www.ithome.com/1/005/484.htm",
+   "date": "2026-09-21T17:36:12.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "NASA Discovery Reveals Complex Water Systems on Early Mars",
+   "link": "https://www.nasa.gov/solar-system/planets/mars/nasa-discovery-reveals-complex-water-systems-on-early-mars/",
+   "date": "2026-09-21T16:54:43.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Bungie says it’s ‘not done with Destiny’ and will bring back vaulted content",
+   "link": "https://www.theverge.com/news/998317/bungie-destiny-2-unvaulted-raids-campaigns-destinations",
+   "date": "2026-09-21T16:35:59.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "智能戒指厂商Oura及其投资方拟赴美IPO 募资最高22亿美元",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579068.htm",
+   "date": "2026-09-21T15:11:51.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "白宫电视媒体池因记者禁令 将不再报道特朗普",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579066.htm",
+   "date": "2026-09-21T14:41:51.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "OpenAI与Anthropic曾接近达成协议 互相开展AI压力测试",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579064.htm",
+   "date": "2026-09-21T14:41:36.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Widely Attended Gatherings (WAGs) Determinations",
+   "link": "https://www.nasa.gov/organizations/nasa-ethics-advice-for-widely-attended-gatherings-wags/",
+   "date": "2026-09-21T12:59:26.000Z",
+   "source": "NASA"
   }
  ]
 }
