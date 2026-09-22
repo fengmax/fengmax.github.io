@@ -1,78 +1,78 @@
 {
- "updated": "2026-09-22T09:31:02.239Z",
+ "updated": "2026-09-22T14:13:03.789Z",
  "count": 12,
  "items": [
   {
-   "title": "消息称三星晶圆代工考虑扩大 4nm、2nm 产能，应对 HBM Base Die 需求",
-   "link": "https://www.ithome.com/1/005/853.htm",
-   "date": "2026-09-22T09:30:20.000Z",
+   "title": "Meta 股价累计上涨超 20%，华尔街分析师看好智能体 Muse",
+   "link": "https://www.ithome.com/1/005/972.htm",
+   "date": "2026-09-22T14:11:24.000Z",
    "source": "IT之家"
   },
   {
-   "title": "特斯拉最新版FSD翻车：误判眩光为摄像头污渍 官方承认是Bug",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579172.htm",
-   "date": "2026-09-22T09:28:14.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "vivo X500 Pro/Pro Max 手机新增 16+512GB、16+1TB 版本，7999 元起",
-   "link": "https://www.ithome.com/1/005/852.htm",
-   "date": "2026-09-22T09:15:42.000Z",
+   "title": "iPhone 17 Pro 低至 7459 元起，京东 iPhone 18 Pro 系列换新补贴 800 元",
+   "link": "https://www.ithome.com/1/005/971.htm",
+   "date": "2026-09-22T14:02:49.000Z",
    "source": "IT之家"
   },
   {
-   "title": "AI 也搞“同行评审”？曝 OpenAI 与 Anthropic 曾讨论互测彼此模型",
-   "link": "https://www.ithome.com/1/005/851.htm",
-   "date": "2026-09-22T09:14:19.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "韩国大型科技企业LG与微软缔结人工智能合作伙伴关系",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579170.htm",
-   "date": "2026-09-22T07:19:16.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "AI从业者担忧技术对社会构成威胁 坦言承受巨大精神压力",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579168.htm",
-   "date": "2026-09-22T07:17:46.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "A cut cable disrupted hundreds of flights across the US",
-   "link": "https://www.theverge.com/transportation/998550/a-cut-cable-disrupted-hundreds-of-flights-across-the-us",
-   "date": "2026-09-21T23:48:56.000Z",
+   "title": "Activision is taking over Halo as part of a massive Xbox shake-up",
+   "link": "https://www.theverge.com/news/998586/activision-halo-xbox-reorganization-layoffs",
+   "date": "2026-09-22T14:00:33.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Amazon wants to help the Colorado River, but we still don’t know how much water the company uses",
-   "link": "https://www.theverge.com/tech/998539/amazon-data-center-water-conservation-colorado-river",
-   "date": "2026-09-21T23:15:32.000Z",
+   "title": "The Beats 360 are what I’d bring to the gym if I hated earbuds",
+   "link": "https://www.theverge.com/tech/998566/beats-360-headphones-review",
+   "date": "2026-09-22T14:00:00.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "&#8216;Trump TV&#8217; is just reruns of the president on YouTube",
+   "link": "https://www.theverge.com/policy/998726/trump-tv-youtube-livestream",
+   "date": "2026-09-22T13:54:13.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "索尼被曝测试 PlayStation 新奖励机制：购买部分游戏可获“返利”",
+   "link": "https://www.ithome.com/1/005/970.htm",
+   "date": "2026-09-22T13:52:15.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "NASA Astronaut to Answer Questions from New Hampshire Students",
+   "link": "https://www.nasa.gov/learning-resources/nasa-astronaut-to-answer-questions-from-new-hampshire-students/",
+   "date": "2026-09-22T13:38:53.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "苹果为iPhone 18 Pro升级Face ID：新增图像验证层与独立安全单元",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579212.htm",
+   "date": "2026-09-22T13:21:34.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Google旗下机器人公司Intrinsic宣布开源核心基础设施",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579210.htm",
+   "date": "2026-09-22T13:04:07.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "空客用Steam Deck游戏掌机操控ExoMars原型车",
+   "link": "https://www.cnbeta.com.tw/articles/science/1579208.htm",
+   "date": "2026-09-22T12:35:11.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "An Epic View of the Seasons",
+   "link": "https://science.nasa.gov/earth/earth-observatory/an-epic-view-of-the-seasons/",
+   "date": "2026-09-22T04:01:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Embracing the Equinox",
    "link": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/embracing-the-equinox/",
    "date": "2026-09-21T21:55:40.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "NASA Welcomes Albania as Newest Artemis Accords Signatory",
-   "link": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-albania-as-newest-artemis-accords-signatory/",
-   "date": "2026-09-21T21:21:32.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Kicks Off Nationwide Effort to Prepare Tomorrow’s Space Workforce",
-   "link": "https://www.nasa.gov/learning-resources/nasa-kicks-off-nationwide-effort-to-prepare-tomorrows-space-workforce/",
-   "date": "2026-09-21T21:03:04.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "California tightens rules on AI data center energy and water use",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/998453/california-ai-data-center-bills",
-   "date": "2026-09-21T20:29:45.000Z",
-   "source": "The Verge"
   }
  ]
 }
