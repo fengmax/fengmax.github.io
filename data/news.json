@@ -1,7 +1,49 @@
 {
- "updated": "2026-09-22T22:27:03.864Z",
- "count": 12,
+ "updated": "2026-09-23T01:56:18.973Z",
+ "count": 9,
  "items": [
+  {
+   "title": "美国司法部发声支持苹果部分主张：27% 外链抽佣不应被判藐视法庭",
+   "link": "https://www.ithome.com/1/006/075.htm",
+   "date": "2026-09-23T01:54:44.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "小米“米家智能洗碗机嵌入式 20 套”开售：支持 115°C 蒸腾热烘，首发价 3999 元",
+   "link": "https://www.ithome.com/1/006/074.htm",
+   "date": "2026-09-23T01:49:02.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "名龙星球推出 MX302 PRO 鼠标：搭载原相 32000cpi 传感器 PAW3341，169.15 元起",
+   "link": "https://www.ithome.com/1/006/073.htm",
+   "date": "2026-09-23T01:44:58.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "OpenAI wants to consult elite mathematicians about how to not fumble again",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/999167/openai-elite-mathematicians-panel",
+   "date": "2026-09-23T00:17:17.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "任天堂美国总裁宣称：Switch2的征程才刚刚开始",
+   "link": "https://www.cnbeta.com.tw/articles/game/1579256.htm",
+   "date": "2026-09-22T22:41:39.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "《街霸》电影春丽演员回应粗大腿&quot;造假&quot;：我没空P图",
+   "link": "https://www.cnbeta.com.tw/articles/movie/1579254.htm",
+   "date": "2026-09-22T22:41:28.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "高通发布骁龙8至尊版第6代两款旗舰芯片 重点强化端侧AI与智能体能力",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579252.htm",
+   "date": "2026-09-22T22:39:33.000Z",
+   "source": "cnBeta"
+  },
   {
    "title": "Paramount will need to release way more movies to make this merger work",
    "link": "https://www.theverge.com/entertainment/999056/paramount-warner-bros-discovery-merger-annual-film-quota-guardrails",
@@ -9,70 +51,10 @@
    "source": "The Verge"
   },
   {
-   "title": "消息称苹果搁置研发 AI 吊坠，曾设想以摄像头拓展 Siri 能力",
-   "link": "https://www.ithome.com/1/006/017.htm",
-   "date": "2026-09-22T22:19:25.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "“超级”在哪里？高通第六代骁龙 8 超级至尊版 / 至尊版芯片规格对比",
-   "link": "https://www.ithome.com/1/006/016.htm",
-   "date": "2026-09-22T22:07:09.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "高通 CEO 安蒙：智能体时代并不是让 AI 替我们包办一切，而是让技术变得更实用",
-   "link": "https://www.ithome.com/1/006/015.htm",
-   "date": "2026-09-22T21:52:58.000Z",
-   "source": "IT之家"
-  },
-  {
    "title": "Rabbit’s new AI agent doesn’t need an R1 to run",
    "link": "https://www.theverge.com/ai-artificial-intelligence/999094/rabbit-ai-agent-os3",
    "date": "2026-09-22T20:52:40.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "Saudi Arabia’s new Exobot EVs make the Cybertruck look normal",
-   "link": "https://www.theverge.com/transportation/998791/ceer-ev-saudi-arabia-foxconn-exobot",
-   "date": "2026-09-22T20:14:54.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "充电宝起火迫使荷航航班中途返航 涉事设备据称属于前CEO",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579250.htm",
-   "date": "2026-09-22T19:58:45.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Risks of Decompression Sickness and Venous Thromboembolism during Spaceflight and Patent Foramen Ovale Implications",
-   "link": "https://www.nasa.gov/organizations/ochmo/risks-of-decompression-sickness-and-venous-thromboembolism-during-spaceflight-and-patent-foramen-ovale-implications/",
-   "date": "2026-09-22T19:19:45.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "OpenAI将让第三方机构更早介入AI模型安全评估",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579248.htm",
-   "date": "2026-09-22T19:07:07.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "OpenAI发布GPT-6 Sol和Luna 智能水平进一步提升且价格更低",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579246.htm",
-   "date": "2026-09-22T18:41:32.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "NASA-Funded Research Finds Complex Life Defying Record Heat",
-   "link": "https://science.nasa.gov/science-research/planetary-science/nasa-funded-research-finds-complex-life-defying-record-heat/",
-   "date": "2026-09-22T17:33:10.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA&#8217;s Chandra Finds Unusual Objects in Pinwheel Galaxy",
-   "link": "https://www.nasa.gov/image-article/nasas-chandra-finds-unusual-objects-in-pinwheel-galaxy/",
-   "date": "2026-09-22T15:40:48.000Z",
-   "source": "NASA"
   }
  ]
 }
