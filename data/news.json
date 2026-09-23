@@ -1,77 +1,77 @@
 {
- "updated": "2026-09-23T14:28:47.162Z",
+ "updated": "2026-09-23T18:41:50.562Z",
  "count": 12,
  "items": [
   {
-   "title": "Discord will now automatically estimate your age",
-   "link": "https://www.theverge.com/tech/999305/discord-updated-age-assurance-global-rollout",
-   "date": "2026-09-23T14:27:49.000Z",
+   "title": "Data centers are black boxes, but California wants to change that",
+   "link": "https://www.theverge.com/policy/999412/data-center-water-electricity-disclosure-bills",
+   "date": "2026-09-23T18:22:57.000Z",
    "source": "The Verge"
   },
   {
-   "title": "曝小米 18 Pro 系列手机新增「原色」风格影调，支持 Open Gate 片门全开",
-   "link": "https://www.ithome.com/1/006/484.htm",
-   "date": "2026-09-23T14:27:44.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "rabbit 沉寂许久后发布 OS3 智能体操作系统，支持多设备编排",
-   "link": "https://www.ithome.com/1/006/483.htm",
-   "date": "2026-09-23T14:26:56.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "拿第三方检测自证清白？Donut Lab 固态电池的疑点更多了",
-   "link": "https://www.ithome.com/1/006/482.htm",
-   "date": "2026-09-23T14:26:39.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "一台凤凰牌冰箱用了41年：627元买的、买回来就没修过",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579360.htm",
-   "date": "2026-09-23T14:00:15.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "三星已在高通骁龙8 Elite Extreme Gen6完成16GB LPDDR6内存验证",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579358.htm",
-   "date": "2026-09-23T13:59:32.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "McDonald’s is testing ads on its drive-thru menus",
-   "link": "https://www.theverge.com/tech/999295/mcdonalds-drive-thru-menu-ads",
-   "date": "2026-09-23T13:52:39.000Z",
+   "title": "Anthropic&#8217;s biolab made a discovery it&#8217;s comparing to Crispr",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/999470/anthropic-biolab-claude-crispr",
+   "date": "2026-09-23T18:00:00.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Nobody does it like Remedy",
-   "link": "https://www.theverge.com/games/999268/control-resonant-review-ps5-xbox",
-   "date": "2026-09-23T13:45:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "高通骁龙8 Elite Extreme Gen 6新封装显著改善发热表现",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579356.htm",
-   "date": "2026-09-23T12:37:03.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "APOD: 2026 September 23 – A New Lunar Crater: McGetchin",
-   "link": "https://science.nasa.gov/image-article/apod-2026-september-23-the-mcgetchin-crater/",
-   "date": "2026-09-23T04:05:00.000Z",
+   "title": "Arctic Sea Ice Reaches 2026 Annual Minimum Extent",
+   "link": "https://science.nasa.gov/science-research/earth-science/climate-science/sea-ice/arctic-sea-ice-2026-min/",
+   "date": "2026-09-23T17:15:32.000Z",
    "source": "NASA"
   },
   {
-   "title": "Boom Year for Desert Blooms",
-   "link": "https://science.nasa.gov/earth/earth-observatory/boom-year-for-desert-blooms/",
-   "date": "2026-09-23T04:01:00.000Z",
+   "title": "研究发现顶尖AI人才数量中国已超越美国",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579370.htm",
+   "date": "2026-09-23T16:39:32.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Bernie Sanders proposes banning ‘superintelligence’ and putting violators in prison",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/999443/bernie-sanders-ai-superintelligence-ban-act",
+   "date": "2026-09-23T16:23:05.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Shannon Lucid’s Record-Setting Mission Aboard Mir",
+   "link": "https://www.nasa.gov/image-article/shannon-lucids-record-setting-mission-aboard-mir/",
+   "date": "2026-09-23T16:03:37.000Z",
    "source": "NASA"
   },
   {
-   "title": "Curiosity Blog, Sols 5010-5015: Checking out the Bands",
-   "link": "https://science.nasa.gov/blog/curiosity-blog-sols-5010-5015-checking-out-the-bands/",
-   "date": "2026-09-23T00:40:16.000Z",
+   "title": "Anthropic已限制华为AI芯片使用Claude Opus 5.5开发前沿模型",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579368.htm",
+   "date": "2026-09-23T16:03:24.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Google发布Chrome 154稳定版更新 紧急修复108项安全漏洞含11个严重缺陷",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579366.htm",
+   "date": "2026-09-23T15:42:13.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Anthropic 工程师解释为何 Claude 写作变差：模型被训练成写给 AI 看而非写给人看",
+   "link": "https://www.ithome.com/1/006/510.htm",
+   "date": "2026-09-23T15:34:48.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "谷歌推出 Gemini 3.8 Flash / Flash-Lite 文本转语音模型，每一行台词都能精确控制",
+   "link": "https://www.ithome.com/1/006/509.htm",
+   "date": "2026-09-23T15:31:11.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "华为 WATCH GT Runner 2 智能手表开启 HarmonyOS 7 花粉 Beta 版升级尝鲜招募",
+   "link": "https://www.ithome.com/1/006/508.htm",
+   "date": "2026-09-23T15:24:14.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "FFA 2026 Hyperwall Schedule",
+   "link": "https://science.nasa.gov/earth/ffa-2026-hyperwall-schedule/",
+   "date": "2026-09-23T14:58:13.000Z",
    "source": "NASA"
   }
  ]
