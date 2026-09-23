@@ -1,54 +1,42 @@
 {
- "updated": "2026-09-23T18:41:50.562Z",
- "count": 12,
+ "updated": "2026-09-23T22:30:13.329Z",
+ "count": 9,
  "items": [
   {
-   "title": "Data centers are black boxes, but California wants to change that",
-   "link": "https://www.theverge.com/policy/999412/data-center-water-electricity-disclosure-bills",
-   "date": "2026-09-23T18:22:57.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Anthropic&#8217;s biolab made a discovery it&#8217;s comparing to Crispr",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/999470/anthropic-biolab-claude-crispr",
-   "date": "2026-09-23T18:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Arctic Sea Ice Reaches 2026 Annual Minimum Extent",
-   "link": "https://science.nasa.gov/science-research/earth-science/climate-science/sea-ice/arctic-sea-ice-2026-min/",
-   "date": "2026-09-23T17:15:32.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "研究发现顶尖AI人才数量中国已超越美国",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579370.htm",
-   "date": "2026-09-23T16:39:32.000Z",
+   "title": "微软发布搭载骁龙X2 Plus芯片的新一代12英寸Surface Pro",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579384.htm",
+   "date": "2026-09-23T22:27:46.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Bernie Sanders proposes banning ‘superintelligence’ and putting violators in prison",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/999443/bernie-sanders-ai-superintelligence-ban-act",
-   "date": "2026-09-23T16:23:05.000Z",
+   "title": "微软更新13英寸Surface Laptop 升级骁龙X2 Plus 屏幕亮度提升至500尼特",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579382.htm",
+   "date": "2026-09-23T22:27:21.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "微软发布新一代Surface Mouse鼠标 首次配备触觉反馈与自定义操作按钮",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579380.htm",
+   "date": "2026-09-23T22:26:51.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Microsoft refreshes its smaller Surface Pro and Laptop with Qualcomm’s X2 Plus",
+   "link": "https://www.theverge.com/news/999195/microsoft-surface-pro-12-inch-surface-laptop-13-inch-qualcomm-x2-plus",
+   "date": "2026-09-23T20:30:00.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Shannon Lucid’s Record-Setting Mission Aboard Mir",
-   "link": "https://www.nasa.gov/image-article/shannon-lucids-record-setting-mission-aboard-mir/",
-   "date": "2026-09-23T16:03:37.000Z",
-   "source": "NASA"
+   "title": "Microsoft’s new Surface Mouse has haptic feedback and a customizable action button",
+   "link": "https://www.theverge.com/news/999211/microsoft-surface-mouse-haptic-feedback",
+   "date": "2026-09-23T20:30:00.000Z",
+   "source": "The Verge"
   },
   {
-   "title": "Anthropic已限制华为AI芯片使用Claude Opus 5.5开发前沿模型",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579368.htm",
-   "date": "2026-09-23T16:03:24.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Google发布Chrome 154稳定版更新 紧急修复108项安全漏洞含11个严重缺陷",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579366.htm",
-   "date": "2026-09-23T15:42:13.000Z",
-   "source": "cnBeta"
+   "title": "Meta’s AI agent is a cute little guy who’s great at spending my money",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/999526/meta-muse-ai-agent-hands-on-shopping",
+   "date": "2026-09-23T19:00:00.000Z",
+   "source": "The Verge"
   },
   {
    "title": "Anthropic 工程师解释为何 Claude 写作变差：模型被训练成写给 AI 看而非写给人看",
@@ -67,12 +55,6 @@
    "link": "https://www.ithome.com/1/006/508.htm",
    "date": "2026-09-23T15:24:14.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "FFA 2026 Hyperwall Schedule",
-   "link": "https://science.nasa.gov/earth/ffa-2026-hyperwall-schedule/",
-   "date": "2026-09-23T14:58:13.000Z",
-   "source": "NASA"
   }
  ]
 }
