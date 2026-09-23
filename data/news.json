@@ -1,41 +1,59 @@
 {
- "updated": "2026-09-23T09:36:07.207Z",
+ "updated": "2026-09-23T14:28:47.162Z",
  "count": 12,
  "items": [
   {
-   "title": "全球首个：康奈尔大学研发出可感知并改变环境温度的微型机器人",
-   "link": "https://www.ithome.com/1/006/389.htm",
-   "date": "2026-09-23T09:34:31.000Z",
+   "title": "Discord will now automatically estimate your age",
+   "link": "https://www.theverge.com/tech/999305/discord-updated-age-assurance-global-rollout",
+   "date": "2026-09-23T14:27:49.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "曝小米 18 Pro 系列手机新增「原色」风格影调，支持 Open Gate 片门全开",
+   "link": "https://www.ithome.com/1/006/484.htm",
+   "date": "2026-09-23T14:27:44.000Z",
    "source": "IT之家"
   },
   {
-   "title": "我国将适度超前、系统推进新一代通信网建设，推进宽带网络向双万兆演进",
-   "link": "https://www.ithome.com/1/006/388.htm",
-   "date": "2026-09-23T09:29:06.000Z",
+   "title": "rabbit 沉寂许久后发布 OS3 智能体操作系统，支持多设备编排",
+   "link": "https://www.ithome.com/1/006/483.htm",
+   "date": "2026-09-23T14:26:56.000Z",
    "source": "IT之家"
   },
   {
-   "title": "AMD 为 Linux 内核显卡驱动添加 GDDR7 显存支持",
-   "link": "https://www.ithome.com/1/006/387.htm",
-   "date": "2026-09-23T09:28:25.000Z",
+   "title": "拿第三方检测自证清白？Donut Lab 固态电池的疑点更多了",
+   "link": "https://www.ithome.com/1/006/482.htm",
+   "date": "2026-09-23T14:26:39.000Z",
    "source": "IT之家"
   },
   {
-   "title": "仅14MB！树莓派5纯CPU也能跑AI 离线指令毫秒级响应",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579328.htm",
-   "date": "2026-09-23T09:00:56.000Z",
+   "title": "一台凤凰牌冰箱用了41年：627元买的、买回来就没修过",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579360.htm",
+   "date": "2026-09-23T14:00:15.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "“白宫股神”特朗普7月逾1100笔证券交易 微软、亚马逊单笔出售最高2500万美元",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579326.htm",
-   "date": "2026-09-23T08:57:02.000Z",
+   "title": "三星已在高通骁龙8 Elite Extreme Gen6完成16GB LPDDR6内存验证",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579358.htm",
+   "date": "2026-09-23T13:59:32.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "旧金山提起诉讼 要求叫停Truth Social帖文付费抢先访问服务",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579324.htm",
-   "date": "2026-09-23T08:52:37.000Z",
+   "title": "McDonald’s is testing ads on its drive-thru menus",
+   "link": "https://www.theverge.com/tech/999295/mcdonalds-drive-thru-menu-ads",
+   "date": "2026-09-23T13:52:39.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Nobody does it like Remedy",
+   "link": "https://www.theverge.com/games/999268/control-resonant-review-ps5-xbox",
+   "date": "2026-09-23T13:45:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "高通骁龙8 Elite Extreme Gen 6新封装显著改善发热表现",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579356.htm",
+   "date": "2026-09-23T12:37:03.000Z",
    "source": "cnBeta"
   },
   {
@@ -55,24 +73,6 @@
    "link": "https://science.nasa.gov/blog/curiosity-blog-sols-5010-5015-checking-out-the-bands/",
    "date": "2026-09-23T00:40:16.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "OpenAI wants to consult elite mathematicians about how to not fumble again",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/999167/openai-elite-mathematicians-panel",
-   "date": "2026-09-23T00:17:17.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Paramount will need to release way more movies to make this merger work",
-   "link": "https://www.theverge.com/entertainment/999056/paramount-warner-bros-discovery-merger-annual-film-quota-guardrails",
-   "date": "2026-09-22T22:26:07.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Rabbit’s new AI agent doesn’t need an R1 to run",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/999094/rabbit-ai-agent-os3",
-   "date": "2026-09-22T20:52:40.000Z",
-   "source": "The Verge"
   }
  ]
 }
