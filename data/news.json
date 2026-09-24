@@ -1,24 +1,48 @@
 {
- "updated": "2026-09-24T18:42:47.136Z",
+ "updated": "2026-09-24T22:44:59.121Z",
  "count": 12,
  "items": [
   {
-   "title": "任天堂赢得450万美元赔偿判决 Switch盗版社区版主“Archbox”败诉并关闭盗版平台",
-   "link": "https://www.cnbeta.com.tw/articles/game/1579528.htm",
-   "date": "2026-09-24T18:23:51.000Z",
+   "title": "三星确认错误软件更新导致智能冰箱无法制冷 承诺安排紧急维修并赔偿食材损失",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579536.htm",
+   "date": "2026-09-24T22:21:23.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "1b DRAM单位面积价值现在比台积电2纳米晶圆还高出54%",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579526.htm",
-   "date": "2026-09-24T18:22:38.000Z",
+   "title": "Microsoft puts Brad Smith in charge of communications",
+   "link": "https://www.theverge.com/news/1000374/microsoft-comms-pr-brad-smith-cela",
+   "date": "2026-09-24T22:08:22.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "NASA Welcomes Côte d’Ivoire as Newest Artemis Accords Signatory",
+   "link": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-cote-divoire-as-newest-artemis-accords-signatory/",
+   "date": "2026-09-24T21:27:17.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA Shares SpaceX Crew-14 Assignments for Space Station Mission",
+   "link": "https://www.nasa.gov/news-release/nasa-shares-spacex-crew-14-assignments-for-space-station-mission/",
+   "date": "2026-09-24T21:15:46.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "特朗普政府称被禁媒体获准重返白宫",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579534.htm",
+   "date": "2026-09-24T20:30:22.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Meta推出Horizon Create游戏创作套件 引入生成式AI工具降低开发门槛",
-   "link": "https://www.cnbeta.com.tw/articles/game/1579524.htm",
-   "date": "2026-09-24T18:21:54.000Z",
+   "title": "微软被曝正悄然放弃曾被寄予厚望的Copilot+ PC品牌",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579532.htm",
+   "date": "2026-09-24T20:10:53.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "Gemini 3.8 Live with Live Avatar gives Google&#8217;s AI a face",
+   "link": "https://www.theverge.com/tech/1000328/google-gemini-ai-live-avatar-face",
+   "date": "2026-09-24T19:59:26.000Z",
+   "source": "The Verge"
   },
   {
    "title": "Sadly, this $1,549 RTX 5070-equipped gaming PC is a very good deal",
@@ -31,24 +55,6 @@
    "link": "https://www.nasa.gov/centers-and-facilities/nssc/travel/",
    "date": "2026-09-24T18:06:14.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "Jensen Huang talks about AI and climate change like a supervillain",
-   "link": "https://www.theverge.com/tech/1000140/jensen-huang-nvidia-ai-energy-climate-change-supervillain",
-   "date": "2026-09-24T18:04:44.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "NASA Unveils Winning Designs for Mars Space Food Systems Challenge",
-   "link": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/centennial-challenges/nasa-unveils-winning-designs-for-mars-space-food-systems-challenge/",
-   "date": "2026-09-24T18:01:45.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Meta is going to let you build games with AI right on your phone",
-   "link": "https://www.theverge.com/games/999972/meta-horizon-create-studio-ai-games",
-   "date": "2026-09-24T17:52:29.000Z",
-   "source": "The Verge"
   },
   {
    "title": "华为乾崑智驾 ADS 5 系统 9 月版本更新亮点公布，升级 AR 人找车、实时对讲等功能",
@@ -67,12 +73,6 @@
    "link": "https://www.ithome.com/1/007/045.htm",
    "date": "2026-09-24T17:19:31.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "NASA&#8217;s Machines for Mars Make Beer Bubbly",
-   "link": "https://www.nasa.gov/technology/tech-transfer-spinoffs/nasas-machines-for-mars-make-beer-bubbly/",
-   "date": "2026-09-24T16:41:01.000Z",
-   "source": "NASA"
   }
  ]
 }
