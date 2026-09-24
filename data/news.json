@@ -1,60 +1,78 @@
 {
- "updated": "2026-09-23T22:30:13.329Z",
- "count": 9,
+ "updated": "2026-09-24T01:45:19.819Z",
+ "count": 12,
  "items": [
   {
-   "title": "微软发布搭载骁龙X2 Plus芯片的新一代12英寸Surface Pro",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579384.htm",
-   "date": "2026-09-23T22:27:46.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "微软更新13英寸Surface Laptop 升级骁龙X2 Plus 屏幕亮度提升至500尼特",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579382.htm",
-   "date": "2026-09-23T22:27:21.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "微软发布新一代Surface Mouse鼠标 首次配备触觉反馈与自定义操作按钮",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579380.htm",
-   "date": "2026-09-23T22:26:51.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Microsoft refreshes its smaller Surface Pro and Laptop with Qualcomm’s X2 Plus",
-   "link": "https://www.theverge.com/news/999195/microsoft-surface-pro-12-inch-surface-laptop-13-inch-qualcomm-x2-plus",
-   "date": "2026-09-23T20:30:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Microsoft’s new Surface Mouse has haptic feedback and a customizable action button",
-   "link": "https://www.theverge.com/news/999211/microsoft-surface-mouse-haptic-feedback",
-   "date": "2026-09-23T20:30:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Meta’s AI agent is a cute little guy who’s great at spending my money",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/999526/meta-muse-ai-agent-hands-on-shopping",
-   "date": "2026-09-23T19:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Anthropic 工程师解释为何 Claude 写作变差：模型被训练成写给 AI 看而非写给人看",
-   "link": "https://www.ithome.com/1/006/510.htm",
-   "date": "2026-09-23T15:34:48.000Z",
+   "title": "微软时隔 10 年更新 Surface Mouse 鼠标：支持触觉反馈、配可编程按键",
+   "link": "https://www.ithome.com/1/006/562.htm",
+   "date": "2026-09-24T01:40:14.000Z",
    "source": "IT之家"
   },
   {
-   "title": "谷歌推出 Gemini 3.8 Flash / Flash-Lite 文本转语音模型，每一行台词都能精确控制",
-   "link": "https://www.ithome.com/1/006/509.htm",
-   "date": "2026-09-23T15:31:11.000Z",
+   "title": "华为 nova16 Pro 与 FIT 5 泡泡玛特 Hirono 小野联名款今日预售：12+256GB 昆仑玻璃款手机 3899 元，手表 1199 元",
+   "link": "https://www.ithome.com/1/006/560.htm",
+   "date": "2026-09-24T01:36:27.000Z",
    "source": "IT之家"
   },
   {
-   "title": "华为 WATCH GT Runner 2 智能手表开启 HarmonyOS 7 花粉 Beta 版升级尝鲜招募",
-   "link": "https://www.ithome.com/1/006/508.htm",
-   "date": "2026-09-23T15:24:14.000Z",
+   "title": "爱奇艺 CEO 龚宇：AI 是内容的加分项，不是用来搭建流水线的工具",
+   "link": "https://www.ithome.com/1/006/558.htm",
+   "date": "2026-09-24T01:32:09.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "Meta is making a standalone Muse AI gadget",
+   "link": "https://www.theverge.com/tech/999750/muse-charm-meta-ai-hardware",
+   "date": "2026-09-24T00:15:20.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Meta Connect 2026: The 7 biggest announcements",
+   "link": "https://www.theverge.com/tech/999593/meta-connect-2026-everything-announced",
+   "date": "2026-09-24T00:00:33.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Meta’s next VR device isn’t a headset — it’s glasses",
+   "link": "https://www.theverge.com/tech/999517/meta-vr-glasses-connect-2026-hands-on",
+   "date": "2026-09-23T23:42:10.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Xbox五年间旗下工作室由23家减至12家 重组仍未结束",
+   "link": "https://www.cnbeta.com.tw/articles/game/1579392.htm",
+   "date": "2026-09-23T22:38:08.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "黄仁勋再对AI公司放话：要求监管就不应获得反垄断豁免",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579390.htm",
+   "date": "2026-09-23T22:37:19.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "澳大利亚总理：OpenAI智能体6月入侵澳政府网站 系已知首例",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579388.htm",
+   "date": "2026-09-23T22:37:02.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "NASA Modernizes Commercial Airline Systems",
+   "link": "https://www.nasa.gov/directorates/armd/aosp/nasa-modernizes-commercial-airline-systems/",
+   "date": "2026-09-23T22:08:54.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA Welcomes Croatia as Newest Artemis Accords Signatory",
+   "link": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-welcomes-croatia-as-newest-artemis-accords-signatory/",
+   "date": "2026-09-23T20:37:19.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA Selects Far-Infrared Telescope as First in New Mission Class",
+   "link": "https://www.nasa.gov/news-release/nasa-selects-far-infrared-telescope-as-first-in-new-mission-class/",
+   "date": "2026-09-23T20:09:42.000Z",
+   "source": "NASA"
   }
  ]
 }
