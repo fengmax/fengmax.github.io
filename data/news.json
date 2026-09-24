@@ -1,24 +1,60 @@
 {
- "updated": "2026-09-24T01:45:19.819Z",
+ "updated": "2026-09-24T09:35:43.815Z",
  "count": 12,
  "items": [
   {
-   "title": "微软时隔 10 年更新 Surface Mouse 鼠标：支持触觉反馈、配可编程按键",
-   "link": "https://www.ithome.com/1/006/562.htm",
-   "date": "2026-09-24T01:40:14.000Z",
+   "title": "国家金融监督管理总局：2025 年我国交强险赔付 2524 亿元，3.47 亿辆汽车参保",
+   "link": "https://www.ithome.com/1/006/953.htm",
+   "date": "2026-09-24T09:34:17.000Z",
    "source": "IT之家"
   },
   {
-   "title": "华为 nova16 Pro 与 FIT 5 泡泡玛特 Hirono 小野联名款今日预售：12+256GB 昆仑玻璃款手机 3899 元，手表 1199 元",
-   "link": "https://www.ithome.com/1/006/560.htm",
-   "date": "2026-09-24T01:36:27.000Z",
+   "title": "消息称本田将在美国俄亥俄州新建混动汽车工厂，预计 2030 年投产",
+   "link": "https://www.ithome.com/1/006/951.htm",
+   "date": "2026-09-24T09:32:27.000Z",
    "source": "IT之家"
   },
   {
-   "title": "爱奇艺 CEO 龚宇：AI 是内容的加分项，不是用来搭建流水线的工具",
-   "link": "https://www.ithome.com/1/006/558.htm",
-   "date": "2026-09-24T01:32:09.000Z",
+   "title": "微信安卓版 8.0.79 最新官方内测版下载发布",
+   "link": "https://www.ithome.com/1/006/918.htm",
+   "date": "2026-09-24T09:20:15.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "Gemini 4 is almost ready, says new Google DeepMind chief",
+   "link": "https://www.theverge.com/tech/999802/google-deepmind-gemini-4-timeline-koray-kavukcuoglu",
+   "date": "2026-09-24T09:04:18.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "《GTA6》实体盒照片流传 英国门店陈列的是无盘展示盒",
+   "link": "https://www.cnbeta.com.tw/articles/game/1579476.htm",
+   "date": "2026-09-24T08:31:51.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "AI建设潮正成为美国历史上规模最大的经济豪赌",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579474.htm",
+   "date": "2026-09-24T08:27:25.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "欧盟筹备强化未成年人网络保护 《GTA6》或需核验年龄",
+   "link": "https://www.cnbeta.com.tw/articles/game/1579472.htm",
+   "date": "2026-09-24T07:22:33.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "APOD: 2026 September 24 – The Ghosts of Five Supernovas",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-24-the-ghosts-of-five-supernovas/",
+   "date": "2026-09-24T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Cloudy Cloak Over the Northwest",
+   "link": "https://science.nasa.gov/earth/earth-observatory/cloudy-cloak-over-the-northwest/",
+   "date": "2026-09-24T04:01:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Meta is making a standalone Muse AI gadget",
@@ -33,45 +69,9 @@
    "source": "The Verge"
   },
   {
-   "title": "Meta’s next VR device isn’t a headset — it’s glasses",
-   "link": "https://www.theverge.com/tech/999517/meta-vr-glasses-connect-2026-hands-on",
-   "date": "2026-09-23T23:42:10.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Xbox五年间旗下工作室由23家减至12家 重组仍未结束",
-   "link": "https://www.cnbeta.com.tw/articles/game/1579392.htm",
-   "date": "2026-09-23T22:38:08.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "黄仁勋再对AI公司放话：要求监管就不应获得反垄断豁免",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579390.htm",
-   "date": "2026-09-23T22:37:19.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "澳大利亚总理：OpenAI智能体6月入侵澳政府网站 系已知首例",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579388.htm",
-   "date": "2026-09-23T22:37:02.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "NASA Modernizes Commercial Airline Systems",
    "link": "https://www.nasa.gov/directorates/armd/aosp/nasa-modernizes-commercial-airline-systems/",
    "date": "2026-09-23T22:08:54.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Welcomes Croatia as Newest Artemis Accords Signatory",
-   "link": "https://www.nasa.gov/organizations/oiir/artemis-accords/nasa-welcomes-croatia-as-newest-artemis-accords-signatory/",
-   "date": "2026-09-23T20:37:19.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Selects Far-Infrared Telescope as First in New Mission Class",
-   "link": "https://www.nasa.gov/news-release/nasa-selects-far-infrared-telescope-as-first-in-new-mission-class/",
-   "date": "2026-09-23T20:09:42.000Z",
    "source": "NASA"
   }
  ]
