@@ -1,7 +1,37 @@
 {
- "updated": "2026-09-26T18:06:23.576Z",
+ "updated": "2026-09-26T22:13:34.501Z",
  "count": 12,
  "items": [
+  {
+   "title": "Apple hit with $5.7 billion in damages over haptic patents",
+   "link": "https://www.theverge.com/tech/1001118/apple-hit-with-5-7-billion-in-damages-over-haptic-patents",
+   "date": "2026-09-26T21:30:01.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Decap is the man behind the drums behind your favorite song",
+   "link": "https://www.theverge.com/report/1000994/decap-drums-that-knock-interview",
+   "date": "2026-09-26T19:30:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Google研究员称Windows NT内核设计至今仍让Linux相形见绌",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579742.htm",
+   "date": "2026-09-26T18:37:40.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "巴西总统卢拉在大选临近之际突然叫停网络博彩",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579740.htm",
+   "date": "2026-09-26T18:33:02.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Meta改口：此前误拒《马斯克》纪录片广告 现决定恢复投放",
+   "link": "https://www.cnbeta.com.tw/articles/movie/1579738.htm",
+   "date": "2026-09-26T18:29:40.000Z",
+   "source": "cnBeta"
+  },
   {
    "title": "Kids turned the comment section of an NPR podcast into a group chat",
    "link": "https://www.theverge.com/entertainment/1001056/this-american-life-npr-kids-group-chat-comment-section",
@@ -9,34 +39,10 @@
    "source": "The Verge"
   },
   {
-   "title": "OpenAI pauses training of its ‘most capable models’",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1001049/openai-training-pause",
-   "date": "2026-09-26T16:34:59.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "荷兰打造自主数字办公平台Nix 替代Windows与Office推动数字主权战略落地",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579734.htm",
-   "date": "2026-09-26T16:22:14.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "马斯克纪录片预告片遭YouTube、TikTok和Meta拒绝投放广告",
-   "link": "https://www.cnbeta.com.tw/articles/movie/1579732.htm",
-   "date": "2026-09-26T16:21:00.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "Anthropic Claude 刷新物理学世界纪录：单挑基于杨振宁理论 9 圈难题",
    "link": "https://www.ithome.com/1/007/444.htm",
    "date": "2026-09-26T15:44:10.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "AI并未引发毕业生就业崩盘 最新研究显示美国应届大学生失业率仍处正常区间",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579730.htm",
-   "date": "2026-09-26T15:17:16.000Z",
-   "source": "cnBeta"
   },
   {
    "title": "宇树王兴兴回应为何造 390 万元起的载人变形机甲：大型机器人是行业不可阻挡的趋势",
@@ -49,12 +55,6 @@
    "link": "https://www.ithome.com/1/007/442.htm",
    "date": "2026-09-26T14:20:02.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "Can Cloudflare CEO Matthew Prince save the web from AI?",
-   "link": "https://www.theverge.com/podcast/1000344/cloudflare-matthew-prince-google-zero-ai-web-advertising",
-   "date": "2026-09-26T14:00:00.000Z",
-   "source": "The Verge"
   },
   {
    "title": "APOD: 2026 September 26 – Mirrored Meteor and Milky Way",
