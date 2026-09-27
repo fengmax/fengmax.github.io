@@ -1,24 +1,48 @@
 {
- "updated": "2026-09-27T01:59:43.629Z",
- "count": 9,
+ "updated": "2026-09-27T10:14:30.344Z",
+ "count": 12,
  "items": [
   {
-   "title": "Meta 与 YouTube 恢复《马斯克》纪录片广告投放，X 平台仍拒绝",
-   "link": "https://www.ithome.com/1/007/472.htm",
-   "date": "2026-09-27T01:55:04.000Z",
+   "title": "上汽 MG 07 旅行车谍照曝光，现款限时补贴价 10.59 万元起",
+   "link": "https://www.ithome.com/1/007/562.htm",
+   "date": "2026-09-27T09:58:50.000Z",
    "source": "IT之家"
   },
   {
-   "title": "Bose 推出 QuietComfort Ultra II 汤姆 · 布朗特别版降噪耳机，950 美元",
-   "link": "https://www.ithome.com/1/007/471.htm",
-   "date": "2026-09-27T01:48:44.000Z",
+   "title": "深蓝汽车邓承浩：有数据显示车上冰箱实际使用率仅 5%，后排娱乐屏、车载 KTV 用户全年使用不超过十次",
+   "link": "https://www.ithome.com/1/007/561.htm",
+   "date": "2026-09-27T09:51:56.000Z",
    "source": "IT之家"
   },
   {
-   "title": "第三方后装智驾闯大祸：5 起事故致 3 死，Comma.ai 遭美国联邦调查",
-   "link": "https://www.ithome.com/1/007/470.htm",
-   "date": "2026-09-27T01:40:03.000Z",
+   "title": "iQOO 16 手机搭载 LPDDR5X Ultra+UFS 4.1，读写性能提升 30%",
+   "link": "https://www.ithome.com/1/007/560.htm",
+   "date": "2026-09-27T09:51:52.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "挖掘机也带智驾自动挖沟 网友：蓝翔还能开几年？",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579794.htm",
+   "date": "2026-09-27T08:51:18.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "演员泄露参演《GTA6》 R星提醒配音演员仍受保密协议约束",
+   "link": "https://www.cnbeta.com.tw/articles/game/1579792.htm",
+   "date": "2026-09-27T08:50:46.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "微软获游戏内广告新专利 可动态暂停游戏插播广告",
+   "link": "https://www.cnbeta.com.tw/articles/game/1579790.htm",
+   "date": "2026-09-27T08:50:33.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "APOD: 2026 September 27 – Andromeda Before and After Photoshop",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-27-andromeda-before-photoshop/",
+   "date": "2026-09-27T04:05:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Apple hit with $5.7 billion in damages over haptic patents",
@@ -33,28 +57,22 @@
    "source": "The Verge"
   },
   {
-   "title": "Google研究员称Windows NT内核设计至今仍让Linux相形见绌",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579742.htm",
-   "date": "2026-09-26T18:37:40.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "巴西总统卢拉在大选临近之际突然叫停网络博彩",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579740.htm",
-   "date": "2026-09-26T18:33:02.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Meta改口：此前误拒《马斯克》纪录片广告 现决定恢复投放",
-   "link": "https://www.cnbeta.com.tw/articles/movie/1579738.htm",
-   "date": "2026-09-26T18:29:40.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "Kids turned the comment section of an NPR podcast into a group chat",
    "link": "https://www.theverge.com/entertainment/1001056/this-american-life-npr-kids-group-chat-comment-section",
    "date": "2026-09-26T17:32:35.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "APOD: 2026 September 26 – Mirrored Meteor and Milky Way",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-26-mirrored-meteor-and-milky-way/",
+   "date": "2026-09-26T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA, Boeing to Provide Update on Starliner Development",
+   "link": "https://www.nasa.gov/news-release/nasa-boeing-to-provide-update-on-starliner-development/",
+   "date": "2026-09-25T22:06:50.000Z",
+   "source": "NASA"
   }
  ]
 }
