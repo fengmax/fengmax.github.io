@@ -1,30 +1,48 @@
 {
- "updated": "2026-09-27T18:41:39.108Z",
- "count": 9,
+ "updated": "2026-09-27T22:36:40.783Z",
+ "count": 12,
  "items": [
+  {
+   "title": "Out of the Park Baseball lets me enjoy baseball even when the Mets suck",
+   "link": "https://www.theverge.com/games/1001206/out-of-the-park-baseball-cozy-sim-video-game-review",
+   "date": "2026-09-27T21:59:57.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "小米米家智能意式半自动咖啡机 Pro 首销，首发国补价 3395.84 元",
+   "link": "https://www.ithome.com/1/007/615.htm",
+   "date": "2026-09-27T20:59:06.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Engram is a sampler that turns broken AI hallucinations into music",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1001193/engram-sampler-ai-hallucinations-music",
+   "date": "2026-09-27T20:46:36.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Linux移动系统postmarketOS正式更名为“Nura”",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579834.htm",
+   "date": "2026-09-27T19:22:17.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "微软CEO萨蒂亚·纳德拉建议采用“审问而非盲信AI输出”的交互与协作范式",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579832.htm",
+   "date": "2026-09-27T19:19:57.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Windows 11 26H2即将发布 微软开启新一轮升级周期",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579830.htm",
+   "date": "2026-09-27T19:19:01.000Z",
+   "source": "cnBeta"
+  },
   {
    "title": "OpenAI agents tried to ‘bruteforce’ a UN website",
    "link": "https://www.theverge.com/ai-artificial-intelligence/1001178/openai-agents-bruteforce-un-website",
    "date": "2026-09-27T17:21:07.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "AI智能体再次突破沙箱并访问外部网络 OpenAI暂停最强模型训练",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579828.htm",
-   "date": "2026-09-27T15:52:12.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "英国政府发布公共部门AI采购与使用准则 要求优先选用满足最低需求的最弱模型",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579826.htm",
-   "date": "2026-09-27T15:50:25.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "新型无线外置显卡方案eGPU亮相 宣称可通过超低延迟无线连接释放RTX 5090桌面级性能",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579824.htm",
-   "date": "2026-09-27T15:49:36.000Z",
-   "source": "cnBeta"
   },
   {
    "title": "iQOO Pad Ultra 平板官宣搭载 9020mAh 蓝海电池，8.8 英寸机身轻至 298g",
@@ -39,22 +57,22 @@
    "source": "IT之家"
   },
   {
-   "title": "第八代宝马 3 系 9 月 30 日全球首发，首次同时覆盖纯电和燃油动力",
-   "link": "https://www.ithome.com/1/007/610.htm",
-   "date": "2026-09-27T14:40:22.000Z",
-   "source": "IT之家"
+   "title": "APOD: 2026 September 27 – Andromeda Before and After Photoshop",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-27-andromeda-before-photoshop/",
+   "date": "2026-09-27T04:05:00.000Z",
+   "source": "NASA"
   },
   {
-   "title": "Why OLPC’s $100 laptop never stood a chance",
-   "link": "https://www.theverge.com/podcast/1000517/why-olpcs-100-laptop-never-stood-a-chance",
-   "date": "2026-09-27T12:25:00.000Z",
-   "source": "The Verge"
+   "title": "APOD: 2026 September 26 – Mirrored Meteor and Milky Way",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-26-mirrored-meteor-and-milky-way/",
+   "date": "2026-09-26T04:05:00.000Z",
+   "source": "NASA"
   },
   {
-   "title": "Googlebooks might be the real deal",
-   "link": "https://www.theverge.com/tech/1000424/googlebooks-meta-ray-ban-audio-control-resonant-microsoft-surface-mouse",
-   "date": "2026-09-27T12:00:00.000Z",
-   "source": "The Verge"
+   "title": "NASA, Boeing to Provide Update on Starliner Development",
+   "link": "https://www.nasa.gov/news-release/nasa-boeing-to-provide-update-on-starliner-development/",
+   "date": "2026-09-25T22:06:50.000Z",
+   "source": "NASA"
   }
  ]
 }
