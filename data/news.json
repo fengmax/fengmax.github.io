@@ -1,18 +1,66 @@
 {
- "updated": "2026-09-28T20:52:03.297Z",
+ "updated": "2026-09-29T02:51:34.115Z",
  "count": 12,
  "items": [
   {
-   "title": "苹果 watchOS 27.0.1 正式版发布",
-   "link": "https://www.ithome.com/1/008/070.htm",
-   "date": "2026-09-28T20:07:11.000Z",
+   "title": "AI 写作特征减少：Claude Opus 5.5 破折号使用量下降约 95%、分号下降 73%",
+   "link": "https://www.ithome.com/1/008/144.htm",
+   "date": "2026-09-29T02:42:16.000Z",
    "source": "IT之家"
   },
   {
-   "title": "波音737 MAX新机被指存在软件问题遭两大航空公司拒收 FAA介入调查",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579936.htm",
-   "date": "2026-09-28T20:03:16.000Z",
+   "title": "限时权益价 11.78 万元，广汽丰田铂智 3X 星云限量版车型上市",
+   "link": "https://www.ithome.com/1/008/143.htm",
+   "date": "2026-09-29T02:41:31.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "斩获 29 项艾美奖叠加新内容上线，苹果 Apple TV 创下开播以来单周最高收视纪录",
+   "link": "https://www.ithome.com/1/008/142.htm",
+   "date": "2026-09-29T02:39:02.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Mars Has Its Charmes",
+   "link": "https://science.nasa.gov/blog/mars-has-its-charmes/",
+   "date": "2026-09-29T01:27:52.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Nothing’s new flagship Headphone 1 Pro put you in the studio",
+   "link": "https://www.theverge.com/tech/1001797/nothings-headphone-1-pro-review",
+   "date": "2026-09-29T01:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "October’s Night Sky Notes: Spooky Stargazing",
+   "link": "https://science.nasa.gov/solar-system/skywatching/night-sky-network/spooky-stargazing/",
+   "date": "2026-09-28T22:48:56.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "意大利私人银行高管遭深度伪造骗局设局 AI语音诈骗卷走9500万欧元",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579946.htm",
+   "date": "2026-09-28T22:25:22.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "扎克伯格、阿莫代伊等科技高管将于周二会见特朗普",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579944.htm",
+   "date": "2026-09-28T22:21:37.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "特朗普宣布150亿美元钢厂计划 将建美国历史上最大钢厂",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1579942.htm",
+   "date": "2026-09-28T22:21:31.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "AMD is acquiring AI company World Labs in a deal worth more than $8 billion",
+   "link": "https://www.theverge.com/tech/1001749/amd-world-labs-ai-acquisition-deal",
+   "date": "2026-09-28T21:31:35.000Z",
+   "source": "The Verge"
   },
   {
    "title": "Bose starts adding Auracast to its headphones",
@@ -25,54 +73,6 @@
    "link": "https://www.nasa.gov/news-release/nasa-boeing-share-update-on-commercial-starliner-development-plans/",
    "date": "2026-09-28T19:26:57.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "NASA Armstrong Celebrates 80 Years of Flight Innovation",
-   "link": "https://www.nasa.gov/news-release/nasa-armstrong-celebrates-80-years-of-flight-innovation/",
-   "date": "2026-09-28T19:20:01.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "OpenAI’s AI agents need to catch up",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1001590/openai-devday-2026-aeon-ai-agent",
-   "date": "2026-09-28T18:45:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Trump finalizes rule to make cars less fuel efficient",
-   "link": "https://www.theverge.com/news/1001610/trump-weakens-fuel-efficiency-standards",
-   "date": "2026-09-28T18:39:50.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Anthropic发布Sonnet 5.5：速度提升30% 成本大幅下降 瞄准日常办公与编程市场",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579934.htm",
-   "date": "2026-09-28T18:33:42.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "苹果 iPadOS 26.7.1 正式版发布",
-   "link": "https://www.ithome.com/1/008/069.htm",
-   "date": "2026-09-28T17:58:09.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "苹果 visionOS 27.0.1 正式版发布",
-   "link": "https://www.ithome.com/1/008/068.htm",
-   "date": "2026-09-28T17:58:09.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "NASA Highlights Lessons Learned From Swift Boost Mission",
-   "link": "https://science.nasa.gov/missions/swift/nasa-highlights-lessons-learned-from-swift-boost-mission/",
-   "date": "2026-09-28T17:44:33.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Mozilla Firefox 157正式发布：迎来多年最大界面改版 首次支持WebRTC硬件AV1解码",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1579932.htm",
-   "date": "2026-09-28T16:24:11.000Z",
-   "source": "cnBeta"
   }
  ]
 }
