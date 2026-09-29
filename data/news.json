@@ -1,60 +1,78 @@
 {
- "updated": "2026-09-29T10:56:37.079Z",
- "count": 9,
+ "updated": "2026-09-29T19:41:16.860Z",
+ "count": 12,
  "items": [
   {
-   "title": "欧洲首个：微信支付接入意大利北方铁路，支持购买火车 &amp; 地铁票",
-   "link": "https://www.ithome.com/1/008/439.htm",
-   "date": "2026-09-29T10:56:15.000Z",
+   "title": "尴尬时刻：OpenAI 全天候 AI 智能体 dots 首次公开演示卡壳",
+   "link": "https://www.ithome.com/1/008/534.htm",
+   "date": "2026-09-29T19:11:25.000Z",
    "source": "IT之家"
   },
   {
-   "title": "最新研究表明土卫二具备更优生命宜居性且采样检测可行性大幅提升",
-   "link": "https://www.cnbeta.com.tw/articles/science/1580046.htm",
-   "date": "2026-09-29T10:55:24.000Z",
+   "title": "OpenAI推出ChatGPT Spaces团队协作空间 并将服务接入Slack和Teams",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580110.htm",
+   "date": "2026-09-29T19:10:57.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "华为 HarmonyOS 7 超空间存储支持设备名单更新：覆盖 Mate、Pura、nova、畅享等系列，1TB 机型最多节省 109GB 空间",
-   "link": "https://www.ithome.com/1/008/435.htm",
-   "date": "2026-09-29T10:44:16.000Z",
+   "title": "OpenAI进军身份验证市场 推出“用ChatGPT一键登录”功能",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580108.htm",
+   "date": "2026-09-29T19:10:33.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "美国参议员拟推《保护我们的游戏》法案 要求在线游戏停服前提供补救方案",
+   "link": "https://www.cnbeta.com.tw/articles/game/1580106.htm",
+   "date": "2026-09-29T19:09:18.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "2026 OpenAI 开发者日遭 15+ 组织抗议，要求 AI 数据中心设 100 英里安全距离",
+   "link": "https://www.ithome.com/1/008/533.htm",
+   "date": "2026-09-29T19:07:28.000Z",
    "source": "IT之家"
   },
   {
-   "title": "1299 元：富士 Instax Pal 2 掌上相机开售，1/3.06 英寸 10MP 传感器",
-   "link": "https://www.ithome.com/1/008/434.htm",
-   "date": "2026-09-29T10:39:03.000Z",
+   "title": "NASA Sets Crew-13 Launch, Docking Coverage",
+   "link": "https://www.nasa.gov/news-release/nasa-sets-crew-13-launch-docking-coverage/",
+   "date": "2026-09-29T18:57:14.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "OpenAI 宣布 ChatGPT 周活跃用户超 12 亿，AI 加速走向工作场景",
+   "link": "https://www.ithome.com/1/008/532.htm",
+   "date": "2026-09-29T18:47:22.000Z",
    "source": "IT之家"
   },
   {
-   "title": "Your car’s data privacy problems are worse than you think",
-   "link": "https://www.theverge.com/transportation/1001463/car-data-privacy-northeastern-study-honda-gm-ford",
-   "date": "2026-09-29T10:00:00.000Z",
+   "title": "AI researchers put out videos saying superintelligence is ‘exactly as dangerous as it sounds’",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1002238/openai-google-anthropic-ai-researchers-safety-interviews",
+   "date": "2026-09-29T17:35:03.000Z",
    "source": "The Verge"
   },
   {
-   "title": "基因编辑香蕉有望进入英国商店 切片后长时间不易变褐",
-   "link": "https://www.cnbeta.com.tw/articles/science/1580044.htm",
-   "date": "2026-09-29T09:58:08.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "那英成都演唱会以《弯弯的月亮》片段悼念刘欢 成都文旅部门明确报批问题",
-   "link": "https://www.cnbeta.com.tw/articles/music/1580042.htm",
-   "date": "2026-09-29T09:41:01.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Nothing’s new flagship Headphone 1 Pro put you in the studio",
-   "link": "https://www.theverge.com/tech/1001797/nothings-headphone-1-pro-review",
-   "date": "2026-09-29T01:00:00.000Z",
+   "title": "Razer’s low-latency wireless gaming keyboard is almost half off",
+   "link": "https://www.theverge.com/gadgets/1002087/razer-deathstalker-v2-pro-tkl-witcher-3-remastered-deal-sale",
+   "date": "2026-09-29T17:19:07.000Z",
    "source": "The Verge"
   },
   {
-   "title": "AMD is acquiring AI company World Labs in a deal worth more than $8 billion",
-   "link": "https://www.theverge.com/tech/1001749/amd-world-labs-ai-acquisition-deal",
-   "date": "2026-09-28T21:31:35.000Z",
+   "title": "OpenAI launches Dots, its Muse competitor",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1002033/openai-dots-launch-muse-competitor",
+   "date": "2026-09-29T17:15:00.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "Crew-13 Rocket and Spacecraft at Launch Pad",
+   "link": "https://www.nasa.gov/image-article/crew-13-rocket-and-spacecraft-at-launch-pad/",
+   "date": "2026-09-29T15:31:56.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA Opens Applications for Second Season of ORBIT Student Challenge",
+   "link": "https://www.nasa.gov/learning-resources/research-program-for-students/",
+   "date": "2026-09-29T15:11:15.000Z",
+   "source": "NASA"
   }
  ]
 }
