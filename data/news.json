@@ -1,60 +1,78 @@
 {
- "updated": "2026-09-30T10:46:41.459Z",
- "count": 9,
+ "updated": "2026-09-30T19:40:34.315Z",
+ "count": 12,
  "items": [
   {
-   "title": "微星预热尊爵 N16 Flip AI+ 2026 二合一翻转本：英伟达 RTX Spark 芯片，预计 10 月 8 日预售",
-   "link": "https://www.ithome.com/1/008/883.htm",
-   "date": "2026-09-30T10:41:14.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "古尔曼：苹果计划于 10 月 13 日大举进军智能家居市场，首发智能家居控制中枢及 2027 款 Apple TV、HomePod mini",
-   "link": "https://www.ithome.com/1/008/882.htm",
-   "date": "2026-09-30T10:34:44.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "深圳通 NFC 手机卡限时免费开卡活动开启，截至 10 月 8 日",
-   "link": "https://www.ithome.com/1/008/879.htm",
-   "date": "2026-09-30T10:33:05.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "车主投诉一嗨租车：轮胎磨出钢丝验车单上却全打勾",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580200.htm",
-   "date": "2026-09-30T08:40:22.000Z",
+   "title": "三星Galaxy Buds On更多图片曝光 采用夹耳式开放设计",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580254.htm",
+   "date": "2026-09-30T19:37:33.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "东航官方回应空姐下跪事件：旅客手肘被碰后言语过激 当事乘务员已返岗",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580198.htm",
-   "date": "2026-09-30T08:38:58.000Z",
+   "title": "NASA, International Partners Advance Work on Space Crops",
+   "link": "https://science.nasa.gov/science-research/biological-physical-sciences/nasa-international-partners-advance-work-on-space-crops/",
+   "date": "2026-09-30T18:38:20.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "The AI Tamagotchis are coming",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1002779/openai-dots-meta-muse-ai-agents-hardware-devices",
+   "date": "2026-09-30T18:07:38.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Star Trails",
+   "link": "https://www.nasa.gov/image-article/star-trails/",
+   "date": "2026-09-30T17:50:50.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Reddit says it has to cut back access to ‘Old Reddit’ because of AI bots",
+   "link": "https://www.theverge.com/tech/1002788/old-reddit-ai-scraping",
+   "date": "2026-09-30T17:45:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Amazon&#8217;s delivery driver smart glasses will reportedly take photos &#8216;almost constantly&#8217;",
+   "link": "https://www.theverge.com/tech/1002766/amazon-delivery-driver-smart-glasses-privacy",
+   "date": "2026-09-30T17:21:29.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "乐扩公布 B650 扩展卡 PB65MX4，支持模块化按需拓展",
+   "link": "https://www.ithome.com/1/008/950.htm",
+   "date": "2026-09-30T16:15:09.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "复兴号 CR400AF-X 动车组首发上线 UFCS 支持：高铁无线快充迈入 30W 时代，半小时充至 60%",
+   "link": "https://www.ithome.com/1/008/946.htm",
+   "date": "2026-09-30T16:01:31.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "海盗船《英雄联盟》选手 Gumayusi 联名键鼠发售，1749 / 1549 元",
+   "link": "https://www.ithome.com/1/008/945.htm",
+   "date": "2026-09-30T15:52:42.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "联邦快递斥资3亿美元向Harbinger订购2000辆电动卡车",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580252.htm",
+   "date": "2026-09-30T15:28:31.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Anthropic点名智谱GLM-5.3：漏洞利用能力增强，安全防护仍有缺口",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580196.htm",
-   "date": "2026-09-30T08:11:25.000Z",
+   "title": "NASA与SpaceX正在为Crew-13载人任务进行最后准备 发射后仅7小时50分完成对接",
+   "link": "https://www.cnbeta.com.tw/articles/science/1580250.htm",
+   "date": "2026-09-30T15:27:07.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Sam Altman says OpenAI won’t go public until its models are safe",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1002505/sam-altman-openai-ipo-devday-ai-safety",
-   "date": "2026-09-30T00:19:13.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Trump orders US government to call AI ‘Super Intelligence’",
-   "link": "https://www.theverge.com/policy/1002468/trump-ai-superintelligence-executive-order-ai",
-   "date": "2026-09-29T22:25:45.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "BMW’s revamped i3 boasts up to 468 miles of range",
-   "link": "https://www.theverge.com/transportation/1002173/bmws-revamped-i3-boasts-up-to-468-miles-of-range",
-   "date": "2026-09-29T22:01:00.000Z",
-   "source": "The Verge"
+   "title": "APOD: 2026 September 30 – Arp 78: Peculiar Galaxy in Aries",
+   "link": "https://science.nasa.gov/image-article/apod-2026-september-30-arp-78-peculiar-galaxy-in-aries/",
+   "date": "2026-09-30T04:05:00.000Z",
+   "source": "NASA"
   }
  ]
 }
