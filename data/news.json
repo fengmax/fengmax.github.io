@@ -1,78 +1,60 @@
 {
- "updated": "2026-09-30T19:40:34.315Z",
- "count": 12,
+ "updated": "2026-09-30T23:14:27.984Z",
+ "count": 9,
  "items": [
   {
-   "title": "三星Galaxy Buds On更多图片曝光 采用夹耳式开放设计",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580254.htm",
-   "date": "2026-09-30T19:37:33.000Z",
+   "title": "苹果新智能家居设备设置流程曝光，新增“Photo Face”步骤",
+   "link": "https://www.ithome.com/1/008/954.htm",
+   "date": "2026-09-30T23:05:51.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "谷歌最前沿 AI 模型：Gemini 4 Argon 登场，长周期代码工程 DeepSWE 测试超 Claude Opus 5.5",
+   "link": "https://www.ithome.com/1/008/953.htm",
+   "date": "2026-09-30T22:57:36.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Neon sticks it to A24 by announcing a Creative Commons SCP Foundation movie",
+   "link": "https://www.theverge.com/entertainment/1002958/neon-a24-creative-commons-scp-foundation-movie",
+   "date": "2026-09-30T20:45:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Google announces Gemini 4 and says it&#8217;s so capable that only &#8216;trusted cyber defenders&#8217; can have it right now",
+   "link": "https://www.theverge.com/tech/1002980/google-gemini-4-argon",
+   "date": "2026-09-30T20:41:41.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "美光科技 2026 财年年报归母净利润 849.69 亿美元，同比增长 895.07%",
+   "link": "https://www.ithome.com/1/008/952.htm",
+   "date": "2026-09-30T20:07:32.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "罗技推出Zone Vibe Pro头戴式耳机 支持自适应降噪与蓝牙6.0 电池和头梁均可更换",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580262.htm",
+   "date": "2026-09-30T19:58:52.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "NASA, International Partners Advance Work on Space Crops",
-   "link": "https://science.nasa.gov/science-research/biological-physical-sciences/nasa-international-partners-advance-work-on-space-crops/",
-   "date": "2026-09-30T18:38:20.000Z",
-   "source": "NASA"
+   "title": "月之暗面被指大规模提取OpenAI受保护推理内容 单日发起1.6万次请求",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580260.htm",
+   "date": "2026-09-30T19:49:31.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Xbox主管否认微软出售传闻 称将以长期视角推动业务重整",
+   "link": "https://www.cnbeta.com.tw/articles/game/1580258.htm",
+   "date": "2026-09-30T19:48:12.000Z",
+   "source": "cnBeta"
   },
   {
    "title": "The AI Tamagotchis are coming",
    "link": "https://www.theverge.com/ai-artificial-intelligence/1002779/openai-dots-meta-muse-ai-agents-hardware-devices",
    "date": "2026-09-30T18:07:38.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "Star Trails",
-   "link": "https://www.nasa.gov/image-article/star-trails/",
-   "date": "2026-09-30T17:50:50.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Reddit says it has to cut back access to ‘Old Reddit’ because of AI bots",
-   "link": "https://www.theverge.com/tech/1002788/old-reddit-ai-scraping",
-   "date": "2026-09-30T17:45:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Amazon&#8217;s delivery driver smart glasses will reportedly take photos &#8216;almost constantly&#8217;",
-   "link": "https://www.theverge.com/tech/1002766/amazon-delivery-driver-smart-glasses-privacy",
-   "date": "2026-09-30T17:21:29.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "乐扩公布 B650 扩展卡 PB65MX4，支持模块化按需拓展",
-   "link": "https://www.ithome.com/1/008/950.htm",
-   "date": "2026-09-30T16:15:09.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "复兴号 CR400AF-X 动车组首发上线 UFCS 支持：高铁无线快充迈入 30W 时代，半小时充至 60%",
-   "link": "https://www.ithome.com/1/008/946.htm",
-   "date": "2026-09-30T16:01:31.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "海盗船《英雄联盟》选手 Gumayusi 联名键鼠发售，1749 / 1549 元",
-   "link": "https://www.ithome.com/1/008/945.htm",
-   "date": "2026-09-30T15:52:42.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "联邦快递斥资3亿美元向Harbinger订购2000辆电动卡车",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580252.htm",
-   "date": "2026-09-30T15:28:31.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "NASA与SpaceX正在为Crew-13载人任务进行最后准备 发射后仅7小时50分完成对接",
-   "link": "https://www.cnbeta.com.tw/articles/science/1580250.htm",
-   "date": "2026-09-30T15:27:07.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "APOD: 2026 September 30 – Arp 78: Peculiar Galaxy in Aries",
-   "link": "https://science.nasa.gov/image-article/apod-2026-september-30-arp-78-peculiar-galaxy-in-aries/",
-   "date": "2026-09-30T04:05:00.000Z",
-   "source": "NASA"
   }
  ]
 }
