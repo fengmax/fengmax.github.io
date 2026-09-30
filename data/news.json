@@ -1,24 +1,42 @@
 {
- "updated": "2026-09-30T02:33:00.162Z",
- "count": 12,
+ "updated": "2026-09-30T10:46:41.459Z",
+ "count": 9,
  "items": [
   {
-   "title": "报告称微软 Copilot 承包商可完整查看用户上传的照片、AI 提示词等",
-   "link": "https://www.ithome.com/1/008/606.htm",
-   "date": "2026-09-30T02:30:25.000Z",
+   "title": "微星预热尊爵 N16 Flip AI+ 2026 二合一翻转本：英伟达 RTX Spark 芯片，预计 10 月 8 日预售",
+   "link": "https://www.ithome.com/1/008/883.htm",
+   "date": "2026-09-30T10:41:14.000Z",
    "source": "IT之家"
   },
   {
-   "title": "鸿蒙智行问界新 M8 开启预售：华为乾崑智驾 ADS 5、面向未来的 L3 架构设计，38.98 万元起",
-   "link": "https://www.ithome.com/1/008/605.htm",
-   "date": "2026-09-30T02:26:54.000Z",
+   "title": "古尔曼：苹果计划于 10 月 13 日大举进军智能家居市场，首发智能家居控制中枢及 2027 款 Apple TV、HomePod mini",
+   "link": "https://www.ithome.com/1/008/882.htm",
+   "date": "2026-09-30T10:34:44.000Z",
    "source": "IT之家"
   },
   {
-   "title": "DeepSeek 开源面向华为昇腾算力平台的基础设施组件",
-   "link": "https://www.ithome.com/1/008/604.htm",
-   "date": "2026-09-30T02:25:20.000Z",
+   "title": "深圳通 NFC 手机卡限时免费开卡活动开启，截至 10 月 8 日",
+   "link": "https://www.ithome.com/1/008/879.htm",
+   "date": "2026-09-30T10:33:05.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "车主投诉一嗨租车：轮胎磨出钢丝验车单上却全打勾",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580200.htm",
+   "date": "2026-09-30T08:40:22.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "东航官方回应空姐下跪事件：旅客手肘被碰后言语过激 当事乘务员已返岗",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580198.htm",
+   "date": "2026-09-30T08:38:58.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Anthropic点名智谱GLM-5.3：漏洞利用能力增强，安全防护仍有缺口",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580196.htm",
+   "date": "2026-09-30T08:11:25.000Z",
+   "source": "cnBeta"
   },
   {
    "title": "Sam Altman says OpenAI won’t go public until its models are safe",
@@ -33,46 +51,10 @@
    "source": "The Verge"
   },
   {
-   "title": "特朗普称与科技领袖签署AI原则文件 协议“具有道德约束力”",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580120.htm",
-   "date": "2026-09-29T22:04:12.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "特朗普会晤人工智能业界领袖 反对新增联邦安全监管",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580118.htm",
-   "date": "2026-09-29T22:03:51.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "荷兰警方逮捕黑客组织ShinyHunters关联嫌疑人 美国方面的调查仍在扩大",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580116.htm",
-   "date": "2026-09-29T22:02:30.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "BMW’s revamped i3 boasts up to 468 miles of range",
    "link": "https://www.theverge.com/transportation/1002173/bmws-revamped-i3-boasts-up-to-468-miles-of-range",
    "date": "2026-09-29T22:01:00.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "NASA Opens 2027 Human Lander Challenge for Lunar Communications",
-   "link": "https://www.nasa.gov/directorates/esdmd/artemis-campaign-development-division/human-landing-system-program/nasa-opens-2027-human-lander-challenge-for-lunar-communications/",
-   "date": "2026-09-29T21:27:56.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Awards Orbital Safety Analysis Support Services Contract",
-   "link": "https://www.nasa.gov/news-release/nasa-awards-orbital-safety-analysis-support-services-contract/",
-   "date": "2026-09-29T21:00:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Features Exploration, Science at International Space Conference",
-   "link": "https://www.nasa.gov/news-release/nasa-features-exploration-science-at-international-space-conference/",
-   "date": "2026-09-29T20:55:24.000Z",
-   "source": "NASA"
   }
  ]
 }
