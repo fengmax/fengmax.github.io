@@ -1,24 +1,60 @@
 {
- "updated": "2026-10-02T02:41:25.085Z",
+ "updated": "2026-10-02T10:45:52.027Z",
  "count": 12,
  "items": [
   {
-   "title": "AMD 掌机芯片 Ryzen Z3 系列爆料：FF6 封装、6 核 CPU+12 个 RDNA4m 计算单元",
-   "link": "https://www.ithome.com/1/009/240.htm",
-   "date": "2026-10-02T02:30:55.000Z",
+   "title": "特斯拉推出 Dog Mode Chew Toy 车载周边：适用宠物场景，20 美元",
+   "link": "https://www.ithome.com/1/009/340.htm",
+   "date": "2026-10-02T10:45:03.000Z",
    "source": "IT之家"
   },
   {
-   "title": "世界最长海底道路隧道：青岛胶州湾第二海底隧道盾构掘进全部完成",
-   "link": "https://www.ithome.com/1/009/239.htm",
-   "date": "2026-10-02T02:27:49.000Z",
+   "title": "罗技 Astro A50 X 头戴式耳机 McLAREN RACING“迈凯轮赛车版”国行发售，3499 元",
+   "link": "https://www.ithome.com/1/009/339.htm",
+   "date": "2026-10-02T10:44:50.000Z",
    "source": "IT之家"
   },
   {
-   "title": "冲刺感恩节前挂牌，消息称 Anthropic 寻求最早 11 月中旬上市",
-   "link": "https://www.ithome.com/1/009/237.htm",
-   "date": "2026-10-02T02:24:59.000Z",
+   "title": "Rivian 为 R2 车型推送 10 月车机系统更新：新增 Pet Cam 宠物摄像头、电动尾门开启高度调节功能",
+   "link": "https://www.ithome.com/1/009/338.htm",
+   "date": "2026-10-02T10:44:44.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "微软称Copilot是“工作操作系统” 但Windows 11版Copilot本质仍是Chromium应用",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580482.htm",
+   "date": "2026-10-02T10:37:46.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "三星HBM4价格或飙升至HBM3E的三倍 持续改变DRAM产业的供需结构",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580480.htm",
+   "date": "2026-10-02T10:33:52.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "AI音乐制作平台Suno推出Speech语音生成功能测试版 可同步制作配乐与旁白",
+   "link": "https://www.cnbeta.com.tw/articles/music/1580478.htm",
+   "date": "2026-10-02T10:33:16.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "AI music maker Suno now generates spoken words",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1003925/suno-speech-ai-voice-feature-beta-availability",
+   "date": "2026-10-02T09:42:19.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "APOD: 2026 October 2 – The Complete Sharpless Catalog: 313 Nebulas",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-2-the-complete-sharpless-catalog-313-nebulae/",
+   "date": "2026-10-02T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Rains Swamp the Gandak River",
+   "link": "https://science.nasa.gov/earth/earth-observatory/rains-swamp-the-gandak-river/",
+   "date": "2026-10-02T04:01:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "10 Things: Movie Night",
@@ -27,52 +63,16 @@
    "source": "NASA"
   },
   {
-   "title": "Google旗下Debug计划“以蚊控蚊” 沃尔巴克氏体雄蚊或可压低病媒数量",
-   "link": "https://www.cnbeta.com.tw/articles/science/1580424.htm",
-   "date": "2026-10-01T23:37:29.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "FlyDubai客机惊魂事件：机长乘客联手化险 阿曼籍副驾引安全审查疑问",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580422.htm",
-   "date": "2026-10-01T23:06:06.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Anthropic据悉计划最早感恩节假期前进行大规模IPO",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580420.htm",
-   "date": "2026-10-01T23:05:05.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "Apple’s reportedly developing a smart home camera that doesn’t record video",
    "link": "https://www.theverge.com/tech/1003877/apple-security-camera-no-video",
    "date": "2026-10-01T22:51:36.000Z",
    "source": "The Verge"
   },
   {
-   "title": "NASA Awards Enterprise Logistics Support Services Agreements",
-   "link": "https://www.nasa.gov/news-release/nasa-awards-enterprise-logistics-support-services-agreements/",
-   "date": "2026-10-01T20:34:27.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "Google’s new Guided Vision feature can help you read the fine print",
    "link": "https://www.theverge.com/ai-artificial-intelligence/1003756/google-gemini-live-guided-vision",
    "date": "2026-10-01T19:47:51.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "Android Central &#8216;will continue&#8217; despite laying off its staff",
-   "link": "https://www.theverge.com/tech/1003735/android-central-layoffs",
-   "date": "2026-10-01T19:20:29.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "NASA’s SpaceX Crew-13 Launches",
-   "link": "https://www.nasa.gov/image-article/nasas-spacex-crew-13-launches/",
-   "date": "2026-10-01T18:05:38.000Z",
-   "source": "NASA"
   }
  ]
 }
