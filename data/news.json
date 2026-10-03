@@ -1,36 +1,48 @@
 {
- "updated": "2026-10-03T02:27:30.539Z",
+ "updated": "2026-10-03T10:05:51.949Z",
  "count": 12,
  "items": [
   {
-   "title": "消息称亚马逊考虑剥离并回租 80 亿美元英伟达 Grace Blackwell AI 芯片",
-   "link": "https://www.ithome.com/1/009/407.htm",
-   "date": "2026-10-03T02:27:10.000Z",
+   "title": "大航跃迁自研 150 吨级火箭发动机“擎宇-11”完成核心部件研制与试验",
+   "link": "https://www.ithome.com/1/009/526.htm",
+   "date": "2026-10-03T10:04:42.000Z",
    "source": "IT之家"
   },
   {
-   "title": "华为乾崑智驾累计辅助驾驶里程突破 160 亿公里",
-   "link": "https://www.ithome.com/1/009/406.htm",
-   "date": "2026-10-03T02:24:50.000Z",
+   "title": "一次认证 3 个月有效，北京首都机场免费 Wi-Fi 攻略发布",
+   "link": "https://www.ithome.com/1/009/522.htm",
+   "date": "2026-10-03T09:59:54.000Z",
    "source": "IT之家"
   },
   {
-   "title": "对抗苹果 iPhone Duo：曝三星 Galaxy Z Fold9 折叠手机目标厚度 3.9mm/7.9mm",
-   "link": "https://www.ithome.com/1/009/405.htm",
-   "date": "2026-10-03T02:24:00.000Z",
+   "title": "AMD 出样 Versal AI Core XQRVC1902 自适应 SoC，满足 15 年太空任务要求",
+   "link": "https://www.ithome.com/1/009/521.htm",
+   "date": "2026-10-03T09:53:20.000Z",
    "source": "IT之家"
   },
   {
-   "title": "Meta开源Muse智能体硬件方案 普通开发板也能打造自己的AI设备",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580528.htm",
-   "date": "2026-10-02T22:01:18.000Z",
+   "title": "韩国天价离婚案进展 SK集团会长崔泰源卖股票筹集47亿分手费",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580582.htm",
+   "date": "2026-10-03T08:58:49.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "美国陆军将设自主系统司令部 五角大楼另筹建四星级自主战争司令部",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580526.htm",
-   "date": "2026-10-02T22:00:43.000Z",
+   "title": "OpenAI安全团队再现人事变动：安全系统负责人David Robinson离职",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580580.htm",
+   "date": "2026-10-03T06:19:31.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "马斯克先将特斯拉AI5芯片内存砍半 随后又上调至96GB",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580578.htm",
+   "date": "2026-10-03T06:16:07.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "APOD: 2026 October 3 – Selfie at Vera Rubin Ridge",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-3-selfie-at-vera-rubin-ridge/",
+   "date": "2026-10-03T04:05:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Meta open sources code to let you make Muse AI gadgets",
@@ -61,18 +73,6 @@
    "link": "https://www.nasa.gov/missions/station/iss-research/heading-home-nasas-spacex-crew-12-concludes-station-science-mission/",
    "date": "2026-10-02T19:30:00.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "NASA&#8217;s DAVINCI Probe Can Stand the Heat",
-   "link": "https://www.nasa.gov/image-article/nasas-davinci-probe-can-stand-the-heat/",
-   "date": "2026-10-02T19:00:36.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "AMD Ryzen 9 5900X3D工程样品曝光：Zen 3架构再添X3D型号 L3缓存达到128MB",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580524.htm",
-   "date": "2026-10-02T18:31:27.000Z",
-   "source": "cnBeta"
   }
  ]
 }
