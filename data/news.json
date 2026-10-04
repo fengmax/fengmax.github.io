@@ -1,7 +1,49 @@
 {
- "updated": "2026-10-04T18:25:43.044Z",
+ "updated": "2026-10-04T22:34:01.812Z",
  "count": 12,
  "items": [
+  {
+   "title": "萨姆·奥特曼称AI发展应容忍部分负面后果 ≈但拒绝接受灾难性风险",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580706.htm",
+   "date": "2026-10-04T22:18:33.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "《使命召唤：现代战争4》新预告 阻止危险武器落入朝鲜",
+   "link": "https://www.cnbeta.com.tw/articles/game/1580704.htm",
+   "date": "2026-10-04T22:14:52.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Curiosity Blog, Sols 5022-5028: Cashing in at Cache Creek",
+   "link": "https://science.nasa.gov/blog/curiosity-blog-sols-5022-5028-cashing-in-at-cache-creek/",
+   "date": "2026-10-04T21:13:07.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "The new Fitbit Edge leaks",
+   "link": "https://www.theverge.com/gadgets/1004616/the-new-fitbit-edge-leaks",
+   "date": "2026-10-04T21:02:09.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "一个免费测速网站，靠你的网速数据值12亿美元？",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580702.htm",
+   "date": "2026-10-04T20:15:32.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Prick’s theatrical industrial punk is perfect for spooky season",
+   "link": "https://www.theverge.com/entertainment/1004595/prick-industrial-glam-punk-album-review",
+   "date": "2026-10-04T20:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Mapping the Gaps in NASA&#8217;s Return to the Moon, featuring Richard Spolzino",
+   "link": "https://www.nasa.gov/general/mapping-the-gaps-in-nasas-return-to-the-moon-featuring-richard-spolzino/",
+   "date": "2026-10-04T19:10:59.000Z",
+   "source": "NASA"
+  },
   {
    "title": "The best early October Prime Day deals happening now",
    "link": "https://www.theverge.com/gadgets/999447/best-early-amazon-prime-day-big-deals-sale-october",
@@ -9,40 +51,10 @@
    "source": "The Verge"
   },
   {
-   "title": "NJ’s former Lt Gov is using AI to say he’s innocent of sexual harassment",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1004549/well-if-ai-said-it-it-must-be-true",
-   "date": "2026-10-04T16:16:04.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "MIT超薄肌肉机器人靠蓝光驱动 在水中以每分钟4倍体长前进",
-   "link": "https://www.cnbeta.com.tw/articles/science/1580694.htm",
-   "date": "2026-10-04T16:04:45.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "马斯克拟将SpaceXAI更名为SpaceXSI 为“超级智能”概念背书",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580692.htm",
-   "date": "2026-10-04T16:04:12.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "德国团队刷新三项量子物理纪录 巨型原子或推动下一代量子计算机发展",
-   "link": "https://www.cnbeta.com.tw/articles/science/1580690.htm",
-   "date": "2026-10-04T16:01:56.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "机器人格斗公司 REK 举办真人与机器人笼斗赛被叫停：未取得许可组织活动",
    "link": "https://www.ithome.com/1/009/736.htm",
    "date": "2026-10-04T15:22:56.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "An AI couldn’t beat humans at StarCraft, so it decided to cheat",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1004543/openai-gpt-cheat-starcraft",
-   "date": "2026-10-04T15:21:59.000Z",
-   "source": "The Verge"
   },
   {
    "title": "消息称微软为 20 多个数据中心建设项目引入“仿生”计划：修复湿地生态、种植本土植物以降低环境影响",
@@ -60,18 +72,6 @@
    "title": "APOD: 2026 October 4 – Supernumerary Rainbows over New Jersey",
    "link": "https://science.nasa.gov/image-article/apod-2026-october-4-supernumerary-rainbows-over-new-jersey/",
    "date": "2026-10-04T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "APOD: 2026 October 3 – Selfie at Vera Rubin Ridge",
-   "link": "https://science.nasa.gov/image-article/apod-2026-october-3-selfie-at-vera-rubin-ridge/",
-   "date": "2026-10-03T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Astronaut Christina Koch to Join NFL Fans in Philadelphia",
-   "link": "https://www.nasa.gov/news-release/nasa-astronaut-christina-koch-to-join-nfl-fans-in-philadelphia/",
-   "date": "2026-10-02T19:54:54.000Z",
    "source": "NASA"
   }
  ]
