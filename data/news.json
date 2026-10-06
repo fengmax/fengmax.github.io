@@ -1,60 +1,78 @@
 {
- "updated": "2026-10-06T19:52:42.296Z",
- "count": 9,
+ "updated": "2026-10-06T23:22:36.111Z",
+ "count": 12,
  "items": [
   {
-   "title": "Save on MacBooks, iPads and Apple Watches during October Prime Day",
-   "link": "https://www.theverge.com/gadgets/1005662/apple-ipad-macbook-airpod-prime-day-deal-sale",
-   "date": "2026-10-06T19:30:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Two mystery PlayStation products have leaked — one might be a PlayStation Portal OLED",
-   "link": "https://www.theverge.com/games/1006092/playstation-portal-oled-wi-fi-alliance-certifications",
-   "date": "2026-10-06T19:12:26.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Alexa can’t control the aux input on Amazon Echo speakers anymore",
-   "link": "https://www.theverge.com/tech/1006103/amazon-alexa-aux-voice-commands",
-   "date": "2026-10-06T19:03:56.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "专家认为华为提出的LogicFolding 3D堆叠芯片架构的散热难题仍难解决",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580954.htm",
-   "date": "2026-10-06T18:37:33.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "科学家找到细胞“节能开关”：激活AMPK可让多种模式生物寿命延长超25%",
-   "link": "https://www.cnbeta.com.tw/articles/science/1580952.htm",
-   "date": "2026-10-06T18:31:46.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Raspberry Pi Desktop四年后重返PC和Mac 升级至Debian 13并加入远程控制",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580950.htm",
-   "date": "2026-10-06T18:30:17.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "德国交通部长：希望特斯拉 FSD（监督版）辅助驾驶系统能在欧盟获批",
-   "link": "https://www.ithome.com/1/010/124.htm",
-   "date": "2026-10-06T15:06:34.000Z",
+   "title": "LibreOffice：短期内默认版本不内置 AI 功能，用户可通过扩展自行接入本地模型",
+   "link": "https://www.ithome.com/1/010/132.htm",
+   "date": "2026-10-06T23:19:20.000Z",
    "source": "IT之家"
   },
   {
-   "title": "《明日方舟：终末地》游戏将支持英伟达 RTX Spark 笔记本，「丹青渡」版本上线",
-   "link": "https://www.ithome.com/1/010/123.htm",
-   "date": "2026-10-06T14:49:57.000Z",
+   "title": "库克交棒后首次：苹果新任 CEO 特努斯将主持 2026 财年第 4 财季财报会议",
+   "link": "https://www.ithome.com/1/010/131.htm",
+   "date": "2026-10-06T23:14:00.000Z",
    "source": "IT之家"
   },
   {
-   "title": "AMD 股价创历史新高！CEO 苏姿丰称 AI 芯片需求非常旺盛，将持续大幅扩产",
-   "link": "https://www.ithome.com/1/010/114.htm",
-   "date": "2026-10-06T14:30:54.000Z",
+   "title": "微软 Microsoft 365 遇冷：荷兰税务部门拟在 2028 年前寻找开源协作方案",
+   "link": "https://www.ithome.com/1/010/130.htm",
+   "date": "2026-10-06T23:01:20.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "英伟达RTX Spark版Surface Laptop Ultra规格曝光 20核Grace CPU搭配6144 CUDA核心",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580966.htm",
+   "date": "2026-10-06T22:52:22.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "《GTA6》LOVE杂志实物图 露西亚穿黑丝网袜很性感",
+   "link": "https://www.cnbeta.com.tw/articles/game/1580964.htm",
+   "date": "2026-10-06T22:48:39.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Xbox has secured exclusive GTA 6 streaming rights",
+   "link": "https://www.theverge.com/report/1005859/microsoft-xbox-gta-6-streaming-rights",
+   "date": "2026-10-06T22:12:27.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Xbox负责人谈Helix：打造主机优先的便携游戏设备",
+   "link": "https://www.cnbeta.com.tw/articles/game/1580962.htm",
+   "date": "2026-10-06T22:11:02.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "The best robot vacuum and mop deals during October Prime Day",
+   "link": "https://www.theverge.com/gadgets/1006059/robot-vacuum-mop-roborock-qrevo-prime-day-deal-sale",
+   "date": "2026-10-06T22:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Apple and LG team up on new smart home gear, starting with a lock, doorbell, and thermostat",
+   "link": "https://www.theverge.com/news/1006238/apple-lg-homekit-rumor-fcc",
+   "date": "2026-10-06T21:39:53.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "NASA to Cover Northrop Grumman CRS-24 Spacecraft Departure",
+   "link": "https://www.nasa.gov/news-release/nasa-to-cover-northrop-grumman-crs-24-spacecraft-departure/",
+   "date": "2026-10-06T18:31:40.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "October 2026 Satellite Puzzler",
+   "link": "https://science.nasa.gov/earth/earth-observatory/october-2026-satellite-puzzler/",
+   "date": "2026-10-06T18:27:38.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Lunar Grounding Challenge",
+   "link": "https://www.nasa.gov/directorates/stmd/prizes-challenges-crowdsourcing-program/center-of-excellence-for-collaborative-innovation-coeci/lunar-grounding-challenge/",
+   "date": "2026-10-06T18:22:24.000Z",
+   "source": "NASA"
   }
  ]
 }
