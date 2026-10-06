@@ -1,78 +1,78 @@
 {
- "updated": "2026-10-06T03:25:26.581Z",
+ "updated": "2026-10-06T11:33:30.110Z",
  "count": 12,
  "items": [
   {
-   "title": "微软 Win11 五周年：全球超 10 亿用户背后，Win10 旧功能 / 特性回归、优化内存占用",
-   "link": "https://www.ithome.com/1/009/969.htm",
-   "date": "2026-10-06T03:20:07.000Z",
+   "title": "亚马逊 Alexa Echo 智能音箱出现诡异 Bug：毫无征兆哼唱“啦啦啦”数分钟，官方承诺修复",
+   "link": "https://www.ithome.com/1/010/048.htm",
+   "date": "2026-10-06T11:27:22.000Z",
    "source": "IT之家"
   },
   {
-   "title": "任天堂《超级马力欧兄弟：惊奇》游戏被原生移植到 Windows，无需模拟器几乎完美运行",
-   "link": "https://www.ithome.com/1/009/968.htm",
-   "date": "2026-10-06T02:59:25.000Z",
+   "title": "ESA JUICE探测器掠过地球最外层大气区域 借重力提速3.5公里/秒",
+   "link": "https://www.cnbeta.com.tw/articles/science/1580908.htm",
+   "date": "2026-10-06T11:27:08.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "NASA罗曼太空望远镜完成关键测试 向直接观测系外行星迈出重要一步",
+   "link": "https://www.cnbeta.com.tw/articles/science/1580906.htm",
+   "date": "2026-10-06T11:26:25.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Mistral AI 放出预告：今日新模型可在网安等方面优于中国竞品",
+   "link": "https://www.ithome.com/1/010/043.htm",
+   "date": "2026-10-06T11:24:24.000Z",
    "source": "IT之家"
   },
   {
-   "title": "散热制造商 Dynatron 确认 AMD EPYC \"Verano\" 处理器采用 SB1 插槽",
-   "link": "https://www.ithome.com/1/009/967.htm",
-   "date": "2026-10-06T02:52:28.000Z",
+   "title": "国内航线燃油附加费 10 月 10 日起上调：800 公里及以下涨 10 元，800 公里以上涨 20 元",
+   "link": "https://www.ithome.com/1/010/038.htm",
+   "date": "2026-10-06T11:20:15.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "浏览器免费畅玩《GTA V》的网站突然失效 引发外界对版权打击行动猜测",
+   "link": "https://www.cnbeta.com.tw/articles/game/1580904.htm",
+   "date": "2026-10-06T11:02:01.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "The Verge&#8217;s guide to the best October Prime Day deals",
+   "link": "https://www.theverge.com/tech/1004783/october-prime-day-deals-guide",
+   "date": "2026-10-06T11:01:52.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "The best October Prime Day tech deals we found",
+   "link": "https://www.theverge.com/gadgets/996983/best-october-prime-day-deal-sale-tech",
+   "date": "2026-10-06T10:55:05.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Amazon Alexa Plus keeps creepily singing ‘lalala’ for minutes on end",
+   "link": "https://www.theverge.com/tech/1005342/amazon-alexa-plus-keeps-creepily-singing-lalala-for-minutes-on-end",
+   "date": "2026-10-06T10:53:11.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "APOD: 2026 October 6 – A Complete Auroral Oval from SMILE",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-6-a-complete-auroral-oval-from-smile/",
+   "date": "2026-10-06T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "The Beaver Brown Waters of Rupert Bay",
+   "link": "https://science.nasa.gov/earth/earth-observatory/the-beaver-brown-waters-of-rupert-bay/",
+   "date": "2026-10-06T04:01:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Curiosity Blog, Sols 5029-5035: Back in the Lab",
    "link": "https://science.nasa.gov/blog/curiosity-blog-sols-5029-5035-back-in-the-lab/",
    "date": "2026-10-06T01:04:01.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "A Journey to the Depths of Ancient Mars?",
-   "link": "https://science.nasa.gov/blog/a-journey-to-the-depths-of-ancient-mars/",
-   "date": "2026-10-06T00:48:54.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Gemini Call for Me might tell your mom you&#8217;re running late",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors",
-   "date": "2026-10-05T23:09:55.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "NASA to Stream SpaceX Crew-12 Return, Splashdown Live",
-   "link": "https://www.nasa.gov/news-release/nasa-to-stream-spacex-crew-12-return-splashdown-live/",
-   "date": "2026-10-05T21:44:40.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "OpenAI将在欧盟为ChatGPT文本加入隐形水印 无需特殊字符 改写后可能失效",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580828.htm",
-   "date": "2026-10-05T21:36:18.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "诺思罗普·格鲁曼“蓝爪”无人僚机完成首飞 低成本设计融合先进隐身能力",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580826.htm",
-   "date": "2026-10-05T21:35:48.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "AI狂热掀起造富浪潮 科技巨头跻身史上最高光年份",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1580824.htm",
-   "date": "2026-10-05T21:29:23.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Reverse-engineered games: All the news on video game decomps, recomps, VR and web and 3D ports",
-   "link": "https://www.theverge.com/games/1004869/reverse-engineered-games-all-the-news-on-video-game-decomps-recomps-vr-and-web-and-3d-ports",
-   "date": "2026-10-05T21:17:45.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "The Matic is the first robovac to get an FCC ban waiver, not that it needs it",
-   "link": "https://www.theverge.com/policy/1004926/matic-fcc-ban-waiver-conditional-approval",
-   "date": "2026-10-05T21:15:05.000Z",
-   "source": "The Verge"
   }
  ]
 }
