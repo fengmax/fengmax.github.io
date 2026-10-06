@@ -1,78 +1,60 @@
 {
- "updated": "2026-10-06T11:33:30.110Z",
- "count": 12,
+ "updated": "2026-10-06T19:52:42.296Z",
+ "count": 9,
  "items": [
   {
-   "title": "亚马逊 Alexa Echo 智能音箱出现诡异 Bug：毫无征兆哼唱“啦啦啦”数分钟，官方承诺修复",
-   "link": "https://www.ithome.com/1/010/048.htm",
-   "date": "2026-10-06T11:27:22.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "ESA JUICE探测器掠过地球最外层大气区域 借重力提速3.5公里/秒",
-   "link": "https://www.cnbeta.com.tw/articles/science/1580908.htm",
-   "date": "2026-10-06T11:27:08.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "NASA罗曼太空望远镜完成关键测试 向直接观测系外行星迈出重要一步",
-   "link": "https://www.cnbeta.com.tw/articles/science/1580906.htm",
-   "date": "2026-10-06T11:26:25.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Mistral AI 放出预告：今日新模型可在网安等方面优于中国竞品",
-   "link": "https://www.ithome.com/1/010/043.htm",
-   "date": "2026-10-06T11:24:24.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "国内航线燃油附加费 10 月 10 日起上调：800 公里及以下涨 10 元，800 公里以上涨 20 元",
-   "link": "https://www.ithome.com/1/010/038.htm",
-   "date": "2026-10-06T11:20:15.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "浏览器免费畅玩《GTA V》的网站突然失效 引发外界对版权打击行动猜测",
-   "link": "https://www.cnbeta.com.tw/articles/game/1580904.htm",
-   "date": "2026-10-06T11:02:01.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "The Verge&#8217;s guide to the best October Prime Day deals",
-   "link": "https://www.theverge.com/tech/1004783/october-prime-day-deals-guide",
-   "date": "2026-10-06T11:01:52.000Z",
+   "title": "Save on MacBooks, iPads and Apple Watches during October Prime Day",
+   "link": "https://www.theverge.com/gadgets/1005662/apple-ipad-macbook-airpod-prime-day-deal-sale",
+   "date": "2026-10-06T19:30:00.000Z",
    "source": "The Verge"
   },
   {
-   "title": "The best October Prime Day tech deals we found",
-   "link": "https://www.theverge.com/gadgets/996983/best-october-prime-day-deal-sale-tech",
-   "date": "2026-10-06T10:55:05.000Z",
+   "title": "Two mystery PlayStation products have leaked — one might be a PlayStation Portal OLED",
+   "link": "https://www.theverge.com/games/1006092/playstation-portal-oled-wi-fi-alliance-certifications",
+   "date": "2026-10-06T19:12:26.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Amazon Alexa Plus keeps creepily singing ‘lalala’ for minutes on end",
-   "link": "https://www.theverge.com/tech/1005342/amazon-alexa-plus-keeps-creepily-singing-lalala-for-minutes-on-end",
-   "date": "2026-10-06T10:53:11.000Z",
+   "title": "Alexa can’t control the aux input on Amazon Echo speakers anymore",
+   "link": "https://www.theverge.com/tech/1006103/amazon-alexa-aux-voice-commands",
+   "date": "2026-10-06T19:03:56.000Z",
    "source": "The Verge"
   },
   {
-   "title": "APOD: 2026 October 6 – A Complete Auroral Oval from SMILE",
-   "link": "https://science.nasa.gov/image-article/apod-2026-october-6-a-complete-auroral-oval-from-smile/",
-   "date": "2026-10-06T04:05:00.000Z",
-   "source": "NASA"
+   "title": "专家认为华为提出的LogicFolding 3D堆叠芯片架构的散热难题仍难解决",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580954.htm",
+   "date": "2026-10-06T18:37:33.000Z",
+   "source": "cnBeta"
   },
   {
-   "title": "The Beaver Brown Waters of Rupert Bay",
-   "link": "https://science.nasa.gov/earth/earth-observatory/the-beaver-brown-waters-of-rupert-bay/",
-   "date": "2026-10-06T04:01:00.000Z",
-   "source": "NASA"
+   "title": "科学家找到细胞“节能开关”：激活AMPK可让多种模式生物寿命延长超25%",
+   "link": "https://www.cnbeta.com.tw/articles/science/1580952.htm",
+   "date": "2026-10-06T18:31:46.000Z",
+   "source": "cnBeta"
   },
   {
-   "title": "Curiosity Blog, Sols 5029-5035: Back in the Lab",
-   "link": "https://science.nasa.gov/blog/curiosity-blog-sols-5029-5035-back-in-the-lab/",
-   "date": "2026-10-06T01:04:01.000Z",
-   "source": "NASA"
+   "title": "Raspberry Pi Desktop四年后重返PC和Mac 升级至Debian 13并加入远程控制",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1580950.htm",
+   "date": "2026-10-06T18:30:17.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "德国交通部长：希望特斯拉 FSD（监督版）辅助驾驶系统能在欧盟获批",
+   "link": "https://www.ithome.com/1/010/124.htm",
+   "date": "2026-10-06T15:06:34.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "《明日方舟：终末地》游戏将支持英伟达 RTX Spark 笔记本，「丹青渡」版本上线",
+   "link": "https://www.ithome.com/1/010/123.htm",
+   "date": "2026-10-06T14:49:57.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "AMD 股价创历史新高！CEO 苏姿丰称 AI 芯片需求非常旺盛，将持续大幅扩产",
+   "link": "https://www.ithome.com/1/010/114.htm",
+   "date": "2026-10-06T14:30:54.000Z",
+   "source": "IT之家"
   }
  ]
 }
