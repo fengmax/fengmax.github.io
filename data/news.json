@@ -1,7 +1,49 @@
 {
- "updated": "2026-10-05T21:41:44.711Z",
+ "updated": "2026-10-06T03:25:26.581Z",
  "count": 12,
  "items": [
+  {
+   "title": "微软 Win11 五周年：全球超 10 亿用户背后，Win10 旧功能 / 特性回归、优化内存占用",
+   "link": "https://www.ithome.com/1/009/969.htm",
+   "date": "2026-10-06T03:20:07.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "任天堂《超级马力欧兄弟：惊奇》游戏被原生移植到 Windows，无需模拟器几乎完美运行",
+   "link": "https://www.ithome.com/1/009/968.htm",
+   "date": "2026-10-06T02:59:25.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "散热制造商 Dynatron 确认 AMD EPYC \"Verano\" 处理器采用 SB1 插槽",
+   "link": "https://www.ithome.com/1/009/967.htm",
+   "date": "2026-10-06T02:52:28.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Curiosity Blog, Sols 5029-5035: Back in the Lab",
+   "link": "https://science.nasa.gov/blog/curiosity-blog-sols-5029-5035-back-in-the-lab/",
+   "date": "2026-10-06T01:04:01.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "A Journey to the Depths of Ancient Mars?",
+   "link": "https://science.nasa.gov/blog/a-journey-to-the-depths-of-ancient-mars/",
+   "date": "2026-10-06T00:48:54.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Gemini Call for Me might tell your mom you&#8217;re running late",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1005177/google-gemini-call-for-me-expansion-rumors",
+   "date": "2026-10-05T23:09:55.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "NASA to Stream SpaceX Crew-12 Return, Splashdown Live",
+   "link": "https://www.nasa.gov/news-release/nasa-to-stream-spacex-crew-12-return-splashdown-live/",
+   "date": "2026-10-05T21:44:40.000Z",
+   "source": "NASA"
+  },
   {
    "title": "OpenAI将在欧盟为ChatGPT文本加入隐形水印 无需特殊字符 改写后可能失效",
    "link": "https://www.cnbeta.com.tw/articles/tech/1580828.htm",
@@ -31,48 +73,6 @@
    "link": "https://www.theverge.com/policy/1004926/matic-fcc-ban-waiver-conditional-approval",
    "date": "2026-10-05T21:15:05.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "This startup is issuing AI-generated acne prescriptions",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1005075/nolla-health-acne-ai-prescriptions",
-   "date": "2026-10-05T20:14:57.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "苹果 watchOS 27.2 开发者预览版 Beta 3 发布",
-   "link": "https://www.ithome.com/1/009/908.htm",
-   "date": "2026-10-05T18:38:15.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "苹果 visionOS 27.2 开发者预览版 Beta 3 发布",
-   "link": "https://www.ithome.com/1/009/907.htm",
-   "date": "2026-10-05T18:38:15.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "苹果 macOS 27.2 开发者预览版 Beta 3 发布",
-   "link": "https://www.ithome.com/1/009/906.htm",
-   "date": "2026-10-05T18:38:14.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "NASA Astronaut Christina Koch at Eagles vs. Rams",
-   "link": "https://www.nasa.gov/image-article/nasa-astronaut-christina-koch-at-eagles-vs-rams/",
-   "date": "2026-10-05T17:42:56.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Testing Aims at Supercooled Large Droplet Aviation Safety",
-   "link": "https://www.nasa.gov/image-article/nasa-testing-aims-at-supercooled-large-droplet-aviation-safety/",
-   "date": "2026-10-05T15:27:23.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Suspected Second-generation Planet Solves NASA Hubble Cold Case",
-   "link": "https://science.nasa.gov/missions/hubble/suspected-second-generation-planet-solves-nasa-hubble-cold-case/",
-   "date": "2026-10-05T15:00:35.000Z",
-   "source": "NASA"
   }
  ]
 }
