@@ -1,78 +1,60 @@
 {
- "updated": "2026-10-08T20:16:22.950Z",
- "count": 12,
+ "updated": "2026-10-09T03:13:03.370Z",
+ "count": 9,
  "items": [
   {
-   "title": "ICE detainees in Georgia used the facility’s video calling software to expose the conditions inside",
-   "link": "https://www.theverge.com/report/1008342/folkston-georgia-ice-detention-hunger-strike-video",
-   "date": "2026-10-08T19:45:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "NASA Announces Bold Science Initiatives for America’s Golden Age Summit",
-   "link": "https://www.nasa.gov/news-release/nasa-announces-bold-science-initiatives-for-americas-golden-age-summit/",
-   "date": "2026-10-08T19:40:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Microsoft’s new Windows Search is exactly what Windows 11 needs",
-   "link": "https://www.theverge.com/news/1008320/microsoft-windows-search-overhaul-windows-11",
-   "date": "2026-10-08T19:30:21.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Paramount is making a Cyberpunk 2077 film",
-   "link": "https://www.theverge.com/games/1008327/paramount-pictures-cyberpunk-2077-film-movie",
-   "date": "2026-10-08T19:14:03.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "苹果任命新并购负责人 进一步推进特努斯时代管理重组",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581280.htm",
-   "date": "2026-10-08T19:00:18.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "NASA’s SSPICY Mission to Demonstrate In-Space Inspection Technologies",
-   "link": "https://www.nasa.gov/centers-and-facilities/ames/nasas-sspicy-mission-to-demonstrate-in-space-inspection-technologies/",
-   "date": "2026-10-08T18:56:25.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Crew-12 Returns to Earth",
-   "link": "https://www.nasa.gov/image-article/crew-12-returns-to-earth/",
-   "date": "2026-10-08T18:52:27.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "库克谈苹果掌门人交接：希望约翰·特努斯拥有顺风起航的机会",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581278.htm",
-   "date": "2026-10-08T18:12:57.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "调查发现：Z世代现已成为艺术市场最大消费群体",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581276.htm",
-   "date": "2026-10-08T18:10:32.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "899 元起雷蛇巴塞利斯蛇 V4 专业版 / 极速版鼠标发布，还有第二代无线充电底座",
-   "link": "https://www.ithome.com/1/010/745.htm",
-   "date": "2026-10-08T16:58:03.000Z",
+   "title": "微软重构 XBOX PC 应用：游戏库加载提速，商店列表与游戏列表合一",
+   "link": "https://www.ithome.com/1/010/844.htm",
+   "date": "2026-10-09T03:08:08.000Z",
    "source": "IT之家"
   },
   {
-   "title": "消息称华为阔直板机型有多产品线布局动作，nova 中端线也在评估中",
-   "link": "https://www.ithome.com/1/010/744.htm",
-   "date": "2026-10-08T16:50:47.000Z",
+   "title": "酷冷至尊推出 MWE SFX GOLD 电源：数字控制架构，10 年质保",
+   "link": "https://www.ithome.com/1/010/843.htm",
+   "date": "2026-10-09T03:05:01.000Z",
    "source": "IT之家"
   },
   {
-   "title": "苹果官宣“欢迎回家”发布会定档 10 月 13 日，暗示首款智能家居中枢产品",
-   "link": "https://www.ithome.com/1/010/743.htm",
-   "date": "2026-10-08T16:26:13.000Z",
+   "title": "小米推出米家桌面学习灯 Max：双反射控光结构防眩不刺眼，799 元",
+   "link": "https://www.ithome.com/1/010/842.htm",
+   "date": "2026-10-09T03:04:53.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "US plans livestream of execution by firing squad",
+   "link": "https://www.theverge.com/tech/1008530/us-government-livestream-execution-firing-squad-fort-hood",
+   "date": "2026-10-08T22:32:04.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Anthropic launches free AI security scans for open-source projects",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1008521/anthropic-open-source-oss-scanner",
+   "date": "2026-10-08T21:53:51.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "加州要求REK停止未经批准的人机格斗赛 纯机器人赛事未被明确叫停",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581292.htm",
+   "date": "2026-10-08T21:40:06.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "SpaceX的移动通信雄心：计划从卫星互联网运营商转型为大型移动通信服务商",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581290.htm",
+   "date": "2026-10-08T21:39:43.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "报道称苹果计划10月27日前后发布触屏OLED MacBook Pro",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581288.htm",
+   "date": "2026-10-08T21:37:59.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "SpaceX announces plan to become a ‘major mobile carrier’",
+   "link": "https://www.theverge.com/science/1008467/spacex-announces-plan-to-become-a-major-mobile-carrier",
+   "date": "2026-10-08T21:23:31.000Z",
+   "source": "The Verge"
   }
  ]
 }
