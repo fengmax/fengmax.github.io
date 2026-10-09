@@ -1,24 +1,66 @@
 {
- "updated": "2026-10-09T03:13:03.370Z",
- "count": 9,
+ "updated": "2026-10-09T11:32:30.754Z",
+ "count": 12,
  "items": [
   {
-   "title": "微软重构 XBOX PC 应用：游戏库加载提速，商店列表与游戏列表合一",
-   "link": "https://www.ithome.com/1/010/844.htm",
-   "date": "2026-10-09T03:08:08.000Z",
+   "title": "利民 DYNAMIC VISION 360 ARGB 一体式水冷散热器发售：冷头配 5 英寸可旋转面板，549 元起",
+   "link": "https://www.ithome.com/1/011/097.htm",
+   "date": "2026-10-09T11:28:48.000Z",
    "source": "IT之家"
   },
   {
-   "title": "酷冷至尊推出 MWE SFX GOLD 电源：数字控制架构，10 年质保",
-   "link": "https://www.ithome.com/1/010/843.htm",
-   "date": "2026-10-09T03:05:01.000Z",
+   "title": "懂车帝：网传内部整顿通知截图系 AI 生成，相关信息均为谣言",
+   "link": "https://www.ithome.com/1/011/096.htm",
+   "date": "2026-10-09T11:25:48.000Z",
    "source": "IT之家"
   },
   {
-   "title": "小米推出米家桌面学习灯 Max：双反射控光结构防眩不刺眼，799 元",
-   "link": "https://www.ithome.com/1/010/842.htm",
-   "date": "2026-10-09T03:04:53.000Z",
+   "title": "经典策略游戏《冰汽时代》10 月 19 日登陆任天堂 Switch 平台，首发价 20.99 美元",
+   "link": "https://www.ithome.com/1/011/095.htm",
+   "date": "2026-10-09T11:07:50.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "OpenAI doubles down on decision to fire three AI safety researchers",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1008604/openai-defends-decision-fire-safety-researchers",
+   "date": "2026-10-09T09:48:26.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "历时237天 NASA与SpaceX“Crew-12”任务圆满返回地球",
+   "link": "https://www.cnbeta.com.tw/articles/science/1581412.htm",
+   "date": "2026-10-09T09:42:02.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "高速上充电排队几小时，充电桩老板真能赚到钱吗？",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581410.htm",
+   "date": "2026-10-09T09:34:51.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "英伟达拟投资芯片竞争对手d‑Matrix：一众挑战者纷纷选择合作路线",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581408.htm",
+   "date": "2026-10-09T09:27:50.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Microsoft 365 Family subscribers will finally be able to share AI benefits",
+   "link": "https://www.theverge.com/news/1008581/microsoft-365-family-premium-shared-ai-features-storage-changes",
+   "date": "2026-10-09T07:14:32.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "APOD: 2026 October 9 – Stickney Crater",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-9-stickney-crater/",
+   "date": "2026-10-09T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Floodwaters Overwhelm Thailand",
+   "link": "https://science.nasa.gov/earth/earth-observatory/floodwaters-overwhelm-thailand/",
+   "date": "2026-10-09T04:01:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "US plans livestream of execution by firing squad",
@@ -27,34 +69,10 @@
    "source": "The Verge"
   },
   {
-   "title": "Anthropic launches free AI security scans for open-source projects",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1008521/anthropic-open-source-oss-scanner",
-   "date": "2026-10-08T21:53:51.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "加州要求REK停止未经批准的人机格斗赛 纯机器人赛事未被明确叫停",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581292.htm",
-   "date": "2026-10-08T21:40:06.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "SpaceX的移动通信雄心：计划从卫星互联网运营商转型为大型移动通信服务商",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581290.htm",
-   "date": "2026-10-08T21:39:43.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "报道称苹果计划10月27日前后发布触屏OLED MacBook Pro",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581288.htm",
-   "date": "2026-10-08T21:37:59.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "SpaceX announces plan to become a ‘major mobile carrier’",
-   "link": "https://www.theverge.com/science/1008467/spacex-announces-plan-to-become-a-major-mobile-carrier",
-   "date": "2026-10-08T21:23:31.000Z",
-   "source": "The Verge"
+   "title": "NASA Briefing to Highlight Contributions to Martian Moons Mission",
+   "link": "https://www.nasa.gov/news-release/nasa-briefing-to-highlight-contributions-to-martian-moons-mission/",
+   "date": "2026-10-08T20:22:12.000Z",
+   "source": "NASA"
   }
  ]
 }
