@@ -1,7 +1,43 @@
 {
- "updated": "2026-10-09T19:51:44.207Z",
- "count": 12,
+ "updated": "2026-10-09T23:36:53.626Z",
+ "count": 9,
  "items": [
+  {
+   "title": "决策模型 Jev 爆火，开发商 TypeSafe AI 估值已达 75 亿美元",
+   "link": "https://www.ithome.com/1/011/170.htm",
+   "date": "2026-10-09T23:28:29.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "古尔曼爆料苹果 iPhone Duo 折叠屏手机“独有彩蛋”：首次开机能显示自定义用户名",
+   "link": "https://www.ithome.com/1/011/169.htm",
+   "date": "2026-10-09T23:28:03.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "避免驱动故障致 Win11 崩溃：微软推动驱动质量倡议，英特尔 GPU 驱动率先适配 26H2",
+   "link": "https://www.ithome.com/1/011/168.htm",
+   "date": "2026-10-09T23:22:42.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "苹果或曾为智能家居中枢申请“HomeView”商标 最终命名仍无定论",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581444.htm",
+   "date": "2026-10-09T21:55:57.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Decade-old RAM is making a comeback",
+   "link": "https://www.theverge.com/games/1009140/ram-shortage-intel-amd-ddr4-comeback",
+   "date": "2026-10-09T21:50:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Anthropic’s AI gave Philadelphia police a fake tip about an unsolved homicide",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1009090/anthropic-fake-homicide-information-philadelphia-pd-tip",
+   "date": "2026-10-09T21:15:38.000Z",
+   "source": "The Verge"
+  },
   {
    "title": "Google正研发HDR表情功能 Chat应用或迎来更明亮生动的表情显示效果",
    "link": "https://www.cnbeta.com.tw/articles/tech/1581442.htm",
@@ -19,60 +55,6 @@
    "link": "https://www.cnbeta.com.tw/articles/tech/1581440.htm",
    "date": "2026-10-09T19:10:49.000Z",
    "source": "cnBeta"
-  },
-  {
-   "title": "&#8216;Pure insanity&#8217;: Mathematicians will need years to make sense of OpenAI&#8217;s latest drop",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1008726/openai-mathematics-solutions-chaos",
-   "date": "2026-10-09T19:09:44.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Brendan Carr says he&#8217;ll let Pete Hegseth decide whether TV networks can air the public execution",
-   "link": "https://www.theverge.com/policy/1008950/fcc-brendan-carr-pete-hegseth-execution-tv-networks-air",
-   "date": "2026-10-09T18:30:48.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "尼康显微摄影比赛冠军因使用AI被取消资格 研究人员承认借助神经网络处理图像",
-   "link": "https://www.cnbeta.com.tw/articles/movie/1581438.htm",
-   "date": "2026-10-09T18:28:32.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "NASA Seeks US Industry Plans for Commercial Space Stations",
-   "link": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/",
-   "date": "2026-10-09T18:11:44.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Demonstrates Next-Generation Heat Shield Technologies",
-   "link": "https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/",
-   "date": "2026-10-09T16:59:24.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "东风猛士・猛 8 越野旅居车亮相：6.7L 电控增压柴油发动机，生活系统一应俱全",
-   "link": "https://www.ithome.com/1/011/156.htm",
-   "date": "2026-10-09T15:47:12.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "华为鸿蒙星河互联 App 登陆 Apple Watch 端，可与 HarmonyOS 7.0.0.109 及以上版本手机配对连接",
-   "link": "https://www.ithome.com/1/011/155.htm",
-   "date": "2026-10-09T15:45:55.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "漫威新剧《幻视任务》首曝中字片段：奥创以人类形态回归，10 月 14 日 Disney+ 开播",
-   "link": "https://www.ithome.com/1/011/154.htm",
-   "date": "2026-10-09T15:38:09.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Cosmic House of Mirrors",
-   "link": "https://www.nasa.gov/image-article/cosmic-house-of-mirrors/",
-   "date": "2026-10-09T13:57:24.000Z",
-   "source": "NASA"
   }
  ]
 }
