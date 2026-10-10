@@ -1,48 +1,66 @@
 {
- "updated": "2026-10-10T10:50:38.676Z",
+ "updated": "2026-10-10T18:58:36.343Z",
  "count": 12,
  "items": [
   {
-   "title": "日本最大零工外包平台 Coconala 遭黑客入侵，449 份用户简历文档外泄",
-   "link": "https://www.ithome.com/1/011/480.htm",
-   "date": "2026-10-10T10:49:47.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "百度网盘 11.11 年内探底：SVIP 超级会员 13 元 / 月、157 元 / 年",
-   "link": "https://www.ithome.com/1/011/479.htm",
-   "date": "2026-10-10T10:43:12.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "小米充电宝伸缩线 10000 55W 上架：2C + 1A、自带屏设计，299 元",
-   "link": "https://www.ithome.com/1/011/478.htm",
-   "date": "2026-10-10T10:37:56.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "拒绝4000万美元“封口费” 美国网红：我为何给马斯克生孩子？",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581542.htm",
-   "date": "2026-10-10T09:22:00.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "美国认证资料出现Switch 2改订型号 与欧洲可更换电池版编号相同",
-   "link": "https://www.cnbeta.com.tw/articles/game/1581540.htm",
-   "date": "2026-10-10T08:59:37.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "PS3安卓模拟器ARMSX3上架Google Play 运行轻量游戏至少需8GB内存",
-   "link": "https://www.cnbeta.com.tw/articles/game/1581538.htm",
-   "date": "2026-10-10T08:59:30.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "My brief romance with an AI bird feeder",
-   "link": "https://www.theverge.com/gadgets/1007674/smart-bird-feeders-attact-pests-too",
-   "date": "2026-10-10T07:00:00.000Z",
+   "title": "DistroKid has been quietly taking down songs in response to UMG lawsuit",
+   "link": "https://www.theverge.com/entertainment/1009309/distrokid-take-down-songs-umg-lawsuit",
+   "date": "2026-10-10T18:52:07.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "长鑫存储押注新型DRAM架构 有望比三星提前两年实现商用突破",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581574.htm",
+   "date": "2026-10-10T18:13:31.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "中国女主播坐上“付费旋转椅” 观众花50元可转一圈 奇特直播模式引发全球热议",
+   "link": "https://www.cnbeta.com.tw/articles/movie/1581572.htm",
+   "date": "2026-10-10T18:10:16.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "微软警告：部分旧版Windows设备未来或将失去安全补丁接收能力",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581570.htm",
+   "date": "2026-10-10T18:08:20.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Ledger wallet tampering suspected after reports of crypto thefts",
+   "link": "https://www.theverge.com/tech/1009294/ledger-wallet-tampering-suspected-after-reports-of-crypto-thefts",
+   "date": "2026-10-10T16:36:44.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "安卓首款、全球第二款阔直板手机将至：酷派新机首曝，价格干到“999 定位千元档”",
+   "link": "https://www.ithome.com/1/011/540.htm",
+   "date": "2026-10-10T16:15:27.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "宁德时代与赛力斯签署长期战略合作协议：问界全系搭载、交付突破 120 万台",
+   "link": "https://www.ithome.com/1/011/539.htm",
+   "date": "2026-10-10T15:59:01.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "第二款三方品牌星闪耳机将至：漫步者 Lolli Spark 通过 OpenHarmony 认证",
+   "link": "https://www.ithome.com/1/011/538.htm",
+   "date": "2026-10-10T15:53:05.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "K-pop star Sunmi loves Notion and ear cleaning videos",
+   "link": "https://www.theverge.com/entertainment/1008654/k-pop-sunmi-wonder-girls-interview",
+   "date": "2026-10-10T15:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "NASA to Conduct Flyover, Engage NFL Fans at MetLife Stadium",
+   "link": "https://www.nasa.gov/news-release/nasa-to-conduct-flyover-engage-nfl-fans-at-metlife-stadium/",
+   "date": "2026-10-10T14:18:59.000Z",
+   "source": "NASA"
   },
   {
    "title": "APOD: 2026 October 10 – Lunar Farside",
@@ -51,27 +69,9 @@
    "source": "NASA"
   },
   {
-   "title": "Decade-old RAM is making a comeback",
-   "link": "https://www.theverge.com/games/1009140/ram-shortage-intel-amd-ddr4-comeback",
-   "date": "2026-10-09T21:50:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Anthropic’s AI gave Philadelphia police a fake tip about an unsolved homicide",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1009090/anthropic-fake-homicide-information-philadelphia-pd-tip",
-   "date": "2026-10-09T21:15:38.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "NASA Seeks US Industry Plans for Commercial Space Stations",
    "link": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/",
    "date": "2026-10-09T18:11:44.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Demonstrates Next-Generation Heat Shield Technologies",
-   "link": "https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/",
-   "date": "2026-10-09T16:59:24.000Z",
    "source": "NASA"
   }
  ]
