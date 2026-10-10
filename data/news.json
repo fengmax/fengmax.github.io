@@ -1,30 +1,54 @@
 {
- "updated": "2026-10-10T02:52:24.140Z",
+ "updated": "2026-10-10T10:50:38.676Z",
  "count": 12,
  "items": [
   {
-   "title": "微软推出 Edge 155 稳定版：增强 AI 标签页整理，支持解码 JPEG XL 图像",
-   "link": "https://www.ithome.com/1/011/264.htm",
-   "date": "2026-10-10T02:48:54.000Z",
+   "title": "日本最大零工外包平台 Coconala 遭黑客入侵，449 份用户简历文档外泄",
+   "link": "https://www.ithome.com/1/011/480.htm",
+   "date": "2026-10-10T10:49:47.000Z",
    "source": "IT之家"
   },
   {
-   "title": "iQOO Pad Pro 8.8 英寸小平板开启预约：搭载第五代骁龙 8 至尊版、自研电竞芯片 Q3",
-   "link": "https://www.ithome.com/1/011/260.htm",
-   "date": "2026-10-10T02:47:46.000Z",
+   "title": "百度网盘 11.11 年内探底：SVIP 超级会员 13 元 / 月、157 元 / 年",
+   "link": "https://www.ithome.com/1/011/479.htm",
+   "date": "2026-10-10T10:43:12.000Z",
    "source": "IT之家"
   },
   {
-   "title": "亚马逊 Leo 已制造超 1000 颗卫星，日产能至少 3~4 颗",
-   "link": "https://www.ithome.com/1/011/239.htm",
-   "date": "2026-10-10T02:37:18.000Z",
+   "title": "小米充电宝伸缩线 10000 55W 上架：2C + 1A、自带屏设计，299 元",
+   "link": "https://www.ithome.com/1/011/478.htm",
+   "date": "2026-10-10T10:37:56.000Z",
    "source": "IT之家"
   },
   {
-   "title": "苹果或曾为智能家居中枢申请“HomeView”商标 最终命名仍无定论",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581444.htm",
-   "date": "2026-10-09T21:55:57.000Z",
+   "title": "拒绝4000万美元“封口费” 美国网红：我为何给马斯克生孩子？",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581542.htm",
+   "date": "2026-10-10T09:22:00.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "美国认证资料出现Switch 2改订型号 与欧洲可更换电池版编号相同",
+   "link": "https://www.cnbeta.com.tw/articles/game/1581540.htm",
+   "date": "2026-10-10T08:59:37.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "PS3安卓模拟器ARMSX3上架Google Play 运行轻量游戏至少需8GB内存",
+   "link": "https://www.cnbeta.com.tw/articles/game/1581538.htm",
+   "date": "2026-10-10T08:59:30.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "My brief romance with an AI bird feeder",
+   "link": "https://www.theverge.com/gadgets/1007674/smart-bird-feeders-attact-pests-too",
+   "date": "2026-10-10T07:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "APOD: 2026 October 10 – Lunar Farside",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-10-lunar-farside/",
+   "date": "2026-10-10T04:05:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Decade-old RAM is making a comeback",
@@ -39,24 +63,6 @@
    "source": "The Verge"
   },
   {
-   "title": "Google正研发HDR表情功能 Chat应用或迎来更明亮生动的表情显示效果",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581442.htm",
-   "date": "2026-10-09T19:46:19.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Ohio blogger found guilty of harassment for sending Shrek nude to senator",
-   "link": "https://www.theverge.com/policy/1008991/ohio-blogger-harassment-shrek-nude",
-   "date": "2026-10-09T19:41:11.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "数据中心供电选择面临变化 四小时电池储能成本已低于燃气调峰机组",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581440.htm",
-   "date": "2026-10-09T19:10:49.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "NASA Seeks US Industry Plans for Commercial Space Stations",
    "link": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/",
    "date": "2026-10-09T18:11:44.000Z",
@@ -66,12 +72,6 @@
    "title": "NASA Demonstrates Next-Generation Heat Shield Technologies",
    "link": "https://www.nasa.gov/centers-and-facilities/ames/nasa-demonstrates-next-generation-heat-shield-technologies/",
    "date": "2026-10-09T16:59:24.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Cosmic House of Mirrors",
-   "link": "https://www.nasa.gov/image-article/cosmic-house-of-mirrors/",
-   "date": "2026-10-09T13:57:24.000Z",
    "source": "NASA"
   }
  ]
