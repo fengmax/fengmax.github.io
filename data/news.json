@@ -1,24 +1,54 @@
 {
- "updated": "2026-10-11T02:21:34.725Z",
+ "updated": "2026-10-11T11:03:15.739Z",
  "count": 12,
  "items": [
   {
-   "title": "荣耀 Earbuds X10 Pro 耳机上架：55dB 降噪，42 小时综合续航",
-   "link": "https://www.ithome.com/1/011/565.htm",
-   "date": "2026-10-11T02:21:21.000Z",
+   "title": "消息称三星 Galaxy S27 Ultra 手机可能不会采用 Exynos 2700 芯片",
+   "link": "https://www.ithome.com/1/011/679.htm",
+   "date": "2026-10-11T11:02:38.000Z",
    "source": "IT之家"
   },
   {
-   "title": "星际荣耀官宣重型型号“双曲线九号”火箭已启动预研",
-   "link": "https://www.ithome.com/1/011/564.htm",
-   "date": "2026-10-11T02:12:09.000Z",
+   "title": "Learning to use local AI is exciting, overwhelming, and frustrating",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1008484/learning-local-ai-hermes-qwen-model-mac-studio-testing-diary-progress",
+   "date": "2026-10-11T11:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "《VRChat》更新创作者指南：禁止使用 AI 生成误导性地图 / 角色缩略图，尚未决定上线“AI 标签”声明",
+   "link": "https://www.ithome.com/1/011/678.htm",
+   "date": "2026-10-11T10:54:55.000Z",
    "source": "IT之家"
   },
   {
-   "title": "机械革命将推 RTX Spark 迷你主机大师之路 X10，搭载 AI SSD",
-   "link": "https://www.ithome.com/1/011/563.htm",
-   "date": "2026-10-11T02:05:28.000Z",
+   "title": "CUDA 生态优势推动 RTX Spark 笔记本热销，微软 128GB 内存版 Surface Laptop Ultra 开始在美国缺货",
+   "link": "https://www.ithome.com/1/011/677.htm",
+   "date": "2026-10-11T10:38:04.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "CUDA生态优势持续扩大RTX Spark笔记本热销 微软128GB版Surface Laptop开始缺货",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581642.htm",
+   "date": "2026-10-11T09:54:34.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "CPU、DRAM和SSD如今占了一台主流级别笔记本电脑制造成本的68%",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581640.htm",
+   "date": "2026-10-11T09:54:04.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "才道歉又叫板，马斯克喊话印度首富：你不会倒闭",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581638.htm",
+   "date": "2026-10-11T09:47:57.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "APOD: 2026 October 11 – Ice Fishing for Cosmic Neutrinos",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-11-ice-fishing-for-cosmic-neutrinos/",
+   "date": "2026-10-11T04:05:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "Satya Nadella says we should assume all AI models are ‘compromised’",
@@ -27,33 +57,9 @@
    "source": "The Verge"
   },
   {
-   "title": "微软CEO呼吁针对先进人工智能建立“紧急制动”机制",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581578.htm",
-   "date": "2026-10-10T21:30:07.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "英伟达正就收购Reflection AI或增加投资进行磋商",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581576.htm",
-   "date": "2026-10-10T21:29:49.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "DistroKid has been quietly taking down songs in response to UMG lawsuit",
    "link": "https://www.theverge.com/entertainment/1009309/distrokid-take-down-songs-umg-lawsuit",
    "date": "2026-10-10T18:52:07.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "长鑫存储押注新型DRAM架构 有望比三星提前两年实现商用突破",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581574.htm",
-   "date": "2026-10-10T18:13:31.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Ledger wallet tampering suspected after reports of crypto thefts",
-   "link": "https://www.theverge.com/tech/1009294/ledger-wallet-tampering-suspected-after-reports-of-crypto-thefts",
-   "date": "2026-10-10T16:36:44.000Z",
    "source": "The Verge"
   },
   {
@@ -66,12 +72,6 @@
    "title": "APOD: 2026 October 10 – Lunar Farside",
    "link": "https://science.nasa.gov/image-article/apod-2026-october-10-lunar-farside/",
    "date": "2026-10-10T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Seeks US Industry Plans for Commercial Space Stations",
-   "link": "https://www.nasa.gov/news-release/nasa-seeks-us-industry-plans-for-commercial-space-stations/",
-   "date": "2026-10-09T18:11:44.000Z",
    "source": "NASA"
   }
  ]
