@@ -1,30 +1,66 @@
 {
- "updated": "2026-10-12T02:46:05.113Z",
+ "updated": "2026-10-12T12:30:06.637Z",
  "count": 12,
  "items": [
   {
-   "title": "国产动画电影《八仙！》三轮密钥延期至 11 月 17 日，票房破 20 亿",
-   "link": "https://www.ithome.com/1/011/801.htm",
-   "date": "2026-10-12T02:41:59.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "《姜饼人》动画大电影定档 2029 年：庆祝 IP 20 周年，前派拉蒙联席 CEO 公司操刀",
-   "link": "https://www.ithome.com/1/011/800.htm",
-   "date": "2026-10-12T02:41:29.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "华为睿影 Z10 模块相机更多技术细节公开：集成红枫等多种传感器，代号“金刚”",
-   "link": "https://www.ithome.com/1/011/794.htm",
-   "date": "2026-10-12T02:38:20.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Steam同时在线人数首破4350万 但高峰时实际游戏玩家约1446万",
-   "link": "https://www.cnbeta.com.tw/articles/game/1581680.htm",
-   "date": "2026-10-11T22:12:08.000Z",
+   "title": "爆料称AMD或于2027年下半年推出首批RDNA 5显卡 完整阵容可能延至2028年",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581800.htm",
+   "date": "2026-10-12T12:29:00.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "英特尔多代处理器传出涨价：部分型号涨幅高达20% AMD或将跟进调整价格",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581798.htm",
+   "date": "2026-10-12T12:28:24.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "FCC拟自12月起将电子设备认证测试将转向美国及互惠经济体 排除中国大陆实验室",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581796.htm",
+   "date": "2026-10-12T12:27:29.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Pico Space Pro 头显实机外观照片现身监管文件：外置计算模块设计、有望今年第四季度发布",
+   "link": "https://www.ithome.com/1/012/083.htm",
+   "date": "2026-10-12T12:25:00.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "一加 16 X 《凡人》动画联名礼盒公布：含专属磁吸手机支架、保护壳、卡针等，购机 +269 元可获得",
+   "link": "https://www.ithome.com/1/012/082.htm",
+   "date": "2026-10-12T12:22:50.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "中汽协会：9 月新能源汽车销量 182.3 万辆，同比增长 13.6%",
+   "link": "https://www.ithome.com/1/012/081.htm",
+   "date": "2026-10-12T12:18:28.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "How Apple can win the smart home",
+   "link": "https://www.theverge.com/tech/1009324/how-apple-can-win-the-smart-home",
+   "date": "2026-10-12T12:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Inside the mini factory where GM builds its EV future",
+   "link": "https://www.theverge.com/transportation/1008023/gm-bcdc-ev-battery-factory-china-tesla",
+   "date": "2026-10-12T11:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "APOD: 2026 October 12 – Jupiter and the Moons",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-12-jupiter-and-the-moons/",
+   "date": "2026-10-12T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Antarctic Sea Ice Grows to Its 2026 Maximum",
+   "link": "https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/",
+   "date": "2026-10-12T04:00:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "A college in Illinois tried to cancel its Flock contact and it refused",
@@ -33,45 +69,9 @@
    "source": "The Verge"
   },
   {
-   "title": "扫码寄件后，快递“不翼而飞”？丰巢柜“一格多投”漏洞频遭投诉",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581678.htm",
-   "date": "2026-10-11T19:54:49.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "硅谷科技巨头纷纷响应特朗普为AI改名的倡议",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581676.htm",
-   "date": "2026-10-11T18:48:43.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Silicon Valley is falling in line with Trump’s attempt to rename AI",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1009406/silicon-valley-is-falling-in-line-with-trumps-attempt-to-rename-ai",
-   "date": "2026-10-11T18:33:56.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "The new Apple TV could have a built-in mic and a remote with a speaker",
-   "link": "https://www.theverge.com/tech/1009397/apple-tv-refresh-built-in-mic-remote-speaker",
-   "date": "2026-10-11T17:31:07.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "APOD: 2026 October 11 – Ice Fishing for Cosmic Neutrinos",
    "link": "https://science.nasa.gov/image-article/apod-2026-october-11-ice-fishing-for-cosmic-neutrinos/",
    "date": "2026-10-11T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA to Conduct Flyover, Engage NFL Fans at MetLife Stadium",
-   "link": "https://www.nasa.gov/news-release/nasa-to-conduct-flyover-engage-nfl-fans-at-metlife-stadium/",
-   "date": "2026-10-10T14:18:59.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "APOD: 2026 October 10 – Lunar Farside",
-   "link": "https://science.nasa.gov/image-article/apod-2026-october-10-lunar-farside/",
-   "date": "2026-10-10T04:05:00.000Z",
    "source": "NASA"
   }
  ]
