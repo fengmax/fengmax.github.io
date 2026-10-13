@@ -1,96 +1,78 @@
 {
- "updated": "2026-10-13T12:14:43.818Z",
- "count": 15,
+ "updated": "2026-10-13T20:23:53.311Z",
+ "count": 12,
  "items": [
   {
-   "title": "网易唯一：《燕云十六声》预计 11 月正式支持英伟达 DLSS 5，成国内首批适配游戏",
-   "link": "https://www.ithome.com/1/012/552.htm",
-   "date": "2026-10-13T12:09:50.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "爱芯元智 AX8860 系列大算力芯片发布，性能对标英伟达 DGX Spark 但价格更低",
-   "link": "https://www.ithome.com/1/012/551.htm",
-   "date": "2026-10-13T12:02:15.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "科学家打造全球首款无需持续供电的DNA计算机 最多可连续执行25次不同计算",
-   "link": "https://www.cnbeta.com.tw/articles/science/1581990.htm",
-   "date": "2026-10-13T12:00:24.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "The great Halley's Comet disappointment of 1986 — and the discoveries that changed astronomy forever",
-   "link": "https://www.space.com/stargazing/the-great-halleys-comet-disappointment-of-1986-and-the-discoveries-that-changed-astronomy-forever",
-   "date": "2026-10-13T12:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "英特尔Nova Lake-S平台首批B960与Q970主板曝光 LGA1954生态初现雏形",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581988.htm",
-   "date": "2026-10-13T11:59:57.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "AMD展示EPYC Verano AI处理器 LPDDR内存获确认 “192核心”仍待厘清",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581986.htm",
-   "date": "2026-10-13T11:58:12.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "科学家发现迄今最大超高速自转小行星：4.18 分钟转一圈，直径约 2.53km",
-   "link": "https://www.ithome.com/1/012/550.htm",
-   "date": "2026-10-13T11:47:24.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "NASA Science, Cargo Launch on 35th SpaceX Resupply Mission to Station",
-   "link": "https://www.nasa.gov/news-release/nasa-science-cargo-launch-on-35th-spacex-resupply-mission-to-station/",
-   "date": "2026-10-13T11:12:18.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Character.AI files for bankruptcy",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1009802/character-ai-files-for-bankruptcy-disney",
-   "date": "2026-10-13T10:32:23.000Z",
+   "title": "It looks like Apple Music is getting a new icon",
+   "link": "https://www.theverge.com/tech/1010619/apple-music-new-icon-ios-27-beta",
+   "date": "2026-10-13T20:05:02.000Z",
    "source": "The Verge"
   },
   {
-   "title": "A faint glow from the early universe could help solve the mystery of dark energy",
-   "link": "https://www.space.com/astronomy/dark-universe/a-faint-glow-from-the-early-universe-could-help-solve-the-mystery-of-dark-energy",
-   "date": "2026-10-13T10:00:00.000Z",
+   "title": "'We basically did Top Gun in space': 'Star Trek Starfleet Academy' warps back into action in March 2027 for sophomore year in the final frontier",
+   "link": "https://www.space.com/entertainment/space-movies-shows/we-basically-did-top-gun-in-space-star-trek-starfleet-academy-warps-back-into-action-in-march-2027-for-sophomore-year-in-the-final-frontier",
+   "date": "2026-10-13T20:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "APOD: 2026 October 13 – Desert Stairway to Heaven",
-   "link": "https://science.nasa.gov/image-article/apod-2026-october-13-desert-stairway-to-heaven/",
-   "date": "2026-10-13T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "An Impact Structure With Legs",
-   "link": "https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/",
-   "date": "2026-10-13T04:01:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "SpaceX launches Falcon 9 Starlink mission for 1st time in more than 3 weeks (photos)",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-launches-falcon-9-starlink-mission-for-1st-time-in-more-than-3-weeks-photo",
-   "date": "2026-10-13T03:15:45.000Z",
+   "title": "See the original Galileo shuttle from 'Star Trek' in its new home at the Original Series Set Tour in New York",
+   "link": "https://www.space.com/entertainment/star-treks-galileo-shuttle-warps-into-new-york-as-part-of-the-original-series-set-tour",
+   "date": "2026-10-13T20:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "The Social Reckoning is flopping at the box office",
-   "link": "https://www.theverge.com/entertainment/1009630/social-reckoning-box-office-other-mommy",
-   "date": "2026-10-12T21:20:57.000Z",
+   "title": "摩根大通禁止Muse、Instinct等外部AI代理直接访问账户",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1582038.htm",
+   "date": "2026-10-13T19:48:26.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Shopify opens its catalog up to more AI agents",
+   "link": "https://www.theverge.com/news/1010365/shopify-opens-its-catalog-up-to-more-ai-agents",
+   "date": "2026-10-13T19:42:42.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Meta has some Wonder Full new AI models",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1009479/meta-muse-wonder-full-ai-model",
-   "date": "2026-10-12T17:00:00.000Z",
+   "title": "Xbox is officially embracing the chaos of AI-powered game ports",
+   "link": "https://www.theverge.com/news/1010406/xbox-labs-game-decompiling-emulation-exploration",
+   "date": "2026-10-13T19:00:48.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "乌克兰无人机袭击俄罗斯Yandex数据中心后 俄网络水军并未明显减少",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1582036.htm",
+   "date": "2026-10-13T18:52:34.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "美国国家公路交通安全管理局审查特斯拉Robotaxi在学校区域的超速指控",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1582034.htm",
+   "date": "2026-10-13T18:51:56.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Earth's poles shifted surprisingly fast during the age of dinosaurs, ancient sea levels reveal",
+   "link": "https://www.space.com/astronomy/earth/earths-poles-shifted-surprisingly-fast-during-the-age-of-dinosaurs-ancient-sea-levels-reveal",
+   "date": "2026-10-13T18:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "苹果 Apple Watch 睡眠呼吸暂停功能正式上线，先一步读懂你的呼吸",
+   "link": "https://www.ithome.com/1/012/602.htm",
+   "date": "2026-10-13T17:01:14.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "不能打电话、发短信：华为官网显示手机与手机间通信共享只支持共享网络能力（含 eSIM）",
+   "link": "https://www.ithome.com/1/012/600.htm",
+   "date": "2026-10-13T15:58:59.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "苹果今日举办欢迎回家发布会，盘中股价再创历史新高",
+   "link": "https://www.ithome.com/1/012/599.htm",
+   "date": "2026-10-13T15:55:55.000Z",
+   "source": "IT之家"
   }
  ]
 }
