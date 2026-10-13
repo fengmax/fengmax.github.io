@@ -1,24 +1,78 @@
 {
- "updated": "2026-10-13T04:02:37.440Z",
+ "updated": "2026-10-13T12:14:43.818Z",
  "count": 15,
  "items": [
   {
-   "title": "博主称收到通知，尊界 S800 典藏大观也可以免费更换刹车踏板",
-   "link": "https://www.ithome.com/1/012/274.htm",
-   "date": "2026-10-13T04:00:59.000Z",
+   "title": "网易唯一：《燕云十六声》预计 11 月正式支持英伟达 DLSS 5，成国内首批适配游戏",
+   "link": "https://www.ithome.com/1/012/552.htm",
+   "date": "2026-10-13T12:09:50.000Z",
    "source": "IT之家"
   },
   {
-   "title": "REDMI Note 17 Pro 焕新版手机发布：提供 6GB+256GB 版本，首销到手价 1399 元起",
-   "link": "https://www.ithome.com/1/012/273.htm",
-   "date": "2026-10-13T03:58:15.000Z",
+   "title": "爱芯元智 AX8860 系列大算力芯片发布，性能对标英伟达 DGX Spark 但价格更低",
+   "link": "https://www.ithome.com/1/012/551.htm",
+   "date": "2026-10-13T12:02:15.000Z",
    "source": "IT之家"
   },
   {
-   "title": "赛力斯汽车、华为联合设计：问界 M9 连续四个月获 50 万以上车型销量第一",
-   "link": "https://www.ithome.com/1/012/272.htm",
-   "date": "2026-10-13T03:54:56.000Z",
+   "title": "科学家打造全球首款无需持续供电的DNA计算机 最多可连续执行25次不同计算",
+   "link": "https://www.cnbeta.com.tw/articles/science/1581990.htm",
+   "date": "2026-10-13T12:00:24.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "The great Halley's Comet disappointment of 1986 — and the discoveries that changed astronomy forever",
+   "link": "https://www.space.com/stargazing/the-great-halleys-comet-disappointment-of-1986-and-the-discoveries-that-changed-astronomy-forever",
+   "date": "2026-10-13T12:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "英特尔Nova Lake-S平台首批B960与Q970主板曝光 LGA1954生态初现雏形",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581988.htm",
+   "date": "2026-10-13T11:59:57.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "AMD展示EPYC Verano AI处理器 LPDDR内存获确认 “192核心”仍待厘清",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1581986.htm",
+   "date": "2026-10-13T11:58:12.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "科学家发现迄今最大超高速自转小行星：4.18 分钟转一圈，直径约 2.53km",
+   "link": "https://www.ithome.com/1/012/550.htm",
+   "date": "2026-10-13T11:47:24.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "NASA Science, Cargo Launch on 35th SpaceX Resupply Mission to Station",
+   "link": "https://www.nasa.gov/news-release/nasa-science-cargo-launch-on-35th-spacex-resupply-mission-to-station/",
+   "date": "2026-10-13T11:12:18.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Character.AI files for bankruptcy",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1009802/character-ai-files-for-bankruptcy-disney",
+   "date": "2026-10-13T10:32:23.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "A faint glow from the early universe could help solve the mystery of dark energy",
+   "link": "https://www.space.com/astronomy/dark-universe/a-faint-glow-from-the-early-universe-could-help-solve-the-mystery-of-dark-energy",
+   "date": "2026-10-13T10:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "APOD: 2026 October 13 – Desert Stairway to Heaven",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-13-desert-stairway-to-heaven/",
+   "date": "2026-10-13T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "An Impact Structure With Legs",
+   "link": "https://science.nasa.gov/earth/earth-observatory/an-impact-structure-with-legs/",
+   "date": "2026-10-13T04:01:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "SpaceX launches Falcon 9 Starlink mission for 1st time in more than 3 weeks (photos)",
@@ -33,64 +87,10 @@
    "source": "The Verge"
   },
   {
-   "title": "SpaceX launching 6,300 pounds of cargo to the ISS on Oct. 13: Watch it live",
-   "link": "https://www.space.com/space-exploration/international-space-station/spacex-crs-35-cargo-launch-international-space-station",
-   "date": "2026-10-12T21:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Astronomers witness supermassive black hole gorge on a cosmic meal before 'burping' radio jets 300 days later",
-   "link": "https://www.space.com/astronomy/black-holes/nasa-spacecraft-sees-supermassive-black-hole-gorge-on-a-cosmic-meal-before-burping-radio-jets-300-days-later",
-   "date": "2026-10-12T20:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "格芯公布FDX Fusion路线图：目标7纳米级数字性能 德累斯顿计划2028年量产",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581856.htm",
-   "date": "2026-10-12T18:56:06.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Meta推出最新AI模型Muse Wonder",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581854.htm",
-   "date": "2026-10-12T18:27:26.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "扎克伯格：Meta在人工智能前沿已赶上竞争对手",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1581852.htm",
-   "date": "2026-10-12T18:26:48.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "NASA’s SpaceX CRS-35 Mission to Launch Health Research",
-   "link": "https://science.nasa.gov/missions/station/nasas-spacex-crs-35-mission-to-launch-health-research/",
-   "date": "2026-10-12T17:45:27.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "Meta has some Wonder Full new AI models",
    "link": "https://www.theverge.com/ai-artificial-intelligence/1009479/meta-muse-wonder-full-ai-model",
    "date": "2026-10-12T17:00:00.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "Elon Musk has donated over $276 million to Republican midterm efforts",
-   "link": "https://www.theverge.com/tech/1009604/elon-musk-2026-midterm-republican-donations",
-   "date": "2026-10-12T16:52:54.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "APOD: 2026 October 12 – Jupiter and the Moons",
-   "link": "https://science.nasa.gov/image-article/apod-2026-october-12-jupiter-and-the-moons/",
-   "date": "2026-10-12T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Antarctic Sea Ice Grows to Its 2026 Maximum",
-   "link": "https://science.nasa.gov/earth/earth-observatory/antarctic-sea-ice-grows-to-its-2026-maximum/",
-   "date": "2026-10-12T04:00:00.000Z",
-   "source": "NASA"
   }
  ]
 }
