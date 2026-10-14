@@ -1,42 +1,84 @@
 {
- "updated": "2026-10-14T09:48:23.219Z",
+ "updated": "2026-10-14T14:44:02.583Z",
  "count": 15,
  "items": [
   {
-   "title": "TRYX 展域 SE 360 V2 液冷散热器上架，10 月 19 日 9:00 开售",
-   "link": "https://www.ithome.com/1/012/998.htm",
-   "date": "2026-10-14T09:42:45.000Z",
+   "title": "苹果葛越：据估计，全球有超过 10 亿人受到睡眠呼吸暂停的影响",
+   "link": "https://www.ithome.com/1/013/121.htm",
+   "date": "2026-10-14T14:41:45.000Z",
    "source": "IT之家"
   },
   {
-   "title": "长城汽车：传感器装得多，辅助驾驶系统不一定就好用，关键是要看得准",
-   "link": "https://www.ithome.com/1/012/996.htm",
-   "date": "2026-10-14T09:42:30.000Z",
+   "title": "索尼首款 32-bit 浮点 Hi-Res 无线监听麦克风 ECM-W5 发布，2,799 元",
+   "link": "https://www.ithome.com/1/013/120.htm",
+   "date": "2026-10-14T14:39:31.000Z",
    "source": "IT之家"
   },
   {
-   "title": "日立推出木制数据中心，主打低成本、亲和外观",
-   "link": "https://www.ithome.com/1/012/983.htm",
-   "date": "2026-10-14T09:34:55.000Z",
+   "title": "Epic新版游戏启动器采用“氛围编程”开发 速度更快并支持Linux",
+   "link": "https://www.cnbeta.com.tw/articles/game/1582150.htm",
+   "date": "2026-10-14T14:38:25.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Epic Games 正在推进《堡垒之夜》登陆 Linux",
+   "link": "https://www.cnbeta.com.tw/articles/game/1582148.htm",
+   "date": "2026-10-14T14:37:23.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "iPhone 17热销提振信心 苹果据报将为标准版iPhone 18启动更大规模生产",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1582146.htm",
+   "date": "2026-10-14T14:34:52.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "无标线、无信号灯、车流激进：小鹏 NGP 官宣成功挑战被称为“全球最难环岛”的凯旋门环岛",
+   "link": "https://www.ithome.com/1/013/118.htm",
+   "date": "2026-10-14T14:25:24.000Z",
    "source": "IT之家"
   },
   {
-   "title": "乌克兰在俄罗斯袭击期间因星链限制和情报缺口而措手不及",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582116.htm",
-   "date": "2026-10-14T09:04:27.000Z",
-   "source": "cnBeta"
+   "title": "Cosmic 'jellyfish' wows skywatchers after SpaceX launch | Space photo of the day for Oct. 14, 2026",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/cosmic-jellyfish-wows-skywatchers-after-spacex-launch-space-photo-of-the-day-for-oct-14-2026",
+   "date": "2026-10-14T14:00:00.000Z",
+   "source": "Space.com"
   },
   {
-   "title": "铭芯启睿完成首款高密度、大容量1T4R 1Gb RRAM芯片流片 正在推进验证",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582114.htm",
-   "date": "2026-10-14T08:23:46.000Z",
-   "source": "cnBeta"
+   "title": "NASA to Discuss Artemis Acceleration, Status of Upcoming Moon Missions",
+   "link": "https://www.nasa.gov/news-release/nasa-to-discuss-artemis-acceleration-status-of-upcoming-moon-missions/",
+   "date": "2026-10-14T13:32:25.000Z",
+   "source": "NASA"
   },
   {
-   "title": "韦布望远镜发现一颗熔岩行星存在大气 环境不支持已知生命生存",
-   "link": "https://www.cnbeta.com.tw/articles/science/1582112.htm",
-   "date": "2026-10-14T08:22:14.000Z",
-   "source": "cnBeta"
+   "title": "The 1st SpaceX Starship to survive a launch to space just came home to its launch site",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/the-1st-spacex-starship-to-survive-a-launch-to-space-just-came-home-to-its-launch-site",
+   "date": "2026-10-14T13:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "The Ocarina of Time remake feels remarkably modern — and surprisingly terrifying",
+   "link": "https://www.theverge.com/games/1010101/zelda-ocarina-of-time-remake-switch-2-preview-hands-on",
+   "date": "2026-10-14T13:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "The Alexa Tablet 12 Pro is almost the Android tablet we needed",
+   "link": "https://www.theverge.com/tech/1010780/alexa-tablet-12-pro-review",
+   "date": "2026-10-14T13:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Four years ago, NASA punched an asteroid. Europe's Hera probe arrives this month to inspect the wreckage",
+   "link": "https://www.space.com/space-exploration/asteroid-comet-missions/four-years-ago-nasa-punched-an-asteroid-europes-hera-probe-arrives-this-month-to-inspect-the-wreckage",
+   "date": "2026-10-14T12:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "The Tesla Roadster could have stayed vaporware",
+   "link": "https://www.theverge.com/transportation/1010694/tesla-roadster-reveal-vaporware-spacex-elon-musk",
+   "date": "2026-10-14T11:00:00.000Z",
+   "source": "The Verge"
   },
   {
    "title": "APOD: 2026 October 14 – Mars and the Beehive Under an Aurora",
@@ -49,48 +91,6 @@
    "link": "https://science.nasa.gov/earth/earth-observatory/hurricane-simon-lurks-off-the-mexican-coast/",
    "date": "2026-10-14T04:01:00.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "Apple’s HomeView ad is confusing to everyone except parents",
-   "link": "https://www.theverge.com/tech/1010561/apple-homeview-commercial-reaction",
-   "date": "2026-10-13T22:10:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "On this day in space! Oct. 13, 1773: Astronomer Charles Messier discovers the Whirlpool Galaxy before we ever knew it was a galaxy",
-   "link": "https://www.space.com/space-exploration/on-this-day-in-space-october-13-2026",
-   "date": "2026-10-13T21:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "OpenAI employee arrested for allegedly planting a bug in a conference room",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1010642/openai-employee-arrested-recording-device",
-   "date": "2026-10-13T20:45:25.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "NASA Names Astronaut Christina Koch Acting Deputy Chief Engineer",
-   "link": "https://www.nasa.gov/news-release/nasa-names-astronaut-christina-koch-acting-deputy-chief-engineer/",
-   "date": "2026-10-13T20:41:11.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "It looks like Apple Music is getting a new icon",
-   "link": "https://www.theverge.com/tech/1010619/apple-music-new-icon-ios-27-beta",
-   "date": "2026-10-13T20:05:02.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "'We basically did Top Gun in space': 'Star Trek Starfleet Academy' warps back into action in March 2027 for sophomore year in the final frontier",
-   "link": "https://www.space.com/entertainment/space-movies-shows/we-basically-did-top-gun-in-space-star-trek-starfleet-academy-warps-back-into-action-in-march-2027-for-sophomore-year-in-the-final-frontier",
-   "date": "2026-10-13T20:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "See the original Galileo shuttle from 'Star Trek' in its new home at the Original Series Set Tour in New York",
-   "link": "https://www.space.com/entertainment/star-treks-galileo-shuttle-warps-into-new-york-as-part-of-the-original-series-set-tour",
-   "date": "2026-10-13T20:00:00.000Z",
-   "source": "Space.com"
   }
  ]
 }
