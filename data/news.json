@@ -1,42 +1,84 @@
 {
- "updated": "2026-10-16T09:21:46.958Z",
+ "updated": "2026-10-16T14:22:01.624Z",
  "count": 15,
  "items": [
   {
-   "title": "海康威视 2026 年三季度归母净利润 50.16 亿元，同比增长 36.97%",
-   "link": "https://www.ithome.com/1/013/974.htm",
-   "date": "2026-10-16T09:18:27.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "玩家将初代《光环》多人模式移植至经典任天堂 N64 游戏机：支持 4 人分屏及人机对战",
-   "link": "https://www.ithome.com/1/014/029.htm",
-   "date": "2026-10-16T09:17:37.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "IBM 计划 2027Q1 推出 7A nanostack 尖端制程的早期研发 PDK",
-   "link": "https://www.ithome.com/1/014/028.htm",
-   "date": "2026-10-16T09:15:48.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "亚马逊封禁AI代理Grok Bot 马斯克快速回应：应做个竞品购物网站",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582510.htm",
-   "date": "2026-10-16T08:23:37.000Z",
+   "title": "AI智能体开始“破解”任天堂Switch游戏：《塞尔达传说：织梦岛》已有原生PC移植版",
+   "link": "https://www.cnbeta.com.tw/articles/game/1582556.htm",
+   "date": "2026-10-16T14:19:49.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "索尼向PlayStation严重漏洞报告者支付5万美元 具体漏洞尚未公开",
-   "link": "https://www.cnbeta.com.tw/articles/game/1582508.htm",
-   "date": "2026-10-16T08:22:29.000Z",
+   "title": "乔思伯推出 DS360 系列机箱副屏：占据 360 风扇位，10.36\" / 14.5\" 双规格",
+   "link": "https://www.ithome.com/1/014/176.htm",
+   "date": "2026-10-16T14:18:20.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Linux 调频策略引发讨论：华为建议默认开启 CPU Boost，Arm 工程师提出异议",
+   "link": "https://www.ithome.com/1/014/175.htm",
+   "date": "2026-10-16T14:18:16.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "The incredible flying Tesla Roadster is just for show",
+   "link": "https://www.theverge.com/transportation/1012783/tesla-roadster-flying-stunt-production-reality-musk",
+   "date": "2026-10-16T14:15:29.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "红龙上架 Light 75 Pro 客制化机械键盘：8KHz 回报率、支持三模连接，369 元起",
+   "link": "https://www.ithome.com/1/014/174.htm",
+   "date": "2026-10-16T14:11:55.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Ninja Labs推出弹性MagSafe收纳袋 为智能手机增加“迷你后备箱”",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1582554.htm",
+   "date": "2026-10-16T14:08:34.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "内部测试发现发热问题 骁龙8 Elite Extreme Gen 6或面临进一步优化压力",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582506.htm",
-   "date": "2026-10-16T08:11:13.000Z",
+   "title": "iPhone Duo预购数分钟后排期延至明年 2TB版eBay转售价逼近5000美元",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1582552.htm",
+   "date": "2026-10-16T14:08:04.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "Meta’s new terms may allow it to train AI on news sites for free",
+   "link": "https://www.theverge.com/tech/1012846/meta-business-terms-scrape-news-publishers",
+   "date": "2026-10-16T14:02:40.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Supermassive black hole blasts out a neon 'treble clef' | Space photo of the day for Oct. 16, 2026",
+   "link": "https://www.space.com/astronomy/black-holes/supermassive-black-hole-blasts-out-a-neon-treble-clef-space-photo-of-the-day-for-oct-16-2026",
+   "date": "2026-10-16T14:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "'We are getting a lot of pressure from the administrator himself': How NASA is racing to obey Trump's 'Super Intelligence' order",
+   "link": "https://www.space.com/technology/we-are-getting-a-lot-of-pressure-from-the-administrator-himself-how-nasa-is-racing-to-obey-trumps-super-intelligence-order",
+   "date": "2026-10-16T13:55:13.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "This stretchy MagSafe storage pouch gives your phone a sizable trunk",
+   "link": "https://www.theverge.com/tech/1012828/ninja-labs-magsafe-flex-pouch-silicone-smartphone-storage",
+   "date": "2026-10-16T13:33:21.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "NASA’s Hubble Spies Spiral’s Edge",
+   "link": "https://science.nasa.gov/missions/hubble/nasas-hubble-spies-spirals-edge/",
+   "date": "2026-10-16T12:42:08.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Rocket Lab pushes 1st launch of next-gen Neutron rocket to 2027",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/rocket-lab-pushes-1st-launch-of-next-gen-neutron-rocket-to-2027",
+   "date": "2026-10-16T12:00:00.000Z",
+   "source": "Space.com"
   },
   {
    "title": "APOD: 2026 October 16 – Chasing the International Space Station",
@@ -49,48 +91,6 @@
    "link": "https://science.nasa.gov/earth/earth-observatory/isaias-dims-the-gulf-coast/",
    "date": "2026-10-16T04:00:00.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "The Tesla Roadster flew, drove upside down, and hit 60mph in under a second",
-   "link": "https://www.theverge.com/transportation/1012552/tesla-roadster-next-gen-reveal-elon-musk",
-   "date": "2026-10-16T01:28:27.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Steam can now show game achievements in separate ‘sets’",
-   "link": "https://www.theverge.com/games/1012541/valve-steam-achievement-sets",
-   "date": "2026-10-15T23:18:28.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "ChatGPT can peek at your Chrome tabs now",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1012510/openai-chatgpt-google-chrome-tabs",
-   "date": "2026-10-15T22:43:23.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Astronomers discover the 1st ever green star, a cosmic zombie just in time for Halloween",
-   "link": "https://www.space.com/astronomy/stars/astronomers-discover-the-1st-ever-green-star-a-cosmic-zombie-just-in-time-for-halloween",
-   "date": "2026-10-15T20:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "NASA to Help Unlock Mysteries of Mars’ Moons in Upcoming Mission",
-   "link": "https://science.nasa.gov/directorates/smd/planetary-science-division/nasa-to-help-unlock-mysteries-of-mars-moons-in-upcoming-mission/",
-   "date": "2026-10-15T19:58:08.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "On this day in space! Oct. 15, 1997: NASA launches Cassini-Hugyens probe on 7-year voyage to Saturn",
-   "link": "https://www.space.com/space-exploration/on-this-day-in-space-october-15-2026",
-   "date": "2026-10-15T19:13:26.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "SpaceX launches classified mission for the US Space Force (video)",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-space-force-launch-ussf-481-vandenberg",
-   "date": "2026-10-15T18:00:00.000Z",
-   "source": "Space.com"
   }
  ]
 }
