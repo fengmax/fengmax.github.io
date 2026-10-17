@@ -1,96 +1,78 @@
 {
- "updated": "2026-10-17T08:53:08.001Z",
- "count": 15,
+ "updated": "2026-10-17T13:17:35.362Z",
+ "count": 12,
  "items": [
   {
-   "title": "经典 IP 新作《牧场物语：特拉迪亚的回响》发售，Steam 国区 170 元",
-   "link": "https://www.ithome.com/1/014/334.htm",
-   "date": "2026-10-17T08:45:24.000Z",
+   "title": "华硕推出 ROG ZOOM 八类万兆电竞网线：1.5 米 299 元，3 米 399 元",
+   "link": "https://www.ithome.com/1/014/399.htm",
+   "date": "2026-10-17T13:15:27.000Z",
    "source": "IT之家"
   },
   {
-   "title": "科乐美《恶魔城：贝尔蒙特的诅咒》发售，Steam 国区 128 元起",
-   "link": "https://www.ithome.com/1/014/333.htm",
-   "date": "2026-10-17T08:42:40.000Z",
+   "title": "广汽埃安 Ray7 开启预售：华为 DriveONE 多合一电驱，12.88 万元起",
+   "link": "https://www.ithome.com/1/014/398.htm",
+   "date": "2026-10-17T13:06:00.000Z",
    "source": "IT之家"
   },
   {
-   "title": "平台内容拥挤加剧：2026 年登陆 Steam 平台新游戏数量已达 21388 款，超去年全年总数",
-   "link": "https://www.ithome.com/1/014/332.htm",
-   "date": "2026-10-17T08:37:49.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "微软着手取消Windows 11应用启动时的多余进程 软件启动有望进一步提速",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582648.htm",
-   "date": "2026-10-17T06:52:32.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "OpenAI“窃听”案新进展：被捕工程师否认潜逃、寻求保释",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582646.htm",
-   "date": "2026-10-17T06:51:59.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "玩家用自定义固件让咖啡机成功运行《毁灭战士》",
-   "link": "https://www.cnbeta.com.tw/articles/game/1582644.htm",
-   "date": "2026-10-17T06:49:07.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "APOD: 2026 October 17 – 3D 67P",
-   "link": "https://science.nasa.gov/image-article/apod-2026-october-17-3d-67p/",
-   "date": "2026-10-17T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "All the news about the iPhone Duo",
-   "link": "https://www.theverge.com/tech/1010131/apple-iphone-duo-news-announcements",
-   "date": "2026-10-16T23:36:26.000Z",
+   "title": "Websites are closing their doors to AI agents",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1013195/ai-agents-blocked-web",
+   "date": "2026-10-17T13:00:00.000Z",
    "source": "The Verge"
   },
   {
-   "title": "Apple&#8217;s updated App Store rules go after &#8216;nudify&#8217; AI apps",
-   "link": "https://www.theverge.com/tech/1013314/apple-app-store-nudify-ai-apps-harassment",
-   "date": "2026-10-16T22:51:22.000Z",
+   "title": "Bose makes a strong argument to tether to your phone again",
+   "link": "https://www.theverge.com/tech/1013320/bose-noise-cancelling-wired-earbuds-review",
+   "date": "2026-10-17T13:00:00.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "消息称三星正开发全新 Galaxy OS 系统，预计于 2028 年随 Galaxy S28 系列手机亮相",
+   "link": "https://www.ithome.com/1/014/397.htm",
+   "date": "2026-10-17T12:47:29.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "戴尔CEO警告AI服务器内存短缺将进一步恶化 950亿美元积压订单面临供应挑战",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1582676.htm",
+   "date": "2026-10-17T12:28:57.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "银河系中心黑洞或正在消耗自身旋转能量 为宇宙射线提供动力",
+   "link": "https://www.cnbeta.com.tw/articles/science/1582674.htm",
+   "date": "2026-10-17T12:28:26.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "NASA将探测月球巨坑下方神秘空间 寻找隐藏洞穴与远古火山活动证据",
+   "link": "https://www.cnbeta.com.tw/articles/science/1582672.htm",
+   "date": "2026-10-17T12:27:46.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "'Lanterns' shocking finale left us with a lot of unanswered questions for a potential season 2",
+   "link": "https://www.space.com/entertainment/space-movies-shows/lanterns-shocking-finale-left-us-with-a-lot-of-unanswered-questions-for-a-potential-season-2",
+   "date": "2026-10-17T12:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Apple’s HomeView is just the latest threat to online recipe writers",
+   "link": "https://www.theverge.com/tech/1012820/apple-homeview-recipe-formatting",
+   "date": "2026-10-17T12:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "The Orionid meteor shower peaks next week! Here's what to expect",
+   "link": "https://www.space.com/stargazing/meteor-showers/the-orionid-meteor-shower-peaks-oct-21-22-2026-heres-what-to-expect",
+   "date": "2026-10-17T10:00:00.000Z",
+   "source": "Space.com"
   },
   {
    "title": "'It really does change you': SpaceX Crew-12 commander wishes we could all see our fragile Earth from space",
    "link": "https://www.space.com/space-exploration/international-space-station/it-really-does-change-you-spacex-crew-12-commander-wishes-we-could-all-see-our-fragile-earth-from-space",
    "date": "2026-10-16T22:00:00.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "We can finally hear some of Wu-Tang Clan&#8217;s Once Upon A Time in Shaolin album",
-   "link": "https://www.theverge.com/entertainment/1013277/wu-tang-once-upon-a-time-in-shaolin-pablo-torre-martin-shkreli",
-   "date": "2026-10-16T20:50:27.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "NASA Names Stephen Cash Marshall Space Flight Center Director",
-   "link": "https://www.nasa.gov/news-release/nasa-names-stephen-cash-marshall-space-flight-center-director/",
-   "date": "2026-10-16T20:14:39.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "When not to watch a meteor shower — why I'm not staying up for the Orionids",
-   "link": "https://www.space.com/stargazing/when-not-to-watch-a-meteor-shower-why-im-not-staying-up-for-the-orionids",
-   "date": "2026-10-16T20:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "How to see the Orionid meteor shower 2026 peak this week — and when to look",
-   "link": "https://www.space.com/stargazing/meteor-showers/how-to-see-the-orionid-meteor-shower-2026-peak-this-week-and-when-to-look",
-   "date": "2026-10-16T18:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "Artemis II Heat Shield After Splashdown",
-   "link": "https://www.nasa.gov/image-article/artemis-ii-heat-shield-after-splashdown/",
-   "date": "2026-10-16T16:28:01.000Z",
-   "source": "NASA"
   }
  ]
 }
