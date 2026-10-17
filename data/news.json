@@ -1,24 +1,48 @@
 {
- "updated": "2026-10-17T01:42:20.940Z",
+ "updated": "2026-10-17T08:53:08.001Z",
  "count": 15,
  "items": [
   {
-   "title": "小米推出米家高速吹风机 Mini：11 万转 / 分钟高速电机，到手价 199 元起",
-   "link": "https://www.ithome.com/1/014/231.htm",
-   "date": "2026-10-17T01:34:45.000Z",
+   "title": "经典 IP 新作《牧场物语：特拉迪亚的回响》发售，Steam 国区 170 元",
+   "link": "https://www.ithome.com/1/014/334.htm",
+   "date": "2026-10-17T08:45:24.000Z",
    "source": "IT之家"
   },
   {
-   "title": "AI 数秒写完代码，初级程序员如何成长？微软推出 PRAISE 为程序员指明出路",
-   "link": "https://www.ithome.com/1/014/230.htm",
-   "date": "2026-10-17T01:29:51.000Z",
+   "title": "科乐美《恶魔城：贝尔蒙特的诅咒》发售，Steam 国区 128 元起",
+   "link": "https://www.ithome.com/1/014/333.htm",
+   "date": "2026-10-17T08:42:40.000Z",
    "source": "IT之家"
   },
   {
-   "title": "英伟达 CEO 黄仁勋乐观回应近期 AI 概念股大跌：一切都会过去",
-   "link": "https://www.ithome.com/1/014/229.htm",
-   "date": "2026-10-17T01:26:40.000Z",
+   "title": "平台内容拥挤加剧：2026 年登陆 Steam 平台新游戏数量已达 21388 款，超去年全年总数",
+   "link": "https://www.ithome.com/1/014/332.htm",
+   "date": "2026-10-17T08:37:49.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "微软着手取消Windows 11应用启动时的多余进程 软件启动有望进一步提速",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1582648.htm",
+   "date": "2026-10-17T06:52:32.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "OpenAI“窃听”案新进展：被捕工程师否认潜逃、寻求保释",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1582646.htm",
+   "date": "2026-10-17T06:51:59.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "玩家用自定义固件让咖啡机成功运行《毁灭战士》",
+   "link": "https://www.cnbeta.com.tw/articles/game/1582644.htm",
+   "date": "2026-10-17T06:49:07.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "APOD: 2026 October 17 – 3D 67P",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-17-3d-67p/",
+   "date": "2026-10-17T04:05:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "All the news about the iPhone Duo",
@@ -33,28 +57,10 @@
    "source": "The Verge"
   },
   {
-   "title": "改装玩家为RTX 5090加装四个8针供电接口 单根导线电流降低近一半",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582576.htm",
-   "date": "2026-10-16T22:01:42.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "特斯拉司机称开启FSD时睡着 撞上加州巡警车致两名警员重伤",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582574.htm",
-   "date": "2026-10-16T22:01:06.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "'It really does change you': SpaceX Crew-12 commander wishes we could all see our fragile Earth from space",
    "link": "https://www.space.com/space-exploration/international-space-station/it-really-does-change-you-spacex-crew-12-commander-wishes-we-could-all-see-our-fragile-earth-from-space",
    "date": "2026-10-16T22:00:00.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "苹果79美元 iPhone Duo保护壳采用粘胶固定设计引发关注",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582572.htm",
-   "date": "2026-10-16T21:59:09.000Z",
-   "source": "cnBeta"
   },
   {
    "title": "We can finally hear some of Wu-Tang Clan&#8217;s Once Upon A Time in Shaolin album",
@@ -84,12 +90,6 @@
    "title": "Artemis II Heat Shield After Splashdown",
    "link": "https://www.nasa.gov/image-article/artemis-ii-heat-shield-after-splashdown/",
    "date": "2026-10-16T16:28:01.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "I Am Artemis: Allison Mjoen",
-   "link": "https://www.nasa.gov/missions/station/i-am-artemis-allison-mjoen/",
-   "date": "2026-10-16T14:24:29.000Z",
    "source": "NASA"
   }
  ]
