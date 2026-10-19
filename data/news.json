@@ -1,42 +1,60 @@
 {
- "updated": "2026-10-19T01:56:44.752Z",
+ "updated": "2026-10-19T10:21:15.629Z",
  "count": 15,
  "items": [
   {
-   "title": "Veritas 二代防伪芯片应用场景扩大，覆盖珠宝、奖杯与香水瓶",
-   "link": "https://www.ithome.com/1/014/669.htm",
-   "date": "2026-10-19T01:53:39.000Z",
+   "title": "消息称特斯拉在韩国市场打破传统议价模式，开始直接接触三四级供应商以控制成本",
+   "link": "https://www.ithome.com/1/014/981.htm",
+   "date": "2026-10-19T10:18:06.000Z",
    "source": "IT之家"
   },
   {
-   "title": "饭山 PC 推出 AMD 锐龙 AI 7 450 迷你主机：提供指纹识别、SD 读卡器",
-   "link": "https://www.ithome.com/1/014/667.htm",
-   "date": "2026-10-19T01:52:45.000Z",
+   "title": "“天下霸唱 IP 改编”悬疑探险真人互动影游《天坑追匪》Demo 上架 Steam，免费试玩",
+   "link": "https://www.ithome.com/1/014/976.htm",
+   "date": "2026-10-19T10:13:18.000Z",
    "source": "IT之家"
   },
   {
-   "title": "飞傲 FX25 碳纤维流行向七单元圈铁静耳机开售，4999 元",
-   "link": "https://www.ithome.com/1/014/666.htm",
-   "date": "2026-10-19T01:52:09.000Z",
+   "title": "技术人员拆解任天堂 Switch 2 可换电池版：仍使用群创光电面板、内存供应商有所变化",
+   "link": "https://www.ithome.com/1/014/975.htm",
+   "date": "2026-10-19T10:09:33.000Z",
    "source": "IT之家"
   },
   {
-   "title": "《使命召唤：现代战争4》Steam好评率91%创十余年新高",
-   "link": "https://www.cnbeta.com.tw/articles/game/1582806.htm",
-   "date": "2026-10-18T22:30:05.000Z",
+   "title": "Japan launching bold sample-return mission to Mars moon Phobos today: Watch it live",
+   "link": "https://www.space.com/astronomy/mars/japan-launching-bold-sample-return-mission-to-mars-moon-phobos-today-watch-it-live",
+   "date": "2026-10-19T10:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "法国抗议期间巴黎电竞场馆及多地游戏商店遭抢劫",
+   "link": "https://www.cnbeta.com.tw/articles/game/1582910.htm",
+   "date": "2026-10-19T09:25:32.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "亚马逊实体预购数据：《塞尔达：时之笛重制版》力压GTA6",
-   "link": "https://www.cnbeta.com.tw/articles/game/1582804.htm",
-   "date": "2026-10-18T22:29:58.000Z",
+   "title": "看看Roadster就得了 你还真信马斯克卖这个车？",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1582908.htm",
+   "date": "2026-10-19T09:23:30.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "微软招聘Xbox游戏供应策略师 但未确认下代主机配备光驱",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582802.htm",
-   "date": "2026-10-18T22:29:40.000Z",
+   "title": "奥睿科推出首款笔记本产品Obook 15 AI 锐龙7 6800H型号起步价689.99美元",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1582906.htm",
+   "date": "2026-10-19T08:17:45.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "APOD: 2026 October 19 – Treble Clef: Unusual X-ray Hot Radio Source",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-19-treble-clef-unusual-x-ray-hot-radio-source/",
+   "date": "2026-10-19T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Autumn Paints Poland’s Bieszczady Mountains",
+   "link": "https://science.nasa.gov/earth/earth-observatory/autumn-paints-polands-bieszczady-mountains/",
+   "date": "2026-10-19T04:01:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "A Savannah police officer gave her Flock login to her ICE agent husband",
@@ -69,27 +87,9 @@
    "source": "Space.com"
   },
   {
-   "title": "On this day in space! Oct. 18, 1963: France's Félicette Becomes the 1st Cat in Space! >^..^<",
-   "link": "https://www.space.com/space-exploration/on-this-day-in-space-october-18-2026",
-   "date": "2026-10-18T13:52:32.000Z",
-   "source": "Space.com"
-  },
-  {
    "title": "APOD: 2026 October 18 – Sonified: Eagle Nebula Pillars",
    "link": "https://science.nasa.gov/image-article/apod-2026-october-18-sonified-eagle-nebula-pillars/",
    "date": "2026-10-18T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "APOD: 2026 October 17 – 3D 67P",
-   "link": "https://science.nasa.gov/image-article/apod-2026-october-17-3d-67p/",
-   "date": "2026-10-17T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Names Stephen Cash Marshall Space Flight Center Director",
-   "link": "https://www.nasa.gov/news-release/nasa-names-stephen-cash-marshall-space-flight-center-director/",
-   "date": "2026-10-16T20:14:39.000Z",
    "source": "NASA"
   }
  ]
