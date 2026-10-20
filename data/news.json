@@ -1,24 +1,60 @@
 {
- "updated": "2026-10-20T02:14:34.089Z",
+ "updated": "2026-10-20T09:41:26.676Z",
  "count": 15,
  "items": [
   {
-   "title": "小米 REDMI 手环 4 发售：续航最长 21 天，售价 169 元",
-   "link": "https://www.ithome.com/1/015/151.htm",
-   "date": "2026-10-20T02:14:11.000Z",
+   "title": "宝马计划明年底前裁撤 8000 个白领岗位：发放远超行业的补偿金、员工争着离职",
+   "link": "https://www.ithome.com/1/015/450.htm",
+   "date": "2026-10-20T09:38:05.000Z",
    "source": "IT之家"
   },
   {
-   "title": "东风日产 NX7 官宣即将登场，号称“年轻人的智能零压 SUV”",
-   "link": "https://www.ithome.com/1/015/143.htm",
-   "date": "2026-10-20T02:11:34.000Z",
+   "title": "X 平台调整推荐算法：更侧重用户停留时长和贴文完读率",
+   "link": "https://www.ithome.com/1/015/449.htm",
+   "date": "2026-10-20T09:36:18.000Z",
    "source": "IT之家"
   },
   {
-   "title": "酷派首款阔直板手机 Cool X Wide 开启预约：6.38 英寸 16:10 屏幕、联发科 Helio G99 芯片",
-   "link": "https://www.ithome.com/1/015/128.htm",
-   "date": "2026-10-20T02:04:24.000Z",
+   "title": "曝华为畅享 100 Pro Max 手机 512GB 版本独享麒麟 8020 处理器，标准版选用麒麟 8000S 芯片",
+   "link": "https://www.ithome.com/1/015/442.htm",
+   "date": "2026-10-20T09:22:43.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "挪威企业提议建设跨大西洋数据电缆 直接连接加拿大与欧洲 绕开美国",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583048.htm",
+   "date": "2026-10-20T09:14:46.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "法国骚乱波及电竞行业：电竞奖杯被盗 现场有人拆走电脑内存条",
+   "link": "https://www.cnbeta.com.tw/articles/game/1583046.htm",
+   "date": "2026-10-20T09:14:06.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "微软设计师也开始借助AI编写Windows 11代码 加速修复界面不一致问题",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583044.htm",
+   "date": "2026-10-20T09:13:03.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "APOD: 2026 October 20 – An Anticrepuscular Rainbow Fan",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-20-an-anticrepuscular-rainbow-fan/",
+   "date": "2026-10-20T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "The Human Fingerprint on Earth’s Water Cycle",
+   "link": "https://science.nasa.gov/earth/earth-observatory/the-human-fingerprint-on-earths-water-cycle/",
+   "date": "2026-10-20T04:01:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Baseus’ new security camera has a spotlight that tracks and follows moving targets",
+   "link": "https://www.theverge.com/tech/1005073/baseus-security-primesentinel-u2-pro-outdoor-3k-dual-camera-tracking-spotlight",
+   "date": "2026-10-20T04:00:00.000Z",
+   "source": "The Verge"
   },
   {
    "title": "Curiosity Blog, Sols 5036-5042: Watching the Clouds Go By",
@@ -33,18 +69,6 @@
    "source": "The Verge"
   },
   {
-   "title": "《GTA6》预告三天播放量超过前作13年累计",
-   "link": "https://www.cnbeta.com.tw/articles/game/1582948.htm",
-   "date": "2026-10-19T22:28:13.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "苹果宣布将于10月28日举行产品发布活动 分析师预计将推出触屏笔记本电脑",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582946.htm",
-   "date": "2026-10-19T22:24:36.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "New 'Blade Runner 2099' trailer is a space fan's dream with sinister starships and strange exoplanets (video)",
    "link": "https://www.space.com/entertainment/space-movies-shows/new-blade-runner-2099-trailer-is-a-space-fans-dream-with-sinister-starships-and-strange-exoplanets-video",
    "date": "2026-10-19T22:00:00.000Z",
@@ -54,12 +78,6 @@
    "title": "The fossil fuel comeback is here",
    "link": "https://www.theverge.com/science/1013954/fossil-fuel-power-infrastructure-data-centers-report",
    "date": "2026-10-19T21:48:01.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "CoreWeave&#8217;s debt is becoming the whole AI industry&#8217;s problem",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1014045/coreweave-stock-debt-sector-ai",
-   "date": "2026-10-19T21:28:20.000Z",
    "source": "The Verge"
   },
   {
@@ -73,24 +91,6 @@
    "link": "https://www.space.com/space-exploration/launches-spacecraft/japan-launches-historic-mmx-sample-return-mission-to-mars-moon-phobos",
    "date": "2026-10-19T19:53:21.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "NASA Improves Shock, Vibration Analysis",
-   "link": "https://www.nasa.gov/centers-and-facilities/kennedy/nasa-improves-shock-vibration-analysis/",
-   "date": "2026-10-19T19:28:32.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Software",
-   "link": "https://www.nasa.gov/centers-and-facilities/glenn/acoustics-software/",
-   "date": "2026-10-19T18:11:40.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "红米手机竟然刷上了iOS Redmi Note 12成功启动iOS 16项目已开源",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1582944.htm",
-   "date": "2026-10-19T15:02:38.000Z",
-   "source": "cnBeta"
   }
  ]
 }
