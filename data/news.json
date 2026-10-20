@@ -1,30 +1,84 @@
 {
- "updated": "2026-10-20T18:47:07.452Z",
+ "updated": "2026-10-20T22:44:35.333Z",
  "count": 15,
  "items": [
   {
-   "title": "Microsoft reportedly plans Xbox handheld in 2027, next-gen console in 2028",
-   "link": "https://www.theverge.com/news/1014666/xbox-project-helix-launch-2028-rumor",
-   "date": "2026-10-20T18:45:39.000Z",
+   "title": "SpaceX 2026 财年第三财季归母净利润 44.04 亿美元，同比扭亏为盈",
+   "link": "https://www.ithome.com/1/015/617.htm",
+   "date": "2026-10-20T22:37:22.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Perplexity Computer新增Mac本地运行模式 AI任务可留在设备端处理",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583130.htm",
+   "date": "2026-10-20T22:31:43.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Google将内置其系统的汽车推送Gemini AI助手 现有车辆也可获得升级",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583128.htm",
+   "date": "2026-10-20T22:31:08.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "SpaceX will attempt 1st-ever double Starship rocket catch on next test launch, a 'profound technology milestone,' Elon Musk says",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-will-attempt-1st-ever-double-starship-rocket-catch-on-next-test-launch-a-profound-technology-milestone-elon-musk-says",
+   "date": "2026-10-20T22:29:46.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "马斯克：SpaceX与特斯拉已开始研究潜在合并交易",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583126.htm",
+   "date": "2026-10-20T22:28:40.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Trump is giving Nick Shirley $10,000 and launching a $25 million fraud bounty program",
+   "link": "https://www.theverge.com/news/1014989/trump-fraud-tips-program-nick-shirley-influencers",
+   "date": "2026-10-20T22:20:11.000Z",
    "source": "The Verge"
   },
   {
-   "title": "美国法官驳回OpenAI首席执行官山姆·奥特曼妹妹提起的性侵诉讼",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583122.htm",
-   "date": "2026-10-20T18:40:03.000Z",
-   "source": "cnBeta"
+   "title": "Google’s more personalized Gemini AI is heading to your car",
+   "link": "https://www.theverge.com/tech/1014999/google-gemini-ai-cars-android-auto",
+   "date": "2026-10-20T22:11:34.000Z",
+   "source": "The Verge"
   },
   {
-   "title": "ChatGPT新增“锁定聊天” 可用四位PIN或生物识别隐藏敏感对话",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583120.htm",
-   "date": "2026-10-20T18:39:40.000Z",
-   "source": "cnBeta"
+   "title": "Tesla and SpaceX are discussing a possible merger, Musk says",
+   "link": "https://www.theverge.com/science/1014984/spacex-tesla-merger-elon-musk-special-committees",
+   "date": "2026-10-20T21:30:24.000Z",
+   "source": "The Verge"
   },
   {
-   "title": "三星改进Exynos基带能效 Galaxy S27有望缩小与骁龙版的续航差距",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583118.htm",
-   "date": "2026-10-20T18:30:34.000Z",
-   "source": "cnBeta"
+   "title": "On this day in space! Oct. 20, 1970: The Soviet Union launches last-ever Zond moon mission",
+   "link": "https://www.space.com/space-exploration/on-this-day-in-space-october-20-2026",
+   "date": "2026-10-20T20:59:48.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "超微电脑 2027 财年第一财季预计营收185 亿美元~195 亿美元",
+   "link": "https://www.ithome.com/1/015/619.htm",
+   "date": "2026-10-20T20:47:02.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "NASA to Conduct Low-Altitude Flights Over Texas Farmland",
+   "link": "https://www.nasa.gov/general/nasa-to-conduct-low-altitude-flights-over-texas-farmland/",
+   "date": "2026-10-20T20:21:36.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Netflix 2026 财年第三财季归母净利润 36.64 亿美元，同比增长 43.86%",
+   "link": "https://www.ithome.com/1/015/618.htm",
+   "date": "2026-10-20T20:06:20.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "Can’t make it to the Lucas Museum of Narrative Art for the 'Star Wars' display? This is the companion book set you’re looking for!",
+   "link": "https://www.space.com/entertainment/space-books/cant-make-it-to-the-lucas-museum-of-narrative-art-for-the-star-wars-display-this-is-the-companion-book-set-youre-looking-for",
+   "date": "2026-10-20T20:00:00.000Z",
+   "source": "Space.com"
   },
   {
    "title": "NASA’s SR-1 Freedom Advances with Progress on Nuclear Power Module",
@@ -33,64 +87,10 @@
    "source": "NASA"
   },
   {
-   "title": "Meta pauses Muse sharing after researchers find AI chats on the web",
-   "link": "https://www.theverge.com/tech/1014627/meta-muse-ai-sharing-ai-chats",
-   "date": "2026-10-20T18:07:34.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Jeff Bezos is playing the long game with Blue Origin (op-ed)",
-   "link": "https://www.space.com/space-exploration/private-spaceflight/jeff-bezos-is-playing-the-long-game-with-blue-origin-op-ed",
-   "date": "2026-10-20T18:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "The $20,000 Voxel bot will help you find misplaced things around your home",
-   "link": "https://www.theverge.com/tech/1014533/tuesday-labs-voxel-series-1-home-robot-reservation",
-   "date": "2026-10-20T17:49:55.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "A supercomputer is about to launch to the moon for the 1st time, aboard a rover named FLIP",
-   "link": "https://www.space.com/space-exploration/a-supercomputer-is-about-to-launch-to-the-moon-for-the-1st-time-aboard-a-rover-named-flip",
-   "date": "2026-10-20T17:42:41.000Z",
-   "source": "Space.com"
-  },
-  {
    "title": "NASA Experimental Mars Helicopter Blade Designs Target Longer Flights",
    "link": "https://www.nasa.gov/science-research/aeronautics-research/nasa-experimental-mars-helicopter-blade-designs-target-longer-flights/",
    "date": "2026-10-20T16:02:35.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "1 亿目标近在咫尺：曝华为鸿蒙 HarmonyOS 系统装机量突破 9500 万台",
-   "link": "https://www.ithome.com/1/015/614.htm",
-   "date": "2026-10-20T15:57:50.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "华为详解 Wi-Fi 7+ 端到端芯片解决方案，支持动态窄频宽、真双频并发、无缝漫游等技术",
-   "link": "https://www.ithome.com/1/015/613.htm",
-   "date": "2026-10-20T15:52:46.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "消息称引望、宁德时代首批换电车型暂定五款，计划 2027 年上市",
-   "link": "https://www.ithome.com/1/015/610.htm",
-   "date": "2026-10-20T15:34:31.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "NASA Provides Progress Update on Moon Base Rovers",
-   "link": "https://www.nasa.gov/missions/moon-base/nasa-provides-progress-update-on-moon-base-rovers/",
-   "date": "2026-10-20T15:00:10.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Red light, white light: How to preserve your night vision while using stargazing apps",
-   "link": "https://www.space.com/stargazing/skywatching-kit/red-light-white-light-how-to-preserve-your-night-vision-while-using-stargazing-apps",
-   "date": "2026-10-20T14:00:00.000Z",
-   "source": "Space.com"
   }
  ]
 }
