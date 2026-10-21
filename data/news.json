@@ -1,24 +1,42 @@
 {
- "updated": "2026-10-21T02:07:56.715Z",
- "count": 15,
+ "updated": "2026-10-21T09:42:42.503Z",
+ "count": 12,
  "items": [
   {
-   "title": "6 年更新承诺：微软 Surface Laptop Ultra 驱动 / 固件将支持至 2032 年",
-   "link": "https://www.ithome.com/1/015/691.htm",
-   "date": "2026-10-21T02:05:09.000Z",
+   "title": "Synaptics 推出 Astra SR200 MCU：内置谷歌 Coral NPU，集成高带宽定制 DRAM",
+   "link": "https://www.ithome.com/1/016/027.htm",
+   "date": "2026-10-21T09:41:49.000Z",
    "source": "IT之家"
   },
   {
-   "title": "引入新世代设计，宝马 iX7 纯电旗舰 SUV 最新谍照曝光",
-   "link": "https://www.ithome.com/1/015/688.htm",
-   "date": "2026-10-21T02:01:31.000Z",
+   "title": "小鹏汽车董事长何小鹏称 L3 安全性没有变好，自动驾驶应该跳过 L3",
+   "link": "https://www.ithome.com/1/016/025.htm",
+   "date": "2026-10-21T09:40:08.000Z",
    "source": "IT之家"
   },
   {
-   "title": "字节跳动撤销“咕咕嘎嘎”“刀盾狗”“香蕉猫”等网络热梗的美术作品著作权登记",
-   "link": "https://www.ithome.com/1/015/687.htm",
-   "date": "2026-10-21T01:58:30.000Z",
+   "title": "环路资本将苹果评级下调为“持有”，同步下调 iPhone 营收预期",
+   "link": "https://www.ithome.com/1/016/024.htm",
+   "date": "2026-10-21T09:36:45.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "Synaptics推出Astra SR200边缘AI处理器 最高400 GOPS并集成Google Coral NPU",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583224.htm",
+   "date": "2026-10-21T09:12:44.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "苹果CEO约翰·特努斯谈“好设计”：用户体验优先 设计与工程密不可分",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583222.htm",
+   "date": "2026-10-21T08:41:32.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "特斯拉Roadster电池曝光：10分钟补能70%",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583220.htm",
+   "date": "2026-10-21T08:00:27.000Z",
+   "source": "cnBeta"
   },
   {
    "title": "YouTube might be testing hiding the dislike button",
@@ -33,28 +51,10 @@
    "source": "The Verge"
   },
   {
-   "title": "Perplexity Computer新增Mac本地运行模式 AI任务可留在设备端处理",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583130.htm",
-   "date": "2026-10-20T22:31:43.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Google将内置其系统的汽车推送Gemini AI助手 现有车辆也可获得升级",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583128.htm",
-   "date": "2026-10-20T22:31:08.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "SpaceX will attempt 1st-ever double Starship rocket catch on next test launch, a 'profound technology milestone,' Elon Musk says",
    "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-will-attempt-1st-ever-double-starship-rocket-catch-on-next-test-launch-a-profound-technology-milestone-elon-musk-says",
    "date": "2026-10-20T22:29:46.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "马斯克：SpaceX与特斯拉已开始研究潜在合并交易",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583126.htm",
-   "date": "2026-10-20T22:28:40.000Z",
-   "source": "cnBeta"
   },
   {
    "title": "Trump is giving Nick Shirley $10,000 and launching a $25 million fraud bounty program",
@@ -69,28 +69,10 @@
    "source": "Space.com"
   },
   {
-   "title": "NASA to Conduct Low-Altitude Flights Over Texas Farmland",
-   "link": "https://www.nasa.gov/general/nasa-to-conduct-low-altitude-flights-over-texas-farmland/",
-   "date": "2026-10-20T20:21:36.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "Can’t make it to the Lucas Museum of Narrative Art for the 'Star Wars' display? This is the companion book set you’re looking for!",
    "link": "https://www.space.com/entertainment/space-books/cant-make-it-to-the-lucas-museum-of-narrative-art-for-the-star-wars-display-this-is-the-companion-book-set-youre-looking-for",
    "date": "2026-10-20T20:00:00.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "NASA’s SR-1 Freedom Advances with Progress on Nuclear Power Module",
-   "link": "https://www.nasa.gov/centers-and-facilities/glenn/sr-1-freedom-advances-with-progress-on-nuclear-power-module/",
-   "date": "2026-10-20T18:11:33.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA Experimental Mars Helicopter Blade Designs Target Longer Flights",
-   "link": "https://www.nasa.gov/science-research/aeronautics-research/nasa-experimental-mars-helicopter-blade-designs-target-longer-flights/",
-   "date": "2026-10-20T16:02:35.000Z",
-   "source": "NASA"
   }
  ]
 }
