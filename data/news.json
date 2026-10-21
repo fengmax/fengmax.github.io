@@ -1,78 +1,96 @@
 {
- "updated": "2026-10-21T09:42:42.503Z",
- "count": 12,
+ "updated": "2026-10-21T14:42:53.081Z",
+ "count": 15,
  "items": [
   {
-   "title": "Synaptics 推出 Astra SR200 MCU：内置谷歌 Coral NPU，集成高带宽定制 DRAM",
-   "link": "https://www.ithome.com/1/016/027.htm",
-   "date": "2026-10-21T09:41:49.000Z",
+   "title": "因安全问题，马来西亚禁止公务员使用 Waze 导航应用",
+   "link": "https://www.ithome.com/1/016/139.htm",
+   "date": "2026-10-21T14:38:59.000Z",
    "source": "IT之家"
   },
   {
-   "title": "小鹏汽车董事长何小鹏称 L3 安全性没有变好，自动驾驶应该跳过 L3",
-   "link": "https://www.ithome.com/1/016/025.htm",
-   "date": "2026-10-21T09:40:08.000Z",
+   "title": "Cloudflare提前部署PHP漏洞防护规则 但网站仍须尽快安装官方补丁",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583244.htm",
+   "date": "2026-10-21T14:38:41.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "OpenAI宣布利用先进AI发现PHP严重漏洞 联合全球安全机构展开紧急修复行动",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583242.htm",
+   "date": "2026-10-21T14:37:23.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "黄仁勋发布 AI“预制工厂”DSX POD：最快 14 天部署投产，英伟达计划 2027 年初全球交付",
+   "link": "https://www.ithome.com/1/016/138.htm",
+   "date": "2026-10-21T14:36:19.000Z",
    "source": "IT之家"
   },
   {
-   "title": "环路资本将苹果评级下调为“持有”，同步下调 iPhone 营收预期",
-   "link": "https://www.ithome.com/1/016/024.htm",
-   "date": "2026-10-21T09:36:45.000Z",
+   "title": "两项严重漏洞可导致服务器遭远程代码执行 PHP官方紧急发布安全补丁",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583240.htm",
+   "date": "2026-10-21T14:36:00.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "谷歌 CEO 桑达尔 · 皮查伊：公司正牺牲云业务短期收入支持前沿 AI 研发，2027 年算力难以锁定",
+   "link": "https://www.ithome.com/1/016/137.htm",
+   "date": "2026-10-21T14:31:01.000Z",
    "source": "IT之家"
   },
   {
-   "title": "Synaptics推出Astra SR200边缘AI处理器 最高400 GOPS并集成Google Coral NPU",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583224.htm",
-   "date": "2026-10-21T09:12:44.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "苹果CEO约翰·特努斯谈“好设计”：用户体验优先 设计与工程密不可分",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583222.htm",
-   "date": "2026-10-21T08:41:32.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "特斯拉Roadster电池曝光：10分钟补能70%",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583220.htm",
-   "date": "2026-10-21T08:00:27.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "YouTube might be testing hiding the dislike button",
-   "link": "https://www.theverge.com/streaming/1015099/youtube-dislike-button-hide-menu",
-   "date": "2026-10-21T00:00:56.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Judge dismisses Sam Altman’s sister’s sexual abuse lawsuit",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1014976/sam-altman-ann-altman-lawsuit-dismissed",
-   "date": "2026-10-20T23:04:19.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "SpaceX will attempt 1st-ever double Starship rocket catch on next test launch, a 'profound technology milestone,' Elon Musk says",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-will-attempt-1st-ever-double-starship-rocket-catch-on-next-test-launch-a-profound-technology-milestone-elon-musk-says",
-   "date": "2026-10-20T22:29:46.000Z",
+   "title": "\"A great budget lens for astrophotography, the sharpness produced at f/1.8 and f/2.8 is exactly what you want.\" Viltrox AF 16mm f/1.8 FE lens review",
+   "link": "https://www.space.com/stargazing/astrophotography/a-great-budget-lens-for-astrophotography-the-sharpness-produced-at-f-1-8-and-f-2-8-is-exactly-what-you-want-viltrox-af-16mm-f-1-8-fe-lens-review",
+   "date": "2026-10-21T14:30:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "Trump is giving Nick Shirley $10,000 and launching a $25 million fraud bounty program",
-   "link": "https://www.theverge.com/news/1014989/trump-fraud-tips-program-nick-shirley-influencers",
-   "date": "2026-10-20T22:20:11.000Z",
+   "title": "Apple says it only has &#8216;limited&#8217; iPhone Duo units for in-store sales",
+   "link": "https://www.theverge.com/tech/1015372/apple-says-it-only-has-limited-iphone-duo-units-for-in-store-sales",
+   "date": "2026-10-21T14:22:59.000Z",
    "source": "The Verge"
   },
   {
-   "title": "On this day in space! Oct. 20, 1970: The Soviet Union launches last-ever Zond moon mission",
-   "link": "https://www.space.com/space-exploration/on-this-day-in-space-october-20-2026",
-   "date": "2026-10-20T20:59:48.000Z",
+   "title": "Space botanist conducts plant experiments in orbit | Space photo of the day for Oct. 21, 2026",
+   "link": "https://www.space.com/space-exploration/human-spaceflight/space-botanist-conducts-plant-experiments-in-orbit-space-photo-of-the-day-for-oct-21-2026",
+   "date": "2026-10-21T14:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "Can’t make it to the Lucas Museum of Narrative Art for the 'Star Wars' display? This is the companion book set you’re looking for!",
-   "link": "https://www.space.com/entertainment/space-books/cant-make-it-to-the-lucas-museum-of-narrative-art-for-the-star-wars-display-this-is-the-companion-book-set-youre-looking-for",
-   "date": "2026-10-20T20:00:00.000Z",
+   "title": "Blink brings 4K to its low-cost security camera lineup",
+   "link": "https://www.theverge.com/tech/1015238/amazon-blink-4k-trail-security-camera-launch",
+   "date": "2026-10-21T14:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "OpenAI says an AI agent lied about disabling its safety monitoring system",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1015316/openai-ai-agent-disabling-monitoring-systems",
+   "date": "2026-10-21T13:57:43.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "When will SpaceX and Blue Origin fly to the moon? NASA reveals lunar lander timelines (and an Artemis III update)",
+   "link": "https://www.space.com/space-exploration/artemis/when-will-spacex-and-blue-origin-fly-to-the-moon-nasa-reveals-lunar-lander-timelines-and-an-artemis-iii-update",
+   "date": "2026-10-21T13:00:00.000Z",
    "source": "Space.com"
+  },
+  {
+   "title": "NASA’s CASALS Instrument Bridges Gaps in 3D Maps of Earth’s Surface",
+   "link": "https://science.nasa.gov/science-research/science-enabling-technology/technology-highlights/nasas-casals-instrument-bridges-gaps-in-3d-maps-of-earths-surface/",
+   "date": "2026-10-21T12:17:58.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "APOD: 2026 October 21 – New Ghosts Revealed in Cassiopeia",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-21-new-ghosts-revealed-in-cassiopeia/",
+   "date": "2026-10-21T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Extratropical Cyclone Whips Past Iceland",
+   "link": "https://science.nasa.gov/earth/earth-observatory/extratropical-cyclone-whips-past-iceland/",
+   "date": "2026-10-21T04:01:00.000Z",
+   "source": "NASA"
   }
  ]
 }
