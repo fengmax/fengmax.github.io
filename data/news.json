@@ -1,42 +1,84 @@
 {
- "updated": "2026-10-21T14:42:53.081Z",
+ "updated": "2026-10-21T18:59:53.258Z",
  "count": 15,
  "items": [
   {
-   "title": "因安全问题，马来西亚禁止公务员使用 Waze 导航应用",
-   "link": "https://www.ithome.com/1/016/139.htm",
-   "date": "2026-10-21T14:38:59.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Cloudflare提前部署PHP漏洞防护规则 但网站仍须尽快安装官方补丁",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583244.htm",
-   "date": "2026-10-21T14:38:41.000Z",
+   "title": "Meta因新墨西哥州剑桥分析案被罚250亿美元",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583258.htm",
+   "date": "2026-10-21T18:55:51.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "OpenAI宣布利用先进AI发现PHP严重漏洞 联合全球安全机构展开紧急修复行动",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583242.htm",
-   "date": "2026-10-21T14:37:23.000Z",
-   "source": "cnBeta"
+   "title": "Cyberpunk 2077&#8217;s update for Edgerunners 2 brings mods to PS5, Switch 2, and Xbox",
+   "link": "https://www.theverge.com/games/1015755/cyberpunk-2077-2-5-edgerunners-mods-dual-wield",
+   "date": "2026-10-21T18:39:52.000Z",
+   "source": "The Verge"
   },
   {
-   "title": "黄仁勋发布 AI“预制工厂”DSX POD：最快 14 天部署投产，英伟达计划 2027 年初全球交付",
-   "link": "https://www.ithome.com/1/016/138.htm",
-   "date": "2026-10-21T14:36:19.000Z",
+   "title": "Xbox mandates a four-day return to office",
+   "link": "https://www.theverge.com/report/1015733/xbox-return-to-office-policy-four-days",
+   "date": "2026-10-21T18:31:15.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Star Wars Zero Company is a must-play strategy game at 20 percent off",
+   "link": "https://www.theverge.com/gadgets/1015624/star-wars-zero-company-deal-sale",
+   "date": "2026-10-21T18:30:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Sci-fi legend Alan Dean Foster on his new futuristic adventure 'Lost On Paradise': 'It's paradise until you get there, and then maybe you mess it up' (interview)",
+   "link": "https://www.space.com/entertainment/space-books/sci-fi-legend-alan-dean-foster-on-his-new-futuristic-adventure-lost-on-paradise-its-paradise-until-you-get-there-and-then-maybe-you-mess-it-up-interview",
+   "date": "2026-10-21T18:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "NASA to Conduct NCAA Flyover, Engage Fans at University of Alabama",
+   "link": "https://www.nasa.gov/news-release/nasa-to-conduct-ncaa-flyover-engage-fans-at-university-of-alabama/",
+   "date": "2026-10-21T16:31:11.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "安卓阵营首款阔直板手机酷派 COOL X Wide 售价公布：999~1399 元，搭载联发科曦力 G99 芯片 + 720p 屏幕",
+   "link": "https://www.ithome.com/1/016/160.htm",
+   "date": "2026-10-21T16:14:46.000Z",
    "source": "IT之家"
   },
   {
-   "title": "两项严重漏洞可导致服务器遭远程代码执行 PHP官方紧急发布安全补丁",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583240.htm",
-   "date": "2026-10-21T14:36:00.000Z",
+   "title": "799 元雷蛇北海巨妖萌猫版 V3 有线耳机发布：猫耳 RGB 灯效可随直播互动，支持 7.1 环绕声",
+   "link": "https://www.ithome.com/1/016/158.htm",
+   "date": "2026-10-21T16:03:25.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "eBay将裁员9% 这是该公司今年第二轮裁员",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583256.htm",
+   "date": "2026-10-21T15:55:55.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "谷歌 CEO 桑达尔 · 皮查伊：公司正牺牲云业务短期收入支持前沿 AI 研发，2027 年算力难以锁定",
-   "link": "https://www.ithome.com/1/016/137.htm",
-   "date": "2026-10-21T14:31:01.000Z",
+   "title": "Apple Music公布新品牌片头 用真实声波让标志在矿物油中荡漾",
+   "link": "https://www.cnbeta.com.tw/articles/music/1583254.htm",
+   "date": "2026-10-21T15:54:23.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "苹果公布 Apple Music 全新品牌标识，创作灵感来自声音振动、声波实拍",
+   "link": "https://www.ithome.com/1/016/157.htm",
+   "date": "2026-10-21T15:53:23.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "Tracks Along the Longest Drive on Another World",
+   "link": "https://science.nasa.gov/blog/tracks-along-the-longest-drive-on-another-world/",
+   "date": "2026-10-21T15:50:44.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Science on the Space Station with NASA Astronaut Jessica Watkins",
+   "link": "https://www.nasa.gov/image-article/science-on-the-space-station-with-nasa-astronaut-jessica-watkins/",
+   "date": "2026-10-21T15:05:08.000Z",
+   "source": "NASA"
   },
   {
    "title": "\"A great budget lens for astrophotography, the sharpness produced at f/1.8 and f/2.8 is exactly what you want.\" Viltrox AF 16mm f/1.8 FE lens review",
@@ -45,52 +87,10 @@
    "source": "Space.com"
   },
   {
-   "title": "Apple says it only has &#8216;limited&#8217; iPhone Duo units for in-store sales",
-   "link": "https://www.theverge.com/tech/1015372/apple-says-it-only-has-limited-iphone-duo-units-for-in-store-sales",
-   "date": "2026-10-21T14:22:59.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "Space botanist conducts plant experiments in orbit | Space photo of the day for Oct. 21, 2026",
    "link": "https://www.space.com/space-exploration/human-spaceflight/space-botanist-conducts-plant-experiments-in-orbit-space-photo-of-the-day-for-oct-21-2026",
    "date": "2026-10-21T14:00:00.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "Blink brings 4K to its low-cost security camera lineup",
-   "link": "https://www.theverge.com/tech/1015238/amazon-blink-4k-trail-security-camera-launch",
-   "date": "2026-10-21T14:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "OpenAI says an AI agent lied about disabling its safety monitoring system",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1015316/openai-ai-agent-disabling-monitoring-systems",
-   "date": "2026-10-21T13:57:43.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "When will SpaceX and Blue Origin fly to the moon? NASA reveals lunar lander timelines (and an Artemis III update)",
-   "link": "https://www.space.com/space-exploration/artemis/when-will-spacex-and-blue-origin-fly-to-the-moon-nasa-reveals-lunar-lander-timelines-and-an-artemis-iii-update",
-   "date": "2026-10-21T13:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "NASA’s CASALS Instrument Bridges Gaps in 3D Maps of Earth’s Surface",
-   "link": "https://science.nasa.gov/science-research/science-enabling-technology/technology-highlights/nasas-casals-instrument-bridges-gaps-in-3d-maps-of-earths-surface/",
-   "date": "2026-10-21T12:17:58.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "APOD: 2026 October 21 – New Ghosts Revealed in Cassiopeia",
-   "link": "https://science.nasa.gov/image-article/apod-2026-october-21-new-ghosts-revealed-in-cassiopeia/",
-   "date": "2026-10-21T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Extratropical Cyclone Whips Past Iceland",
-   "link": "https://science.nasa.gov/earth/earth-observatory/extratropical-cyclone-whips-past-iceland/",
-   "date": "2026-10-21T04:01:00.000Z",
-   "source": "NASA"
   }
  ]
 }
