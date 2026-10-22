@@ -1,48 +1,84 @@
 {
- "updated": "2026-10-22T18:53:56.176Z",
+ "updated": "2026-10-22T22:48:55.669Z",
  "count": 15,
  "items": [
   {
-   "title": "Valve员工首次公开提及“HLX” 《半条命3》传闻再起",
-   "link": "https://www.cnbeta.com.tw/articles/game/1583430.htm",
-   "date": "2026-10-22T18:51:06.000Z",
+   "title": "英特尔 CTO 称前沿晶圆产量最多翻倍，AI 算力扩张遭遇供应链天花板",
+   "link": "https://www.ithome.com/1/016/761.htm",
+   "date": "2026-10-22T22:48:15.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "SpaceX据悉洽谈租用全美8万个通信基站 拟打造美国第四大全国性移动运营商",
+   "link": "https://www.cnbeta.com.tw/articles/science/1583458.htm",
+   "date": "2026-10-22T22:28:30.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "前OpenAI科学负责人创办Warp Sciences 融资2.15亿美元打造机器人药物实验室",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583428.htm",
-   "date": "2026-10-22T18:50:35.000Z",
+   "title": "iPhone Duo在澳大利亚和新西兰开售 首批预购用户开始收货",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583456.htm",
+   "date": "2026-10-22T22:27:15.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "微软警告企业AI智能体不能被盲目信任：必须让安全机制独立于AI",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583426.htm",
-   "date": "2026-10-22T18:50:09.000Z",
+   "title": "微软发布修复补丁 Windows 11音频故障导致部分游戏和应用崩溃问题获解决",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583454.htm",
+   "date": "2026-10-22T22:26:37.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "The new Fire TV Stick 4K is already half off",
-   "link": "https://www.theverge.com/gadgets/1016792/amazon-fire-tv-stick-4k-2026-deal-sale",
-   "date": "2026-10-22T18:43:57.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Refurbished PS5 consoles include second controller for an extra $18",
-   "link": "https://www.theverge.com/gadgets/1016959/refurbished-playstation-5-ps5-console-dualsense-deal-sale-bundle",
-   "date": "2026-10-22T18:38:50.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Delta can turn the iPhone Duo into your favorite folding handheld",
-   "link": "https://www.theverge.com/games/1016524/delta-2-version-ios-duo-gaming-emulator-update",
-   "date": "2026-10-22T18:30:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Van Gogh's 'The Starry Night' depicts the sky on July 22, 1889, researchers find",
-   "link": "https://www.space.com/astronomy/van-goghs-the-starry-night-depicts-the-sky-on-july-22-1889-researchers-find",
-   "date": "2026-10-22T18:00:00.000Z",
+   "title": "Europe's Space Rider vehicle comes crashing down during drop test",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/europes-space-rider-vehicle-comes-crashing-down-during-drop-test",
+   "date": "2026-10-22T22:00:00.000Z",
    "source": "Space.com"
+  },
+  {
+   "title": "Canva’s first AI image model plans designs before generating them",
+   "link": "https://www.theverge.com/ai-artificial-intelligence/1017151/canva-craft-in-house-ai-model",
+   "date": "2026-10-22T21:51:25.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "NASA Invites Media to 2026 von Braun Space Exploration Symposium",
+   "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-2026-von-braun-space-exploration-symposium/",
+   "date": "2026-10-22T21:39:58.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Spiral&#8217;s Edge",
+   "link": "https://www.nasa.gov/image-article/spirals-edge/",
+   "date": "2026-10-22T21:35:38.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "PC shipments dropped over 20 percent in Q3 due to RAM price hikes",
+   "link": "https://www.theverge.com/gadgets/1017144/global-pc-shipments-dropped-q3-2026-ram",
+   "date": "2026-10-22T21:30:39.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Fall 2026 earnings watch",
+   "link": "https://www.theverge.com/tech/1016506/fall-2026-earnings-watch",
+   "date": "2026-10-22T21:15:16.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "On this day in space! Oct. 22, 1992: Ashes of 'Star Trek' creator Gene Roddenberry launch into space on NASA shuttle",
+   "link": "https://www.space.com/space-exploration/on-this-day-in-space-october-22-2026",
+   "date": "2026-10-22T21:08:26.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "After Starshield interruption, Ukraine wants to build its own satellite communication network with ICEYE and Nokia",
+   "link": "https://www.space.com/space-exploration/satellites/after-starshield-interruption-ukraine-wants-to-build-its-own-satellite-communication-network-with-iceye-and-nokia",
+   "date": "2026-10-22T20:28:04.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "西部数据 2027 财年第一财季归母净利润 17.79 亿美元，同比增长 54%",
+   "link": "https://www.ithome.com/1/016/759.htm",
+   "date": "2026-10-22T20:19:37.000Z",
+   "source": "IT之家"
   },
   {
    "title": "NASA’s Hubble Charts Path for Roman with Gravitational Lenses",
@@ -51,46 +87,10 @@
    "source": "NASA"
   },
   {
-   "title": "'Cabin leak suspected': Artemis II astronaut reveals how a warning nearly derailed NASA's epic moon mission",
-   "link": "https://www.space.com/space-exploration/artemis/cabin-leak-suspected-artemis-ii-astronaut-reveals-how-a-warning-nearly-derailed-moon-mission",
-   "date": "2026-10-22T16:14:56.000Z",
-   "source": "Space.com"
-  },
-  {
    "title": "今日霜降：恍然暮秋至，静候冬日来",
    "link": "https://www.ithome.com/1/016/756.htm",
    "date": "2026-10-22T16:00:09.000Z",
    "source": "IT之家"
-  },
-  {
-   "title": "方舟引擎新突破：华为详解 HarmonyOS 7 超空间存储 + 超空间内存技术",
-   "link": "https://www.ithome.com/1/016/755.htm",
-   "date": "2026-10-22T15:59:04.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "荣耀手表 Fit 6 现身官网：1.97 英寸 AMOLED 全面屏、适配 iOS / 鸿蒙设备，支持腕上微信",
-   "link": "https://www.ithome.com/1/016/754.htm",
-   "date": "2026-10-22T15:52:03.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Australia's bizarre 'Spider Crater' seen from orbit | Space photo of the day for Oct. 22, 2026",
-   "link": "https://www.space.com/astronomy/earth/australias-bizarre-spider-crater-seen-from-orbit-space-photo-of-the-day-for-oct-22-2026",
-   "date": "2026-10-22T14:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "APOD: 2026 October 22 – The First Green Star, WD J1330+6435",
-   "link": "https://science.nasa.gov/image-article/apod-2026-october-22-the-first-green-star-wd-j13306435/",
-   "date": "2026-10-22T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Fires Char New Guinea",
-   "link": "https://science.nasa.gov/earth/earth-observatory/fires-char-new-guinea/",
-   "date": "2026-10-22T04:01:00.000Z",
-   "source": "NASA"
   }
  ]
 }
