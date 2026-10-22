@@ -1,54 +1,78 @@
 {
- "updated": "2026-10-22T14:43:09.844Z",
- "count": 12,
+ "updated": "2026-10-22T18:53:56.176Z",
+ "count": 15,
  "items": [
   {
-   "title": "租房好伙伴：海信 7kg 滚筒洗衣机 797 元官方直降，支持超薄嵌入",
-   "link": "https://www.ithome.com/1/016/737.htm",
-   "date": "2026-10-22T14:42:35.000Z",
-   "source": "IT之家"
+   "title": "Valve员工首次公开提及“HLX” 《半条命3》传闻再起",
+   "link": "https://www.cnbeta.com.tw/articles/game/1583430.htm",
+   "date": "2026-10-22T18:51:06.000Z",
+   "source": "cnBeta"
   },
   {
-   "title": "铭凡推出 M2 Slim 迷你主机：基于酷睿 3 处理器 304，板载 LPDDR5X 内存",
-   "link": "https://www.ithome.com/1/016/736.htm",
-   "date": "2026-10-22T14:41:24.000Z",
-   "source": "IT之家"
+   "title": "前OpenAI科学负责人创办Warp Sciences 融资2.15亿美元打造机器人药物实验室",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583428.htm",
+   "date": "2026-10-22T18:50:35.000Z",
+   "source": "cnBeta"
   },
   {
-   "title": "Coolfly’s solar-powered Aura Smart Bird Feeder is nearly 50 percent off",
-   "link": "https://www.theverge.com/gadgets/1015984/aura-smart-bird-feeder-jbl-charge-6-speaker-deal-sale",
-   "date": "2026-10-22T14:41:02.000Z",
+   "title": "微软警告企业AI智能体不能被盲目信任：必须让安全机制独立于AI",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583426.htm",
+   "date": "2026-10-22T18:50:09.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "The new Fire TV Stick 4K is already half off",
+   "link": "https://www.theverge.com/gadgets/1016792/amazon-fire-tv-stick-4k-2026-deal-sale",
+   "date": "2026-10-22T18:43:57.000Z",
    "source": "The Verge"
   },
   {
-   "title": "利用酒店 Wi-Fi 发送约 48 万条钓鱼邮件，日本警方在酒店客房冰箱后发现隐藏电脑",
-   "link": "https://www.ithome.com/1/016/735.htm",
-   "date": "2026-10-22T14:37:44.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "Coolpad’s new $150 Android phone has a wider screen like the iPhone Duo, but doesn’t fold",
-   "link": "https://www.theverge.com/tech/1016544/coolpad-cool-x-wide-widescreen-android-16-smartphone-china",
-   "date": "2026-10-22T14:24:49.000Z",
+   "title": "Refurbished PS5 consoles include second controller for an extra $18",
+   "link": "https://www.theverge.com/gadgets/1016959/refurbished-playstation-5-ps5-console-dualsense-deal-sale-bundle",
+   "date": "2026-10-22T18:38:50.000Z",
    "source": "The Verge"
   },
   {
-   "title": "报道称五角大楼设立技术支持办公室TSO 为秘密破坏行动研发工具",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583410.htm",
-   "date": "2026-10-22T14:24:21.000Z",
-   "source": "cnBeta"
+   "title": "Delta can turn the iPhone Duo into your favorite folding handheld",
+   "link": "https://www.theverge.com/games/1016524/delta-2-version-ios-duo-gaming-emulator-update",
+   "date": "2026-10-22T18:30:00.000Z",
+   "source": "The Verge"
   },
   {
-   "title": "Anthropic推出Claude Duet代理应用 主打主动处理专业工作",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583408.htm",
-   "date": "2026-10-22T14:21:02.000Z",
-   "source": "cnBeta"
+   "title": "Van Gogh's 'The Starry Night' depicts the sky on July 22, 1889, researchers find",
+   "link": "https://www.space.com/astronomy/van-goghs-the-starry-night-depicts-the-sky-on-july-22-1889-researchers-find",
+   "date": "2026-10-22T18:00:00.000Z",
+   "source": "Space.com"
   },
   {
-   "title": "1Password推出AI智能体密码授权功能：让AI登录账户却不必知道用户密码",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583406.htm",
-   "date": "2026-10-22T14:20:07.000Z",
-   "source": "cnBeta"
+   "title": "NASA’s Hubble Charts Path for Roman with Gravitational Lenses",
+   "link": "https://science.nasa.gov/missions/hubble/nasas-hubble-charts-path-for-roman-with-gravitational-lenses/",
+   "date": "2026-10-22T16:20:37.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "'Cabin leak suspected': Artemis II astronaut reveals how a warning nearly derailed NASA's epic moon mission",
+   "link": "https://www.space.com/space-exploration/artemis/cabin-leak-suspected-artemis-ii-astronaut-reveals-how-a-warning-nearly-derailed-moon-mission",
+   "date": "2026-10-22T16:14:56.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "今日霜降：恍然暮秋至，静候冬日来",
+   "link": "https://www.ithome.com/1/016/756.htm",
+   "date": "2026-10-22T16:00:09.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "方舟引擎新突破：华为详解 HarmonyOS 7 超空间存储 + 超空间内存技术",
+   "link": "https://www.ithome.com/1/016/755.htm",
+   "date": "2026-10-22T15:59:04.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "荣耀手表 Fit 6 现身官网：1.97 英寸 AMOLED 全面屏、适配 iOS / 鸿蒙设备，支持腕上微信",
+   "link": "https://www.ithome.com/1/016/754.htm",
+   "date": "2026-10-22T15:52:03.000Z",
+   "source": "IT之家"
   },
   {
    "title": "Australia's bizarre 'Spider Crater' seen from orbit | Space photo of the day for Oct. 22, 2026",
@@ -57,22 +81,16 @@
    "source": "Space.com"
   },
   {
-   "title": "Bill Gates says to prepare for 20 years of ‘tumultuous’ AI disruption",
-   "link": "https://www.theverge.com/podcast/1015408/bill-gates-ai-interview-microsoft-openai-anthropic-risk-policy-regulation",
-   "date": "2026-10-22T14:00:00.000Z",
-   "source": "The Verge"
+   "title": "APOD: 2026 October 22 – The First Green Star, WD J1330+6435",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-22-the-first-green-star-wd-j13306435/",
+   "date": "2026-10-22T04:05:00.000Z",
+   "source": "NASA"
   },
   {
-   "title": "Next Mass Effect game cancelled as EA shuts down legendary sci-fi RPG studio BioWare",
-   "link": "https://www.space.com/entertainment/space-games/next-mass-effect-game-cancelled-as-ea-shuts-down-developer-bioware",
-   "date": "2026-10-22T12:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "NASA giving update about Artemis moon plans on Oct. 23: Watch it live",
-   "link": "https://www.space.com/space-exploration/artemis/nasa-giving-update-about-artemis-moon-plans-on-oct-23-watch-it-live",
-   "date": "2026-10-22T10:00:00.000Z",
-   "source": "Space.com"
+   "title": "Fires Char New Guinea",
+   "link": "https://science.nasa.gov/earth/earth-observatory/fires-char-new-guinea/",
+   "date": "2026-10-22T04:01:00.000Z",
+   "source": "NASA"
   }
  ]
 }
