@@ -1,42 +1,78 @@
 {
- "updated": "2026-10-23T09:38:18.284Z",
+ "updated": "2026-10-23T14:29:27.625Z",
  "count": 15,
  "items": [
   {
-   "title": "超 5 万张证书被撤销，市场监管总局对 CCC 认证各环节持续开展清理整顿",
-   "link": "https://www.ithome.com/1/017/160.htm",
-   "date": "2026-10-23T09:36:41.000Z",
+   "title": "中国科学家在地球深处发现隐藏氧气来源：高压实验显示硅酸盐熔体可储存超 5% 额外氧",
+   "link": "https://www.ithome.com/1/017/272.htm",
+   "date": "2026-10-23T14:27:21.000Z",
    "source": "IT之家"
   },
   {
-   "title": "索尼推出 IMX742 图像传感器：面向一次性内窥镜，支持图像信号本地数字化",
-   "link": "https://www.ithome.com/1/017/132.htm",
-   "date": "2026-10-23T09:26:01.000Z",
+   "title": "比亚迪第二代海豹 07 内饰官图，采用全新设计语言",
+   "link": "https://www.ithome.com/1/017/271.htm",
+   "date": "2026-10-23T14:22:35.000Z",
    "source": "IT之家"
   },
   {
-   "title": "字节跳动公益基金会驰援西藏那曲，首批应急物资已发往灾区",
-   "link": "https://www.ithome.com/1/017/130.htm",
-   "date": "2026-10-23T09:25:29.000Z",
+   "title": "中国联通举办iPhone Duo首销活动：eSIM开通仅需3分钟",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583592.htm",
+   "date": "2026-10-23T14:18:29.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "微星神影 16 魔龙姬星际套装体验：锐龙 9 8940HX ，纯白高颜值与硬核性能兼得",
+   "link": "https://www.ithome.com/1/017/270.htm",
+   "date": "2026-10-23T14:18:02.000Z",
    "source": "IT之家"
   },
   {
-   "title": "初代iPod迎来25周年生日：改变苹果命运的音乐播放器",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583556.htm",
-   "date": "2026-10-23T08:58:35.000Z",
+   "title": "乌克兰称星链网速限制仍未解除",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583590.htm",
+   "date": "2026-10-23T14:17:57.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "长江存储据称正研发9600 MT/s LPDDR5X内存 计划推进量产",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583554.htm",
-   "date": "2026-10-23T08:57:29.000Z",
+   "title": "Private Griffin moon lander gets put to the test | Space photo of the day for Oct. 23, 2026",
+   "link": "https://www.space.com/space-exploration/private-griffin-moon-lander-gets-put-to-the-test-space-photo-of-the-day-for-oct-23-2026",
+   "date": "2026-10-23T14:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Our best tips for using the iPhone Duo",
+   "link": "https://www.theverge.com/tech/1017157/iphone-duo-tips-touch-id-magsafe",
+   "date": "2026-10-23T14:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Apple revives the original iPod as an Apple Music easter egg",
+   "link": "https://www.theverge.com/entertainment/1017413/apple-music-ipod-404-page",
+   "date": "2026-10-23T13:58:43.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "三星追加采购德州2纳米芯片生产设备：月产能有望在2027年下半年达到2万片晶圆",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583588.htm",
+   "date": "2026-10-23T13:42:05.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Reddit用户多方寻找失主 遗失九个月的Steam Deck OLED终归原主",
-   "link": "https://www.cnbeta.com.tw/articles/game/1583552.htm",
-   "date": "2026-10-23T08:25:13.000Z",
-   "source": "cnBeta"
+   "title": "People are vibe coding their way to better TVs",
+   "link": "https://www.theverge.com/tech/1016116/vibe-coding-tv-os",
+   "date": "2026-10-23T13:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "'Stupendously large black holes' aren't a major component of dark matter, study finds",
+   "link": "https://www.space.com/astronomy/dark-universe/stupendously-large-black-holes-arent-a-major-component-of-dark-matter-study-finds",
+   "date": "2026-10-23T12:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Rocket Lab launches 3 'Hawk' satellites to orbit to gather signals intelligence",
+   "link": "https://www.space.com/space-exploration/launches-spacecraft/rocket-lab-launches-3-hawk-satellites-to-orbit-to-gather-signals-intelligence",
+   "date": "2026-10-23T10:57:51.000Z",
+   "source": "Space.com"
   },
   {
    "title": "APOD: 2026 October 23 – Andromeda in Southern Spring",
@@ -51,46 +87,10 @@
    "source": "NASA"
   },
   {
-   "title": "Etsy is cracking down on AI slop listings",
-   "link": "https://www.theverge.com/tech/1017261/etsy-ai-rules-policies-restrictions-listing",
-   "date": "2026-10-23T00:09:58.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Spotify says yes, it is busting people for using Family Plan sharing too widely",
-   "link": "https://www.theverge.com/entertainment/1017214/spotify-family-plan-sharing-qr-codes",
-   "date": "2026-10-22T23:02:43.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "The next-gen Xbox won’t cost you $1,800. It can’t. Can it?",
-   "link": "https://www.theverge.com/games/1016134/xbox-helix-price-1800-isnt-affordable-editorial",
-   "date": "2026-10-22T23:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Europe's Space Rider vehicle comes crashing down during drop test",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/europes-space-rider-vehicle-comes-crashing-down-during-drop-test",
-   "date": "2026-10-22T22:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
    "title": "NASA Invites Media to 2026 von Braun Space Exploration Symposium",
    "link": "https://www.nasa.gov/news-release/nasa-invites-media-to-2026-von-braun-space-exploration-symposium/",
    "date": "2026-10-22T21:39:58.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "On this day in space! Oct. 22, 1992: Ashes of 'Star Trek' creator Gene Roddenberry launch into space on NASA shuttle",
-   "link": "https://www.space.com/space-exploration/on-this-day-in-space-october-22-2026",
-   "date": "2026-10-22T21:08:26.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "After Starshield interruption, Ukraine wants to build its own satellite communication network with ICEYE and Nokia",
-   "link": "https://www.space.com/space-exploration/satellites/after-starshield-interruption-ukraine-wants-to-build-its-own-satellite-communication-network-with-iceye-and-nokia",
-   "date": "2026-10-22T20:28:04.000Z",
-   "source": "Space.com"
   }
  ]
 }
