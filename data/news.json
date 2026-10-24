@@ -1,24 +1,48 @@
 {
- "updated": "2026-10-24T02:05:22.563Z",
+ "updated": "2026-10-24T09:10:37.345Z",
  "count": 15,
  "items": [
   {
-   "title": "消息称荣耀 700 系列手机有“3 杯”：Pro 工程机配 1.72 英寸原生背屏，暂定 11 月发布",
-   "link": "https://www.ithome.com/1/017/316.htm",
-   "date": "2026-10-24T02:01:50.000Z",
+   "title": "消息称 R 星将于本月底至下月初为媒体机构发放《GTA6》评测版本，游戏评分将于 11 月 18 日解禁",
+   "link": "https://www.ithome.com/1/017/428.htm",
+   "date": "2026-10-24T09:04:42.000Z",
    "source": "IT之家"
   },
   {
-   "title": "苹果首款折叠 iPhone Duo 开放到店自提预约服务，报道称名额少到“几乎抢不到”",
-   "link": "https://www.ithome.com/1/017/314.htm",
-   "date": "2026-10-24T01:59:57.000Z",
+   "title": "32 英寸 AOC OLED 雾面 4K 120Hz 显示器 U32U4D 发售，国补价 5249 元",
+   "link": "https://www.ithome.com/1/017/427.htm",
+   "date": "2026-10-24T08:57:22.000Z",
    "source": "IT之家"
   },
   {
-   "title": "亚马逊 CEO 贾西：要让 AI 广泛应用于企业软件，成本需降至目前十分之一",
-   "link": "https://www.ithome.com/1/017/313.htm",
-   "date": "2026-10-24T01:51:20.000Z",
+   "title": "苹果 iPhone Duo 手机刚开售，第三方维修师傅已成功将存储扩容至 2TB",
+   "link": "https://www.ithome.com/1/017/426.htm",
+   "date": "2026-10-24T08:54:05.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "企微账号发涉黄链接 企业微信：某第三方外挂软件服务被攻破",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583678.htm",
+   "date": "2026-10-24T07:17:40.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "BAE系统测试多弹齐射反无人机方案 重型四旋翼无人机可连续拦截多个空中目标",
+   "link": "https://www.cnbeta.com.tw/articles/science/1583676.htm",
+   "date": "2026-10-24T06:58:25.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "宇树机器人侧空翻表演甩断腿 系新发布的H2-X人形机器人",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583674.htm",
+   "date": "2026-10-24T06:23:45.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "APOD: 2026 October 24 – Rosetta’s Selfie",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-24-rosettas-selfie/",
+   "date": "2026-10-24T04:05:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "SpaceX launches Starlink satellites from California as Falcon 9 cadence slows (photos)",
@@ -45,12 +69,6 @@
    "source": "NASA"
   },
   {
-   "title": "NASA’s Swift Mission Ends, Leaves Behind Scientific Bonanza",
-   "link": "https://science.nasa.gov/missions/swift/nasas-swift-mission-ends/",
-   "date": "2026-10-23T21:51:19.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "Xbox’s first chief operating officer is out after just a few months",
    "link": "https://www.theverge.com/news/1018037/xbox-chief-operating-officer-helen-chiang-departure",
    "date": "2026-10-23T21:39:26.000Z",
@@ -63,34 +81,16 @@
    "source": "The Verge"
   },
   {
-   "title": "OpenAI宣布最先进AI模型训练期间禁止直接访问互联网",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583624.htm",
-   "date": "2026-10-23T20:59:53.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "On this day in space! Oct. 23, 2007: NASA launches Harmony module to ISS on STS-120 space shuttle mission",
    "link": "https://www.space.com/space-exploration/on-this-day-in-space-october-23-2026",
    "date": "2026-10-23T20:47:13.000Z",
    "source": "Space.com"
   },
   {
-   "title": "巴黎三家Apple Store周六均暂停营业 警方加强部署应对示威",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583622.htm",
-   "date": "2026-10-23T20:12:33.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "Abandoned Popcorn Time apps had to be disabled to prevent a zombie army",
    "link": "https://www.theverge.com/tech/1017914/popcorn-time-piracy-botnet-avoided",
    "date": "2026-10-23T19:35:15.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "伊朗据称已制定海底互联网电缆袭击计划 海湾地区数字基础设施或成目标",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583620.htm",
-   "date": "2026-10-23T19:00:17.000Z",
-   "source": "cnBeta"
   }
  ]
 }
