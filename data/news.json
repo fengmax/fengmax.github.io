@@ -1,42 +1,54 @@
 {
- "updated": "2026-10-24T09:10:37.345Z",
+ "updated": "2026-10-24T13:40:30.503Z",
  "count": 15,
  "items": [
   {
-   "title": "消息称 R 星将于本月底至下月初为媒体机构发放《GTA6》评测版本，游戏评分将于 11 月 18 日解禁",
-   "link": "https://www.ithome.com/1/017/428.htm",
-   "date": "2026-10-24T09:04:42.000Z",
+   "title": "罗技 Pebble Up 鼠标上市：平卧 + 35° 斜卧双形态，到手价 251.1 元",
+   "link": "https://www.ithome.com/1/017/507.htm",
+   "date": "2026-10-24T13:22:37.000Z",
    "source": "IT之家"
   },
   {
-   "title": "32 英寸 AOC OLED 雾面 4K 120Hz 显示器 U32U4D 发售，国补价 5249 元",
-   "link": "https://www.ithome.com/1/017/427.htm",
-   "date": "2026-10-24T08:57:22.000Z",
+   "title": "比亚迪在香港成立智慧交通子公司，计划引进云巴等方案",
+   "link": "https://www.ithome.com/1/017/506.htm",
+   "date": "2026-10-24T13:22:00.000Z",
    "source": "IT之家"
   },
   {
-   "title": "苹果 iPhone Duo 手机刚开售，第三方维修师傅已成功将存储扩容至 2TB",
-   "link": "https://www.ithome.com/1/017/426.htm",
-   "date": "2026-10-24T08:54:05.000Z",
+   "title": "消息称部分手机产品线或平板线迎来停更，成本兜不住",
+   "link": "https://www.ithome.com/1/017/505.htm",
+   "date": "2026-10-24T13:16:59.000Z",
    "source": "IT之家"
   },
   {
-   "title": "企微账号发涉黄链接 企业微信：某第三方外挂软件服务被攻破",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583678.htm",
-   "date": "2026-10-24T07:17:40.000Z",
+   "title": "'Star Trek: Strange New Worlds' was afraid to say anything in season of gimmicks",
+   "link": "https://www.space.com/entertainment/space-movies-shows/star-trek-strange-new-worlds-season-of-gimmicks-was-afraid-to-say-anything",
+   "date": "2026-10-24T12:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "雅达利终止2021款VCS支持 推出自制应用供玩家拓展游戏",
+   "link": "https://www.cnbeta.com.tw/articles/game/1583684.htm",
+   "date": "2026-10-24T10:43:04.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "BAE系统测试多弹齐射反无人机方案 重型四旋翼无人机可连续拦截多个空中目标",
-   "link": "https://www.cnbeta.com.tw/articles/science/1583676.htm",
-   "date": "2026-10-24T06:58:25.000Z",
+   "title": "MONA产品经理“老登”言论惹争议 小鹏高管回应：内部调侃，完全没有指向任何外部用户",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583682.htm",
+   "date": "2026-10-24T10:41:32.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "宇树机器人侧空翻表演甩断腿 系新发布的H2-X人形机器人",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583674.htm",
-   "date": "2026-10-24T06:23:45.000Z",
+   "title": "微软将Edge Extended Stable带到macOS 企业用户可将大版本更新间隔延长至八周",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583680.htm",
+   "date": "2026-10-24T10:33:19.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "Medusa's eye, Halloween fireballs and more: 5 skywatching targets to look out for this spooky season",
+   "link": "https://www.space.com/stargazing/medusas-eye-halloween-fireballs-and-more-5-skywatching-targets-to-look-out-for-this-spooky-season",
+   "date": "2026-10-24T10:00:00.000Z",
+   "source": "Space.com"
   },
   {
    "title": "APOD: 2026 October 24 – Rosetta’s Selfie",
@@ -45,15 +57,9 @@
    "source": "NASA"
   },
   {
-   "title": "SpaceX launches Starlink satellites from California as Falcon 9 cadence slows (photos)",
+   "title": "SpaceX launches Starlink satellites from California as Falcon 9 cadence slows (video)",
    "link": "https://www.space.com/space-exploration/launches-spacecraft/spacex-falcon-9-starlink-group-15-15-b1063-ocisly",
    "date": "2026-10-23T23:26:41.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "NASA lays out plan for Artemis 3 moon-lander test flight —but when will it launch?",
-   "link": "https://www.space.com/space-exploration/artemis/nasa-lays-out-plan-for-artemis-3-moon-lander-test-flight-but-when-will-it-launch",
-   "date": "2026-10-23T22:55:43.000Z",
    "source": "Space.com"
   },
   {
@@ -79,12 +85,6 @@
    "link": "https://www.theverge.com/ai-artificial-intelligence/1018021/openai-training-top-ai-models-no-internet",
    "date": "2026-10-23T21:11:07.000Z",
    "source": "The Verge"
-  },
-  {
-   "title": "On this day in space! Oct. 23, 2007: NASA launches Harmony module to ISS on STS-120 space shuttle mission",
-   "link": "https://www.space.com/space-exploration/on-this-day-in-space-october-23-2026",
-   "date": "2026-10-23T20:47:13.000Z",
-   "source": "Space.com"
   },
   {
    "title": "Abandoned Popcorn Time apps had to be disabled to prevent a zombie army",
