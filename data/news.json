@@ -1,42 +1,54 @@
 {
- "updated": "2026-10-25T13:58:54.678Z",
+ "updated": "2026-10-25T17:54:29.361Z",
  "count": 15,
  "items": [
   {
-   "title": "本田、三菱签署首份互补汽车产品供应 MOU：本田牌皮卡将驶入东盟",
-   "link": "https://www.ithome.com/1/017/702.htm",
-   "date": "2026-10-25T13:57:39.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "苹果发布 iPhone Duo 支持文档，帮助用户排查铰链和屏幕问题",
-   "link": "https://www.ithome.com/1/017/701.htm",
-   "date": "2026-10-25T13:56:51.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "16G 内存 + 骁龙 8 至尊版处理器：小米 REDMI K90 至尊版手机 2353 元近期好价",
-   "link": "https://www.ithome.com/1/017/700.htm",
-   "date": "2026-10-25T13:50:16.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "微软上届领导层规划Xbox第一方掌机于Helix项目之后推出",
-   "link": "https://www.cnbeta.com.tw/articles/game/1583790.htm",
-   "date": "2026-10-25T13:27:00.000Z",
+   "title": "Google在芬兰为建设数据中心砍伐约1300英亩森林 当地居民发现狼群进入附近村庄觅食",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583812.htm",
+   "date": "2026-10-25T17:14:18.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "《流浪地球3》锁定2027春节档 片方预告新物料即将上线",
-   "link": "https://www.cnbeta.com.tw/articles/movie/1583788.htm",
-   "date": "2026-10-25T13:26:51.000Z",
+   "title": "This Switch 2 sequel accessory was a few millimeters away from being good",
+   "link": "https://www.theverge.com/tech/1017508/crkd-nitro-deck-2-nintendo-switch-2-controller-case-hands-on",
+   "date": "2026-10-25T17:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "英伟达瞄准GPU软件订阅收入 黄仁勋提出每块GPU每年约2000美元",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583810.htm",
+   "date": "2026-10-25T16:46:17.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "FBI正式立案调查六千余张PSA评级集换卡特大盗窃案",
-   "link": "https://www.cnbeta.com.tw/articles/game/1583786.htm",
-   "date": "2026-10-25T13:26:35.000Z",
+   "title": "Cloudflare警告AI正加速发现软件漏洞 互联网或面临多年安全震荡期",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583808.htm",
+   "date": "2026-10-25T16:44:58.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "Now you can watch Instagram Reels on your Apple TV",
+   "link": "https://www.theverge.com/tech/1018253/now-you-can-watch-instagram-reels-on-your-apple-tv",
+   "date": "2026-10-25T16:20:17.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "国内首部 AI 院线长片《三星堆：未来往事》，票房过百万",
+   "link": "https://www.ithome.com/1/017/719.htm",
+   "date": "2026-10-25T15:36:55.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "古尔曼：苹果正测试配备 OLED 屏幕的 iMac 和 MacBook Air",
+   "link": "https://www.ithome.com/1/017/717.htm",
+   "date": "2026-10-25T15:05:09.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "国产武侠游戏《影之刃零》10 月 27 日 10:00 开启预下载，游戏本体约 145G",
+   "link": "https://www.ithome.com/1/017/716.htm",
+   "date": "2026-10-25T14:53:30.000Z",
+   "source": "IT之家"
   },
   {
    "title": "r/opensource just banned AI, non-English speakers, and more",
@@ -51,12 +63,6 @@
    "source": "Space.com"
   },
   {
-   "title": "Google’s AI search changes upended online publishing",
-   "link": "https://www.theverge.com/column/1017983/google-ai-search-online-publishing",
-   "date": "2026-10-25T12:00:00.000Z",
-   "source": "The Verge"
-  },
-  {
    "title": "October's 'Hunter's Moon' stalks into the autumn sky tonight: Here's what you need to know",
    "link": "https://www.space.com/stargazing/octobers-hunters-moon-stalks-into-the-autumn-sky-tonight-heres-what-you-need-to-know",
    "date": "2026-10-25T10:00:00.000Z",
@@ -67,12 +73,6 @@
    "link": "https://science.nasa.gov/image-article/apod-2026-october-25-dark-matter-in-a-simulated-universe/",
    "date": "2026-10-25T08:19:48.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "Blue Planet III is keeping the rough edges in the age of AI",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1018205/blue-planet-iii-authentic-organic-ai",
-   "date": "2026-10-24T21:29:12.000Z",
-   "source": "The Verge"
   },
   {
    "title": "This Week In Space podcast: Episode 233 — The Artemis Generation",
