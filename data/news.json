@@ -1,7 +1,43 @@
 {
- "updated": "2026-10-25T22:07:05.083Z",
- "count": 15,
+ "updated": "2026-10-26T01:53:43.724Z",
+ "count": 12,
  "items": [
+  {
+   "title": "华为路由 X2 系列首销：书本设计、Wi‑Fi 7+、AI Mesh 组网，478 元起",
+   "link": "https://www.ithome.com/1/017/767.htm",
+   "date": "2026-10-26T01:49:11.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "CHERRY 推出 MX EMERALD REEF 机械轴体，静音段落类型",
+   "link": "https://www.ithome.com/1/017/765.htm",
+   "date": "2026-10-26T01:41:48.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "英伟达瞄准 AI 软件订阅收入，黄仁勋提出每块 GPU 每年约 2000 美元",
+   "link": "https://www.ithome.com/1/017/764.htm",
+   "date": "2026-10-26T01:41:26.000Z",
+   "source": "IT之家"
+  },
+  {
+   "title": "武契奇承认败选 预计“学生名单-学生获胜”将赢得塞议会选举",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583832.htm",
+   "date": "2026-10-25T22:32:11.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "科学家发现热量限制影响衰老相关遗传损伤 少吃30%的食物竟能减少DNA突变？",
+   "link": "https://www.cnbeta.com.tw/articles/science/1583830.htm",
+   "date": "2026-10-25T22:31:10.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Grok发布AI版《奥德赛》首集片段 七分钟样片展示AI影视创作野心",
+   "link": "https://www.cnbeta.com.tw/articles/movie/1583828.htm",
+   "date": "2026-10-25T22:30:35.000Z",
+   "source": "cnBeta"
+  },
   {
    "title": "iFixit&#8217;s look inside the iPhone Duo may explain those broken screens and hinges",
    "link": "https://www.theverge.com/tech/1018233/ifixit-iphone-duo-teardown-repairability-hinge",
@@ -21,42 +57,6 @@
    "source": "The Verge"
   },
   {
-   "title": "Xbox索要8亿美元授权费导致Netflix退出游戏改编独家合作谈判",
-   "link": "https://www.cnbeta.com.tw/articles/game/1583822.htm",
-   "date": "2026-10-25T19:39:33.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "科学家首次在金属中发现“被困电子波” 微小原子缺陷揭开量子谜团",
-   "link": "https://www.cnbeta.com.tw/articles/science/1583820.htm",
-   "date": "2026-10-25T19:39:01.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "新型防护服涂层可分解神经毒剂 真菌色素与锆材料联手降低化学武器威胁",
-   "link": "https://www.cnbeta.com.tw/articles/science/1583818.htm",
-   "date": "2026-10-25T19:38:16.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "国内首部 AI 院线长片《三星堆：未来往事》，票房过百万",
-   "link": "https://www.ithome.com/1/017/719.htm",
-   "date": "2026-10-25T15:36:55.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "古尔曼：苹果正测试配备 OLED 屏幕的 iMac 和 MacBook Air",
-   "link": "https://www.ithome.com/1/017/717.htm",
-   "date": "2026-10-25T15:05:09.000Z",
-   "source": "IT之家"
-  },
-  {
-   "title": "国产武侠游戏《影之刃零》10 月 27 日 10:00 开启预下载，游戏本体约 145G",
-   "link": "https://www.ithome.com/1/017/716.htm",
-   "date": "2026-10-25T14:53:30.000Z",
-   "source": "IT之家"
-  },
-  {
    "title": "On this day in space! Oct. 25, 1671: Astronomer Giovanni Cassini discovers Iapetus, Saturn's 'yin-yang' moon",
    "link": "https://www.space.com/space-exploration/on-this-day-in-space-oct-25-1671-astronomer-giovanni-cassini-discovers-iapetus-saturns-yin-yang-moon",
    "date": "2026-10-25T13:17:54.000Z",
@@ -69,28 +69,10 @@
    "source": "Space.com"
   },
   {
-   "title": "APOD: 2026 October 25 – Dark Matter in a Simulated Universe",
-   "link": "https://science.nasa.gov/image-article/apod-2026-october-25-dark-matter-in-a-simulated-universe/",
-   "date": "2026-10-25T08:19:48.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "This Week In Space podcast: Episode 233 — The Artemis Generation",
    "link": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-233-the-artemis-generation",
    "date": "2026-10-24T15:53:21.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "APOD: 2026 October 24 – Rosetta’s Selfie",
-   "link": "https://science.nasa.gov/image-article/apod-2026-october-24-rosettas-selfie/",
-   "date": "2026-10-24T04:05:00.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "NASA, Partners Accelerate Lander Development for 2028 Moon Missions",
-   "link": "https://www.nasa.gov/missions/artemis/nasa-partners-accelerate-lander-development-for-2028-moon-missions/",
-   "date": "2026-10-23T22:39:39.000Z",
-   "source": "NASA"
   }
  ]
 }
