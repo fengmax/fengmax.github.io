@@ -1,42 +1,66 @@
 {
- "updated": "2026-10-26T01:53:43.724Z",
- "count": 12,
+ "updated": "2026-10-26T10:35:25.374Z",
+ "count": 15,
  "items": [
   {
-   "title": "华为路由 X2 系列首销：书本设计、Wi‑Fi 7+、AI Mesh 组网，478 元起",
-   "link": "https://www.ithome.com/1/017/767.htm",
-   "date": "2026-10-26T01:49:11.000Z",
+   "title": "消息称明年国产 TOP5 厂商都会上阔直板新机，目前全部立项完成",
+   "link": "https://www.ithome.com/1/018/093.htm",
+   "date": "2026-10-26T10:13:22.000Z",
    "source": "IT之家"
   },
   {
-   "title": "CHERRY 推出 MX EMERALD REEF 机械轴体，静音段落类型",
-   "link": "https://www.ithome.com/1/017/765.htm",
-   "date": "2026-10-26T01:41:48.000Z",
+   "title": "上海：支持个人用户通过手机直连或便携终端接入卫星互联网",
+   "link": "https://www.ithome.com/1/018/085.htm",
+   "date": "2026-10-26T10:10:34.000Z",
    "source": "IT之家"
   },
   {
-   "title": "英伟达瞄准 AI 软件订阅收入，黄仁勋提出每块 GPU 每年约 2000 美元",
-   "link": "https://www.ithome.com/1/017/764.htm",
-   "date": "2026-10-26T01:41:26.000Z",
+   "title": "Counterpoint：英伟达引领人形机器人 AI 加速器市场，高通、英特尔、特斯拉、小鹏逐步崛起",
+   "link": "https://www.ithome.com/1/018/075.htm",
+   "date": "2026-10-26T10:06:16.000Z",
    "source": "IT之家"
   },
   {
-   "title": "武契奇承认败选 预计“学生名单-学生获胜”将赢得塞议会选举",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583832.htm",
-   "date": "2026-10-25T22:32:11.000Z",
+   "title": "'More missions, more often': NASA is overhauling how it selects science missions",
+   "link": "https://www.space.com/space-exploration/more-missions-more-often-nasa-is-overhauling-how-it-selects-science-missions",
+   "date": "2026-10-26T10:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "The city that fought Flock",
+   "link": "https://www.theverge.com/features/1017836/flock-huntington-west-virginia-surveillance-ballot-measure",
+   "date": "2026-10-26T10:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "咨询秒变投诉工单？快递考核别困在“以罚代管”",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583914.htm",
+   "date": "2026-10-26T08:20:51.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "科学家发现热量限制影响衰老相关遗传损伤 少吃30%的食物竟能减少DNA突变？",
-   "link": "https://www.cnbeta.com.tw/articles/science/1583830.htm",
-   "date": "2026-10-25T22:31:10.000Z",
+   "title": "iPhone Duo裂屏或因铰链，苹果还要加快生产？",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583912.htm",
+   "date": "2026-10-26T08:15:52.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Grok发布AI版《奥德赛》首集片段 七分钟样片展示AI影视创作野心",
-   "link": "https://www.cnbeta.com.tw/articles/movie/1583828.htm",
-   "date": "2026-10-25T22:30:35.000Z",
+   "title": "Claude未经授权绕过付费墙获取美国选民统计数据 Anthropic已采取防范措施",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1583910.htm",
+   "date": "2026-10-26T08:14:11.000Z",
    "source": "cnBeta"
+  },
+  {
+   "title": "2026 October 26 – M42: The Great Nebula in Orion",
+   "link": "https://science.nasa.gov/image-article/2026-october-26-m42-the-great-nebula-in-orion/",
+   "date": "2026-10-26T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Hunting Red Leaves with Satellites",
+   "link": "https://science.nasa.gov/earth/earth-observatory/hunting-red-leaves-with-satellites/",
+   "date": "2026-10-26T04:01:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "iFixit&#8217;s look inside the iPhone Duo may explain those broken screens and hinges",
@@ -48,12 +72,6 @@
    "title": "Scott Walker’s The Drift will get under your skin",
    "link": "https://www.theverge.com/entertainment/1018300/scott-walker-the-drift-music-album-review",
    "date": "2026-10-25T21:08:09.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "A YouTuber dissected an iPhone Duo and thinks he found the cause of crackgate",
-   "link": "https://www.theverge.com/tech/1018290/dissected-iphone-duo-crackgate-hinge-screen",
-   "date": "2026-10-25T20:16:19.000Z",
    "source": "The Verge"
   },
   {
@@ -69,10 +87,10 @@
    "source": "Space.com"
   },
   {
-   "title": "This Week In Space podcast: Episode 233 — The Artemis Generation",
-   "link": "https://www.space.com/entertainment/space-movies-shows/this-week-in-space-podcast-episode-233-the-artemis-generation",
-   "date": "2026-10-24T15:53:21.000Z",
-   "source": "Space.com"
+   "title": "APOD: 2026 October 25 – Dark Matter in a Simulated Universe",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-25-dark-matter-in-a-simulated-universe/",
+   "date": "2026-10-25T08:19:48.000Z",
+   "source": "NASA"
   }
  ]
 }
