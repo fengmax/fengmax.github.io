@@ -1,24 +1,78 @@
 {
- "updated": "2026-10-27T02:32:03.575Z",
+ "updated": "2026-10-27T10:05:25.646Z",
  "count": 15,
  "items": [
   {
-   "title": "2026 款零跑 C 系列 OTA 推送：激光雷达车型支持车位到车位辅助驾驶等",
-   "link": "https://www.ithome.com/1/018/261.htm",
-   "date": "2026-10-27T02:30:31.000Z",
+   "title": "因后端 PHP 程序存在安全隐患，卡普空《街头霸王 5》PS4 与 Steam 版线上功能全面暂停",
+   "link": "https://www.ithome.com/1/018/584.htm",
+   "date": "2026-10-27T10:03:38.000Z",
    "source": "IT之家"
   },
   {
-   "title": "国产武侠游戏《影之刃零》开启预下载，PC 需留足 300GB 空间",
-   "link": "https://www.ithome.com/1/018/260.htm",
-   "date": "2026-10-27T02:28:37.000Z",
+   "title": "特斯拉Optimus上岗 为CyberCab无人车充电",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1584022.htm",
+   "date": "2026-10-27T10:03:22.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "国内商业航天最大直径，深蓝航天星云二号 5 米一子级贮箱全部交付",
+   "link": "https://www.ithome.com/1/018/579.htm",
+   "date": "2026-10-27T10:01:16.000Z",
    "source": "IT之家"
   },
   {
-   "title": "报告称豆包对抖音的引用权重飙升：每引用 3 条内容，就有 1 条来自抖音",
-   "link": "https://www.ithome.com/1/018/259.htm",
-   "date": "2026-10-27T02:22:34.000Z",
+   "title": "Astroscale proposes fleet of 'bodyguard' spacecraft to protect satellites from orbital attacks",
+   "link": "https://www.space.com/space-exploration/satellites/astroscale-proposes-fleet-of-bodyguard-spacecraft-to-protect-satellites-from-orbital-attacks",
+   "date": "2026-10-27T10:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Data center backlash is uniting America",
+   "link": "https://www.theverge.com/policy/1019152/data-centers-midterm-elections",
+   "date": "2026-10-27T10:00:00.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "百度网盘 11.11 年内探底：SVIP 超级会员 13 元 / 月、157 元 / 年",
+   "link": "https://www.ithome.com/1/018/570.htm",
+   "date": "2026-10-27T09:57:50.000Z",
    "source": "IT之家"
+  },
+  {
+   "title": "Acer is bringing a Predator gaming handheld to the US for the first time",
+   "link": "https://www.theverge.com/games/1019245/acer-predator-atlas-8-launch-price",
+   "date": "2026-10-27T09:54:22.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "蒂姆·斯威尼再批Steam生成式AI披露规则或给开发者贴标签",
+   "link": "https://www.cnbeta.com.tw/articles/game/1584020.htm",
+   "date": "2026-10-27T09:53:42.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "nxnative尝试原生转译Switch游戏 《怪物猎人：崛起》M1设备达60帧",
+   "link": "https://www.cnbeta.com.tw/articles/game/1584018.htm",
+   "date": "2026-10-27T09:52:50.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "How a Johnson Mentor Shapes the Next Generation of NASA Talent",
+   "link": "https://www.nasa.gov/general/how-a-johnson-mentor-shapes-the-next-generation-of-nasa-talent/",
+   "date": "2026-10-27T07:07:51.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "APOD: 2026 October 27 – Noctilucent Clouds over Sweden",
+   "link": "https://science.nasa.gov/image-article/apod-2026-october-27-noctilucent-clouds-over-sweden/",
+   "date": "2026-10-27T04:05:00.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "A-81 Reaches South Georgia",
+   "link": "https://science.nasa.gov/earth/earth-observatory/a-81-reaches-south-georgia/",
+   "date": "2026-10-27T04:00:00.000Z",
+   "source": "NASA"
   },
   {
    "title": "OpenAI announces three big science discoveries and a new way to work with academics",
@@ -27,70 +81,16 @@
    "source": "The Verge"
   },
   {
-   "title": "Anthropic的招股书是谁写的？AI检测工具给出意外结果",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583956.htm",
-   "date": "2026-10-26T23:22:29.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "NASA’s Perseverance Views Dust at Neretva Vallis",
-   "link": "https://science.nasa.gov/photojournal/nasas-perseverance-views-dust-at-neretva-vallis/",
-   "date": "2026-10-26T22:48:12.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "Samsung’s Switch 2-ready MicroSD Express card is on sale for less than $50",
-   "link": "https://www.theverge.com/gadgets/1018962/samsung-p9-256gb-microsd-express-card-switch-2-deal-sale",
-   "date": "2026-10-26T21:56:36.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "Anthropic is burning gas to feed the AI boom",
-   "link": "https://www.theverge.com/ai-artificial-intelligence/1018994/anthropic-ipo-ai-data-center-energy-climate-risk",
-   "date": "2026-10-26T21:45:31.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "NASA’s Perseverance Offers Clues to Protect Crews From Mars Dust",
-   "link": "https://www.nasa.gov/missions/mars-2020-perseverance/nasas-perseverance-offers-clues-to-protect-crews-from-mars-dust/",
-   "date": "2026-10-26T21:07:28.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "Analog astronauts: How living underwater can prepare humans for space missions",
    "link": "https://www.space.com/space-exploration/missions/analog-astronauts-how-living-underwater-can-prepare-humans-for-space-missions",
    "date": "2026-10-26T21:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "NEO Surveyor’s Sunshade Gets Inspected",
-   "link": "https://science.nasa.gov/photojournal/neo-surveyors-sunshade-gets-inspected/",
-   "date": "2026-10-26T20:53:13.000Z",
-   "source": "NASA"
-  },
-  {
    "title": "On this day in space! Oct. 26, 2004: Cassini spacecraft takes 1st-ever closeup photos of Saturn moon Titan",
    "link": "https://www.space.com/space-exploration/on-this-day-in-space-october-26-2026",
    "date": "2026-10-26T19:47:12.000Z",
    "source": "Space.com"
-  },
-  {
-   "title": "苹果发布iOS 27.2：iPhone Duo新增Apple Pencil支持 视频通话迎来补光功能",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1583954.htm",
-   "date": "2026-10-26T19:08:37.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Darth Vader wields the Infinity Gauntlet in the first-ever official 'Star Wars' & 'Marvel' crossover",
-   "link": "https://www.space.com/entertainment/space-books/darth-vader-wields-the-infinity-gauntlet-in-the-first-ever-official-star-wars-and-marvel-crossover",
-   "date": "2026-10-26T19:00:00.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "nxnative让Switch游戏变原生应用：iPhone与Mac可直接运行 无需模拟器",
-   "link": "https://www.cnbeta.com.tw/articles/game/1583952.htm",
-   "date": "2026-10-26T18:00:21.000Z",
-   "source": "cnBeta"
   }
  ]
 }
