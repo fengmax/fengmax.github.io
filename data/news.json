@@ -1,42 +1,84 @@
 {
- "updated": "2026-10-28T19:55:51.871Z",
+ "updated": "2026-10-28T23:41:34.648Z",
  "count": 15,
  "items": [
   {
-   "title": "Mac 进入触屏时代：苹果铺路软件生态，11 月开启在线研讨",
-   "link": "https://www.ithome.com/1/019/256.htm",
-   "date": "2026-10-28T19:52:57.000Z",
+   "title": "AI 行业重磅并购：彭博社称美满电子最快下周宣布收购光通信龙头 Lumentum",
+   "link": "https://www.ithome.com/1/019/279.htm",
+   "date": "2026-10-28T23:37:12.000Z",
    "source": "IT之家"
   },
   {
-   "title": "续航未打折扣：苹果首款触控 MacBook Pro 最长连续播放 24 小时视频",
-   "link": "https://www.ithome.com/1/019/255.htm",
-   "date": "2026-10-28T19:38:17.000Z",
+   "title": "MINI 汽车将坚持圆形中控屏：这是我们独有的设计和品牌传统",
+   "link": "https://www.ithome.com/1/019/278.htm",
+   "date": "2026-10-28T23:36:45.000Z",
    "source": "IT之家"
   },
   {
-   "title": "Foreign gadget bans: all the news about the FCC’s clampdown on Chinese tech",
-   "link": "https://www.theverge.com/policy/1019851/fcc-foreign-gadget-ban-drone-robot-roomba-storystream",
-   "date": "2026-10-28T19:37:31.000Z",
-   "source": "The Verge"
+   "title": "国际首创：中国一汽大尺寸曲面透明陶瓷复合玻璃获关键突破，减薄 50%、降重 40%",
+   "link": "https://www.ithome.com/1/019/277.htm",
+   "date": "2026-10-28T23:32:43.000Z",
+   "source": "IT之家"
   },
   {
-   "title": "Meet Apeiron, Virgin Galactic's 1st 'Delta-class' space plane",
-   "link": "https://www.space.com/space-exploration/private-spaceflight/meet-apeiron-virgin-galactics-1st-delta-class-space-plane",
-   "date": "2026-10-28T19:28:10.000Z",
+   "title": "《使命召唤：现代战争4》使用梨泰院事故影像 遇难者家属要求删除",
+   "link": "https://www.cnbeta.com.tw/articles/game/1584242.htm",
+   "date": "2026-10-28T23:10:26.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "Gemini 4 Carbon正式发布 哈基米重回世界第一",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1584240.htm",
+   "date": "2026-10-28T23:09:44.000Z",
+   "source": "cnBeta"
+  },
+  {
+   "title": "On this day in space! Oct. 28, 1971: Britain launches its 1st satellite Prospero into space on a Black Arrow rocket",
+   "link": "https://www.space.com/space-exploration/on-this-day-in-space-october-28-2026",
+   "date": "2026-10-28T23:02:12.000Z",
    "source": "Space.com"
   },
   {
-   "title": "苹果公布其首款触控 MacBook Pro 官方设计素材",
-   "link": "https://www.ithome.com/1/019/254.htm",
-   "date": "2026-10-28T19:23:29.000Z",
-   "source": "IT之家"
+   "title": "微软单季从OpenAI获得100亿美元收入 双方竞争加剧但商业联系仍持续深化",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1584238.htm",
+   "date": "2026-10-28T21:58:27.000Z",
+   "source": "cnBeta"
   },
   {
-   "title": "Hands-on with the new OLED iPad Mini",
-   "link": "https://www.theverge.com/tech/1017932/hands-on-ipad-mini-8th-generation-pro-and-tell",
-   "date": "2026-10-28T19:18:58.000Z",
+   "title": "A hacker stole more than 40,000 DHS employee records",
+   "link": "https://www.theverge.com/tech/1021528/ice-cbp-data-leak",
+   "date": "2026-10-28T21:57:45.000Z",
    "source": "The Verge"
+  },
+  {
+   "title": "NASA Welcomes Vietnam as Newest Artemis Accords Signatory",
+   "link": "https://www.nasa.gov/organizations/oiir/nasa-welcomes-vietnam-as-newest-artemis-accords-signatory/",
+   "date": "2026-10-28T21:50:01.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "Akai is embracing vibe-coded mods with an open-source MPC",
+   "link": "https://www.theverge.com/gadgets/1021405/akai-open-source-mpc-sample-key",
+   "date": "2026-10-28T21:34:04.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "Readwise is taking on Kindle and Kobo for ebook supremacy",
+   "link": "https://www.theverge.com/tech/1020264/readwise-books-launch-ebook-store",
+   "date": "2026-10-28T21:16:18.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "5 days beneath the waves: What it's like to live in an underwater 'space station'",
+   "link": "https://www.space.com/space-exploration/human-spaceflight/5-days-beneath-the-waves-what-its-like-to-live-in-an-underwater-space-station",
+   "date": "2026-10-28T21:00:00.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "ISS astronaut will conduct Canada's 1st spacewalk in 7 years on Oct. 29: Watch it live",
+   "link": "https://www.space.com/space-exploration/international-space-station/iss-astronaut-will-conduct-canadas-1st-spacewalk-in-7-years-on-oct-29-watch-it-live",
+   "date": "2026-10-28T20:00:00.000Z",
+   "source": "Space.com"
   },
   {
    "title": "Artemis III SLS Core Stage Joins Boosters at Kennedy",
@@ -45,52 +87,10 @@
    "source": "NASA"
   },
   {
-   "title": "Brendan Carr plans to let prisons jam cellphone signals",
-   "link": "https://www.theverge.com/policy/1021165/fcc-brendan-carr-prison-phone-jamming",
-   "date": "2026-10-28T18:57:02.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "声波“无影管道”问世：256个微型扬声器在空气中托起水流并牵引其前行",
-   "link": "https://www.cnbeta.com.tw/articles/science/1584222.htm",
-   "date": "2026-10-28T18:31:35.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "苹果开放512GB内存版Mac Studio预购 单内存升级一项即需1.55万美元",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1584220.htm",
-   "date": "2026-10-28T18:26:09.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "苹果首次将“灵动岛”引入MacBook Pro",
-   "link": "https://www.cnbeta.com.tw/articles/tech/1584218.htm",
-   "date": "2026-10-28T18:23:00.000Z",
-   "source": "cnBeta"
-  },
-  {
    "title": "NASA University Challenge Ignites Trajectory of Drone Entrepreneur",
    "link": "https://www.nasa.gov/aeronautics/nasa-challenge-drone-entrepreneur/",
    "date": "2026-10-28T18:00:28.000Z",
    "source": "NASA"
-  },
-  {
-   "title": "NASA Selects 19 New Citizen Science Proposals in 2026",
-   "link": "https://science.nasa.gov/get-involved/citizen-science/nasa-selects-19-new-citizen-science-proposals-in-2026/",
-   "date": "2026-10-28T16:25:29.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "China's secretive space plane caught on camera in incredible new photo released by US military",
-   "link": "https://www.space.com/space-exploration/launches-spacecraft/chinas-secretive-space-plane-caught-on-camera-in-incredible-new-photo-released-by-us-military",
-   "date": "2026-10-28T15:50:04.000Z",
-   "source": "Space.com"
-  },
-  {
-   "title": "The final ‘Dune: Part Three’ trailer reignites war on Arrakis and leaves us with more questions than answers",
-   "link": "https://www.space.com/entertainment/space-movies-shows/the-final-dune-part-three-trailer-reignites-war-on-arrakis-and-leaves-us-with-more-questions-than-answers",
-   "date": "2026-10-28T15:00:00.000Z",
-   "source": "Space.com"
   }
  ]
 }
