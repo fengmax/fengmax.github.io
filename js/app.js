@@ -173,6 +173,32 @@ function iface() {
       return Math.max(60 * ((DIAM[key] || 10000) / 1392000) * 3, 0.6);
     }
 
+    // ============================================================
+    //  聚焦取景：按"屏幕占比"反算相机距离
+    //  原实现用 PlanetDist 的固定值 + Math.max(20, ...) 兜底，
+    //  导致地球(15)/月球(4) 的配置被抬到 20，月球聚焦后只有 28px。
+    //  改为：视锥在距离 d 处的高度 = 2*d*tan(fov/2)，
+    //  球体直径 2r 占该高度的比例 p = r / (d*tan(fov/2)) → d = r / (p*tan(fov/2))
+    // ============================================================
+    var FOCUS_TARGET_RATIO = 0.34;      // 聚焦后天体直径占视口高度约 34%
+    // 大气壳会撑大可见轮廓，取景半径需按同比例放大(与 scene-init 的 ATM.outer 对应)
+    var FOCUS_ATMOS = { mercury: 0.05, venus: 0.30, earth: 0.15, moon: 0, mars: 0.08,
+      jupiter: 0.22, saturn: 0.20, uranus: 0.18, neptune: 0.18 };
+    // 气态巨星保留 72° 广角制造压迫感；岩石小天体改用 50°，避免广角把球面拉扁
+    var FOCUS_FOV = { jupiter: 72, saturn: 72, sun: 72 };
+
+    function focusFovFor(key) { return FOCUS_FOV[key] || 50; }
+
+    function focusDistFor(key) {
+      // 太阳是 billboard sprite，尺寸不由半径决定，沿用 PlanetDist 配置
+      if (key === 'sun') return Math.max(20, PlanetDist.sun || 100);
+      var r = planetRadius(key) * (1 + (FOCUS_ATMOS[key] || 0));
+      var halfTan = Math.tan(focusFovFor(key) * Math.PI / 360);
+      var d = r / (FOCUS_TARGET_RATIO * halfTan);
+      // 至少停在 2.6 倍半径外：防止贴脸穿模，也避免相机进入行星几何体内部
+      return Math.min(600, Math.max(r * 2.6, d));
+    }
+
     function setMinDistFor(key) {
       try {
         var controls = viz.getViewer().get3jsCameraControls();
@@ -190,17 +216,42 @@ function iface() {
       } catch (e) {}
     }
 
+    // ===== 选中态：CSS 里早就有 #planet-bar .pb-btn.active，但从未有 JS 去加这个类 =====
+    var pbBtns = {};   // key -> button, 由下方列表构建时填充
+
+    function markActive(key) {
+      Object.keys(pbBtns).forEach(function (k) {
+        var btn = pbBtns[k];
+        if (!btn || !btn.classList) return;
+        var on = (k === key);
+        btn.classList.toggle('active', on);
+        if (on) btn.setAttribute('aria-current', 'true');
+        else btn.removeAttribute('aria-current');
+      });
+    }
+
+    // 选完自动收起行星列表，把画面让给正在跟随的天体
+    function collapsePlanetBar() {
+      try {
+        var bar = document.getElementById('planet-bar');
+        if (bar) bar.classList.remove('open');
+      } catch (e) {}
+    }
+
     function focusPlanet(key) {
       var obj = objects[key];
       if (!obj) return;
       stopMotion();
       currentFocus = key;
-      var dist = Math.max(20, (PlanetDist[key] || 40));
-      // 压迫感镜头: 聚焦时切广角 FOV(首次记录默认值, 回全景时恢复)
+      markActive(key);
+      collapsePlanetBar();
+      var dist = focusDistFor(key);
+      // 压迫感镜头: 聚焦时切广角 FOV(首次记录默认值, 回全景时恢复)；岩石小天体用 50° 减少广角畸变
       try {
         var cam0 = viz.getViewer().get3jsCamera();
+        var wantFov = focusFovFor(key);
         if (DEFAULT_FOV === null) DEFAULT_FOV = cam0.fov;
-        if (Math.abs(cam0.fov - 72) > 0.5) { cam0.fov = 72; cam0.updateProjectionMatrix(); }
+        if (Math.abs(cam0.fov - wantFov) > 0.5) { cam0.fov = wantFov; cam0.updateProjectionMatrix(); }
       } catch (e) {}
       setMinDistFor(key);
       forceHiRes(key);
@@ -210,7 +261,19 @@ function iface() {
         var controls = viz.getViewer().get3jsCameraControls();
         var pos = getObjPos(key);
         if (!pos) return;
-        var dir = new THREE.Vector3(dist, dist * 0.5, dist * 0.8).normalize();
+        var dir = new THREE.Vector3(1, 0.5, 0.8).normalize();
+        // 相机必须落在「向阳侧」，否则水星/月球这类会整个显示成黑球(纯夜面)。
+        // 与太阳连线混合后，视线与光向约成 40°，呈现带明暗分界的凸月相位，体积感最好。
+        try {
+          var sunPos = getObjPos('sun');
+          if (sunPos && key !== 'sun') {
+            var toSun = new THREE.Vector3().subVectors(sunPos, pos);
+            if (toSun.lengthSq() > 1e-6) {
+              toSun.normalize();
+              dir.multiplyScalar(0.5).addScaledVector(toSun, 0.6).normalize();
+            }
+          }
+        } catch (e) {}
         var dest = pos.clone().add(dir.clone().multiplyScalar(dist));
         var followStart = function() { startFollow(key, dist); };
         // 弧线飞掠: 沿贝塞尔曲线上抛掠过行星, 比直线飞更有"压迫感"
@@ -243,6 +306,7 @@ function iface() {
     function goHome() {
       stopMotion();
       resetMinDist();
+      markActive(null);
       // 恢复默认 FOV(退出压迫感镜头)
       try {
         var cam = viz.getViewer().get3jsCamera();
@@ -264,13 +328,17 @@ function iface() {
     PLANETS.forEach(function(p) {
       var b = document.createElement('button');
       b.className = 'pb-btn';
+      b.setAttribute('type', 'button');
+      b.setAttribute('title', '聚焦' + p.label);
       var dot = document.createElement('span');
       dot.className = 'pb-dot';
       dot.style.background = p.color;
+      dot.style.color = p.color;      // pb-dot 的 box-shadow 用 currentColor，需同步
       b.appendChild(dot);
       b.appendChild(document.createTextNode(p.label));
       b.addEventListener('click', function() { focusPlanet(p.key); });
       bar.appendChild(b);
+      pbBtns[p.key] = b;
     });
     var homeBtn = document.getElementById('planethome');
     if (homeBtn) homeBtn.addEventListener('click', function() { goHome(); });
@@ -396,10 +464,13 @@ function iface() {
       document.getElementById('ip-grav').textContent = info.gravTxt;
       document.getElementById('ip-moons').textContent = info.moonsTxt;
       document.getElementById('info-panel').style.display = 'block';
+      // 移动端底部信息面板展开时让新闻卡让位（否则新闻卡会从面板下沿露出一截）
+      document.body.classList.add('has-info');
     }
     document.getElementById('info-close').addEventListener('click', function(e) {
       e.stopPropagation();
       document.getElementById('info-panel').style.display = 'none';
+      document.body.classList.remove('has-info');
     });
 
     // ============================================================

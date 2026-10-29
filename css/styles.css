@@ -191,6 +191,13 @@ html, body {
   border-color: var(--accent-2);
   box-shadow: 0 0 12px rgba(74, 140, 240, .5);
 }
+/* 选中态（跟随中）：比 hover 更实，加一道左侧标记条，松开鼠标也知道在看哪颗 */
+#planet-bar .pb-btn.active {
+  box-shadow: 0 0 12px rgba(74, 140, 240, .5), inset 3px 0 0 rgba(255, 255, 255, .85);
+}
+#planet-bar .pb-btn.active .pb-dot {
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, .55), 0 0 6px currentColor;
+}
 /* 行星色点（用每颗行星的主题色，替代纯文字按钮） */
 #planet-bar .pb-dot {
   width: 10px;
@@ -381,7 +388,7 @@ html, body {
   top: 54px;
   right: 16px;
   z-index: 40;
-  width: 250px;
+  width: 292px;
   max-height: calc(100vh - 130px);
   overflow-y: auto;
   padding: 16px 18px;
@@ -413,15 +420,29 @@ html, body {
 #info-panel .ip-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px 10px;
+  gap: 7px 9px;
 }
 #info-panel .ip-cell {
   background: rgba(255, 255, 255, .04);
   border-radius: 8px;
-  padding: 8px 10px;
+  padding: 7px 9px;
+  min-width: 0;                 /* 允许 grid 子项收缩，否则 nowrap 数值会撑破列宽 */
 }
 #info-panel .ip-cell .k { font-size: 10px; color: var(--txt-dim); letter-spacing: .5px; }
-#info-panel .ip-cell .v { font-size: 13px; color: #9fe2c0; font-weight: 600; margin-top: 2px; }
+/* 数值：默认接近白色，避免 10 个薄荷绿并排导致色彩权重分散；单位跟着数字走且不折行 */
+#info-panel .ip-cell .v {
+  font-size: 12.5px;
+  line-height: 1.35;
+  color: #e8eef7;
+  font-weight: 600;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-variant-numeric: tabular-nums;
+}
+/* 唯一的强调项：平均温度（行星最直观的差异指标） */
+#info-panel .ip-cell .v#ip-temp { color: #9fe2c0; }
 #info-close {
   position: absolute;
   top: 10px;
@@ -465,6 +486,9 @@ html, body {
   }
   #planet-bar .pb-btn, #planethome { padding: 7px 10px; font-size: 12px; }
   #title { font-size: 12px; }
+  /* 底部信息面板展开时，右下角新闻卡会从面板下沿露出一截，先让位 */
+  body.has-info #news-panel,
+  body.has-info #news-toggle { display: none !important; }
 }
 @keyframes sheetUp {
   from { transform: translateY(100%); opacity: .6; }
