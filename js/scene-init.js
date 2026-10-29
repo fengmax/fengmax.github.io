@@ -128,6 +128,66 @@ try {
   // 场景结构已就绪（太阳/行星球体/轨道线），渲染首帧后隐藏加载层，避免慢网下长时间空白页
   requestAnimationFrame(function () { try { hideLoading(); } catch (e) {} });
 
+  // ===== 太阳视觉：收紧光晕 =====
+  // 运行时实测：太阳是单个 Sprite(lensflare0.png)，scale=100 世界单位，
+  // 而 unitsPerAu=100 —— 光晕直径正好等于地球轨道直径。结果：
+  //   · 全景时橙色雾团盖住主体，看不出"一颗恒星"
+  //   · 近距离时太阳铺满屏幕，把行星压成暗点
+  // 贴图中心自带白热核与放射纹理，收小后仍是一颗完整的恒星，不需要额外叠加亮核
+  var SUN_HALO_SCALE = 66;        // 光晕直径 1.00 AU → 0.66 AU
+  var SUN_HALO_OPACITY = 0.62;    // 降低橙色雾感，露出更清晰的核
+
+  function tuneSun() {
+    var T = window.THREE;
+    if (!T || !viz || !objects.sun) return;
+
+    var sprite = null;
+    try {
+      objects.sun.get3jsObjects().forEach(function (root) {
+        root.traverse(function (n) { if (!sprite && n.isSprite) sprite = n; });
+      });
+    } catch (e) {}
+    if (!sprite) return;
+
+    try {
+      sprite.scale.setScalar(SUN_HALO_SCALE);
+      if (sprite.material) {
+        sprite.material.opacity = SUN_HALO_OPACITY;
+        sprite.material.depthWrite = false;
+        sprite.material.needsUpdate = true;
+      }
+      // 记录基准尺寸，供近距离按视角收敛
+      sprite.userData = sprite.userData || {};
+      sprite.userData.baseScale = SUN_HALO_SCALE;
+    } catch (e) {}
+
+    startSunScaleClamp(sprite);
+  }
+
+  // 近距离（聚焦内行星/太阳）时，固定世界尺寸的光晕会铺满屏幕；
+  // 按"角尺寸上限"收敛：scale ≤ 0.5 * 2d*tan(fov/2)，即最多占视口高度一半。
+  var sunClampRAF = null;
+  function startSunScaleClamp(sprite) {
+    var T = window.THREE;
+    if (!T || sunClampRAF) return;
+    var origin = new T.Vector3(0, 0, 0);
+    var lastMs = 0;
+    function step(now) {
+      sunClampRAF = requestAnimationFrame(step);
+      if (now - lastMs < 90) return;      // ~11fps 足够，省掉每帧三角函数
+      lastMs = now;
+      try {
+        var cam = viz.getViewer().get3jsCamera();
+        var d = cam.position.distanceTo(origin);
+        var cap = d * Math.tan(cam.fov * Math.PI / 360);   // 视口高度的一半
+        var base = (sprite.userData && sprite.userData.baseScale) || SUN_HALO_SCALE;
+        var want = Math.min(base, cap);
+        if (Math.abs(sprite.scale.x - want) > 0.5) sprite.scale.setScalar(want);
+      } catch (e) {}
+    }
+    sunClampRAF = requestAnimationFrame(step);
+  }
+
   // ===== 行星视觉增强：法线贴图 + 地球云层 + 大气辉光 =====
   // 仅依赖已暴露的 window.THREE, 不改动 SpaceKit 任何内部逻辑
   function enhancePlanets() {
@@ -333,6 +393,7 @@ try {
     } catch (e) {}
   }
   try { enhancePlanets(); } catch (e) { console.error('enhancePlanets failed:', e); }
+  try { tuneSun(); } catch (e) { console.error('tuneSun failed:', e); }
   try { enhanceSky(); } catch (e) { console.error('enhanceSky failed:', e); }
 
 } catch (err) {
