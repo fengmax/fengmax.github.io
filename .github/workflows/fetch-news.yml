@@ -18,6 +18,7 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    timeout-minutes: 10          # 防止抓取卡死占满队列
     steps:
       - uses: actions/checkout@v4
 
@@ -33,5 +34,17 @@ jobs:
             echo "news.json 无变化，跳过提交"
           else
             git commit -m "chore: 更新科技新闻 $(date -u +%Y-%m-%dT%H:%M)"
-            git push
+            # 推送被拒（期间有人手动推了提交）时，rebase 到远端后重试一次
+            if ! git push origin HEAD:main; then
+              echo "push 被拒，fetch + rebase 后重试"
+              git fetch origin main
+              if git rebase origin/main; then
+                git push origin HEAD:main
+              else
+                git rebase --abort
+                echo "rebase 冲突，本次放弃推送，下次运行会重新生成"
+                exit 1
+              fi
+            fi
           fi
+
