@@ -17,10 +17,10 @@ permissions:
 
 jobs:
   fetch:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04       # 固定镜像版本：ubuntu-latest 将迁移到 Ubuntu 26
     timeout-minutes: 10          # 防止抓取卡死占满队列
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5   # v5 起运行时为 node24（v4 是 node20，已被弃用）
 
       - name: 抓取新闻并生成 data/news.json
         run: node .github/scripts/fetch-news.mjs
