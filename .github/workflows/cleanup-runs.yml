@@ -1,0 +1,46 @@
+# ============================================================
+# 清理 Actions 历史运行记录（手动触发）
+# GitHub 界面只能逐条删，这里用仓库自带 GITHUB_TOKEN 批量删
+# 用法：Actions → cleanup-runs → Run workflow
+#   先用 dry_run=true 看会删多少，确认后改 false 再跑一次
+# 注意：删除不可恢复，正在运行的记录不会被删
+# ============================================================
+name: cleanup-runs
+
+on:
+  workflow_dispatch:
+    inputs:
+      keep_days:
+        description: '保留最近多少天的运行记录（更早的删除，0 = 全删）'
+        required: true
+        default: '30'
+      dry_run:
+        description: '只统计不删除'
+        required: true
+        type: choice
+        options: ['true', 'false']
+        default: 'true'
+      only_workflow:
+        description: '只处理某个 workflow（名称/文件名片段，留空 = 全部）'
+        required: false
+        default: ''
+
+permissions:
+  actions: write            # 删除运行记录所需的唯一权限
+  contents: read
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 清理历史运行记录
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          KEEP_DAYS: ${{ inputs.keep_days }}
+          DRY_RUN: ${{ inputs.dry_run }}
+          ONLY_WORKFLOW: ${{ inputs.only_workflow }}
+        run: node .github/scripts/cleanup-runs.mjs
