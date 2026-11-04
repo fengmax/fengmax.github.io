@@ -1,96 +1,96 @@
 {
- "updated": "2026-11-03T04:50:22.905Z",
+ "updated": "2026-11-04T04:17:08.829Z",
  "count": 15,
  "items": [
   {
-   "title": "阿里蔡崇信：只有开源才能推动 AI 普及，千问开源模型已超 470 款",
-   "link": "https://www.ithome.com/1/021/495.htm",
-   "date": "2026-11-03T04:37:29.000Z",
+   "title": "宇树王兴兴：大概率明年是机器人行业或机器人模型临界点",
+   "link": "https://www.ithome.com/1/022/026.htm",
+   "date": "2026-11-04T04:06:48.000Z",
    "source": "IT之家"
   },
   {
-   "title": "数百账号批量“呼吁下架外卖”实为引流广告，美团曝光卖课招商“收割”小商家套路",
-   "link": "https://www.ithome.com/1/021/493.htm",
-   "date": "2026-11-03T04:26:01.000Z",
+   "title": "预览更易读：苹果 macOS 27.3 测试版“快速查看”原生支持 Markdown 渲染",
+   "link": "https://www.ithome.com/1/022/025.htm",
+   "date": "2026-11-04T04:04:11.000Z",
    "source": "IT之家"
   },
   {
-   "title": "微软 Surface 鼠标（第 2 代）国行开售：688 元，支持高级触觉反馈",
-   "link": "https://www.ithome.com/1/021/492.htm",
-   "date": "2026-11-03T04:24:12.000Z",
+   "title": "比亚迪腾势 N9 纯电版申报：搭载三电机四驱系统",
+   "link": "https://www.ithome.com/1/022/023.htm",
+   "date": "2026-11-04T03:59:56.000Z",
    "source": "IT之家"
   },
   {
-   "title": "研究发现蜘蛛也会做梦 睡眠中的跳蛛展现类似REM睡眠行为",
-   "link": "https://www.cnbeta.com.tw/articles/science/1584776.htm",
-   "date": "2026-11-02T23:36:15.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "《塞尔达：时之笛 重制版》开发细节 不添加快速传送",
-   "link": "https://www.cnbeta.com.tw/articles/game/1584774.htm",
-   "date": "2026-11-02T22:56:46.000Z",
-   "source": "cnBeta"
-  },
-  {
-   "title": "Apple is ‘not able to predict’ when it’ll have enough iPhone Duos to go around",
-   "link": "https://www.theverge.com/tech/1024915/apple-iphone-duo-supply-chain-constraints",
-   "date": "2026-11-02T22:56:11.000Z",
+   "title": "AMD rides data center riches to ‘largest and most profitable’ quarter in history",
+   "link": "https://www.theverge.com/tech/1026148/amd-earnings-q3-2026-data-center-pc",
+   "date": "2026-11-04T01:15:34.000Z",
    "source": "The Verge"
   },
   {
-   "title": "2026年全球游戏行业裁员岗位达10977个 已超过2025年全年",
-   "link": "https://www.cnbeta.com.tw/articles/game/1584772.htm",
-   "date": "2026-11-02T22:55:53.000Z",
+   "title": "All the news about The Legend of Zelda: Ocarina of Time remake",
+   "link": "https://www.theverge.com/games/1026112/the-legend-of-zelda-ocarina-of-time-remake-nintendo-switch-2-news",
+   "date": "2026-11-04T01:02:53.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "The biggest modding site in PC gaming is taking a stance on AI",
+   "link": "https://www.theverge.com/games/1026085/nexus-mods-ai-disclosures",
+   "date": "2026-11-04T00:42:10.000Z",
+   "source": "The Verge"
+  },
+  {
+   "title": "黑客团队演示突破iPhone锁定模式 越狱状态甚至可在系统更新后保留",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1584932.htm",
+   "date": "2026-11-03T22:28:44.000Z",
    "source": "cnBeta"
   },
   {
-   "title": "Apple set an iPhone sales record even without a new standard iPhone",
-   "link": "https://www.theverge.com/tech/1024748/apple-q4-2026-iphone-sales-earnings",
-   "date": "2026-11-02T22:02:36.000Z",
-   "source": "The Verge"
+   "title": "SK海力士450亿美元纽约建厂计划遭遇阻碍 扩产融资陷入两难",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1584930.htm",
+   "date": "2026-11-03T22:10:50.000Z",
+   "source": "cnBeta"
   },
   {
-   "title": "Happy 65 Years: NASA’s Johnson Space Center Then and Now",
-   "link": "https://www.nasa.gov/centers-and-facilities/johnson/happy-65-years-nasas-johnson-space-center-then-and-now/",
-   "date": "2026-11-02T21:35:59.000Z",
-   "source": "NASA"
+   "title": "苹果向第三方应用全面开放Siri AI 开发者可打造跨应用智能代理",
+   "link": "https://www.cnbeta.com.tw/articles/tech/1584928.htm",
+   "date": "2026-11-03T22:10:12.000Z",
+   "source": "cnBeta"
   },
   {
-   "title": "Meta will end Quest 2 OS updates in 2027",
-   "link": "https://www.theverge.com/tech/1024835/meta-vr-quest-2-pro-os-end-updates",
-   "date": "2026-11-02T21:04:20.000Z",
-   "source": "The Verge"
-  },
-  {
-   "title": "TB 26-09 Measured Hammer-Tap Inputs",
-   "link": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-09-measured-hammer-tap-inputs/",
-   "date": "2026-11-02T20:47:41.000Z",
-   "source": "NASA"
-  },
-  {
-   "title": "New 'Star Trek: The Original Voyages' book traces the stellar legacy of the bold sci-fi brand",
-   "link": "https://www.space.com/entertainment/space-books/new-star-trek-the-original-voyages-book-traces-the-stellar-legacy-of-the-bold-sci-fi-brand",
-   "date": "2026-11-02T20:00:00.000Z",
+   "title": "NASA asks industry for ideas about saving Hubble Space Telescope",
+   "link": "https://www.space.com/astronomy/hubble-space-telescope/nasa-asks-industry-for-ideas-about-saving-hubble-space-telescope",
+   "date": "2026-11-03T22:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "Viltrox AF 35mm f/1.8 II EVO FE (APO) lens review — how good is this budget lens for astrophotography?",
-   "link": "https://www.space.com/stargazing/skywatching-kit/viltrox-af-35mm-f-1-8-ii-evo-fe-apo-lens-review-how-good-is-this-budget-lens-for-astrophotography",
-   "date": "2026-11-02T19:00:00.000Z",
+   "title": "Ancient star collisions could explain mysterious Little Red Dots and 'impossible' black holes",
+   "link": "https://www.space.com/astronomy/stars/ancient-star-collisions-could-explain-mysterious-little-red-dots-and-impossible-black-holes",
+   "date": "2026-11-03T21:00:00.000Z",
    "source": "Space.com"
   },
   {
-   "title": "NASA’s CHAPEA Crew “Returns” to Earth",
-   "link": "https://www.nasa.gov/image-article/nasas-chapea-crew-returns-to-earth/",
-   "date": "2026-11-02T18:50:42.000Z",
+   "title": "Voting in space: NASA astronauts cast ballots from International Space Station",
+   "link": "https://www.space.com/space-exploration/international-space-station/voting-in-space-nasa-astronauts-cast-ballots-from-international-space-station",
+   "date": "2026-11-03T20:46:36.000Z",
+   "source": "Space.com"
+  },
+  {
+   "title": "Astronaut and Earth",
+   "link": "https://www.nasa.gov/image-article/astronaut-and-earth/",
+   "date": "2026-11-03T16:37:42.000Z",
    "source": "NASA"
   },
   {
-   "title": "James Webb Space Telescope uncovers new clues about the origins of 'interstellar invader' comet 3I/ATLAS",
-   "link": "https://www.space.com/astronomy/asteroids/james-webb-space-telescope-uncovers-new-clues-about-the-origins-of-interstellar-invader-comet-3i-atlas",
-   "date": "2026-11-02T17:00:00.000Z",
-   "source": "Space.com"
+   "title": "TB 26-10 Printed Circuit Board Assembly Chip Resistor Body Cracking",
+   "link": "https://www.nasa.gov/centers-and-facilities/nesc/tb-26-10-printed-circuit-board-assembly-chip-resistor-body-cracking/",
+   "date": "2026-11-03T15:35:14.000Z",
+   "source": "NASA"
+  },
+  {
+   "title": "NASA Astronaut, STEM Creator Connect with Students for STEM Day",
+   "link": "https://www.nasa.gov/learning-resources/nasa-astronaut-stem-creator-connect-with-students-for-stem-day/",
+   "date": "2026-11-03T15:15:50.000Z",
+   "source": "NASA"
   }
  ]
 }
